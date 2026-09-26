@@ -3,14 +3,27 @@
 ## Overview
 
 **Goal**: Qwen3-VL-4B-Instruct를 fine-tuning하여 MMMU / MMMU-Pro 벤치마크 성능을 개선
- 
+
+  
 | 항목 | 값 |
 |---|---|
 | Base model | [Qwen3-VL-4B-Instruct](https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct) |
-| Technical report | https://arxiv.org/abs/2511.21631 |
-| Quick start | https://github.com/QwenLM/Qwen3-VL |
 | Official MMMU | 67.4 |
 | Official MMMU-Pro | 53.2 |
+
+### Target Benchmarks
+ 
+**MMMU** (Massive Multi-discipline Multimodal Understanding)
+- Multi-domain, college-level multimodal reasoning benchmark
+- Multiple-choice + short-answer questions, 30 categories
+- Metric: accuracy
+- Split: Dev 150 (미사용) / Validation 900 (baseline 평가에 사용) / Test 10,500
+  
+**MMMU-Pro**
+- MMMU 기반의 더 어려운 벤치마크 — 텍스트만으로 풀리는 문제 제외, 10지선다 추가, vision-only 세팅 포함
+- Test split만 존재
+- 계획: MMMU validation으로 tuning → MMMU/MMMU-Pro test로 최종 평가
+
 
 ## Team
 
