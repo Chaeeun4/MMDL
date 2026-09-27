@@ -1,0 +1,109 @@
+"""
+Deterministic MMMU evaluator.
+
+Sources:
+- Official MMMU evaluation utilities:
+  https://github.com/MMMU-Benchmark/MMMU
+- Assignment requires Overall = mean of 30 subject accuracies.
+"""
+
+from __future__ import annotations
+
+from collections import defaultdict
+from typing import Any, Dict, Iterable, List
+
+from parser import normalize_string
+
+
+def _normalize_gold(value: Any) -> List[Any]:
+    """Normalize a gold answer using the same MMMU rule as predictions.
+
+    Reuses parser.normalize_string so gold and prediction get identical
+    treatment (lowercasing, float-rounding, and the single-character
+    " x "/"x " padding that guards against trivial substring matches) --
+    the official MMMU eval_utils.py applies the same normalize_str to both
+    sides.
+    """
+    if not isinstance(value, str):
+        return [value]
+    return normalize_string(value)
+
+
+def _open_answer_correct(gold: Any, parsed_prediction: List[Any]) -> bool:
+    """Compare open/short answers using the MMMU-style containment rule."""
+    if isinstance(gold, list):
+        gold_values: List[Any] = []
+        for item in gold:
+            gold_values.extend(_normalize_gold(item))
+    else:
+        gold_values = _normalize_gold(gold)
+
+    for pred in parsed_prediction:
+        if isinstance(pred, str):
+            for gold_value in gold_values:
+                if isinstance(gold_value, str) and gold_value in pred:
+                    return True
+        else:
+            for gold_value in gold_values:
+                try:
+                    if float(pred) == float(gold_value):
+                        return True
+                except (TypeError, ValueError):
+                    pass
+
+    return False
+
+
+def is_correct(result: Dict[str, Any]) -> bool:
+    """Evaluate one parsed prediction against the dataset gold answer."""
+    gold = _normalize_gold(result["gold"])
+    prediction = result.get("prediction")
+
+    if result["question_type"] == "multiple-choice":
+        if prediction is None:
+            return False
+        if isinstance(gold, list):
+            return prediction in gold
+        return prediction == gold
+
+    if not isinstance(prediction, list):
+        return False
+
+    return _open_answer_correct(gold, prediction)
+
+
+def evaluate(results: Iterable[Dict[str, Any]]) -> Dict[str, Any]:
+    """Return subject accuracies and the required macro-average Overall."""
+    results = list(results)
+
+    by_subject: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+    for result in results:
+        by_subject[result["subject"]].append(result)
+
+    subject_metrics: Dict[str, Dict[str, Any]] = {}
+
+    for subject, items in by_subject.items():
+        correct = sum(is_correct(item) for item in items)
+        total = len(items)
+        subject_metrics[subject] = {
+            "num": total,
+            "correct": correct,
+            "accuracy": correct / total if total else 0.0,
+        }
+
+    # The assignment explicitly defines Overall as the macro average of the
+    # 30 subject accuracies. Each subject has 30 samples, so this is also the
+    # aggregate 900-sample accuracy.
+    accuracies = [
+        subject_metrics[subject]["accuracy"]
+        for subject in sorted(subject_metrics)
+    ]
+    overall = sum(accuracies) / len(accuracies) if accuracies else 0.0
+
+    return {
+        "num_results": len(results),
+        "num_subjects": len(subject_metrics),
+        "subjects": subject_metrics,
+        "overall_accuracy": overall,
+        "overall_percent": overall * 100.0,
+    }
