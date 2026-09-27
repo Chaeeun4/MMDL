@@ -26,11 +26,11 @@
     "presence_penalty": 1.5,
     "max_new_tokens": 32768
   },
-  "peak_vram_gb": 0.0,
+  "peak_vram_gb": 22.5234375,
   "image_pixels": {
     "min_pixels": 1310720,
     "max_pixels": 5242880
   },
-  "elapsed_seconds": 516.7154231742024,
-  "inference_seconds": 427.78420431539416
+  "elapsed_seconds": 508.69591784477234,
+  "inference_seconds": 424.314002674073
 }
