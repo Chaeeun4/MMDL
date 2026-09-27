@@ -42,52 +42,10 @@ from evaluator import evaluate, is_correct
 from parser import parse_answer
 from prompt import MAX_PIXELS, MIN_PIXELS, build_vllm_input, parse_options
 
-import subprocess
-import threading
-
 
 MODEL_NAME = "Qwen/Qwen3-VL-4B-Instruct"
 MODEL_REVISION = "ebb281ec70b05090aa6165b016eac8ec08e71b17"
 
-class VRAMPoller:
-    """Background thread that polls nvidia-smi and tracks peak GPU
-    memory usage across all visible GPUs. Needed because vLLM's V1
-    engine runs model load + inference in a separate EngineCore
-    subprocess, so torch.cuda.max_memory_allocated() in the main
-    process always reads ~0."""
-
-    def __init__(self, interval_sec: float = 0.5):
-        self.interval_sec = interval_sec
-        self.peak_gb = 0.0
-        self._stop_event = threading.Event()
-        self._thread = threading.Thread(target=self._poll, daemon=True)
-
-    def _query_used_mib(self) -> float:
-        result = subprocess.run(
-            ["nvidia-smi", "--query-gpu=memory.used",
-             "--format=csv,noheader,nounits"],
-            capture_output=True, text=True, check=True,
-        )
-        return sum(int(x) for x in result.stdout.strip().split("\n"))
-
-    def _poll(self) -> None:
-        while not self._stop_event.is_set():
-            try:
-                used_gb = self._query_used_mib() / 1024
-                if used_gb > self.peak_gb:
-                    self.peak_gb = used_gb
-            except Exception:
-                pass
-            time.sleep(self.interval_sec)
-
-    def start(self) -> None:
-        self._thread.start()
-
-    def stop(self) -> float:
-        self._stop_event.set()
-        self._thread.join(timeout=2.0)
-        return self.peak_gb
-    
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
@@ -214,9 +172,6 @@ def main() -> None:
     except Exception:
         pass
 
-    vram_poller = VRAMPoller(interval_sec=0.5)
-    vram_poller.start()
-
     print("=" * 80)
     print("MMMU Validation Baseline")
     print("=" * 80)
@@ -322,7 +277,10 @@ def main() -> None:
 
     # Peak VRAM across model load + inference, summed over visible devices
     # in this (main) process.
-    peak_vram_gb = vram_poller.stop()
+    peak_vram_gb = sum(
+        torch.cuda.max_memory_allocated(i)
+        for i in range(torch.cuda.device_count())
+    ) / (1024 ** 3)
     print(f"Peak VRAM (main process, summed): {peak_vram_gb:.2f} GB")
     if tensor_parallel_size > 1:
         print(
