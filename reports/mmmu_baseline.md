@@ -1,8 +1,8 @@
 # MMMU-val Baseline Evaluation Report — Qwen3-VL-4B-Instruct
 
-- **팀명**: _(기입)_
+- **팀명**: team4
 - **팀원**: _(기입)_
-- **작성일**: _(기입)_
+- **작성일**: 2026.09.28
 - **재현 커맨드**: `(예: bash scripts/run_mmmu_eval.sh)`
 
 ---
@@ -24,29 +24,20 @@
 **실제 모델에 들어간 프롬프트 전문** (변수 부분은 `{}`로 표시):
 
 ```
-_(여기에 그대로)_
+<|im_start|>user
+{question}
+<image>... (이미지 수만큼 반복)
+
+(A) {option_A}
+(B) {option_B}
+(C) {option_C}
+(D) {option_D}
+Answer with the option's letter from the given choices directly.<|im_end|>
+<|im_start|>assistant
 ```
 
-- **출처**: _(직접 설계 / 차용한 도구·저장소명 + 링크)_
-- **선택 이유**: _(왜 이 프롬프트를 골랐는지)_
-
-<details>
-<summary>작성 형식 예시 (내용은 예시일 뿐입니다. 본인이 실제 찾은/설계한 프롬프트로 교체)</summary>
-
-```
-Question: {question}
-Choices:
-A. {option_A}
-B. {option_B}
-C. {option_C}
-D. {option_D}
-Pick the single best choice from the list above.
-```
-
-- **출처**: (예시) 오픈소스 평가 툴킷 XYZ의 프롬프트 생성 함수에서 차용, 문구 일부만 수정
-- **선택 이유**: (예시) 모델이 장황한 설명 없이 선택지 하나로 바로 답하도록 유도하기 위해 간결한 지시문 사용
-
-</details>
+- **출처**: MMMU 공식 레포지토리(mmmu/configs/llava1.5.yaml) 프롬프트 템플릿 구조 및 Qwen3-VL 다중 모달 Chat Template 차용
+- **선택 이유**: 최대한 공식에서 쓴 prompt 방식을 따르려고 함.
 
 ## 3. 생성(Decoding) 설정
 
