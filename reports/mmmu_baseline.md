@@ -54,16 +54,16 @@ Pick the single best choice from the list above.
 
 | 파라미터 | 값 |
 |---|---|
-| `do_sample` | |
-| `temperature` | |
-| `top_p` | |
-| `top_k` | |
-| `repetition_penalty` | |
-| `presence_penalty` | |
-| `seed` | |
+| `do_sample` | true |
+| `temperature` | 0.7 |
+| `top_p` | 0.8 |
+| `top_k` | 20 |
+| `repetition_penalty` | 1.0 |
+| `presence_penalty` | 1.5 |
+| `seed` | 3407 |
 
-- **출처**: _(모델 제공사의 공식 recipe를 찾았다면 그 출처/링크. 못 찾았거나 다른 값(예: greedy)을 쓰기로
-  했다면 그 사실과 이유)_
+- **출처**: Qwen의 공식 instructor models Hyperparameter https://github.com/QwenLM/Qwen3-VL#instruct-models
+  
 
 ### 3.2 생성 예산 / 이미지 해상도
 
