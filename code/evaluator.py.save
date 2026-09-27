@@ -1,8 +1,4 @@
-"""
-Deterministic MMMU evaluator.
-
-Sources:
-- Official MMMU evaluation utilities:
+Pods""" Deterministic MMMU evaluator. lonely_plum_baboon Sources: - Official MMMU evaluation utilities:
   https://github.com/MMMU-Benchmark/MMMU
 - Assignment requires Overall = mean of 30 subject accuracies.
 """
@@ -56,16 +52,16 @@ def _open_answer_correct(gold: Any, parsed_prediction: List[Any]) -> bool:
 
 def is_correct(result: Dict[str, Any]) -> bool:
     """Evaluate one parsed prediction against the dataset gold answer."""
+    gold = _normalize_gold(result["gold"])
     prediction = result.get("prediction")
 
     if result["question_type"] == "multiple-choice":
         if prediction is None:
             return False
-        gold = result["gold"]
         if isinstance(gold, list):
             return prediction in gold
         return prediction == gold
-    gold = _normalize_gold(result["gold"])
+
     if not isinstance(prediction, list):
         return False
 
