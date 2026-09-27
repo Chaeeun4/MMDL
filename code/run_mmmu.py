@@ -165,8 +165,12 @@ def main() -> None:
 
     # Reset peak-memory tracking before the model is loaded so that
     # everything from weight loading through generation is captured.
-    for device_index in range(torch.cuda.device_count()):
-        torch.cuda.reset_peak_memory_stats(device_index)
+    try:
+        torch.cuda.init()
+        for device_index in range(torch.cuda.device_count()):
+            torch.cuda.reset_peak_memory_stats(device_index)
+    except Exception:
+        pass
 
     print("=" * 80)
     print("MMMU Validation Baseline")
