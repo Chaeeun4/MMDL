@@ -76,8 +76,15 @@ Answer the question using a single word or phrase.<|im_end|>
 
 ## 4. 채점(파싱) 방식
 
-- 사용한 파서/로직: _(자체 구현 / 차용 도구명 + 링크)_
-- 동작 방식 요약: _(예: 어떤 순서로 규칙을 적용하는지, 실패 시 fallback은 무엇인지)_
+- 사용한 파서/로직:
+  MMMU 공식 레포지토리의 evaluation utils 코드를 수정함 (https://github.com/MMMU-Benchmark/MMMU/blob/main/eval/eval_utils.py)
+
+- 동작 방식 요약:
+  - 객관식: 정규표현식을 통해 (A), A. 등의 형태를 1차로 추출함.
+    매칭 실패 시 모델의 출력 텍스트 전체(소문자 변환)와 객관식 보기의 원본 텍스트를 비교하는 문자열 포함 여부(Fallback)를 검사함.
+    MMMU 원본 코드에 존재하던 '파싱 완전 실패 시 랜덤 알파벳 1개 찍기' 로직을 제거하고 None을 반환하도록 수정하여 평가 파이프라인의 재현성을 유지하도록 함.
+
+  - 서술형: "answer ", "is " 등의 지시어(Indicators)를 기준으로 문장을 자른 후, 숫자 및 단위를 MMMU 정규화 규칙에 따라 정리하여 짧은 후보군 배열을 만듦. 이후 후보 텍스트가 실제 정답 문자열에 포함되는지(Containment rule) 여부로 정답을 판별함.
 
 ## 5. 결과
 
