@@ -23,16 +23,25 @@
 
 **실제 모델에 들어간 프롬프트 전문** (변수 부분은 `{}`로 표시):
 
+multiple-choice(선다형)의 경우
 ```
 <|im_start|>user
 {question}
-<image>... (이미지 수만큼 반복)
 
 (A) {option_A}
 (B) {option_B}
 (C) {option_C}
 (D) {option_D}
 Answer with the option's letter from the given choices directly.<|im_end|>
+<|im_start|>assistant
+```
+
+open answer(서술형)의 경우
+```
+<|im_start|>user
+{question}
+
+Answer the question using a single word or phrase.<|im_end|>
 <|im_start|>assistant
 ```
 
