@@ -86,6 +86,8 @@ class VRAMPoller:
     def stop(self) -> float:
         self._stop_event.set()
         self._thread.join(timeout=2.0)
+        if self.peak_gb == 0.0:
+            print("  WARNING: VRAM poller never got a successful nvidia-smi reading.")
         return self.peak_gb
     
 
@@ -205,15 +207,10 @@ def main() -> None:
     if tensor_parallel_size < 1:
         raise RuntimeError("No CUDA device was detected.")
 
-    # Reset peak-memory tracking before the model is loaded so that
-    # everything from weight loading through generation is captured.
-    try:
-        torch.cuda.init()
-        for device_index in range(torch.cuda.device_count()):
-            torch.cuda.reset_peak_memory_stats(device_index)
-    except Exception:
-        pass
-
+    
+    # Peak VRAM across model load + inference, measured system-wide via
+    # nvidia-smi (captures vLLM's EngineCore subprocess too, unlike
+    # torch.cuda APIs which only see the calling process).
     vram_poller = VRAMPoller(interval_sec=0.5)
     vram_poller.start()
 
@@ -320,19 +317,10 @@ def main() -> None:
         f"({inference_elapsed / max(len(samples), 1):.2f}s/sample)"
     )
 
-    # Peak VRAM across model load + inference, summed over visible devices
-    # in this (main) process.
+    # Peak VRAM across model load + inference, measured system-wide via
+    # nvidia-smi (see VRAMPoller docstring).
     peak_vram_gb = vram_poller.stop()
-    print(f"Peak VRAM (main process, summed): {peak_vram_gb:.2f} GB")
-    if tensor_parallel_size > 1:
-        print(
-            "  NOTE: with tensor_parallel_size > 1, vLLM's default "
-            "multiprocessing executor runs each TP worker in its own "
-            "process, so this number may not include worker-process "
-            "memory. Cross-check with "
-            "`nvidia-smi --query-gpu=memory.used --format=csv -l 1` "
-            "during the run for a reliable multi-GPU peak."
-        )
+    print(f"Peak VRAM (system-wide, all processes): {peak_vram_gb:.2f} GB")
 
     # 5. Parse + preserve dataset gold answer
     results: List[Dict[str, Any]] = []
