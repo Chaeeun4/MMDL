@@ -42,7 +42,7 @@ bash scripts/run.sh \
 | 사용 GPU | RTX 4090 (24GB vRAM) |
 | 실측 peak VRAM | 22.37 GB |
 | 총 소요 시간 | 699.45 sec |
-| 의존성 | _(requirements.txt / environment.yml 경로 링크)_ |
+| 의존성 | [requirements.txt 경로 링크](https://github.com/Chaeeun4/MMDL/blob/main/requirements.txt) |
 | 실행 커맨드 | `bash run.sh `<br>`--model_path "Qwen/Qwen3-VL-4B-Instruct" `<br>`--data_root "/root/.cache/huggingface/hub/datasets--MMMU--MMMU/" `<br>`--min_pixels $((256 * 32 * 32)) `<br>`--max_pixels $((1280* 32 * 32)) `<br>`--max_new_tokens 4096 `<br>`--output_file results/opt_predictions_orig.jsonl `<br>`--metrics_file results/opt_metrics_orig.json` |
 
 ## 2. 프롬프트
@@ -96,10 +96,10 @@ Answer the question using a single word or phrase.<|im_end|>
 | 파라미터 | 값 |
 |---|---|
 | `max_new_tokens` | 4096 |
-| 이미지 해상도 처리 (`min_pixels`/`max_pixels` 등) |  `min_pixels`=262144 (~0.26 MP)<br>`max_pixels`=1310720 (~1.31 MP) |
+| 이미지 해상도 처리 (`min_pixels`/`max_pixels` 등) |  `min_pixels=262144` (~0.26 MP)<br>`max_pixels=1310720` (~1.31 MP) |
 
 **선택 근거** (본인이 사용한 인프라 제약과 어떻게 연결되는지 — 속도/VRAM/응답 잘림 등 trade-off): 900개 전체 데이터 평가 결과
-- 해상도: `min_pixels`=262144 (~0.26 MP), `max_pixels`=1310720 (~1.31 MP)으로 낮추어도 기본 세팅값과 정확도 차이가 없었으나(59.2% vs 59.3%), 추론 시간은 약 34%(1015초 → 673초) 단축됨
+- 해상도: `min_pixels=262144` (~0.26 MP), `max_pixels=1310720` (~1.31 MP) 으로 낮추어도 기본 세팅값과 정확도 차이가 없었으나(59.2% vs 59.3%), 추론 시간은 약 34%(1015초 → 673초) 단축됨
 - max_new_tokens: 처음 10개 데이터로 모델 평가 시 `32768`개의 기본 토큰으로 1074 sec 가 소요됨. 전체 평가를 하려면 12-13시간 걸리기 때문에 토큰을 낮추기로 판단함. 이후 90개 데이터셋으로`max_new_tokens=32768` 인 환경에서 실험한 후 모델 answer에서 정답 토큰의 평균, 중앙값, 최대값을 분석했을 시 509, 12, 3346 이었음. max_new_tokens를 4096으로 제한하면 무한히 Perhaps로 사유하는 답변을 거르고 시간도 절약할 수 있을거라 판단. 900개 데이터에서 평가할 때도 정상 정답의 중앙값은 6-8 토큰이었으며 정답의 90%가 3200 토큰 이내에 수렴하므로, 4096 제한은 타당하다고 판단함.
   
 ## 4. 채점(파싱) 방식
@@ -162,7 +162,7 @@ Answer the question using a single word or phrase.<|im_end|>
 
 ## 7. 격차 분석
 
-공식 성능(67.4%)과 본 실험 베이스라인(최대 60.2%) 간의 성능 격차는 다음 세 가지 시스템적 요인에서 비롯된 것으로 분석됨
+격차의 이유는 2가지 이유로 예상됨.
 
 첫째, 평가 파이프라인의 보수성. 본 실험은 LLM Judge 없이 규칙 기반 파서를 적용해 파싱 실패 시 모두 오답 처리함. 공식 벤치마크 환경의 더 정교한 정답 추출 매칭 방식 대비 False Negative가 누적되었을 확률이 높음.
 
