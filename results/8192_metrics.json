@@ -1,0 +1,36 @@
+{
+  "num_results": 10,
+  "num_subjects": 1,
+  "subjects": {
+    "Accounting": {
+      "num": 10,
+      "correct": 7,
+      "accuracy": 0.7
+    }
+  },
+  "overall_accuracy": 0.7,
+  "overall_percent": 70.0,
+  "model": "Qwen/Qwen3-VL-4B-Instruct",
+  "model_path": "Qwen/Qwen3-VL-4B-Instruct",
+  "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "dataset": "MMMU/MMMU",
+  "dataset_revision": "98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68",
+  "split": "validation",
+  "sampling": {
+    "greedy": false,
+    "seed": 3407,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repetition_penalty": 1.0,
+    "presence_penalty": 1.5,
+    "max_new_tokens": 8192
+  },
+  "peak_vram_gb": 21.41015625,
+  "image_pixels": {
+    "min_pixels": 1310720,
+    "max_pixels": 5242880
+  },
+  "elapsed_seconds": 300.0071533806622,
+  "inference_seconds": 125.43768400046974
+}

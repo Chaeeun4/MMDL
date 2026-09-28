@@ -1,0 +1,12 @@
+nohup: ignoring input
+============================================================
+MMMU resolution experiment
+Samples: 90
+Resolution settings:
+  1280-5120
+  512-2048
+  256-1280
+============================================================
+
+===== min_pixels=1280, max_pixels=5120 =====
+python: can't open file '/workspace/MMDL/scripts/code/run_mmmu.py': [Errno 2] No such file or directory

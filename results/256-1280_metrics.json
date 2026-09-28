@@ -1,0 +1,46 @@
+{
+  "num_results": 90,
+  "num_subjects": 3,
+  "subjects": {
+    "Accounting": {
+      "num": 30,
+      "correct": 24,
+      "accuracy": 0.8
+    },
+    "Agriculture": {
+      "num": 30,
+      "correct": 18,
+      "accuracy": 0.6
+    },
+    "Architecture_and_Engineering": {
+      "num": 30,
+      "correct": 15,
+      "accuracy": 0.5
+    }
+  },
+  "overall_accuracy": 0.6333333333333333,
+  "overall_percent": 63.33333333333333,
+  "model": "Qwen/Qwen3-VL-4B-Instruct",
+  "model_path": "Qwen/Qwen3-VL-4B-Instruct",
+  "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "dataset": "MMMU/MMMU",
+  "dataset_revision": "98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68",
+  "split": "validation",
+  "sampling": {
+    "greedy": false,
+    "seed": 3407,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repetition_penalty": 1.0,
+    "presence_penalty": 1.5,
+    "max_new_tokens": 32768
+  },
+  "peak_vram_gb": 29.2275390625,
+  "image_pixels": {
+    "min_pixels": 262144,
+    "max_pixels": 1310720
+  },
+  "elapsed_seconds": 2530.120037502027,
+  "inference_seconds": 2229.4080583479954
+}
