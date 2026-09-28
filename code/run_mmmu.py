@@ -279,6 +279,7 @@ def main() -> None:
             max_tokens=args.max_new_tokens,
             repetition_penalty=args.repetition_penalty,
             presence_penalty=args.presence_penalty,
+            stop_token_ids=[151645, 151643], # 👈 Qwen 종료 토큰 명시적 추가
             seed=args.seed,
         )
 
