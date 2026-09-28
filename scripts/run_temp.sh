@@ -16,21 +16,23 @@ echo "=========================================================="
 python3 code/run_mmmu.py \
  --model_path "$MODEL" \
  --data_root "$DATA_ROOT" \
- --min_pixels $((512 * 32 * 32)) \
- --max_pixels $((2048 * 32 * 32)) \
+ --min_pixels $((256 * 32 * 32)) \
+ --max_pixels $((1280 * 32 * 32)) \
  --max_new_tokens 4096 \
- --output_file results/opt_predictions_512.jsonl \
- --metrics_file results/opt_metrics_512.json
+ --temperature 0.01 \
+ --output_file results/opt_predictions_tmp.jsonl \
+ --metrics_file results/opt_metrics_tmp.json
 
-echo "512 Evaluation Finished!"
+echo "tmp Evaluation Finished!"
 
 python3 code/run_mmmu.py \
  --model_path "$MODEL" \
  --data_root "$DATA_ROOT" \
- --min_pixels $((1280 * 32 * 32)) \
- --max_pixels $((5120 * 32 * 32)) \
+ --min_pixels $((256 * 32 * 32)) \
+ --max_pixels $((1280 * 32 * 32)) \
  --max_new_tokens 4096 \
- --output_file results/opt_predictions_1280.jsonl \
- --metrics_file results/opt_metrics_1280.json
+ --repetition_penalty 1.05 \
+ --output_file results/opt_predictions_rep.jsonl \
+ --metrics_file results/opt_metrics_rep.json
 
-echo "1280 Evaluation Finished"
+echo "repen Evaluation Finished"

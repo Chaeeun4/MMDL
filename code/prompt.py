@@ -190,7 +190,6 @@ def build_vllm_input(
         messages,
         tokenize=False,
         add_generation_prompt=True,
-        enable_thinking=False,
     )
 
     # Import here so importing this module does not require qwen-vl-utils.
