@@ -327,7 +327,18 @@ def main() -> None:
     results: List[Dict[str, Any]] = []
 
     for sample, output in zip(samples, outputs):
-        raw_response = output.outputs[0].text
+        completion = output.outputs[0]
+
+        raw_response = completion.text
+
+        # vLLM generation metadata
+        completion_tokens = (
+            len(completion.token_ids)
+            if completion.token_ids is not None
+            else None
+        )
+        finish_reason = completion.finish_reason
+
         options = parse_options(sample["options"])
 
         prediction = parse_answer(
@@ -343,6 +354,11 @@ def main() -> None:
             "gold": sample["answer"],
             "prediction_raw": raw_response,
             "prediction": prediction,
+
+            # Generation diagnostics
+            "completion_tokens": completion_tokens,
+            "finish_reason": finish_reason,
+
             "subfield": sample.get("subfield", ""),
             "img_type": sample.get("img_type", ""),
             "topic_difficulty": sample.get("topic_difficulty", ""),
