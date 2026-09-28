@@ -1,4 +1,3 @@
-vllm
-transformers
+vllm>=0.11.0,<0.20.0
 datasets
-qwen-vl-utils
+qwen-vl-utils==0.0.14
