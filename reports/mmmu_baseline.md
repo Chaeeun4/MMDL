@@ -43,8 +43,7 @@ bash scripts/run.sh \
 | 실측 peak VRAM | 22.37 GB |
 | 총 소요 시간 | 699.45 sec |
 | 의존성 | _(requirements.txt / environment.yml 경로 링크)_ |
-| 실행 커맨드 | `python3 code/run_mmmu.py  --model_path "Qwen/Qwen3-VL-4B-Instruct"  --
-data_root "/root/.cache/huggingface/hub/datasets--MMMU--MMMU/"  --min_pixels $((256 * 32 * 32))  --max_pixels $((1280* 32 * 32))  --max_new_tokens 4096  --output_file results/opt_predictions_orig.jsonl  --metrics_file results/opt_metrics_orig.json\n` |
+| 실행 커맨드 | `bash run.sh `<br>`--model_path "Qwen/Qwen3-VL-4B-Instruct" `<br>`--data_root "/root/.cache/huggingface/hub/datasets--MMMU--MMMU/" `<br>`--min_pixels $((256 * 32 * 32)) `<br>`--max_pixels $((1280* 32 * 32)) `<br>`--max_new_tokens 4096 `<br>`--output_file results/opt_predictions_orig.jsonl `<br>`--metrics_file results/opt_metrics_orig.json` |
 
 ## 2. 프롬프트
 
@@ -97,10 +96,12 @@ Answer the question using a single word or phrase.<|im_end|>
 | 파라미터 | 값 |
 |---|---|
 | `max_new_tokens` | 4096 |
-| 이미지 해상도 처리 (`min_pixels`/`max_pixels` 등) |  min_pixels=262144 (~0.26 MP), max_pixels=1310720 (~1.31 MP) |
+| 이미지 해상도 처리 (`min_pixels`/`max_pixels` 등) |  `min_pixels`=262144 (~0.26 MP)<br>`max_pixels`=1310720 (~1.31 MP) |
 
-**선택 근거** (본인이 사용한 인프라 제약과 어떻게 연결되는지 — 속도/VRAM/응답 잘림 등 trade-off): _(적절히)_
-
+**선택 근거** (본인이 사용한 인프라 제약과 어떻게 연결되는지 — 속도/VRAM/응답 잘림 등 trade-off): 900개 전체 데이터 평가 결과
+- 해상도: `min_pixels`=262144 (~0.26 MP), `max_pixels`=1310720 (~1.31 MP)으로 낮추어도 기본 세팅값과 정확도 차이가 없었으나(59.2% vs 59.3%), 추론 시간은 약 34%(1015초 → 673초) 단축됨
+- max_new_tokens: 처음 10개 데이터로 모델 평가 시 `32768`개의 기본 토큰으로 1074 sec 가 소요됨. 전체 평가를 하려면 12-13시간 걸리기 때문에 토큰을 낮추기로 판단함. 이후 90개 데이터셋으로`max_new_tokens=32768` 인 환경에서 실험한 후 모델 answer에서 정답 토큰의 평균, 중앙값, 최대값을 분석했을 시 509, 12, 3346 이었음. max_new_tokens를 4096으로 제한하면 무한히 Perhaps로 사유하는 답변을 거르고 시간도 절약할 수 있을거라 판단. 900개 데이터에서 평가할 때도 정상 정답의 중앙값은 6-8 토큰이었으며 정답의 90%가 3200 토큰 이내에 수렴하므로, 4096 제한은 타당하다고 판단함.
+  
 ## 4. 채점(파싱) 방식
 
 - 사용한 파서/로직:
@@ -149,7 +150,7 @@ Answer the question using a single word or phrase.<|im_end|>
 | 30 | Sociology | 30 | 60.00 |
 |  | **Overall (macro avg)** | **900** | **58.56** |
 
-계산식: `Overall = mean(30개 과목 accuracy)` _(다른 방식을 썼다면 명시)_
+계산식: `Overall = mean(30개 과목 accuracy)` 
 
 ## 6. 공식 수치와의 비교
 
@@ -161,10 +162,17 @@ Answer the question using a single word or phrase.<|im_end|>
 
 ## 7. 격차 분석
 
-_(1000 char 이내로 작성 - Official 성능과 차이가 발생하는지, 그렇다면 그 이유를 서술. 길게 쓴다고 credit이 느는 게
-아니라, 근거의 질이 핵심입니다. 레포트는 짧을수록 좋습니다.)_
+공식 성능(67.4%)과 본 실험 베이스라인(최대 60.2%) 간의 성능 격차는 다음 세 가지 시스템적 요인에서 비롯된 것으로 분석됨
+
+첫째, 평가 파이프라인의 보수성. 본 실험은 LLM Judge 없이 규칙 기반 파서를 적용해 파싱 실패 시 모두 오답 처리함. 공식 벤치마크 환경의 더 정교한 정답 추출 매칭 방식 대비 False Negative가 누적되었을 확률이 높음.
+
+둘째, 생성 폭주 제어로 인한 정답 잘림(Truncation) 현상. 모델이 오답 생성 시 무한 루프에 빠지는 현상을 막기 위해 토큰을 4096으로 제한했으나, 이로 인해 전체 정답의 약 6~7%도 답변이 강제 종료됨. 긴 사유(Chain of Thought)가 요구되는 복잡한 문제들이 중간에 잘려 오답 처리된 구조적 손실분이 존재함.
 
 
 ## 8. 기타 특이사항 / 한계 (Optional)
 
-_(재현 중 겪은 문제, 시간 관계상 못 해본 것, 다음에 시도해보고 싶은 것 등. 자유롭게)_
+- RTX4090 24GB VRAM을 갖춘 환경을 찾기 어려웠음
+- 시간/자원 관계상 Qwen 공식 github 에서 제공한 하이퍼파라미터 (토큰, 이미지 해상도 값)으로 평가 해보지 못했음
+- 실험 중 repetition_penalty 인자를 1.05로 주고 한 결과가 좋았는데 추가적인 실험을 통해서 올바른 접근인지 확안해보고 싶음
+- temperature = 0.01 로 고정한 recipe로 추론을 하는 오픈소스가 있어서 현재 실험에서는 기본값보다 정확도가 높지 않기 때문에 선택하지 않았는데 더 확인하고 싶음.
+- prompting 예시도 조금 더 찾아야함.
