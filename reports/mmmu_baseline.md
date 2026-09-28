@@ -1,7 +1,7 @@
 # MMMU-val Baseline Evaluation Report — Qwen3-VL-4B-Instruct
 
 - **팀명**: team4
-- **팀원**: 2023093 박채은, 
+- **팀원**: 박채은, 류다연, 이진아, 정성원
 - **작성일**: 2026.09.28
 - **재현 커맨드**: `bash scripts/run.sh`
   
