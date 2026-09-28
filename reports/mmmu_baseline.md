@@ -26,10 +26,8 @@ bash scripts/run.sh \
     --gpu_memory_utilization 0.90               # vLLM 엔진이 24GB VRAM 중 몇 %(0.90 = 90%)를 미리 점유할지 설정
     --tensor_parallel_size 1                    # 사용할 GPU 개수 (기본값은 현재 꽂혀있는 GPU를 자동 인식)
     --max_samples 10                            # (디버깅용) 전체 데이터셋을 다 풀지 않고 처음 N문제만 풀고 종료
+```
 
-
-</details>
----
 
 ## 1. 환경 / 재현성
 
