@@ -31,6 +31,6 @@
     "min_pixels": 1310720,
     "max_pixels": 5242880
   },
-  "elapsed_seconds": 525.3869107998908,
-  "inference_seconds": 316.42508792411536
+  "elapsed_seconds": 321.17559284251183,
+  "inference_seconds": 233.34813851397485
 }
