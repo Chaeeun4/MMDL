@@ -1,0 +1,1024 @@
+nohup: ignoring input
+==========================================================
+ Starting MMMU Evaluation (Optimized)
+ Model: Qwen/Qwen3-VL-4B-Instruct
+ Pixels: min=256*32*32, max=1280*32*32
+ Max New Tokens: 4096 (무한루프 방지)
+==========================================================
+================================================================================
+MMMU Validation Baseline
+================================================================================
+Model:       Qwen/Qwen3-VL-4B-Instruct
+Revision:    ebb281ec70b05090aa6165b016eac8ec08e71b17
+Dataset:     MMMU/MMMU
+Data cache:  /root/.cache/huggingface/hub/datasets--MMMU--MMMU
+TP size:     1
+================================================================================
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loaded samples: 900
+Loading processor...
+Loading vLLM model...
+INFO 09-28 07:25:14 [utils.py:233] non-default args: {'trust_remote_code': True, 'dtype': 'bfloat16', 'seed': 3407, 'max_model_len': 32768, 'disable_log_stats': True, 'revision': 'ebb281ec70b05090aa6165b016eac8ec08e71b17', 'limit_mm_per_prompt': {'image': 32}, 'model': 'Qwen/Qwen3-VL-4B-Instruct'}
+INFO 09-28 07:25:15 [model.py:549] Resolved architecture: Qwen3VLForConditionalGeneration
+INFO 09-28 07:25:15 [model.py:1678] Using max model len 32768
+INFO 09-28 07:25:15 [scheduler.py:238] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 09-28 07:25:15 [vllm.py:790] Asynchronous scheduling is enabled.
+[transformers] `Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+[transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+(EngineCore pid=37242) INFO 09-28 07:25:23 [core.py:105] Initializing a V1 LLM engine (v0.19.1) with config: model='Qwen/Qwen3-VL-4B-Instruct', speculative_config=None, tokenizer='Qwen/Qwen3-VL-4B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=ebb281ec70b05090aa6165b016eac8ec08e71b17, tokenizer_revision=ebb281ec70b05090aa6165b016eac8ec08e71b17, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=3407, served_model_name=Qwen/Qwen3-VL-4B-Instruct, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::kda_attention', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_images_per_batch': 0, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
+(EngineCore pid=37242) INFO 09-28 07:25:24 [parallel_state.py:1400] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://192.168.80.2:50651 backend=nccl
+(EngineCore pid=37242) INFO 09-28 07:25:24 [parallel_state.py:1716] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=37242) INFO 09-28 07:25:24 [gpu_model_runner.py:4735] Starting to load model Qwen/Qwen3-VL-4B-Instruct...
+(EngineCore pid=37242) INFO 09-28 07:25:24 [cuda.py:390] Using backend AttentionBackendEnum.FLASH_ATTN for vit attention
+(EngineCore pid=37242) INFO 09-28 07:25:24 [mm_encoder_attention.py:230] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+(EngineCore pid=37242) INFO 09-28 07:25:25 [cuda.py:334] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=37242) INFO 09-28 07:25:25 [flash_attn.py:596] Using FlashAttention version 2
+(EngineCore pid=37242) <frozen importlib._bootstrap_external>:1297: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+(EngineCore pid=37242) <frozen importlib._bootstrap_external>:1297: FutureWarning: The cuda.nvrtc module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.nvrtc module instead.
+(EngineCore pid=37242) Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+(EngineCore pid=37242) Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:05<00:05,  5.05s/it]
+(EngineCore pid=37242) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:09<00:00,  4.72s/it]
+(EngineCore pid=37242) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:09<00:00,  4.77s/it]
+(EngineCore pid=37242) 
+(EngineCore pid=37242) INFO 09-28 07:25:35 [default_loader.py:384] Loading weights took 9.66 seconds
+(EngineCore pid=37242) INFO 09-28 07:25:35 [gpu_model_runner.py:4820] Model loading took 8.68 GiB memory and 10.536459 seconds
+(EngineCore pid=37242) INFO 09-28 07:25:36 [gpu_model_runner.py:5753] Encoder cache will be initialized with a budget of 16384 tokens, and profiled with 1 image items of the maximum feature size.
+(EngineCore pid=37242) INFO 09-28 07:25:38 [backends.py:1051] Using cache directory: /root/.cache/vllm/torch_compile_cache/977f65e2d6/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore pid=37242) INFO 09-28 07:25:38 [backends.py:1111] Dynamo bytecode transform time: 1.73 s
+(EngineCore pid=37242) INFO 09-28 07:25:40 [backends.py:285] Directly load the compiled graph(s) for compile range (1, 8192) from the cache, took 1.839 s
+(EngineCore pid=37242) INFO 09-28 07:25:40 [decorators.py:305] Directly load AOT compilation from path /root/.cache/vllm/torch_compile_cache/torch_aot_compile/a85411a4ca8404196bbb42987bd1156d82766ec6db6660b9ed1aa44bb37ab9b3/rank_0_0/model
+(EngineCore pid=37242) INFO 09-28 07:25:40 [monitor.py:48] torch.compile took 3.77 s in total
+(EngineCore pid=37242) INFO 09-28 07:25:40 [monitor.py:76] Initial profiling/warmup run took 0.01 s
+(EngineCore pid=37242) INFO 09-28 07:25:41 [kv_cache_utils.py:829] Overriding num_gpu_blocks=0 with num_gpu_blocks_override=512
+(EngineCore pid=37242) INFO 09-28 07:25:41 [gpu_model_runner.py:5876] Profiling CUDA graph memory: PIECEWISE=51 (largest=512), FULL=35 (largest=256)
+(EngineCore pid=37242) INFO 09-28 07:25:42 [gpu_model_runner.py:5955] Estimated CUDA graph memory: 0.51 GiB total
+(EngineCore pid=37242) INFO 09-28 07:25:42 [gpu_worker.py:436] Available KV cache memory: 10.43 GiB
+(EngineCore pid=37242) INFO 09-28 07:25:42 [gpu_worker.py:470] In v0.19, CUDA graph memory profiling will be enabled by default (VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1), which more accurately accounts for CUDA graph memory during KV cache allocation. To try it now, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1 and increase --gpu-memory-utilization from 0.9000 to 0.9218 to maintain the same effective KV cache size.
+(EngineCore pid=37242) INFO 09-28 07:25:42 [kv_cache_utils.py:1319] GPU KV cache size: 75,968 tokens
+(EngineCore pid=37242) INFO 09-28 07:25:42 [kv_cache_utils.py:1324] Maximum concurrency for 32,768 tokens per request: 2.32x
+(EngineCore pid=37242) Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   6%|▌         | 3/51 [00:00<00:01, 27.56it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  12%|█▏        | 6/51 [00:00<00:01, 27.81it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 9/51 [00:00<00:01, 28.45it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  25%|██▌       | 13/51 [00:00<00:01, 30.26it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 17/51 [00:00<00:01, 31.89it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  41%|████      | 21/51 [00:00<00:00, 33.14it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 25/51 [00:00<00:00, 35.09it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  59%|█████▉    | 30/51 [00:00<00:00, 37.87it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 35/51 [00:00<00:00, 39.99it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 40/51 [00:01<00:00, 41.19it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 45/51 [00:01<00:00, 42.53it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  98%|█████████▊| 50/51 [00:01<00:00, 44.16it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:01<00:00, 37.61it/s]
+(EngineCore pid=37242) Capturing CUDA graphs (decode, FULL):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):  11%|█▏        | 4/35 [00:00<00:00, 37.04it/s]Capturing CUDA graphs (decode, FULL):  23%|██▎       | 8/35 [00:00<00:00, 38.40it/s]Capturing CUDA graphs (decode, FULL):  37%|███▋      | 13/35 [00:00<00:00, 41.50it/s]Capturing CUDA graphs (decode, FULL):  51%|█████▏    | 18/35 [00:00<00:00, 43.65it/s]Capturing CUDA graphs (decode, FULL):  66%|██████▌   | 23/35 [00:00<00:00, 45.37it/s]Capturing CUDA graphs (decode, FULL):  83%|████████▎ | 29/35 [00:00<00:00, 47.47it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 35/35 [00:00<00:00, 50.65it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 35/35 [00:00<00:00, 46.54it/s]
+(EngineCore pid=37242) INFO 09-28 07:25:45 [gpu_model_runner.py:6046] Graph capturing finished in 3 secs, took 0.56 GiB
+(EngineCore pid=37242) INFO 09-28 07:25:45 [gpu_worker.py:597] CUDA graph pool memory: 0.56 GiB (actual), 0.51 GiB (estimated), difference: 0.05 GiB (9.0%).
+(EngineCore pid=37242) INFO 09-28 07:25:45 [core.py:283] init engine (profile, create kv cache, warmup model) took 9.73 seconds
+Building multimodal prompts:   0%|          | 0/900 [00:00<?, ?it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:   2%|▏         | 15/900 [00:00<00:06, 147.32it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:   4%|▎         | 32/900 [00:00<00:05, 152.32it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:   5%|▌         | 48/900 [00:00<00:11, 76.10it/s] [transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:   7%|▋         | 59/900 [00:00<00:13, 62.76it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:   9%|▉         | 85/900 [00:00<00:07, 101.92it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  11%|█         | 101/900 [00:01<00:07, 112.14it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  13%|█▎        | 116/900 [00:01<00:06, 115.01it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  14%|█▍        | 130/900 [00:01<00:07, 104.48it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  16%|█▌        | 143/900 [00:01<00:07, 101.68it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  17%|█▋        | 156/900 [00:01<00:06, 107.31it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+/root/venv_local/lib/python3.12/site-packages/PIL/Image.py:1136: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  21%|██        | 186/900 [00:01<00:04, 154.58it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  23%|██▎       | 204/900 [00:01<00:04, 139.68it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  24%|██▍       | 220/900 [00:01<00:04, 141.63it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  27%|██▋       | 243/900 [00:02<00:04, 157.89it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  29%|██▉       | 263/900 [00:02<00:03, 167.18it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  32%|███▏      | 285/900 [00:02<00:03, 180.13it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  34%|███▍      | 304/900 [00:02<00:03, 166.85it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  36%|███▌      | 322/900 [00:02<00:03, 162.65it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  38%|███▊      | 339/900 [00:02<00:04, 131.73it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  39%|███▉      | 354/900 [00:02<00:05, 108.34it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  41%|████      | 367/900 [00:02<00:04, 109.38it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  43%|████▎     | 389/900 [00:03<00:03, 134.08it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  47%|████▋     | 427/900 [00:03<00:02, 190.86it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  51%|█████     | 455/900 [00:03<00:02, 212.28it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  54%|█████▍    | 484/900 [00:03<00:01, 232.78it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  57%|█████▋    | 509/900 [00:03<00:01, 223.61it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  59%|█████▉    | 533/900 [00:03<00:02, 173.78it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  61%|██████▏   | 553/900 [00:03<00:01, 177.96it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  64%|██████▎   | 573/900 [00:03<00:01, 176.23it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  66%|██████▌   | 595/900 [00:04<00:01, 186.82it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  68%|██████▊   | 615/900 [00:04<00:01, 172.48it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  70%|███████   | 634/900 [00:04<00:01, 175.79it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  73%|███████▎  | 659/900 [00:04<00:01, 194.33it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  76%|███████▌  | 680/900 [00:04<00:01, 197.13it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  79%|███████▊  | 708/900 [00:04<00:00, 216.30it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  81%|████████▏ | 732/900 [00:04<00:00, 209.29it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  84%|████████▍ | 754/900 [00:04<00:00, 161.74it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  87%|████████▋ | 781/900 [00:05<00:00, 186.60it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  90%|█████████ | 811/900 [00:05<00:00, 210.69it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  93%|█████████▎| 834/900 [00:05<00:00, 176.79it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  95%|█████████▌| 858/900 [00:05<00:00, 186.16it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts:  98%|█████████▊| 879/900 [00:05<00:00, 182.25it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts: 100%|█████████▉| 899/900 [00:05<00:00, 145.00it/s][transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+Building multimodal prompts: 100%|██████████| 900/900 [00:05<00:00, 155.09it/s]
+Generation settings:
+  greedy=False
+  seed=3407
+  temperature=0.7
+  top_p=0.8
+  top_k=20
+  repetition_penalty=1.0
+  presence_penalty=1.5
+  max_new_tokens=4096
+  min_pixels=262144 (~0.26 MP)
+  max_pixels=1310720 (~1.31 MP)
+================================================================================
+Running vLLM inference...
+Rendering prompts:   0%|          | 0/900 [00:00<?, ?it/s]Rendering prompts:   0%|          | 1/900 [00:03<59:28,  3.97s/it]Rendering prompts:   2%|▏         | 22/900 [00:04<01:56,  7.53it/s]Rendering prompts:   4%|▍         | 35/900 [00:04<01:06, 12.93it/s]Rendering prompts:   5%|▌         | 46/900 [00:04<00:48, 17.77it/s]Rendering prompts:   6%|▌         | 55/900 [00:04<00:39, 21.66it/s]Rendering prompts:   7%|▋         | 62/900 [00:04<00:32, 25.74it/s]Rendering prompts:   9%|▉         | 84/900 [00:04<00:16, 48.01it/s]Rendering prompts:  11%|█         | 96/900 [00:04<00:13, 57.72it/s]Rendering prompts:  12%|█▏        | 108/900 [00:05<00:11, 66.78it/s]Rendering prompts:  13%|█▎        | 120/900 [00:05<00:10, 74.93it/s]Rendering prompts:  15%|█▍        | 132/900 [00:05<00:12, 61.73it/s]Rendering prompts:  16%|█▌        | 142/900 [00:05<00:11, 66.24it/s]Rendering prompts:  17%|█▋        | 153/900 [00:05<00:09, 74.85it/s]Rendering prompts:  19%|█▊        | 167/900 [00:05<00:08, 88.95it/s]Rendering prompts:  21%|██        | 187/900 [00:05<00:06, 114.27it/s]Rendering prompts:  22%|██▏       | 201/900 [00:06<00:06, 107.53it/s]Rendering prompts:  24%|██▍       | 214/900 [00:06<00:07, 96.71it/s] Rendering prompts:  25%|██▌       | 228/900 [00:06<00:06, 105.70it/s]Rendering prompts:  27%|██▋       | 243/900 [00:06<00:05, 112.82it/s]Rendering prompts:  28%|██▊       | 256/900 [00:06<00:05, 116.68it/s]Rendering prompts:  30%|███       | 273/900 [00:06<00:04, 130.65it/s]Rendering prompts:  32%|███▏      | 290/900 [00:06<00:04, 139.43it/s]Rendering prompts:  34%|███▍      | 305/900 [00:06<00:04, 139.59it/s]Rendering prompts:  36%|███▌      | 320/900 [00:06<00:04, 136.14it/s]Rendering prompts:  37%|███▋      | 334/900 [00:07<00:04, 130.57it/s]Rendering prompts:  39%|███▊      | 348/900 [00:07<00:05, 105.48it/s]Rendering prompts:  40%|████      | 360/900 [00:07<00:05, 91.93it/s] Rendering prompts:  42%|████▏     | 381/900 [00:07<00:04, 117.04it/s]Rendering prompts:  45%|████▌     | 405/900 [00:07<00:03, 145.37it/s]Rendering prompts:  48%|████▊     | 430/900 [00:07<00:02, 171.63it/s]Rendering prompts:  50%|█████     | 451/900 [00:07<00:02, 180.63it/s]Rendering prompts:  53%|█████▎    | 475/900 [00:07<00:02, 194.23it/s]Rendering prompts:  55%|█████▌    | 496/900 [00:08<00:02, 165.43it/s]Rendering prompts:  57%|█████▋    | 514/900 [00:08<00:02, 164.75it/s]Rendering prompts:  59%|█████▉    | 532/900 [00:08<00:02, 133.72it/s]Rendering prompts:  61%|██████    | 547/900 [00:08<00:02, 136.55it/s]Rendering prompts:  62%|██████▏   | 562/900 [00:08<00:02, 135.72it/s]Rendering prompts:  64%|██████▍   | 579/900 [00:08<00:02, 139.01it/s]Rendering prompts:  66%|██████▋   | 598/900 [00:08<00:02, 150.77it/s]Rendering prompts:  68%|██████▊   | 614/900 [00:08<00:01, 147.89it/s]Rendering prompts:  71%|███████   | 635/900 [00:09<00:01, 162.92it/s]Rendering prompts:  73%|███████▎  | 656/900 [00:09<00:01, 174.95it/s]Rendering prompts:  75%|███████▍  | 674/900 [00:09<00:01, 170.50it/s]Rendering prompts:  77%|███████▋  | 693/900 [00:09<00:01, 174.74it/s]Rendering prompts:  79%|███████▉  | 711/900 [00:09<00:01, 175.18it/s]Rendering prompts:  81%|████████  | 729/900 [00:09<00:00, 172.39it/s]Rendering prompts:  83%|████████▎ | 747/900 [00:09<00:01, 112.66it/s]Rendering prompts:  85%|████████▍ | 763/900 [00:10<00:01, 119.30it/s]Rendering prompts:  87%|████████▋ | 787/900 [00:10<00:00, 145.14it/s]Rendering prompts:  90%|█████████ | 810/900 [00:10<00:00, 164.65it/s]Rendering prompts:  92%|█████████▏| 829/900 [00:10<00:00, 144.27it/s]Rendering prompts:  94%|█████████▍| 846/900 [00:10<00:00, 113.17it/s]Rendering prompts:  96%|█████████▋| 867/900 [00:10<00:00, 131.94it/s]Rendering prompts:  98%|█████████▊| 883/900 [00:10<00:00, 121.65it/s]Rendering prompts: 100%|█████████▉| 897/900 [00:11<00:00, 100.50it/s]Rendering prompts: 100%|██████████| 900/900 [00:11<00:00, 80.65it/s] 
+Processed prompts:   0%|          | 0/900 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   3%|▎         | 29/900 [00:00<00:03, 237.00it/s, est. speed input: 215248.90 toks/s, output: 1152.35 toks/s]Processed prompts:   6%|▌         | 53/900 [00:01<00:36, 23.42it/s, est. speed input: 23590.43 toks/s, output: 135.87 toks/s]   Processed prompts:   7%|▋         | 64/900 [00:02<00:35, 23.49it/s, est. speed input: 22244.07 toks/s, output: 145.87 toks/s]Processed prompts:   8%|▊         | 76/900 [00:02<00:34, 23.92it/s, est. speed input: 21647.41 toks/s, output: 145.55 toks/s]Processed prompts:   9%|▉         | 85/900 [00:03<00:40, 20.34it/s, est. speed input: 19982.45 toks/s, output: 134.95 toks/s]Processed prompts:  10%|▉         | 89/900 [00:04<00:53, 15.27it/s, est. speed input: 17395.29 toks/s, output: 117.20 toks/s]Processed prompts:  11%|█         | 97/900 [00:04<00:52, 15.15it/s, est. speed input: 16247.42 toks/s, output: 112.77 toks/s]Processed prompts:  12%|█▏        | 109/900 [00:05<00:40, 19.37it/s, est. speed input: 16644.38 toks/s, output: 122.10 toks/s]Processed prompts:  13%|█▎        | 116/900 [00:05<00:45, 17.18it/s, est. speed input: 15575.86 toks/s, output: 117.84 toks/s]Processed prompts:  14%|█▍        | 124/900 [00:05<00:39, 19.68it/s, est. speed input: 15731.27 toks/s, output: 122.46 toks/s]Processed prompts:  15%|█▍        | 131/900 [00:06<00:39, 19.31it/s, est. speed input: 15387.99 toks/s, output: 122.98 toks/s]Processed prompts:  16%|█▌        | 142/900 [00:06<00:33, 22.91it/s, est. speed input: 15623.20 toks/s, output: 127.83 toks/s]Processed prompts:  16%|█▋        | 148/900 [00:07<00:42, 17.80it/s, est. speed input: 14810.51 toks/s, output: 123.97 toks/s]Processed prompts:  17%|█▋        | 156/900 [00:07<00:35, 20.93it/s, est. speed input: 15212.69 toks/s, output: 127.24 toks/s]Processed prompts:  18%|█▊        | 166/900 [00:07<00:36, 20.26it/s, est. speed input: 14738.16 toks/s, output: 124.91 toks/s]Processed prompts:  19%|█▉        | 169/900 [00:08<00:44, 16.43it/s, est. speed input: 14420.20 toks/s, output: 123.49 toks/s]Processed prompts:  19%|█▉        | 173/900 [00:08<00:42, 17.22it/s, est. speed input: 14310.12 toks/s, output: 124.07 toks/s]Processed prompts:  20%|██        | 181/900 [00:08<00:35, 20.31it/s, est. speed input: 14396.74 toks/s, output: 126.75 toks/s]Processed prompts:  21%|██        | 188/900 [00:09<00:36, 19.40it/s, est. speed input: 14208.62 toks/s, output: 126.93 toks/s]Processed prompts:  22%|██▏       | 197/900 [00:09<00:31, 22.27it/s, est. speed input: 14429.87 toks/s, output: 130.30 toks/s]Processed prompts:  23%|██▎       | 204/900 [00:09<00:35, 19.85it/s, est. speed input: 14185.83 toks/s, output: 129.46 toks/s]Processed prompts:  23%|██▎       | 209/900 [00:10<00:39, 17.47it/s, est. speed input: 13878.98 toks/s, output: 129.93 toks/s]Processed prompts:  24%|██▍       | 215/900 [00:10<00:37, 18.17it/s, est. speed input: 13725.15 toks/s, output: 131.10 toks/s]Processed prompts:  25%|██▌       | 225/900 [00:10<00:28, 23.54it/s, est. speed input: 14046.43 toks/s, output: 134.41 toks/s]Processed prompts:  26%|██▌       | 233/900 [00:11<00:33, 19.93it/s, est. speed input: 13916.27 toks/s, output: 131.51 toks/s]Processed prompts:  26%|██▋       | 237/900 [00:12<00:44, 14.80it/s, est. speed input: 13428.59 toks/s, output: 127.16 toks/s]Processed prompts:  27%|██▋       | 244/900 [00:12<00:35, 18.28it/s, est. speed input: 13545.00 toks/s, output: 129.07 toks/s]Processed prompts:  28%|██▊       | 254/900 [00:12<00:28, 22.40it/s, est. speed input: 13779.00 toks/s, output: 129.44 toks/s]Processed prompts:  29%|██▉       | 259/900 [00:13<00:37, 16.89it/s, est. speed input: 13503.85 toks/s, output: 128.05 toks/s]Processed prompts:  29%|██▉       | 262/900 [00:13<00:39, 15.98it/s, est. speed input: 13421.97 toks/s, output: 130.53 toks/s]Processed prompts:  30%|███       | 271/900 [00:13<00:30, 20.38it/s, est. speed input: 13466.26 toks/s, output: 134.07 toks/s]Processed prompts:  31%|███       | 275/900 [00:13<00:34, 17.94it/s, est. speed input: 13394.33 toks/s, output: 134.08 toks/s]Processed prompts:  31%|███       | 279/900 [00:14<00:36, 17.18it/s, est. speed input: 13262.47 toks/s, output: 133.81 toks/s]Processed prompts:  31%|███▏      | 283/900 [00:14<00:33, 18.59it/s, est. speed input: 13217.18 toks/s, output: 133.71 toks/s]Processed prompts:  33%|███▎      | 297/900 [00:14<00:20, 29.01it/s, est. speed input: 13437.71 toks/s, output: 138.25 toks/s]Processed prompts:  34%|███▎      | 302/900 [00:15<00:27, 21.71it/s, est. speed input: 13153.01 toks/s, output: 135.82 toks/s]Processed prompts:  34%|███▍      | 305/900 [00:15<00:28, 21.14it/s, est. speed input: 13082.98 toks/s, output: 135.76 toks/s]Processed prompts:  34%|███▍      | 308/900 [00:15<00:28, 20.70it/s, est. speed input: 13038.77 toks/s, output: 137.36 toks/s]Processed prompts:  35%|███▍      | 311/900 [00:15<00:32, 18.29it/s, est. speed input: 13066.72 toks/s, output: 138.80 toks/s]Processed prompts:  35%|███▍      | 313/900 [00:15<00:38, 15.11it/s, est. speed input: 12928.35 toks/s, output: 138.14 toks/s]Processed prompts:  35%|███▌      | 315/900 [00:15<00:40, 14.45it/s, est. speed input: 12841.74 toks/s, output: 138.29 toks/s]Processed prompts:  35%|███▌      | 317/900 [00:16<00:43, 13.31it/s, est. speed input: 12769.81 toks/s, output: 138.92 toks/s]Processed prompts:  35%|███▌      | 319/900 [00:16<00:44, 13.18it/s, est. speed input: 12699.80 toks/s, output: 139.43 toks/s]Processed prompts:  36%|███▌      | 321/900 [00:16<01:16,  7.54it/s, est. speed input: 12309.16 toks/s, output: 138.46 toks/s]Processed prompts:  36%|███▌      | 323/900 [00:18<03:17,  2.92it/s, est. speed input: 11137.26 toks/s, output: 137.95 toks/s]Processed prompts:  36%|███▌      | 324/900 [00:18<02:55,  3.28it/s, est. speed input: 11096.50 toks/s, output: 143.27 toks/s]Processed prompts:  36%|███▌      | 325/900 [00:19<02:59,  3.21it/s, est. speed input: 10920.06 toks/s, output: 149.41 toks/s]Processed prompts:  36%|███▌      | 326/900 [00:19<03:29,  2.74it/s, est. speed input: 10636.81 toks/s, output: 152.57 toks/s]Processed prompts:  37%|███▋      | 329/900 [00:20<02:25,  3.93it/s, est. speed input: 10483.75 toks/s, output: 174.40 toks/s]Processed prompts:  37%|███▋      | 330/900 [00:22<06:14,  1.52it/s, est. speed input: 9413.66 toks/s, output: 167.61 toks/s] Processed prompts:  37%|███▋      | 331/900 [00:22<05:29,  1.73it/s, est. speed input: 9313.14 toks/s, output: 178.60 toks/s]Processed prompts:  37%|███▋      | 332/900 [00:24<07:04,  1.34it/s, est. speed input: 8823.40 toks/s, output: 181.48 toks/s]Processed prompts:  37%|███▋      | 333/900 [00:24<06:19,  1.50it/s, est. speed input: 8687.06 toks/s, output: 191.31 toks/s]Processed prompts:  37%|███▋      | 334/900 [00:25<07:52,  1.20it/s, est. speed input: 8270.25 toks/s, output: 196.50 toks/s]Processed prompts:  37%|███▋      | 335/900 [00:26<06:45,  1.39it/s, est. speed input: 8158.77 toks/s, output: 208.69 toks/s]Processed prompts:  37%|███▋      | 336/900 [00:27<07:17,  1.29it/s, est. speed input: 7895.69 toks/s, output: 217.08 toks/s]Processed prompts:  37%|███▋      | 337/900 [00:27<05:40,  1.65it/s, est. speed input: 7861.52 toks/s, output: 232.01 toks/s]Processed prompts:  38%|███▊      | 339/900 [00:27<03:45,  2.49it/s, est. speed input: 7807.80 toks/s, output: 262.57 toks/s]Processed prompts:  38%|███▊      | 340/900 [00:29<06:02,  1.55it/s, est. speed input: 7461.58 toks/s, output: 267.36 toks/s]Processed prompts:  38%|███▊      | 341/900 [00:29<05:33,  1.68it/s, est. speed input: 7361.56 toks/s, output: 281.72 toks/s]Processed prompts:  38%|███▊      | 342/900 [00:31<08:16,  1.12it/s, est. speed input: 6975.96 toks/s, output: 285.88 toks/s]Processed prompts:  38%|███▊      | 343/900 [00:31<06:22,  1.46it/s, est. speed input: 6953.70 toks/s, output: 304.05 toks/s]Processed prompts:  38%|███▊      | 344/900 [00:31<05:16,  1.76it/s, est. speed input: 6909.98 toks/s, output: 320.58 toks/s]Processed prompts:  38%|███▊      | 345/900 [00:33<07:33,  1.22it/s, est. speed input: 6621.60 toks/s, output: 327.21 toks/s]Processed prompts:  38%|███▊      | 346/900 [00:34<09:12,  1.00it/s, est. speed input: 6358.08 toks/s, output: 334.95 toks/s]Processed prompts:  39%|███▊      | 347/900 [00:37<13:53,  1.51s/it, est. speed input: 5902.85 toks/s, output: 333.10 toks/s]Processed prompts:  39%|███▊      | 348/900 [00:38<12:03,  1.31s/it, est. speed input: 5780.92 toks/s, output: 348.07 toks/s]Processed prompts:  39%|███▉      | 349/900 [00:38<10:03,  1.09s/it, est. speed input: 5707.65 toks/s, output: 365.99 toks/s]Processed prompts:  39%|███▉      | 350/900 [00:39<09:16,  1.01s/it, est. speed input: 5598.69 toks/s, output: 382.01 toks/s]Processed prompts:  39%|███▉      | 351/900 [00:42<13:17,  1.45s/it, est. speed input: 5278.71 toks/s, output: 384.00 toks/s]Processed prompts:  39%|███▉      | 352/900 [00:42<09:55,  1.09s/it, est. speed input: 5259.48 toks/s, output: 406.57 toks/s]Processed prompts:  39%|███▉      | 353/900 [00:42<08:00,  1.14it/s, est. speed input: 5222.21 toks/s, output: 427.36 toks/s]Processed prompts:  39%|███▉      | 354/900 [00:44<09:51,  1.08s/it, est. speed input: 5070.32 toks/s, output: 437.15 toks/s]Processed prompts:  39%|███▉      | 355/900 [00:47<15:00,  1.65s/it, est. speed input: 4766.78 toks/s, output: 435.56 toks/s]Processed prompts:  40%|███▉      | 356/900 [00:50<19:00,  2.10s/it, est. speed input: 4497.79 toks/s, output: 435.20 toks/s]Processed prompts:  40%|███▉      | 357/900 [01:04<50:45,  5.61s/it, est. speed input: 3536.71 toks/s, output: 371.74 toks/s]Processed prompts:  40%|███▉      | 358/900 [01:06<41:36,  4.61s/it, est. speed input: 3422.20 toks/s, output: 389.67 toks/s]Processed prompts:  40%|███▉      | 359/900 [01:11<43:38,  4.84s/it, est. speed input: 3171.41 toks/s, output: 392.03 toks/s]Processed prompts:  40%|████      | 360/900 [01:15<39:44,  4.42s/it, est. speed input: 3035.14 toks/s, output: 406.30 toks/s]Processed prompts:  40%|████      | 361/900 [01:22<47:12,  5.26s/it, est. speed input: 2773.99 toks/s, output: 403.82 toks/s]Processed prompts:  40%|████      | 362/900 [01:24<37:10,  4.15s/it, est. speed input: 2727.23 toks/s, output: 429.66 toks/s]Processed prompts:  40%|████      | 363/900 [01:25<31:08,  3.48s/it, est. speed input: 2671.29 toks/s, output: 453.47 toks/s]Processed prompts:  40%|████      | 364/900 [01:29<31:31,  3.53s/it, est. speed input: 2567.18 toks/s, output: 468.91 toks/s]Processed prompts:  41%|████      | 365/900 [01:33<33:10,  3.72s/it, est. speed input: 2458.67 toks/s, output: 482.34 toks/s]Processed prompts:  41%|████      | 366/900 [01:40<40:25,  4.54s/it, est. speed input: 2304.63 toks/s, output: 486.03 toks/s]Processed prompts:  41%|████      | 367/900 [01:54<1:04:58,  7.31s/it, est. speed input: 2029.59 toks/s, output: 463.21 toks/s]Processed prompts:  41%|████▏     | 372/900 [01:54<20:38,  2.35s/it, est. speed input: 2044.70 toks/s, output: 642.07 toks/s]  Processed prompts:  42%|████▏     | 374/900 [01:55<17:03,  1.95s/it, est. speed input: 2020.58 toks/s, output: 702.53 toks/s]Processed prompts:  43%|████▎     | 383/900 [02:00<08:32,  1.01it/s, est. speed input: 1985.85 toks/s, output: 956.47 toks/s]Processed prompts:  43%|████▎     | 385/900 [02:00<07:36,  1.13it/s, est. speed input: 1983.96 toks/s, output: 989.64 toks/s]Processed prompts:  43%|████▎     | 386/900 [02:01<07:36,  1.13it/s, est. speed input: 1976.62 toks/s, output: 987.17 toks/s]Processed prompts:  43%|████▎     | 387/900 [02:07<13:08,  1.54s/it, est. speed input: 1892.25 toks/s, output: 974.83 toks/s]Processed prompts:  43%|████▎     | 388/900 [02:11<16:35,  1.94s/it, est. speed input: 1836.38 toks/s, output: 960.34 toks/s]Processed prompts:  43%|████▎     | 389/900 [02:11<13:57,  1.64s/it, est. speed input: 1835.38 toks/s, output: 965.02 toks/s]Processed prompts:  43%|████▎     | 390/900 [02:14<15:28,  1.82s/it, est. speed input: 1805.79 toks/s, output: 956.47 toks/s]Processed prompts:  43%|████▎     | 391/900 [02:22<27:01,  3.19s/it, est. speed input: 1710.61 toks/s, output: 915.38 toks/s]Processed prompts:  44%|████▎     | 392/900 [02:23<23:13,  2.74s/it, est. speed input: 1697.41 toks/s, output: 934.98 toks/s]Processed prompts:  44%|████▎     | 393/900 [02:25<20:46,  2.46s/it, est. speed input: 1680.86 toks/s, output: 935.01 toks/s]Processed prompts:  44%|████▍     | 394/900 [02:26<18:07,  2.15s/it, est. speed input: 1668.91 toks/s, output: 940.32 toks/s]Processed prompts:  44%|████▍     | 395/900 [02:30<21:34,  2.56s/it, est. speed input: 1630.86 toks/s, output: 935.90 toks/s]Processed prompts:  44%|████▍     | 396/900 [02:37<32:55,  3.92s/it, est. speed input: 1558.22 toks/s, output: 914.00 toks/s]Processed prompts:  44%|████▍     | 397/900 [02:40<31:33,  3.76s/it, est. speed input: 1528.12 toks/s, output: 920.23 toks/s]Processed prompts:  44%|████▍     | 398/900 [02:42<26:23,  3.15s/it, est. speed input: 1514.77 toks/s, output: 925.03 toks/s]Processed prompts:  44%|████▍     | 399/900 [02:45<26:43,  3.20s/it, est. speed input: 1492.34 toks/s, output: 928.16 toks/s]Processed prompts:  44%|████▍     | 400/900 [02:46<21:30,  2.58s/it, est. speed input: 1484.96 toks/s, output: 946.52 toks/s]Processed prompts:  45%|████▍     | 401/900 [02:50<22:46,  2.74s/it, est. speed input: 1461.31 toks/s, output: 953.30 toks/s]Processed prompts:  45%|████▍     | 402/900 [02:51<18:16,  2.20s/it, est. speed input: 1455.46 toks/s, output: 964.27 toks/s]Processed prompts:  45%|████▍     | 403/900 [02:52<15:51,  1.91s/it, est. speed input: 1453.36 toks/s, output: 977.63 toks/s]Processed prompts:  45%|████▍     | 404/900 [02:57<23:14,  2.81s/it, est. speed input: 1415.60 toks/s, output: 973.65 toks/s]Processed prompts:  45%|████▌     | 405/900 [03:01<26:13,  3.18s/it, est. speed input: 1388.29 toks/s, output: 974.54 toks/s]Processed prompts:  45%|████▌     | 406/900 [03:05<28:20,  3.44s/it, est. speed input: 1359.76 toks/s, output: 975.31 toks/s]Processed prompts:  45%|████▌     | 407/900 [03:08<28:53,  3.52s/it, est. speed input: 1335.89 toks/s, output: 973.72 toks/s]Processed prompts:  45%|████▌     | 408/900 [03:10<22:56,  2.80s/it, est. speed input: 1329.93 toks/s, output: 989.55 toks/s]Processed prompts:  45%|████▌     | 409/900 [03:11<20:29,  2.50s/it, est. speed input: 1319.51 toks/s, output: 1001.50 toks/s]Processed prompts:  46%|████▌     | 410/900 [03:13<19:20,  2.37s/it, est. speed input: 1307.51 toks/s, output: 1012.04 toks/s]Processed prompts:  46%|████▌     | 411/900 [03:17<23:25,  2.87s/it, est. speed input: 1286.66 toks/s, output: 1012.01 toks/s]Processed prompts:  46%|████▌     | 412/900 [03:22<26:45,  3.29s/it, est. speed input: 1261.90 toks/s, output: 1001.64 toks/s]Processed prompts:  46%|████▌     | 413/900 [03:22<19:57,  2.46s/it, est. speed input: 1260.32 toks/s, output: 1019.26 toks/s]Processed prompts:  46%|████▌     | 414/900 [03:24<17:33,  2.17s/it, est. speed input: 1256.76 toks/s, output: 1031.89 toks/s]Processed prompts:  46%|████▌     | 415/900 [03:25<14:23,  1.78s/it, est. speed input: 1253.48 toks/s, output: 1047.44 toks/s]Processed prompts:  46%|████▌     | 416/900 [03:25<12:01,  1.49s/it, est. speed input: 1250.42 toks/s, output: 1063.18 toks/s]Processed prompts:  46%|████▋     | 417/900 [03:26<09:26,  1.17s/it, est. speed input: 1249.98 toks/s, output: 1061.11 toks/s]Processed prompts:  47%|████▋     | 421/900 [03:26<03:44,  2.13it/s, est. speed input: 1255.78 toks/s, output: 1060.13 toks/s]Processed prompts:  47%|████▋     | 423/900 [03:26<02:43,  2.92it/s, est. speed input: 1260.44 toks/s, output: 1059.58 toks/s]Processed prompts:  47%|████▋     | 424/900 [03:27<02:49,  2.81it/s, est. speed input: 1259.91 toks/s, output: 1057.56 toks/s]Processed prompts:  47%|████▋     | 425/900 [03:27<02:42,  2.92it/s, est. speed input: 1260.18 toks/s, output: 1056.68 toks/s]Processed prompts:  47%|████▋     | 426/900 [03:29<05:48,  1.36it/s, est. speed input: 1249.59 toks/s, output: 1055.67 toks/s]Processed prompts:  47%|████▋     | 427/900 [03:30<06:50,  1.15it/s, est. speed input: 1244.07 toks/s, output: 1053.89 toks/s]Processed prompts:  48%|████▊     | 428/900 [03:32<08:12,  1.04s/it, est. speed input: 1236.72 toks/s, output: 1047.72 toks/s]Processed prompts:  48%|████▊     | 429/900 [03:32<06:39,  1.18it/s, est. speed input: 1236.57 toks/s, output: 1054.45 toks/s]Processed prompts:  48%|████▊     | 430/900 [03:33<06:47,  1.15it/s, est. speed input: 1233.33 toks/s, output: 1051.54 toks/s]Processed prompts:  48%|████▊     | 431/900 [03:34<06:24,  1.22it/s, est. speed input: 1231.20 toks/s, output: 1067.22 toks/s]Processed prompts:  48%|████▊     | 432/900 [03:34<05:07,  1.52it/s, est. speed input: 1231.23 toks/s, output: 1065.96 toks/s]Processed prompts:  48%|████▊     | 433/900 [03:35<06:45,  1.15it/s, est. speed input: 1225.06 toks/s, output: 1078.14 toks/s]Processed prompts:  48%|████▊     | 434/900 [03:36<05:40,  1.37it/s, est. speed input: 1227.21 toks/s, output: 1076.16 toks/s]Processed prompts:  48%|████▊     | 436/900 [03:36<03:28,  2.23it/s, est. speed input: 1229.25 toks/s, output: 1075.09 toks/s]Processed prompts:  49%|████▊     | 437/900 [03:36<02:50,  2.71it/s, est. speed input: 1230.08 toks/s, output: 1074.51 toks/s]Processed prompts:  49%|████▊     | 438/900 [03:36<02:41,  2.86it/s, est. speed input: 1230.50 toks/s, output: 1091.93 toks/s]Processed prompts:  49%|████▉     | 440/900 [03:37<02:14,  3.41it/s, est. speed input: 1231.98 toks/s, output: 1091.58 toks/s]Processed prompts:  49%|████▉     | 443/900 [03:37<01:17,  5.89it/s, est. speed input: 1240.86 toks/s, output: 1092.05 toks/s]Processed prompts:  50%|████▉     | 447/900 [03:37<01:04,  7.07it/s, est. speed input: 1258.29 toks/s, output: 1089.93 toks/s]Processed prompts:  50%|████▉     | 449/900 [03:38<01:01,  7.28it/s, est. speed input: 1260.12 toks/s, output: 1088.69 toks/s]Processed prompts:  50%|█████     | 452/900 [03:38<00:49,  9.10it/s, est. speed input: 1264.11 toks/s, output: 1087.89 toks/s]Processed prompts:  51%|█████     | 457/900 [03:38<00:30, 14.39it/s, est. speed input: 1273.46 toks/s, output: 1087.52 toks/s]Processed prompts:  51%|█████     | 460/900 [03:38<00:40, 10.94it/s, est. speed input: 1277.46 toks/s, output: 1087.94 toks/s]Processed prompts:  51%|█████▏    | 462/900 [03:39<00:50,  8.72it/s, est. speed input: 1283.50 toks/s, output: 1086.06 toks/s]Processed prompts:  52%|█████▏    | 464/900 [03:39<01:00,  7.17it/s, est. speed input: 1290.13 toks/s, output: 1084.06 toks/s]Processed prompts:  52%|█████▏    | 466/900 [03:40<01:22,  5.25it/s, est. speed input: 1293.69 toks/s, output: 1081.54 toks/s]Processed prompts:  52%|█████▏    | 467/900 [03:40<01:38,  4.39it/s, est. speed input: 1294.50 toks/s, output: 1079.54 toks/s]Processed prompts:  52%|█████▏    | 469/900 [03:42<03:09,  2.27it/s, est. speed input: 1287.18 toks/s, output: 1071.83 toks/s]Processed prompts:  52%|█████▏    | 470/900 [03:43<03:25,  2.09it/s, est. speed input: 1285.20 toks/s, output: 1087.03 toks/s]Processed prompts:  52%|█████▏    | 471/900 [03:43<03:25,  2.09it/s, est. speed input: 1285.83 toks/s, output: 1084.75 toks/s]Processed prompts:  52%|█████▏    | 472/900 [03:45<05:02,  1.41it/s, est. speed input: 1278.87 toks/s, output: 1091.75 toks/s]Processed prompts:  53%|█████▎    | 473/900 [03:45<04:20,  1.64it/s, est. speed input: 1280.17 toks/s, output: 1090.29 toks/s]Processed prompts:  53%|█████▎    | 475/900 [03:46<04:11,  1.69it/s, est. speed input: 1278.76 toks/s, output: 1086.98 toks/s]Processed prompts:  53%|█████▎    | 476/900 [03:47<04:38,  1.53it/s, est. speed input: 1275.63 toks/s, output: 1086.39 toks/s]Processed prompts:  53%|█████▎    | 477/900 [03:50<09:07,  1.29s/it, est. speed input: 1259.36 toks/s, output: 1075.07 toks/s]Processed prompts:  53%|█████▎    | 478/900 [03:52<09:33,  1.36s/it, est. speed input: 1252.60 toks/s, output: 1085.52 toks/s]Processed prompts:  53%|█████▎    | 479/900 [04:01<23:05,  3.29s/it, est. speed input: 1209.90 toks/s, output: 1064.14 toks/s]Processed prompts:  53%|█████▎    | 480/900 [04:10<35:51,  5.12s/it, est. speed input: 1164.11 toks/s, output: 1030.21 toks/s]Processed prompts:  53%|█████▎    | 481/900 [04:11<27:04,  3.88s/it, est. speed input: 1162.30 toks/s, output: 1043.45 toks/s]Processed prompts:  54%|█████▎    | 482/900 [04:17<30:40,  4.40s/it, est. speed input: 1138.36 toks/s, output: 1035.11 toks/s]Processed prompts:  54%|█████▎    | 483/900 [04:17<22:16,  3.21s/it, est. speed input: 1138.55 toks/s, output: 1042.27 toks/s]Processed prompts:  54%|█████▍    | 484/900 [04:18<17:14,  2.49s/it, est. speed input: 1136.68 toks/s, output: 1046.98 toks/s]Processed prompts:  54%|█████▍    | 485/900 [04:18<12:26,  1.80s/it, est. speed input: 1137.59 toks/s, output: 1062.16 toks/s]Processed prompts:  54%|█████▍    | 486/900 [04:21<15:35,  2.26s/it, est. speed input: 1124.70 toks/s, output: 1064.22 toks/s]Processed prompts:  54%|█████▍    | 487/900 [04:28<24:58,  3.63s/it, est. speed input: 1097.96 toks/s, output: 1046.25 toks/s]Processed prompts:  54%|█████▍    | 488/900 [04:29<19:48,  2.89s/it, est. speed input: 1096.29 toks/s, output: 1048.74 toks/s]Processed prompts:  54%|█████▍    | 489/900 [04:30<15:12,  2.22s/it, est. speed input: 1095.13 toks/s, output: 1053.90 toks/s]Processed prompts:  54%|█████▍    | 490/900 [04:30<11:21,  1.66s/it, est. speed input: 1095.29 toks/s, output: 1067.63 toks/s]Processed prompts:  55%|█████▍    | 491/900 [04:32<11:06,  1.63s/it, est. speed input: 1090.50 toks/s, output: 1071.23 toks/s]Processed prompts:  55%|█████▍    | 492/900 [04:35<13:43,  2.02s/it, est. speed input: 1080.12 toks/s, output: 1062.22 toks/s]Processed prompts:  55%|█████▍    | 493/900 [04:41<21:20,  3.15s/it, est. speed input: 1060.96 toks/s, output: 1054.94 toks/s]Processed prompts:  55%|█████▍    | 494/900 [04:45<22:55,  3.39s/it, est. speed input: 1047.55 toks/s, output: 1054.70 toks/s]Processed prompts:  55%|█████▌    | 495/900 [04:45<16:59,  2.52s/it, est. speed input: 1047.46 toks/s, output: 1063.59 toks/s]Processed prompts:  55%|█████▌    | 496/900 [04:45<12:24,  1.84s/it, est. speed input: 1051.12 toks/s, output: 1062.61 toks/s]Processed prompts:  55%|█████▌    | 497/900 [04:46<09:33,  1.42s/it, est. speed input: 1051.30 toks/s, output: 1061.02 toks/s]Processed prompts:  55%|█████▌    | 499/900 [04:48<08:42,  1.30s/it, est. speed input: 1045.66 toks/s, output: 1060.10 toks/s]Processed prompts:  56%|█████▌    | 500/900 [04:48<06:54,  1.04s/it, est. speed input: 1046.16 toks/s, output: 1073.45 toks/s]Processed prompts:  56%|█████▌    | 501/900 [04:49<05:46,  1.15it/s, est. speed input: 1048.96 toks/s, output: 1071.99 toks/s]Processed prompts:  56%|█████▌    | 503/900 [04:49<03:38,  1.82it/s, est. speed input: 1053.14 toks/s, output: 1071.12 toks/s]Processed prompts:  56%|█████▌    | 504/900 [04:49<03:01,  2.18it/s, est. speed input: 1057.12 toks/s, output: 1070.57 toks/s]Processed prompts:  56%|█████▋    | 507/900 [04:49<01:44,  3.74it/s, est. speed input: 1060.27 toks/s, output: 1069.80 toks/s]Processed prompts:  57%|█████▋    | 510/900 [04:50<01:12,  5.40it/s, est. speed input: 1064.57 toks/s, output: 1069.14 toks/s]Processed prompts:  57%|█████▋    | 514/900 [04:50<00:49,  7.86it/s, est. speed input: 1069.28 toks/s, output: 1068.43 toks/s]Processed prompts:  58%|█████▊    | 518/900 [04:50<00:37, 10.23it/s, est. speed input: 1079.25 toks/s, output: 1067.88 toks/s]Processed prompts:  58%|█████▊    | 520/900 [04:50<00:41,  9.19it/s, est. speed input: 1081.50 toks/s, output: 1066.90 toks/s]Processed prompts:  58%|█████▊    | 526/900 [04:51<00:30, 12.21it/s, est. speed input: 1092.49 toks/s, output: 1065.82 toks/s]Processed prompts:  59%|█████▉    | 530/900 [04:51<00:25, 14.56it/s, est. speed input: 1096.63 toks/s, output: 1065.29 toks/s]Processed prompts:  59%|█████▉    | 533/900 [04:51<00:22, 16.27it/s, est. speed input: 1102.83 toks/s, output: 1064.89 toks/s]Processed prompts:  60%|█████▉    | 536/900 [04:51<00:23, 15.82it/s, est. speed input: 1107.20 toks/s, output: 1064.20 toks/s]Processed prompts:  60%|██████    | 540/900 [04:51<00:21, 16.68it/s, est. speed input: 1113.15 toks/s, output: 1063.48 toks/s]Processed prompts:  60%|██████    | 543/900 [04:52<00:22, 15.73it/s, est. speed input: 1115.97 toks/s, output: 1062.72 toks/s]Processed prompts:  61%|██████    | 547/900 [04:52<00:18, 19.15it/s, est. speed input: 1123.43 toks/s, output: 1062.35 toks/s]Processed prompts:  61%|██████    | 550/900 [04:52<00:26, 13.07it/s, est. speed input: 1125.86 toks/s, output: 1060.84 toks/s]Processed prompts:  61%|██████▏   | 553/900 [04:54<01:07,  5.13it/s, est. speed input: 1124.14 toks/s, output: 1069.32 toks/s]Processed prompts:  62%|██████▏   | 555/900 [04:54<01:05,  5.25it/s, est. speed input: 1127.62 toks/s, output: 1068.09 toks/s]Processed prompts:  62%|██████▏   | 557/900 [04:54<00:56,  6.03it/s, est. speed input: 1132.03 toks/s, output: 1067.51 toks/s]Processed prompts:  62%|██████▏   | 559/900 [04:54<00:49,  6.95it/s, est. speed input: 1134.13 toks/s, output: 1067.00 toks/s]Processed prompts:  62%|██████▏   | 561/900 [04:55<00:43,  7.71it/s, est. speed input: 1135.84 toks/s, output: 1066.38 toks/s]Processed prompts:  63%|██████▎   | 564/900 [04:55<00:35,  9.42it/s, est. speed input: 1139.80 toks/s, output: 1065.78 toks/s]Processed prompts:  63%|██████▎   | 568/900 [04:55<00:28, 11.83it/s, est. speed input: 1146.27 toks/s, output: 1065.07 toks/s]Processed prompts:  63%|██████▎   | 570/900 [04:58<02:00,  2.75it/s, est. speed input: 1138.80 toks/s, output: 1069.35 toks/s]Processed prompts:  64%|██████▎   | 572/900 [04:59<02:21,  2.31it/s, est. speed input: 1137.30 toks/s, output: 1078.43 toks/s]Processed prompts:  64%|██████▎   | 573/900 [04:59<02:05,  2.60it/s, est. speed input: 1139.19 toks/s, output: 1078.06 toks/s]Processed prompts:  64%|██████▍   | 574/900 [04:59<02:09,  2.51it/s, est. speed input: 1138.64 toks/s, output: 1090.06 toks/s]Processed prompts:  64%|██████▍   | 575/900 [05:00<02:04,  2.60it/s, est. speed input: 1139.75 toks/s, output: 1088.89 toks/s]Processed prompts:  64%|██████▍   | 576/900 [05:00<01:45,  3.06it/s, est. speed input: 1140.47 toks/s, output: 1089.34 toks/s]Processed prompts:  64%|██████▍   | 577/900 [05:00<01:39,  3.25it/s, est. speed input: 1141.69 toks/s, output: 1088.70 toks/s]Processed prompts:  64%|██████▍   | 578/900 [05:00<01:33,  3.43it/s, est. speed input: 1142.00 toks/s, output: 1101.43 toks/s]Processed prompts:  65%|██████▍   | 581/900 [05:01<01:14,  4.27it/s, est. speed input: 1145.21 toks/s, output: 1099.55 toks/s]Processed prompts:  65%|██████▍   | 584/900 [05:01<00:56,  5.56it/s, est. speed input: 1148.92 toks/s, output: 1098.48 toks/s]Processed prompts:  65%|██████▌   | 585/900 [05:02<01:19,  3.99it/s, est. speed input: 1149.62 toks/s, output: 1096.98 toks/s]Processed prompts:  65%|██████▌   | 586/900 [05:02<01:25,  3.69it/s, est. speed input: 1151.02 toks/s, output: 1096.72 toks/s]Processed prompts:  65%|██████▌   | 587/900 [05:02<01:18,  3.97it/s, est. speed input: 1153.66 toks/s, output: 1109.58 toks/s]Processed prompts:  65%|██████▌   | 589/900 [05:03<01:31,  3.41it/s, est. speed input: 1153.63 toks/s, output: 1113.24 toks/s]Processed prompts:  66%|██████▌   | 590/900 [05:04<01:50,  2.82it/s, est. speed input: 1153.42 toks/s, output: 1111.40 toks/s]Processed prompts:  66%|██████▌   | 591/900 [05:04<02:15,  2.29it/s, est. speed input: 1152.00 toks/s, output: 1122.26 toks/s]Processed prompts:  66%|██████▌   | 592/900 [05:06<04:15,  1.21it/s, est. speed input: 1146.46 toks/s, output: 1115.60 toks/s]Processed prompts:  66%|██████▌   | 594/900 [05:07<03:04,  1.66it/s, est. speed input: 1147.14 toks/s, output: 1116.96 toks/s]Processed prompts:  66%|██████▌   | 595/900 [05:07<02:45,  1.84it/s, est. speed input: 1147.06 toks/s, output: 1122.79 toks/s]Processed prompts:  66%|██████▌   | 596/900 [05:08<02:21,  2.15it/s, est. speed input: 1147.42 toks/s, output: 1121.96 toks/s]Processed prompts:  66%|██████▋   | 597/900 [05:08<02:42,  1.86it/s, est. speed input: 1147.63 toks/s, output: 1132.56 toks/s]Processed prompts:  67%|██████▋   | 599/900 [05:09<02:03,  2.44it/s, est. speed input: 1153.79 toks/s, output: 1132.97 toks/s]Processed prompts:  67%|██████▋   | 600/900 [05:09<01:49,  2.74it/s, est. speed input: 1155.04 toks/s, output: 1133.17 toks/s]Processed prompts:  67%|██████▋   | 603/900 [05:09<01:14,  4.01it/s, est. speed input: 1159.32 toks/s, output: 1131.76 toks/s]Processed prompts:  67%|██████▋   | 604/900 [05:10<01:23,  3.55it/s, est. speed input: 1162.24 toks/s, output: 1130.31 toks/s]Processed prompts:  67%|██████▋   | 605/900 [05:10<01:13,  4.01it/s, est. speed input: 1162.74 toks/s, output: 1129.85 toks/s]Processed prompts:  67%|██████▋   | 606/900 [05:10<01:28,  3.30it/s, est. speed input: 1162.05 toks/s, output: 1129.89 toks/s]Processed prompts:  67%|██████▋   | 607/900 [05:11<01:15,  3.87it/s, est. speed input: 1162.67 toks/s, output: 1129.46 toks/s]Processed prompts:  68%|██████▊   | 608/900 [05:11<01:58,  2.47it/s, est. speed input: 1161.86 toks/s, output: 1127.70 toks/s]Processed prompts:  68%|██████▊   | 609/900 [05:12<02:43,  1.78it/s, est. speed input: 1160.98 toks/s, output: 1125.38 toks/s]Processed prompts:  68%|██████▊   | 610/900 [05:13<02:32,  1.90it/s, est. speed input: 1160.71 toks/s, output: 1136.89 toks/s]Processed prompts:  68%|██████▊   | 611/900 [05:13<02:22,  2.03it/s, est. speed input: 1160.28 toks/s, output: 1135.41 toks/s]Processed prompts:  68%|██████▊   | 613/900 [05:15<03:05,  1.55it/s, est. speed input: 1156.46 toks/s, output: 1142.43 toks/s]Processed prompts:  68%|██████▊   | 614/900 [05:15<02:42,  1.76it/s, est. speed input: 1156.58 toks/s, output: 1142.49 toks/s]Processed prompts:  68%|██████▊   | 615/900 [05:15<02:13,  2.14it/s, est. speed input: 1157.37 toks/s, output: 1141.85 toks/s]Processed prompts:  69%|██████▊   | 617/900 [05:16<01:49,  2.59it/s, est. speed input: 1157.79 toks/s, output: 1152.83 toks/s]Processed prompts:  69%|██████▊   | 618/900 [05:16<01:59,  2.35it/s, est. speed input: 1157.21 toks/s, output: 1152.34 toks/s]Processed prompts:  69%|██████▉   | 619/900 [05:17<01:43,  2.73it/s, est. speed input: 1159.20 toks/s, output: 1153.17 toks/s]Processed prompts:  69%|██████▉   | 621/900 [05:19<03:44,  1.24it/s, est. speed input: 1151.59 toks/s, output: 1155.79 toks/s]Processed prompts:  69%|██████▉   | 622/900 [05:21<04:46,  1.03s/it, est. speed input: 1147.11 toks/s, output: 1151.61 toks/s]Processed prompts:  69%|██████▉   | 623/900 [05:21<03:48,  1.21it/s, est. speed input: 1149.28 toks/s, output: 1153.27 toks/s]Processed prompts:  69%|██████▉   | 624/900 [05:22<03:08,  1.46it/s, est. speed input: 1149.95 toks/s, output: 1153.32 toks/s]Processed prompts:  69%|██████▉   | 625/900 [05:24<05:36,  1.22s/it, est. speed input: 1141.94 toks/s, output: 1146.19 toks/s]Processed prompts:  70%|██████▉   | 626/900 [05:26<06:01,  1.32s/it, est. speed input: 1138.26 toks/s, output: 1153.24 toks/s]Processed prompts:  70%|██████▉   | 627/900 [05:29<07:35,  1.67s/it, est. speed input: 1130.67 toks/s, output: 1146.95 toks/s]Processed prompts:  70%|██████▉   | 628/900 [05:29<05:42,  1.26s/it, est. speed input: 1132.83 toks/s, output: 1148.90 toks/s]Processed prompts:  70%|██████▉   | 629/900 [05:31<06:38,  1.47s/it, est. speed input: 1127.45 toks/s, output: 1145.01 toks/s]Processed prompts:  70%|███████   | 630/900 [05:33<07:16,  1.62s/it, est. speed input: 1123.73 toks/s, output: 1141.63 toks/s]Processed prompts:  70%|███████   | 631/900 [05:33<05:57,  1.33s/it, est. speed input: 1123.44 toks/s, output: 1142.83 toks/s]Processed prompts:  70%|███████   | 632/900 [05:37<08:22,  1.88s/it, est. speed input: 1114.09 toks/s, output: 1137.43 toks/s]Processed prompts:  70%|███████   | 633/900 [05:39<09:42,  2.18s/it, est. speed input: 1105.92 toks/s, output: 1130.99 toks/s]Processed prompts:  70%|███████   | 634/900 [05:40<07:45,  1.75s/it, est. speed input: 1104.72 toks/s, output: 1140.58 toks/s]Processed prompts:  71%|███████   | 635/900 [05:44<10:08,  2.29s/it, est. speed input: 1094.79 toks/s, output: 1133.14 toks/s]Processed prompts:  71%|███████   | 636/900 [05:44<07:27,  1.69s/it, est. speed input: 1095.16 toks/s, output: 1139.69 toks/s]Processed prompts:  71%|███████   | 637/900 [05:46<07:32,  1.72s/it, est. speed input: 1090.98 toks/s, output: 1138.49 toks/s]Processed prompts:  71%|███████   | 638/900 [05:47<06:26,  1.48s/it, est. speed input: 1089.59 toks/s, output: 1139.98 toks/s]Processed prompts:  71%|███████   | 639/900 [05:54<13:22,  3.07s/it, est. speed input: 1069.62 toks/s, output: 1125.54 toks/s]Processed prompts:  71%|███████   | 640/900 [05:55<10:59,  2.53s/it, est. speed input: 1066.91 toks/s, output: 1133.03 toks/s]Processed prompts:  71%|███████   | 641/900 [06:09<26:05,  6.05s/it, est. speed input: 1026.82 toks/s, output: 1096.02 toks/s]Processed prompts:  71%|███████▏  | 642/900 [06:11<20:07,  4.68s/it, est. speed input: 1023.77 toks/s, output: 1102.63 toks/s]Processed prompts:  71%|███████▏  | 643/900 [06:11<15:09,  3.54s/it, est. speed input: 1022.47 toks/s, output: 1107.75 toks/s]Processed prompts:  72%|███████▏  | 644/900 [06:15<15:33,  3.65s/it, est. speed input: 1012.85 toks/s, output: 1107.18 toks/s]Processed prompts:  72%|███████▏  | 645/900 [06:25<23:04,  5.43s/it, est. speed input: 988.70 toks/s, output: 1090.24 toks/s] Processed prompts:  72%|███████▏  | 646/900 [06:42<37:19,  8.82s/it, est. speed input: 948.80 toks/s, output: 1055.11 toks/s]Processed prompts:  72%|███████▏  | 647/900 [06:43<27:27,  6.51s/it, est. speed input: 947.29 toks/s, output: 1062.28 toks/s]Processed prompts:  72%|███████▏  | 648/900 [06:46<23:09,  5.52s/it, est. speed input: 942.34 toks/s, output: 1064.03 toks/s]Processed prompts:  72%|███████▏  | 649/900 [06:47<16:59,  4.06s/it, est. speed input: 942.89 toks/s, output: 1072.34 toks/s]Processed prompts:  72%|███████▏  | 651/900 [06:47<09:41,  2.33s/it, est. speed input: 943.21 toks/s, output: 1090.76 toks/s]Processed prompts:  72%|███████▏  | 652/900 [06:48<07:50,  1.90s/it, est. speed input: 942.84 toks/s, output: 1099.24 toks/s]Processed prompts:  73%|███████▎  | 653/900 [06:48<06:26,  1.56s/it, est. speed input: 942.29 toks/s, output: 1107.60 toks/s]Processed prompts:  73%|███████▎  | 654/900 [06:49<05:21,  1.31s/it, est. speed input: 941.76 toks/s, output: 1115.92 toks/s]Processed prompts:  73%|███████▎  | 660/900 [06:50<01:57,  2.04it/s, est. speed input: 945.67 toks/s, output: 1163.56 toks/s]Processed prompts:  73%|███████▎  | 661/900 [06:51<02:01,  1.97it/s, est. speed input: 945.09 toks/s, output: 1161.84 toks/s]Processed prompts:  74%|███████▎  | 662/900 [06:51<01:58,  2.00it/s, est. speed input: 944.82 toks/s, output: 1160.55 toks/s]Processed prompts:  75%|███████▍  | 673/900 [06:51<00:37,  6.02it/s, est. speed input: 955.25 toks/s, output: 1159.37 toks/s]Processed prompts:  75%|███████▌  | 679/900 [06:52<00:25,  8.50it/s, est. speed input: 964.63 toks/s, output: 1158.88 toks/s]Processed prompts:  76%|███████▌  | 682/900 [06:52<00:24,  8.80it/s, est. speed input: 966.37 toks/s, output: 1158.09 toks/s]Processed prompts:  76%|███████▌  | 685/900 [06:52<00:24,  8.85it/s, est. speed input: 970.36 toks/s, output: 1157.19 toks/s]Processed prompts:  77%|███████▋  | 689/900 [06:52<00:19, 10.80it/s, est. speed input: 974.90 toks/s, output: 1166.63 toks/s]Processed prompts:  77%|███████▋  | 693/900 [06:53<00:24,  8.61it/s, est. speed input: 981.35 toks/s, output: 1164.78 toks/s]Processed prompts:  77%|███████▋  | 697/900 [06:53<00:19, 10.37it/s, est. speed input: 985.33 toks/s, output: 1164.25 toks/s]Processed prompts:  78%|███████▊  | 706/900 [06:53<00:11, 17.20it/s, est. speed input: 1002.78 toks/s, output: 1163.90 toks/s]Processed prompts:  79%|███████▉  | 709/900 [06:54<00:11, 16.76it/s, est. speed input: 1004.78 toks/s, output: 1163.38 toks/s]Processed prompts:  79%|███████▉  | 712/900 [06:54<00:11, 15.91it/s, est. speed input: 1006.63 toks/s, output: 1162.78 toks/s]Processed prompts:  79%|███████▉  | 715/900 [06:54<00:10, 17.47it/s, est. speed input: 1012.46 toks/s, output: 1162.48 toks/s]Processed prompts:  80%|███████▉  | 718/900 [06:54<00:12, 15.06it/s, est. speed input: 1014.27 toks/s, output: 1161.75 toks/s]Processed prompts:  80%|████████  | 720/900 [06:54<00:12, 14.25it/s, est. speed input: 1015.57 toks/s, output: 1161.30 toks/s]Processed prompts:  80%|████████  | 723/900 [06:55<00:11, 16.03it/s, est. speed input: 1018.02 toks/s, output: 1160.99 toks/s]Processed prompts:  81%|████████  | 725/900 [06:55<00:11, 15.90it/s, est. speed input: 1019.62 toks/s, output: 1160.68 toks/s]Processed prompts:  81%|████████  | 730/900 [06:55<00:08, 19.72it/s, est. speed input: 1024.09 toks/s, output: 1170.12 toks/s]Processed prompts:  81%|████████▏ | 733/900 [06:55<00:13, 11.97it/s, est. speed input: 1026.91 toks/s, output: 1168.73 toks/s]Processed prompts:  82%|████████▏ | 737/900 [06:56<00:11, 14.58it/s, est. speed input: 1032.96 toks/s, output: 1168.32 toks/s]Processed prompts:  82%|████████▏ | 739/900 [06:56<00:12, 12.83it/s, est. speed input: 1034.42 toks/s, output: 1167.70 toks/s]Processed prompts:  83%|████████▎ | 746/900 [06:56<00:07, 19.93it/s, est. speed input: 1043.01 toks/s, output: 1167.42 toks/s]Processed prompts:  83%|████████▎ | 749/900 [06:56<00:08, 17.09it/s, est. speed input: 1045.81 toks/s, output: 1166.75 toks/s]Processed prompts:  84%|████████▎ | 752/900 [06:57<00:10, 14.75it/s, est. speed input: 1050.47 toks/s, output: 1165.98 toks/s]Processed prompts:  84%|████████▍ | 755/900 [06:57<00:09, 14.99it/s, est. speed input: 1055.62 toks/s, output: 1165.47 toks/s]Processed prompts:  84%|████████▍ | 757/900 [06:57<00:14,  9.81it/s, est. speed input: 1056.82 toks/s, output: 1164.21 toks/s]Processed prompts:  84%|████████▍ | 759/900 [06:58<00:18,  7.58it/s, est. speed input: 1059.13 toks/s, output: 1172.69 toks/s]Processed prompts:  85%|████████▍ | 761/900 [06:58<00:18,  7.71it/s, est. speed input: 1062.29 toks/s, output: 1172.03 toks/s]Processed prompts:  85%|████████▍ | 763/900 [06:58<00:18,  7.38it/s, est. speed input: 1065.97 toks/s, output: 1171.26 toks/s]Processed prompts:  85%|████████▌ | 766/900 [06:58<00:16,  8.36it/s, est. speed input: 1072.47 toks/s, output: 1170.55 toks/s]Processed prompts:  85%|████████▌ | 767/900 [06:59<00:15,  8.56it/s, est. speed input: 1073.01 toks/s, output: 1170.28 toks/s]Processed prompts:  85%|████████▌ | 769/900 [06:59<00:13,  9.93it/s, est. speed input: 1077.89 toks/s, output: 1170.00 toks/s]Processed prompts:  86%|████████▌ | 771/900 [06:59<00:18,  7.00it/s, est. speed input: 1083.94 toks/s, output: 1168.72 toks/s]Processed prompts:  86%|████████▌ | 774/900 [07:01<00:46,  2.71it/s, est. speed input: 1083.24 toks/s, output: 1163.07 toks/s]Processed prompts:  86%|████████▌ | 775/900 [07:03<01:01,  2.02it/s, est. speed input: 1081.12 toks/s, output: 1160.33 toks/s]Processed prompts:  86%|████████▌ | 776/900 [07:03<01:01,  2.03it/s, est. speed input: 1081.74 toks/s, output: 1159.45 toks/s]Processed prompts:  86%|████████▋ | 777/900 [07:04<01:07,  1.83it/s, est. speed input: 1080.81 toks/s, output: 1167.02 toks/s]Processed prompts:  86%|████████▋ | 778/900 [07:05<01:16,  1.60it/s, est. speed input: 1079.37 toks/s, output: 1165.21 toks/s]Processed prompts:  87%|████████▋ | 779/900 [07:07<02:05,  1.03s/it, est. speed input: 1074.42 toks/s, output: 1159.74 toks/s]Processed prompts:  87%|████████▋ | 780/900 [07:08<01:57,  1.02it/s, est. speed input: 1073.29 toks/s, output: 1158.38 toks/s]Processed prompts:  87%|████████▋ | 781/900 [07:09<01:56,  1.02it/s, est. speed input: 1071.74 toks/s, output: 1156.68 toks/s]Processed prompts:  87%|████████▋ | 782/900 [07:11<02:34,  1.31s/it, est. speed input: 1067.34 toks/s, output: 1152.21 toks/s]Processed prompts:  87%|████████▋ | 783/900 [07:12<02:12,  1.14s/it, est. speed input: 1066.49 toks/s, output: 1159.80 toks/s]Processed prompts:  87%|████████▋ | 784/900 [07:14<02:50,  1.47s/it, est. speed input: 1061.78 toks/s, output: 1155.99 toks/s]Processed prompts:  87%|████████▋ | 785/900 [07:15<02:25,  1.27s/it, est. speed input: 1060.78 toks/s, output: 1155.40 toks/s]Processed prompts:  87%|████████▋ | 786/900 [07:16<02:35,  1.37s/it, est. speed input: 1057.97 toks/s, output: 1152.69 toks/s]Processed prompts:  88%|████████▊ | 788/900 [07:17<01:45,  1.06it/s, est. speed input: 1057.80 toks/s, output: 1153.63 toks/s]Processed prompts:  88%|████████▊ | 789/900 [07:17<01:22,  1.35it/s, est. speed input: 1058.50 toks/s, output: 1156.67 toks/s]Processed prompts:  88%|████████▊ | 790/900 [07:20<02:04,  1.13s/it, est. speed input: 1054.93 toks/s, output: 1152.66 toks/s]Processed prompts:  88%|████████▊ | 791/900 [07:21<02:03,  1.13s/it, est. speed input: 1053.31 toks/s, output: 1151.65 toks/s]Processed prompts:  88%|████████▊ | 792/900 [07:23<02:23,  1.33s/it, est. speed input: 1050.59 toks/s, output: 1148.98 toks/s]Processed prompts:  88%|████████▊ | 793/900 [07:24<02:23,  1.34s/it, est. speed input: 1048.36 toks/s, output: 1154.68 toks/s]Processed prompts:  88%|████████▊ | 794/900 [07:34<06:57,  3.93s/it, est. speed input: 1025.77 toks/s, output: 1131.56 toks/s]Processed prompts:  88%|████████▊ | 795/900 [07:36<05:42,  3.26s/it, est. speed input: 1022.95 toks/s, output: 1136.50 toks/s]Processed prompts:  88%|████████▊ | 796/900 [07:37<04:23,  2.53s/it, est. speed input: 1022.07 toks/s, output: 1142.70 toks/s]Processed prompts:  89%|████████▊ | 797/900 [07:41<05:15,  3.06s/it, est. speed input: 1013.42 toks/s, output: 1135.54 toks/s]Processed prompts:  89%|████████▊ | 798/900 [07:46<06:19,  3.72s/it, est. speed input: 1003.02 toks/s, output: 1126.72 toks/s]Processed prompts:  89%|████████▉ | 799/900 [07:52<07:25,  4.41s/it, est. speed input: 990.99 toks/s, output: 1120.99 toks/s] Processed prompts:  89%|████████▉ | 800/900 [07:53<05:45,  3.46s/it, est. speed input: 989.98 toks/s, output: 1122.81 toks/s]Processed prompts:  89%|████████▉ | 801/900 [07:58<06:01,  3.65s/it, est. speed input: 984.12 toks/s, output: 1121.74 toks/s]Processed prompts:  89%|████████▉ | 802/900 [08:03<06:55,  4.24s/it, est. speed input: 973.39 toks/s, output: 1117.17 toks/s]Processed prompts:  89%|████████▉ | 803/900 [08:08<07:21,  4.55s/it, est. speed input: 963.72 toks/s, output: 1113.51 toks/s]Processed prompts:  89%|████████▉ | 804/900 [08:14<07:36,  4.76s/it, est. speed input: 954.30 toks/s, output: 1107.81 toks/s]Processed prompts:  89%|████████▉ | 805/900 [08:14<05:32,  3.50s/it, est. speed input: 954.05 toks/s, output: 1114.83 toks/s]Processed prompts:  90%|████████▉ | 806/900 [08:19<05:54,  3.77s/it, est. speed input: 946.29 toks/s, output: 1113.17 toks/s]Processed prompts:  90%|████████▉ | 807/900 [08:25<07:02,  4.54s/it, est. speed input: 935.30 toks/s, output: 1106.36 toks/s]Processed prompts:  90%|████████▉ | 808/900 [08:26<05:05,  3.32s/it, est. speed input: 935.56 toks/s, output: 1113.43 toks/s]Processed prompts:  90%|████████▉ | 809/900 [08:28<04:40,  3.08s/it, est. speed input: 931.93 toks/s, output: 1115.97 toks/s]Processed prompts:  90%|█████████ | 810/900 [08:30<03:59,  2.66s/it, est. speed input: 929.64 toks/s, output: 1120.30 toks/s]Processed prompts:  90%|█████████ | 811/900 [08:33<04:01,  2.71s/it, est. speed input: 925.35 toks/s, output: 1122.12 toks/s]Processed prompts:  90%|█████████ | 812/900 [08:35<03:55,  2.68s/it, est. speed input: 921.71 toks/s, output: 1123.98 toks/s]Processed prompts:  90%|█████████ | 813/900 [08:36<03:17,  2.27s/it, est. speed input: 922.47 toks/s, output: 1129.01 toks/s]Processed prompts:  90%|█████████ | 814/900 [08:38<03:01,  2.11s/it, est. speed input: 920.16 toks/s, output: 1133.11 toks/s]Processed prompts:  91%|█████████ | 815/900 [08:39<02:36,  1.85s/it, est. speed input: 918.79 toks/s, output: 1131.22 toks/s]Processed prompts:  91%|█████████ | 816/900 [08:40<01:54,  1.36s/it, est. speed input: 919.15 toks/s, output: 1131.09 toks/s]Processed prompts:  91%|█████████ | 817/900 [08:41<01:43,  1.24s/it, est. speed input: 918.42 toks/s, output: 1129.42 toks/s]Processed prompts:  91%|█████████ | 819/900 [08:42<01:10,  1.14it/s, est. speed input: 918.46 toks/s, output: 1136.56 toks/s]Processed prompts:  92%|█████████▏| 827/900 [08:43<00:29,  2.44it/s, est. speed input: 924.32 toks/s, output: 1187.23 toks/s]Processed prompts:  92%|█████████▏| 829/900 [08:44<00:28,  2.52it/s, est. speed input: 927.04 toks/s, output: 1185.67 toks/s]Processed prompts:  93%|█████████▎| 834/900 [08:44<00:16,  4.07it/s, est. speed input: 935.95 toks/s, output: 1185.25 toks/s]Processed prompts:  95%|█████████▌| 855/900 [08:44<00:03, 13.61it/s, est. speed input: 965.31 toks/s, output: 1185.20 toks/s]Processed prompts:  96%|█████████▌| 861/900 [08:45<00:02, 13.85it/s, est. speed input: 974.51 toks/s, output: 1185.19 toks/s]Processed prompts:  96%|█████████▌| 866/900 [08:47<00:04,  7.50it/s, est. speed input: 976.64 toks/s, output: 1194.36 toks/s]Processed prompts:  97%|█████████▋| 870/900 [08:48<00:05,  5.52it/s, est. speed input: 976.88 toks/s, output: 1192.39 toks/s]Processed prompts:  97%|█████████▋| 873/900 [08:49<00:04,  5.63it/s, est. speed input: 978.19 toks/s, output: 1192.67 toks/s]Processed prompts:  97%|█████████▋| 875/900 [08:52<00:09,  2.61it/s, est. speed input: 973.98 toks/s, output: 1187.10 toks/s]Processed prompts:  97%|█████████▋| 877/900 [08:54<00:11,  2.01it/s, est. speed input: 971.46 toks/s, output: 1187.24 toks/s]Processed prompts:  98%|█████████▊| 878/900 [08:56<00:13,  1.60it/s, est. speed input: 969.19 toks/s, output: 1191.17 toks/s]Processed prompts:  98%|█████████▊| 879/900 [08:58<00:19,  1.09it/s, est. speed input: 964.83 toks/s, output: 1187.29 toks/s]Processed prompts:  98%|█████████▊| 880/900 [08:59<00:18,  1.11it/s, est. speed input: 964.00 toks/s, output: 1186.94 toks/s]Processed prompts:  98%|█████████▊| 881/900 [09:00<00:15,  1.23it/s, est. speed input: 963.91 toks/s, output: 1188.42 toks/s]Processed prompts:  98%|█████████▊| 882/900 [09:03<00:22,  1.23s/it, est. speed input: 959.73 toks/s, output: 1184.07 toks/s]Processed prompts:  98%|█████████▊| 883/900 [09:03<00:18,  1.11s/it, est. speed input: 959.43 toks/s, output: 1186.94 toks/s]Processed prompts:  98%|█████████▊| 884/900 [09:04<00:14,  1.11it/s, est. speed input: 959.57 toks/s, output: 1191.05 toks/s]Processed prompts:  98%|█████████▊| 885/900 [09:05<00:17,  1.16s/it, est. speed input: 956.89 toks/s, output: 1192.08 toks/s]Processed prompts:  98%|█████████▊| 886/900 [09:09<00:25,  1.79s/it, est. speed input: 951.65 toks/s, output: 1191.98 toks/s]Processed prompts:  99%|█████████▊| 887/900 [09:13<00:29,  2.31s/it, est. speed input: 946.08 toks/s, output: 1187.97 toks/s]Processed prompts:  99%|█████████▊| 888/900 [09:13<00:21,  1.78s/it, est. speed input: 946.03 toks/s, output: 1189.90 toks/s]Processed prompts:  99%|█████████▉| 889/900 [09:16<00:22,  2.01s/it, est. speed input: 942.36 toks/s, output: 1188.63 toks/s]Processed prompts:  99%|█████████▉| 890/900 [09:16<00:14,  1.46s/it, est. speed input: 942.80 toks/s, output: 1195.70 toks/s]Processed prompts:  99%|█████████▉| 891/900 [09:21<00:23,  2.64s/it, est. speed input: 934.29 toks/s, output: 1191.39 toks/s]Processed prompts:  99%|█████████▉| 892/900 [09:23<00:18,  2.33s/it, est. speed input: 932.34 toks/s, output: 1191.98 toks/s]Processed prompts:  99%|█████████▉| 893/900 [09:30<00:27,  3.91s/it, est. speed input: 920.63 toks/s, output: 1181.43 toks/s]Processed prompts:  99%|█████████▉| 894/900 [09:36<00:26,  4.36s/it, est. speed input: 912.59 toks/s, output: 1177.42 toks/s]Processed prompts:  99%|█████████▉| 895/900 [09:38<00:18,  3.67s/it, est. speed input: 910.00 toks/s, output: 1180.29 toks/s]Processed prompts: 100%|█████████▉| 896/900 [09:41<00:13,  3.39s/it, est. speed input: 906.42 toks/s, output: 1181.81 toks/s]Processed prompts: 100%|█████████▉| 897/900 [09:46<00:11,  3.98s/it, est. speed input: 898.83 toks/s, output: 1177.96 toks/s]Processed prompts: 100%|█████████▉| 898/900 [09:48<00:06,  3.29s/it, est. speed input: 897.06 toks/s, output: 1181.61 toks/s]Processed prompts: 100%|█████████▉| 899/900 [09:48<00:02,  2.50s/it, est. speed input: 896.96 toks/s, output: 1187.25 toks/s]Processed prompts: 100%|██████████| 900/900 [09:49<00:00,  1.83s/it, est. speed input: 897.39 toks/s, output: 1193.65 toks/s]Processed prompts: 100%|██████████| 900/900 [09:49<00:00,  1.83s/it, est. speed input: 897.39 toks/s, output: 1193.65 toks/s]Processed prompts: 100%|██████████| 900/900 [09:49<00:00,  1.53it/s, est. speed input: 897.39 toks/s, output: 1193.65 toks/s]
+Inference time: 600.22s (0.67s/sample)
+Peak VRAM (system-wide, all processes): 22.57 GB
+================================================================================
+Results
+================================================================================
+Accounting                                63.33% (19/30)
+Agriculture                               60.00% (18/30)
+Architecture_and_Engineering              43.33% (13/30)
+Art                                       66.67% (20/30)
+Art_Theory                                70.00% (21/30)
+Basic_Medical_Science                     70.00% (21/30)
+Biology                                   56.67% (17/30)
+Chemistry                                 30.00% (9/30)
+Clinical_Medicine                         63.33% (19/30)
+Computer_Science                          63.33% (19/30)
+Design                                    80.00% (24/30)
+Diagnostics_and_Laboratory_Medicine       36.67% (11/30)
+Economics                                 73.33% (22/30)
+Electronics                               43.33% (13/30)
+Energy_and_Power                          63.33% (19/30)
+Finance                                   70.00% (21/30)
+Geography                                 43.33% (13/30)
+History                                   70.00% (21/30)
+Literature                                80.00% (24/30)
+Manage                                    40.00% (12/30)
+Marketing                                 86.67% (26/30)
+Materials                                 40.00% (12/30)
+Math                                      60.00% (18/30)
+Mechanical_Engineering                    30.00% (9/30)
+Music                                     33.33% (10/30)
+Pharmacy                                  73.33% (22/30)
+Physics                                   53.33% (16/30)
+Psychology                                73.33% (22/30)
+Public_Health                             80.00% (24/30)
+Sociology                                 60.00% (18/30)
+--------------------------------------------------------------------------------
+Overall: 59.22%
+Saved predictions: results/opt_predictions_02.jsonl
+Saved metrics:     results/opt_metrics_02.json
+Total elapsed:     673.15s
+(EngineCore pid=37242) INFO 09-28 07:35:52 [core.py:1210] Shutdown initiated (timeout=0)
+(EngineCore pid=37242) INFO 09-28 07:35:52 [core.py:1233] Shutdown complete
+Evaluation Finished!
