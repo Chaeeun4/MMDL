@@ -1,10 +1,36 @@
 # MMMU-val Baseline Evaluation Report — Qwen3-VL-4B-Instruct
 
 - **팀명**: team4
-- **팀원**: _(기입)_
+- **팀원**: 2023093 박채은, 
 - **작성일**: 2026.09.28
-- **재현 커맨드**: `(예: bash scripts/run_mmmu_eval.sh)`
+- **재현 커맨드**: `bash scripts/run.sh)`
+- 
+<details>
+<summary>parsor list</summary>
 
+```
+bash scripts/run.sh \
+    --model_path "Qwen/Qwen3-VL-4B-Instruct"  # (필수) 평가할 모델의 HuggingFace ID 또는 로컬 경로
+    --data_root "/workspace/huggingface_cache"  # (필수) 데이터셋을 저장/로드할 로컬 캐시 폴더 경로 (네트워크 볼륨)
+    --output_file "results/predictions.jsonl"   # 각 문제별 모델의 예측 텍스트와 정답 여부가 기록되는 파일
+    --metrics_file "results/metrics.json"       # 최종 과목별 정답률, VRAM 사용량 등 전체 통계가 저장되는 파일
+    --greedy                                    # 이 플래그를 넣으면 확률이 가장 높은 단어만 고정 출력 (Temperature=0)
+    --seed 3407                                 # 언제 실행해도 동일한 결과가 나오도록 고정하는 난수 시드값
+    --temperature 0.7                           # 답변의 무작위성 (낮을수록 정해진 답만, 높을수록 다양한 답변)
+    --top_p 0.8                                 # 누적 확률 80% 내에 속하는 단어들만 다음 단어 후보로 고려
+    --top_k 20                                  # 확률이 가장 높은 상위 20개 단어만 후보로 남김
+    --repetition_penalty 1.0                    # 같은 단어나 문장을 반복하는 것을 억제 (1.0이면 페널티 없음)
+    --presence_penalty 1.5                      # 이전에 등장했던 단어를 다시 사용하는 것 자체에 페널티 부여
+    --max_new_tokens 32768                      # 모델이 한 문제당 생성할 수 있는 최대 텍스트 길이(토큰 수)
+    --min_pixels 3136                           # 모델에 입력될 이미지의 최소 픽셀 수 (이미지 깨짐 방지)
+    --max_pixels 12845056                       # 모델에 입력될 이미지의 최대 픽셀 수 (VRAM 초과 에러 방지)
+    --max_model_len 32768                       # 모델이 한 번에 처리하는 입력(프롬프트+이미지)+출력의 최대 총길이
+    --gpu_memory_utilization 0.90               # vLLM 엔진이 24GB VRAM 중 몇 %(0.90 = 90%)를 미리 점유할지 설정
+    --tensor_parallel_size 1                    # 사용할 GPU 개수 (기본값은 현재 꽂혀있는 GPU를 자동 인식)
+    --max_samples 10                            # (디버깅용) 전체 데이터셋을 다 풀지 않고 처음 N문제만 풀고 종료
+```
+
+</details>
 ---
 
 ## 1. 환경 / 재현성
@@ -12,12 +38,13 @@
 | 항목 | 값 |
 |---|---|
 | 모델 checkpoint | `Qwen/Qwen3-VL-4B-Instruct` (ebb281ec70b05090aa6165b016eac8ec08e71b17) |
-| 추론 백엔드 | _(예: transformers / vLLM, 버전)_ |
-| 사용 GPU | _(모델명, VRAM)_ |
-| 실측 peak VRAM | _(GB)_ |
-| 총 소요 시간 | _(900문제 기준)_ |
+| 추론 백엔드 | vLLM 0.19.1 version |
+| 사용 GPU | RTX 4090 (24GB vRAM) |
+| 실측 peak VRAM | 22.37 GB |
+| 총 소요 시간 | 699.45 sec |
 | 의존성 | _(requirements.txt / environment.yml 경로 링크)_ |
-| 실행 커맨드 | ```bash\n_(모델 checkpoint 위치와 MMMU 데이터 위치가 인자로 드러나야 함 — 예: --model_path <경로 또는 HF repo id> --data_root <MMMU 데이터 경로>. 하드코딩된 절대경로 대신 인자/환경변수로 받아서, 채점자가 자기 경로만 바꿔 끼우면 그대로 재현되게 작성)_\n``` |
+| 실행 커맨드 | ```python3 code/run_mmmu.py  --model_path "Qwen/Qwen3-VL-4B-Instruct"  --
+data_root "/root/.cache/huggingface/hub/datasets--MMMU--MMMU/"  --min_pixels $((256 * 32 * 32))  --max_pixels $((1280* 32 * 32))  --max_new_tokens 4096  --output_file results/opt_predictions_orig.jsonl  --metrics_file results/opt_metrics_orig.json\n``` |
 
 ## 2. 프롬프트
 
@@ -69,8 +96,9 @@ Answer the question using a single word or phrase.<|im_end|>
 
 | 파라미터 | 값 |
 |---|---|
-| `max_new_tokens` | |
-| 이미지 해상도 처리 (`min_pixels`/`max_pixels` 등) | |
+| `max_new_tokens` | 4096 |
+| 이미지 해상도 처리 (`min_pixels`/`max_pixels` 등) |  min_pixels=262144 (~0.26 MP)
+  max_pixels=1310720 (~1.31 MP) |
 
 **선택 근거** (본인이 사용한 인프라 제약과 어떻게 연결되는지 — 속도/VRAM/응답 잘림 등 trade-off): _(적절히)_
 
