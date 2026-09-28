@@ -3,8 +3,8 @@
 - **팀명**: team4
 - **팀원**: 2023093 박채은, 
 - **작성일**: 2026.09.28
-- **재현 커맨드**: `bash scripts/run.sh)`
-- 
+- **재현 커맨드**: `bash scripts/run.sh`
+  
 <details>
 <summary>parsor list</summary>
 
@@ -116,39 +116,43 @@ Answer the question using a single word or phrase.<|im_end|>
 
 ## 5. 결과
 
+네, 맞습니다. 67.4는 67.4%를 의미하며, 학회 논문이나 벤치마크 리더보드에서는 가독성을 위해 표 안의 '%' 기호를 생략하는 것이 표준적인 표기 방식입니다.
+
+헤더를 `Acc` 또는 `Acc (%)`로 두고 숫자만 표기하시면 훨씬 깔끔해집니다. 기호를 제거한 표 형식은 다음과 같습니다.
+
 | No. | Subject | Data Num | Acc |
-|---|---|---|---|
-| 1 | Accounting | 30 | |
-| 2 | Agriculture | 30 | |
-| 3 | Architecture_and_Engineering | 30 | |
-| 4 | Art | 30 | |
-| 5 | Art_Theory | 30 | |
-| 6 | Basic_Medical_Science | 30 | |
-| 7 | Biology | 30 | |
-| 8 | Chemistry | 30 | |
-| 9 | Clinical_Medicine | 30 | |
-| 10 | Computer_Science | 30 | |
-| 11 | Design | 30 | |
-| 12 | Diagnostics_and_Laboratory_Medicine | 30 | |
-| 13 | Economics | 30 | |
-| 14 | Electronics | 30 | |
-| 15 | Energy_and_Power | 30 | |
-| 16 | Finance | 30 | |
-| 17 | Geography | 30 | |
-| 18 | History | 30 | |
-| 19 | Literature | 30 | |
-| 20 | Manage | 30 | |
-| 21 | Marketing | 30 | |
-| 22 | Materials | 30 | |
-| 23 | Math | 30 | |
-| 24 | Mechanical_Engineering | 30 | |
-| 25 | Music | 30 | |
-| 26 | Pharmacy | 30 | |
-| 27 | Physics | 30 | |
-| 28 | Psychology | 30 | |
-| 29 | Public_Health | 30 | |
-| 30 | Sociology | 30 | |
-| | **Overall (macro avg)** | **900** | |
+| --- | --- | --- | --- |
+| 1 | Accounting | 30 | 66.67 |
+| 2 | Agriculture | 30 | 60.00 |
+| 3 | Architecture_and_Engineering | 30 | 36.67 |
+| 4 | Art | 30 | 66.67 |
+| 5 | Art_Theory | 30 | 70.00 |
+| 6 | Basic_Medical_Science | 30 | 70.00 |
+| 7 | Biology | 30 | 56.67 |
+| 8 | Chemistry | 30 | 26.67 |
+| 9 | Clinical_Medicine | 30 | 60.00 |
+| 10 | Computer_Science | 30 | 60.00 |
+| 11 | Design | 30 | 76.67 |
+| 12 | Diagnostics_and_Laboratory_Medicine | 30 | 40.00 |
+| 13 | Economics | 30 | 73.33 |
+| 14 | Electronics | 30 | 40.00 |
+| 15 | Energy_and_Power | 30 | 40.00 |
+| 16 | Finance | 30 | 66.67 |
+| 17 | Geography | 30 | 50.00 |
+| 18 | History | 30 | 70.00 |
+| 19 | Literature | 30 | 80.00 |
+| 20 | Manage | 30 | 40.00 |
+| 21 | Marketing | 30 | 86.67 |
+| 22 | Materials | 30 | 46.67 |
+| 23 | Math | 30 | 53.33 |
+| 24 | Mechanical_Engineering | 30 | 33.33 |
+| 25 | Music | 30 | 30.00 |
+| 26 | Pharmacy | 30 | 73.33 |
+| 27 | Physics | 30 | 63.33 |
+| 28 | Psychology | 30 | 73.33 |
+| 29 | Public_Health | 30 | 86.67 |
+| 30 | Sociology | 30 | 60.00 |
+|  | **Overall (macro avg)** | **900** | **58.56** |
 
 계산식: `Overall = mean(30개 과목 accuracy)` _(다른 방식을 썼다면 명시)_
 
@@ -157,8 +161,8 @@ Answer the question using a single word or phrase.<|im_end|>
 | | Overall (MMMU val) |
 |---|---|
 | 공식 (Qwen3-VL Technical Report) | 67.4 |
-| 우리 재현 결과 | |
-| 차이 (Δ) | |
+| 우리 재현 결과 | 58.56 |
+| 차이 (Δ) | 8.84 |
 
 ## 7. 격차 분석
 
