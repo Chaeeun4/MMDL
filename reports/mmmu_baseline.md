@@ -43,8 +43,8 @@ bash scripts/run.sh \
 | 실측 peak VRAM | 22.37 GB |
 | 총 소요 시간 | 699.45 sec |
 | 의존성 | _(requirements.txt / environment.yml 경로 링크)_ |
-| 실행 커맨드 | ```python3 code/run_mmmu.py  --model_path "Qwen/Qwen3-VL-4B-Instruct"  --
-data_root "/root/.cache/huggingface/hub/datasets--MMMU--MMMU/"  --min_pixels $((256 * 32 * 32))  --max_pixels $((1280* 32 * 32))  --max_new_tokens 4096  --output_file results/opt_predictions_orig.jsonl  --metrics_file results/opt_metrics_orig.json\n``` |
+| 실행 커맨드 | `python3 code/run_mmmu.py  --model_path "Qwen/Qwen3-VL-4B-Instruct"  --
+data_root "/root/.cache/huggingface/hub/datasets--MMMU--MMMU/"  --min_pixels $((256 * 32 * 32))  --max_pixels $((1280* 32 * 32))  --max_new_tokens 4096  --output_file results/opt_predictions_orig.jsonl  --metrics_file results/opt_metrics_orig.json\n` |
 
 ## 2. 프롬프트
 
@@ -97,8 +97,7 @@ Answer the question using a single word or phrase.<|im_end|>
 | 파라미터 | 값 |
 |---|---|
 | `max_new_tokens` | 4096 |
-| 이미지 해상도 처리 (`min_pixels`/`max_pixels` 등) |  min_pixels=262144 (~0.26 MP)
-  max_pixels=1310720 (~1.31 MP) |
+| 이미지 해상도 처리 (`min_pixels`/`max_pixels` 등) |  min_pixels=262144 (~0.26 MP), max_pixels=1310720 (~1.31 MP) |
 
 **선택 근거** (본인이 사용한 인프라 제약과 어떻게 연결되는지 — 속도/VRAM/응답 잘림 등 trade-off): _(적절히)_
 
@@ -115,10 +114,6 @@ Answer the question using a single word or phrase.<|im_end|>
   - 서술형: "answer ", "is " 등의 지시어(Indicators)를 기준으로 문장을 자른 후, 숫자 및 단위를 MMMU 정규화 규칙에 따라 정리하여 짧은 후보군 배열을 만듦. 이후 후보 텍스트가 실제 정답 문자열에 포함되는지(Containment rule) 여부로 정답을 판별함.
 
 ## 5. 결과
-
-네, 맞습니다. 67.4는 67.4%를 의미하며, 학회 논문이나 벤치마크 리더보드에서는 가독성을 위해 표 안의 '%' 기호를 생략하는 것이 표준적인 표기 방식입니다.
-
-헤더를 `Acc` 또는 `Acc (%)`로 두고 숫자만 표기하시면 훨씬 깔끔해집니다. 기호를 제거한 표 형식은 다음과 같습니다.
 
 | No. | Subject | Data Num | Acc |
 | --- | --- | --- | --- |
