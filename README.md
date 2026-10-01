@@ -36,11 +36,34 @@
 ```
 MMDL/
 ├── reports/
-│   └── mmmu_baseline.md        # Baseline evaluation 리포트 (SUBMISSION_TEMPLATE.md 기반)
+│   ├── mmmu_baseline.md            # Baseline evaluation 리포트 (SUBMISSION_TEMPLATE.md 기반, 4096 토큰·축소 해상도)
+│   └── mmmu_baseline_modelcard.md  # 모델 카드/공식 recipe 그대로 돌린 baseline 리포트 (branch jina)
 ├── code/
-├── results/
+│   ├── run_mmmu.py                 # 평가 파이프라인 (한 커맨드, 과목별 체크포인트/재개, 진단 로그)
+│   ├── summarize_run.py            # run 디렉토리 → 템플릿 표 + 진단 요약 (summary.md / summary.json)
+│   ├── prompt.py / parser.py / evaluator.py / dataset.py
+│   └── analyze_*.py                # 오답/길이/반복 분석 스크립트
+├── scripts/
+│   ├── check_gpu.sh                # GPU/디스크/패키지 사전 점검
+│   ├── run_baseline_modelcard.sh   # 공식 recipe baseline 을 백그라운드로 실행 (nohup, 로그/모니터링 포함)
+│   ├── status_run.sh               # 진행 상황/ETA/GPU 확인
+│   └── gpu_monitor.sh              # GPU 시계열 CSV
+├── docs/baseline_modelcard_runbook.md   # 서버에서 실행하는 절차
+├── runs/<run_name>/                # 실행 산출물 (predictions, metrics, manifest, 로그, GPU 시계열)
+├── results/, log/                  # 이전 실험 결과/로그
 └── README.md
 ```
+
+### Quick start (model-card baseline, branch `jina`)
+
+```bash
+bash scripts/check_gpu.sh                                     # 1. 빈 GPU 확인
+bash scripts/run_baseline_modelcard.sh --smoke --gpu 0        # 2. 2과목 빠른 점검 (~10분)
+bash scripts/run_baseline_modelcard.sh --gpu 0 --run_name baseline_modelcard_v1   # 3. 본 실행 (백그라운드)
+bash scripts/status_run.sh runs/baseline_modelcard_v1         # 4. 진행 확인
+python code/summarize_run.py runs/baseline_modelcard_v1 --compare results/opt_predictions_orig.jsonl   # 5. 요약/비교
+```
+자세한 절차: [docs/baseline_modelcard_runbook.md](docs/baseline_modelcard_runbook.md)
  
 ## Assignment #1 — Baseline Evaluation
  

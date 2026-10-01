@@ -17,3 +17,6 @@ __pycache__/
 # Hugging Face / model cache
 .cache/
 huggingface/
+
+# run artifacts temp files
+runs/**/*.tmp

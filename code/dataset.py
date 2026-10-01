@@ -116,6 +116,9 @@ def load_mmmu_validation(
                     "subfield": row.get("subfield", ""),
                     "img_type": row.get("img_type", ""),
                     "topic_difficulty": row.get("topic_difficulty", ""),
+                    # Gold rationale shipped with MMMU; kept for later
+                    # error analysis (never shown to the model).
+                    "explanation": row.get("explanation", ""),
                     "images": {
                         f"image_{i}": _normalize_image(row[f"image_{i}"])
                         for i in range(1, 8)
