@@ -28,6 +28,40 @@ IMAGE_REF_RE = re.compile(r"<image\s+(\d+)>")
 MIN_PIXELS = 1280 * 32 * 32
 MAX_PIXELS = 5120 * 32 * 32
 
+# Instruction appended after the question/options.
+#   official : MMMU llava1.5.yaml wording (the baseline). Do not change it.
+#   cot_open : official for multiple-choice; step-by-step + "Answer:" line
+#              for open questions only (they are answered in ~5 tokens with
+#              the official wording).
+#   cot_all  : step-by-step + "Answer:" line for both question types.
+MC_DIRECT = "Answer with the option's letter from the given choices directly."
+OPEN_DIRECT = "Answer the question using a single word or phrase."
+DESCRIBE_COT = ("First describe precisely what the image shows (for example every note, "
+                "symbol, atom, bond, label or value that matters), then reason step by "
+                "step, and write the final answer on the last line in the form "
+                "'Answer: {fmt}'.")
+MC_COT = ("Think step by step, then write the final answer on the last line "
+          "in the form 'Answer: <letter>'.")
+OPEN_COT = ("Solve the problem step by step, then write the final answer on "
+            "the last line in the form 'Answer: <value>'.")
+DESCRIPT_MC = DESCRIBE_COT.format(fmt="<letter>")
+DESCRIPT_OPEN = DESCRIBE_COT.format(fmt="<value>")
+PROMPT_VARIANTS = {
+    "official": {"mc": MC_DIRECT, "open": OPEN_DIRECT},
+    # perception probe: transcribe the image first, then reason
+    "describe_cot": {"mc": DESCRIPT_MC, "open": DESCRIPT_OPEN},
+    "cot_open": {"mc": MC_DIRECT, "open": OPEN_COT},
+    "cot_all": {"mc": MC_COT, "open": OPEN_COT},
+}
+PROMPT_VARIANT = "official"  # set by run_mmmu.py --prompt_variant
+# Text-only ablation: replace every image with the literal text "[image]"
+# so we can measure how much the answer depends on the picture.
+NO_IMAGES = False  # set by run_mmmu.py --no_images
+
+
+def _instruction(kind: str) -> str:
+    return PROMPT_VARIANTS[PROMPT_VARIANT][kind]
+
 
 def parse_options(options: str | List[str]) -> List[str]:
     """Parse MMMU's Python-literal options field."""
@@ -75,14 +109,17 @@ def _append_text_with_images(
                 f"{sample['id']}: referenced image_{image_index} is missing."
             )
 
-        content.append(
-            {
-                "type": "image",
-                "image": image,
-                "min_pixels": min_pixels,
-                "max_pixels": max_pixels,
-            }
-        )
+        if NO_IMAGES:
+            content.append({"type": "text", "text": "[image]"})
+        else:
+            content.append(
+                {
+                    "type": "image",
+                    "image": image,
+                    "min_pixels": min_pixels,
+                    "max_pixels": max_pixels,
+                }
+            )
         cursor = match.end()
 
     if cursor < len(text):
@@ -118,12 +155,12 @@ def build_prompt_text(sample: Dict[str, Any]) -> str:
         return (
             f"{question}\n\n"
             f"{choices}\n"
-            f"Answer with the option's letter from the given choices directly."
+            f"{_instruction('mc')}"
         )
 
     return (
         f"{question}\n\n"
-        f"Answer the question using a single word or phrase."
+        f"{_instruction('open')}"
     )
 
 
@@ -158,19 +195,14 @@ def build_messages(
         content.append(
             {
                 "type": "text",
-                "text": (
-                    "Answer with the option's letter from the given choices "
-                    "directly."
-                ),
+                "text": _instruction("mc"),
             }
         )
     else:
         content.append(
             {
                 "type": "text",
-                "text": (
-                    "\n\nAnswer the question using a single word or phrase."
-                ),
+                "text": "\n\n" + _instruction("open"),
             }
         )
 
@@ -208,8 +240,8 @@ def build_vllm_input(
     if video_inputs is not None:
         mm_data["video"] = video_inputs
 
-    return {
-        "prompt": prompt,
-        "multi_modal_data": mm_data,
-        "mm_processor_kwargs": video_kwargs,
-    }
+    out: Dict[str, Any] = {"prompt": prompt}
+    if mm_data:  # text-only ablation sends no multimodal payload at all
+        out["multi_modal_data"] = mm_data
+        out["mm_processor_kwargs"] = video_kwargs
+    return out

@@ -1,0 +1,35 @@
+diff --git a/code/run_mmmu.py b/code/run_mmmu.py
+index 5c13a76..c7b4c39 100644
+--- a/code/run_mmmu.py
++++ b/code/run_mmmu.py
+@@ -298,14 +298,25 @@ def collect_environment() -> Dict[str, Any]:
+ 
+ 
+ def resolve_pixels(arg: Any, processor: Any, key: str, fallback: int) -> Dict[str, Any]:
+-    """Resolve 'auto' to the checkpoint's processor default."""
++    """Resolve 'auto' to the checkpoint's processor default (fails loudly)."""
+     if arg != "auto":
+         return {"value": int(arg), "source": "cli"}
+     size = getattr(getattr(processor, "image_processor", None), "size", None)
+-    if isinstance(size, dict) and key in size:
+-        return {"value": int(size[key]),
+-                "source": f"processor.image_processor.size['{key}']"}
+-    return {"value": int(fallback), "source": "prompt.py fallback constant"}
++    val = None
++    if isinstance(size, dict):
++        val = size.get(key)
++    elif size is not None:  # transformers>=5 SizeDict-style object
++        val = getattr(size, key, None)
++        if val is None:
++            try:
++                val = size[key]
++            except Exception:
++                val = None
++    if val is None:
++        raise RuntimeError(
++            f"Cannot resolve processor default for '{key}' from "
++            f"image_processor.size={size!r}. Pass --min_pixels/--max_pixels explicitly.")
++    return {"value": int(val), "source": f"processor.image_processor.size['{key}']"}
+ 
+ 
+ def _logprob_summary(completion: Any, top_n: int) -> Dict[str, Any]:

@@ -67,7 +67,8 @@ from vllm import LLM, SamplingParams
 from dataset import DATASET_NAME, DATASET_REVISION, SUBJECTS, load_mmmu_validation
 from evaluator import evaluate, is_correct
 from parser import parse_answer
-from prompt import MAX_PIXELS, MIN_PIXELS, build_messages, build_vllm_input, parse_options
+import prompt as prompt_mod
+from prompt import MAX_PIXELS, MIN_PIXELS, PROMPT_VARIANTS, build_messages, build_vllm_input, parse_options
 
 
 MODEL_NAME = "Qwen/Qwen3-VL-4B-Instruct"
@@ -227,6 +228,21 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--subjects", type=str, default=None,
                         help="Debug only: comma-separated subject subset.")
 
+    # Ablations (anything other than the defaults is NOT the baseline).
+    parser.add_argument("--prompt_variant", choices=sorted(PROMPT_VARIANTS),
+                        default="official",
+                        help="Instruction wording (see code/prompt.py). "
+                             "'official' = baseline.")
+    parser.add_argument("--img_types", type=str, default=None,
+                        help="Keep only samples whose MMMU img_type contains one "
+                             "of these (comma-separated), e.g. 'Sheet Music,"
+                             "Chemical Structures'.")
+    parser.add_argument("--no_images", action="store_true", default=False,
+                        help="Text-only ablation: replace images with '[image]'.")
+    parser.add_argument("--question_types", type=str, default=None,
+                        help="Comma-separated subset of question types, e.g. "
+                             "'open'. Default: all.")
+
     return parser.parse_args()
 
 
@@ -298,14 +314,25 @@ def collect_environment() -> Dict[str, Any]:
 
 
 def resolve_pixels(arg: Any, processor: Any, key: str, fallback: int) -> Dict[str, Any]:
-    """Resolve 'auto' to the checkpoint's processor default."""
+    """Resolve 'auto' to the checkpoint's processor default (fails loudly)."""
     if arg != "auto":
         return {"value": int(arg), "source": "cli"}
     size = getattr(getattr(processor, "image_processor", None), "size", None)
-    if isinstance(size, dict) and key in size:
-        return {"value": int(size[key]),
-                "source": f"processor.image_processor.size['{key}']"}
-    return {"value": int(fallback), "source": "prompt.py fallback constant"}
+    val = None
+    if isinstance(size, dict):
+        val = size.get(key)
+    elif size is not None:  # transformers>=5 SizeDict-style object
+        val = getattr(size, key, None)
+        if val is None:
+            try:
+                val = size[key]
+            except Exception:
+                val = None
+    if val is None:
+        raise RuntimeError(
+            f"Cannot resolve processor default for '{key}' from "
+            f"image_processor.size={size!r}. Pass --min_pixels/--max_pixels explicitly.")
+    return {"value": int(val), "source": f"processor.image_processor.size['{key}']"}
 
 
 def _logprob_summary(completion: Any, top_n: int) -> Dict[str, Any]:
@@ -561,6 +588,22 @@ def main() -> None:
     subjects = (args.subjects.split(",") if args.subjects else None)
     samples = load_mmmu_validation(data_root=args.data_root, subjects=subjects)
 
+    if args.question_types:
+        keep = set(args.question_types.split(","))
+        samples = [x for x in samples if x["question_type"] in keep]
+        print(f"[ABLATION] question_types={sorted(keep)} -> {len(samples)} samples")
+    if args.img_types:
+        want = [t.strip() for t in args.img_types.split(",") if t.strip()]
+        samples = [x for x in samples if any(t in str(x.get("img_type", "")) for t in want)]
+        print(f"[ABLATION] img_types={want} -> {len(samples)} samples")
+    prompt_mod.NO_IMAGES = args.no_images
+    if args.no_images:
+        print("[ABLATION] no_images: every image replaced by the text '[image]'")
+    prompt_mod.PROMPT_VARIANT = args.prompt_variant
+    if args.prompt_variant != "official":
+        print(f"[ABLATION] prompt_variant={args.prompt_variant}: "
+              f"{PROMPT_VARIANTS[args.prompt_variant]}")
+
     if args.max_samples is not None:
         if args.max_samples <= 0:
             raise ValueError("--max_samples must be positive.")
@@ -571,7 +614,10 @@ def main() -> None:
 
     # ---- 2. model + processor -----------------------------------------
     print("Loading processor...", flush=True)
-    processor = AutoProcessor.from_pretrained(args.model_path, revision=MODEL_REVISION)
+    # A local directory (e.g. a merged LoRA checkpoint) has no hub revision.
+    model_revision = None if os.path.isdir(args.model_path) else MODEL_REVISION
+    print(f"Model revision: {model_revision or 'local checkpoint ' + os.path.abspath(args.model_path)}")
+    processor = AutoProcessor.from_pretrained(args.model_path, revision=model_revision)
 
     min_px = resolve_pixels(args.min_pixels, processor, "shortest_edge", MIN_PIXELS)
     max_px = resolve_pixels(args.max_pixels, processor, "longest_edge", MAX_PIXELS)
@@ -584,7 +630,7 @@ def main() -> None:
     print("Loading vLLM model...", flush=True)
     llm_kwargs: Dict[str, Any] = dict(
         model=args.model_path,
-        revision=MODEL_REVISION,
+        revision=model_revision,
         dtype="bfloat16",
         tensor_parallel_size=tensor_parallel_size,
         gpu_memory_utilization=args.gpu_memory_utilization,
@@ -634,6 +680,11 @@ def main() -> None:
             and args.repetition_penalty == OFFICIAL_RECIPE["repetition_penalty"]
             and args.presence_penalty == OFFICIAL_RECIPE["presence_penalty"]
             and args.max_new_tokens == OFFICIAL_RECIPE["out_seq_length"]),
+        "is_baseline_setting": (
+            not args.greedy and args.prompt_variant == "official"
+            and not args.question_types and not args.subjects
+            and not args.img_types and not args.no_images
+            and args.max_samples is None),
         "official_recipe_source":
             "https://github.com/QwenLM/Qwen3-VL#evaluation-reproduction "
             "(Generation Hyperparameters -> Instruct models)",
@@ -670,6 +721,12 @@ def main() -> None:
                 "{question}\\n\\nAnswer the question using a single word or phrase.",
             "code": "code/prompt.py",
         },
+        "prompt_variant": args.prompt_variant,
+        "prompt_instructions": PROMPT_VARIANTS[args.prompt_variant],
+        "question_types": args.question_types,
+        "img_types": args.img_types,
+        "no_images": args.no_images,
+        "model_revision_used": model_revision,
         "parser": "code/parser.py (MMMU eval_utils.py adapted; no random fallback; no LLM judge)",
         "environment": env,
         "outputs": {
@@ -791,6 +848,10 @@ def main() -> None:
     metrics["dataset_revision"] = DATASET_REVISION
     metrics["split"] = "validation"
     metrics["sampling"] = sampling_doc
+    metrics["prompt_variant"] = args.prompt_variant
+    metrics["question_types"] = args.question_types
+    metrics["img_types"] = args.img_types
+    metrics["no_images"] = args.no_images
     metrics["peak_vram_gb"] = peak_vram_gb
     metrics["image_pixels"] = {"min_pixels": min_px["value"], "max_pixels": max_px["value"],
                                "min_pixels_source": min_px["source"],

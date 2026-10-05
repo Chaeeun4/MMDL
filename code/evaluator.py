@@ -9,6 +9,7 @@ Sources:
 
 from __future__ import annotations
 
+import ast
 from collections import defaultdict
 from typing import Any, Dict, Iterable, List
 
@@ -65,11 +66,21 @@ def is_correct(result: Dict[str, Any]) -> bool:
         if isinstance(gold, list):
             return prediction in gold
         return prediction == gold
-    gold = _normalize_gold(result["gold"])
     if not isinstance(prediction, list):
         return False
-
-    return _open_answer_correct(gold, prediction)
+    gold = result["gold"]
+    # MMMU stores some open answers as a stringified list of accepted
+    # answers, e.g. "['$MgS$', 'MgS']". Accept any of them.
+    if isinstance(gold, str) and gold.strip().startswith("["):
+        try:
+            parsed = ast.literal_eval(gold)
+            if isinstance(parsed, list):
+                return any(
+                    _open_answer_correct(_normalize_gold(str(g)), prediction)
+                    for g in parsed)
+        except (ValueError, SyntaxError):
+            pass
+    return _open_answer_correct(_normalize_gold(gold), prediction)
 
 
 def evaluate(results: Iterable[Dict[str, Any]]) -> Dict[str, Any]:

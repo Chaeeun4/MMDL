@@ -186,6 +186,13 @@ def parse_open_response(response: str) -> List[Any]:
 
     response = response.strip().strip(".").lower()
 
+    # Step-by-step prompts end with "Answer: <value>". Only parse what follows
+    # the last marker. Official-prompt answers never contain it (checked on the
+    # baseline run: 0/53), so baseline scoring is unchanged.
+    marker = response.rfind("answer:")
+    if marker != -1 and response[marker + len("answer:"):].strip():
+        response = response[marker + len("answer:"):].strip().strip(".")
+
     sub_responses = re.split(r"\.\s(?=[A-Z])|\n", response)
     indicators = [
         "could be ",
