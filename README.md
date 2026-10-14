@@ -30,6 +30,11 @@
 - **팀명**: team4
 - **팀원**: 박채은, 류다연, 이진아, 정성원
 
+## Qwen3-VL-4B 실험 결과 요약 (이진아, branch `jina`)
+
+공식 recipe baseline 61.1% (공식 67.4). 서술형에 단계별 풀이 프롬프트를 주면 17.0 → 39.6% (p=0.0075),
+기호·도식 이미지 95문항은 "이미지 먼저 설명 후 풀이"로 32.6 → 45.3% (p≈0.05). seed 노이즈는 문항의 6.6%.
+전체 표·해석·재현 방법: **[docs/qwen3vl_experiments.md](docs/qwen3vl_experiments.md)**, 원자료: `experiments/`, `evidence/`.
 
 ## Repository Structure
  

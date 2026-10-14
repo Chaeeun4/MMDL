@@ -1,0 +1,560 @@
+{
+  "num_results": 95,
+  "num_subjects": 18,
+  "overall_percent": 35.75757575757576,
+  "micro_percent": 37.89473684210527,
+  "official_percent": 67.4,
+  "delta": -31.642424242424248,
+  "table": [
+    {
+      "no": 3,
+      "subject": "Architecture_and_Engineering",
+      "num": 3,
+      "correct": 0,
+      "accuracy": 0.0,
+      "seconds": 6.320093968883157,
+      "tok_mean": 15.0,
+      "tok_max": 27,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 5,
+      "subject": "Art_Theory",
+      "num": 4,
+      "correct": 4,
+      "accuracy": 1.0,
+      "seconds": 1.79795615747571,
+      "tok_mean": 3.75,
+      "tok_max": 6,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 6,
+      "subject": "Basic_Medical_Science",
+      "num": 2,
+      "correct": 0,
+      "accuracy": 0.0,
+      "seconds": 0.924134161323309,
+      "tok_mean": 15.0,
+      "tok_max": 28,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 7,
+      "subject": "Biology",
+      "num": 2,
+      "correct": 1,
+      "accuracy": 0.5,
+      "seconds": 5.30979741550982,
+      "tok_mean": 142.5,
+      "tok_max": 277,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 8,
+      "subject": "Chemistry",
+      "num": 18,
+      "correct": 6,
+      "accuracy": 0.3333333333333333,
+      "seconds": 535.425168229267,
+      "tok_mean": 3280.5555555555557,
+      "tok_max": 31626,
+      "length_stops": 1,
+      "pred_none": 0
+    },
+    {
+      "no": 11,
+      "subject": "Design",
+      "num": 1,
+      "correct": 0,
+      "accuracy": 0.0,
+      "seconds": 0.4593480974435806,
+      "tok_mean": 4.0,
+      "tok_max": 4,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 14,
+      "subject": "Electronics",
+      "num": 1,
+      "correct": 0,
+      "accuracy": 0.0,
+      "seconds": 0.33964576199650764,
+      "tok_mean": 3.0,
+      "tok_max": 3,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 15,
+      "subject": "Energy_and_Power",
+      "num": 3,
+      "correct": 2,
+      "accuracy": 0.6666666666666666,
+      "seconds": 497.6171059384942,
+      "tok_mean": 10964.0,
+      "tok_max": 31576,
+      "length_stops": 1,
+      "pred_none": 1
+    },
+    {
+      "no": 17,
+      "subject": "Geography",
+      "num": 5,
+      "correct": 2,
+      "accuracy": 0.4,
+      "seconds": 497.3623542673886,
+      "tok_mean": 6322.6,
+      "tok_max": 31577,
+      "length_stops": 1,
+      "pred_none": 0
+    },
+    {
+      "no": 18,
+      "subject": "History",
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0,
+      "seconds": 0.447906581684947,
+      "tok_mean": 7.0,
+      "tok_max": 7,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 20,
+      "subject": "Manage",
+      "num": 1,
+      "correct": 0,
+      "accuracy": 0.0,
+      "seconds": 5.383367478847504,
+      "tok_mean": 408.0,
+      "tok_max": 408,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 22,
+      "subject": "Materials",
+      "num": 5,
+      "correct": 2,
+      "accuracy": 0.4,
+      "seconds": 145.15015730634332,
+      "tok_mean": 3471.0,
+      "tok_max": 10032,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 23,
+      "subject": "Math",
+      "num": 1,
+      "correct": 0,
+      "accuracy": 0.0,
+      "seconds": 0.805466054007411,
+      "tok_mean": 21.0,
+      "tok_max": 21,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 24,
+      "subject": "Mechanical_Engineering",
+      "num": 5,
+      "correct": 1,
+      "accuracy": 0.2,
+      "seconds": 497.64760374091566,
+      "tok_mean": 6320.8,
+      "tok_max": 31590,
+      "length_stops": 1,
+      "pred_none": 0
+    },
+    {
+      "no": 25,
+      "subject": "Music",
+      "num": 30,
+      "correct": 9,
+      "accuracy": 0.3,
+      "seconds": 511.2302968725562,
+      "tok_mean": 1210.3,
+      "tok_max": 31637,
+      "length_stops": 1,
+      "pred_none": 0
+    },
+    {
+      "no": 26,
+      "subject": "Pharmacy",
+      "num": 11,
+      "correct": 7,
+      "accuracy": 0.6363636363636364,
+      "seconds": 24.006407031789422,
+      "tok_mean": 161.27272727272728,
+      "tok_max": 1695,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 28,
+      "subject": "Psychology",
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0,
+      "seconds": 0.32227493077516556,
+      "tok_mean": 2.0,
+      "tok_max": 2,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 30,
+      "subject": "Sociology",
+      "num": 1,
+      "correct": 0,
+      "accuracy": 0.0,
+      "seconds": 0.3912189397960901,
+      "tok_mean": 2.0,
+      "tok_max": 2,
+      "length_stops": 0,
+      "pred_none": 0
+    }
+  ],
+  "by_question_type": {
+    "multiple-choice": {
+      "num": 87,
+      "correct": 35,
+      "accuracy": 0.40229885057471265
+    },
+    "open": {
+      "num": 8,
+      "correct": 1,
+      "accuracy": 0.125
+    }
+  },
+  "by_difficulty": {
+    "Medium": {
+      "num": 47,
+      "correct": 19,
+      "accuracy": 0.40425531914893614
+    },
+    "Easy": {
+      "num": 28,
+      "correct": 10,
+      "accuracy": 0.35714285714285715
+    },
+    "Hard": {
+      "num": 20,
+      "correct": 7,
+      "accuracy": 0.35
+    }
+  },
+  "by_img_type": {
+    "['Chemical Structures']": {
+      "num": 30,
+      "correct": 11,
+      "accuracy": 0.36666666666666664
+    },
+    "['Sheet Music']": {
+      "num": 30,
+      "correct": 9,
+      "accuracy": 0.3
+    },
+    "['Technical Blueprints']": {
+      "num": 14,
+      "correct": 4,
+      "accuracy": 0.2857142857142857
+    },
+    "['Sketches and Drafts']": {
+      "num": 9,
+      "correct": 4,
+      "accuracy": 0.4444444444444444
+    },
+    "['Diagrams', 'Technical Blueprints']": {
+      "num": 5,
+      "correct": 3,
+      "accuracy": 0.6
+    },
+    "['Sketches and Drafts', 'Paintings']": {
+      "num": 2,
+      "correct": 2,
+      "accuracy": 1.0
+    },
+    "['Diagrams', 'Sketches and Drafts']": {
+      "num": 2,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "['Photographs', 'Technical Blueprints']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "['Sketches and Drafts', 'Medical Images']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "['Mathematical Notations', 'Chemical Structures']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    }
+  },
+  "finish_reason": {
+    "stop": 90,
+    "length": 5
+  },
+  "completion_tokens": {
+    "n": 95,
+    "mean": 2225.463157894737,
+    "median": 7,
+    "p90": 4674,
+    "p99": 31637,
+    "max": 31637,
+    "min": 2
+  },
+  "completion_tokens_correct": {
+    "n": 36,
+    "mean": 1523.5833333333333,
+    "median": 6.5,
+    "p90": 4674,
+    "p99": 31577,
+    "max": 31577,
+    "min": 2
+  },
+  "completion_tokens_wrong": {
+    "n": 59,
+    "mean": 2653.728813559322,
+    "median": 7,
+    "p90": 5342,
+    "p99": 31637,
+    "max": 31637,
+    "min": 2
+  },
+  "prompt_tokens": {
+    "n": 95,
+    "mean": 1556.8631578947368,
+    "median": 1142,
+    "p90": 2197,
+    "p99": 5616,
+    "max": 5616,
+    "min": 1085
+  },
+  "visual_tokens_per_sample": {
+    "n": 95,
+    "mean": 1479.9684210526316,
+    "median": 1065,
+    "p90": 2137,
+    "p99": 5536,
+    "max": 5536,
+    "min": 1025
+  },
+  "prediction_none": 1,
+  "prediction_none_ids": [
+    "validation_Energy_and_Power_12"
+  ],
+  "length_stops": 5,
+  "length_stops_wrong": 4,
+  "errors": 0,
+  "mc_prediction_distribution": {
+    "A": 21,
+    "B": 18,
+    "C": 35,
+    "D": 11,
+    "E": 1,
+    "null": 1
+  },
+  "mc_gold_distribution": {
+    "A": 22,
+    "B": 29,
+    "C": 23,
+    "D": 13
+  },
+  "longest_outputs": [
+    {
+      "id": "validation_Music_9",
+      "subject": "Music",
+      "tokens": 31637,
+      "finish": "length",
+      "correct": false
+    },
+    {
+      "id": "validation_Chemistry_7",
+      "subject": "Chemistry",
+      "tokens": 31626,
+      "finish": "length",
+      "correct": false
+    },
+    {
+      "id": "validation_Mechanical_Engineering_11",
+      "subject": "Mechanical_Engineering",
+      "tokens": 31590,
+      "finish": "length",
+      "correct": false
+    },
+    {
+      "id": "validation_Geography_1",
+      "subject": "Geography",
+      "tokens": 31577,
+      "finish": "length",
+      "correct": true
+    },
+    {
+      "id": "validation_Energy_and_Power_12",
+      "subject": "Energy_and_Power",
+      "tokens": 31576,
+      "finish": "length",
+      "correct": false
+    },
+    {
+      "id": "validation_Materials_9",
+      "subject": "Materials",
+      "tokens": 10032,
+      "finish": "stop",
+      "correct": false
+    },
+    {
+      "id": "validation_Chemistry_21",
+      "subject": "Chemistry",
+      "tokens": 7221,
+      "finish": "stop",
+      "correct": true
+    },
+    {
+      "id": "validation_Chemistry_12",
+      "subject": "Chemistry",
+      "tokens": 5342,
+      "finish": "stop",
+      "correct": false
+    },
+    {
+      "id": "validation_Chemistry_17",
+      "subject": "Chemistry",
+      "tokens": 4702,
+      "finish": "stop",
+      "correct": true
+    },
+    {
+      "id": "validation_Chemistry_26",
+      "subject": "Chemistry",
+      "tokens": 4674,
+      "finish": "stop",
+      "correct": true
+    }
+  ],
+  "timing": {
+    "elapsed_seconds": 2839.5753684304655,
+    "inference_seconds": 2736.616658054292,
+    "model_load_seconds": 102.70977308787405,
+    "subject_seconds_sum": 2730.9403029344976
+  },
+  "peak_vram_gb": 22.814453125,
+  "sampling": {
+    "greedy": false,
+    "seed": 3407,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repetition_penalty": 1.0,
+    "presence_penalty": 1.5,
+    "max_new_tokens": 32768,
+    "stop_token_ids": [
+      151645,
+      151643
+    ],
+    "logprobs": 5,
+    "matches_official_instruct_recipe": true,
+    "is_baseline_setting": false,
+    "official_recipe_source": "https://github.com/QwenLM/Qwen3-VL#evaluation-reproduction (Generation Hyperparameters -> Instruct models)"
+  },
+  "image_pixels": {
+    "min_pixels": 1048576,
+    "max_pixels": 16777216,
+    "min_pixels_source": "cli",
+    "max_pixels_source": "processor.image_processor.size['longest_edge']"
+  },
+  "environment": {
+    "hostname": "adsl-ubuntu",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "python_executable": "/data/jinagg/venv-mmdl/bin/python3",
+    "cwd": "/home/jinagg/MMDL",
+    "argv": [
+      "code/run_mmmu.py",
+      "--model_path",
+      "Qwen/Qwen3-VL-4B-Instruct",
+      "--data_root",
+      "/data/jinagg/hf_cache",
+      "--run_dir",
+      "/home/jinagg/MMDL/runs/p5_sym_hires",
+      "--batch_mode",
+      "subject",
+      "--logprobs",
+      "5",
+      "--seed",
+      "3407",
+      "--temperature",
+      "0.7",
+      "--top_p",
+      "0.8",
+      "--top_k",
+      "20",
+      "--repetition_penalty",
+      "1.0",
+      "--presence_penalty",
+      "1.5",
+      "--max_new_tokens",
+      "32768",
+      "--min_pixels",
+      "auto",
+      "--max_pixels",
+      "auto",
+      "--max_model_len",
+      "32768",
+      "--gpu_memory_utilization",
+      "0.90",
+      "--img_types",
+      "Sheet Music,Chemical Structures,Sketches and Drafts,Technical Blueprints",
+      "--min_pixels",
+      "1048576"
+    ],
+    "git_commit": "47b95cee9d58bff966f4cb1f81b50f84d0c7a26c",
+    "git_branch": "jina",
+    "git_dirty": true,
+    "packages": {
+      "vllm": "0.19.1",
+      "torch": "2.10.0+cu128",
+      "transformers": "5.18.0",
+      "qwen-vl-utils": "0.0.14",
+      "datasets": "5.0.1",
+      "flashinfer-python": "0.6.6",
+      "huggingface-hub": "1.33.0",
+      "tokenizers": "0.23.2",
+      "pillow": "12.3.0"
+    },
+    "torch_cuda": "12.8",
+    "cudnn": 91002,
+    "cuda_visible_devices": "0",
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 3090",
+        "driver": "570.211.01",
+        "memory_total_mib": 24576
+      }
+    ],
+    "env_vars": {
+      "HF_HOME": "/data/jinagg/hf_cache",
+      "VLLM_WORKER_MULTIPROC_METHOD": "spawn"
+    },
+    "torch_devices": [
+      "NVIDIA GeForce RTX 3090"
+    ]
+  },
+  "started_at": "2026-10-05T12:10:56+09:00",
+  "finished_at": "2026-10-05T12:58:16+09:00"
+}

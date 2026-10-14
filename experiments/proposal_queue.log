@@ -1,0 +1,32 @@
+[2026-10-05 09:55:04] queue start: all
+[2026-10-05 09:55:04] === p3_sym_cot : symbolic-image questions, step-by-step prompt: does reasoning fix them?
+[2026-10-05 11:51:28] p3_sym_cot finished exit=0 in 116 min
+[2026-10-05 11:51:28] === p4_sym_textonly : same questions WITHOUT images: how much does the model use the picture?
+[2026-10-05 12:10:49] p4_sym_textonly finished exit=0 in 19 min
+[2026-10-05 12:10:49] === p5_sym_hires : same questions, min 1024 visual tokens per image: is low resolution the cause?
+[2026-10-05 12:58:18] p5_sym_hires finished exit=0 in 47 min
+[2026-10-05 12:58:18] === p6_sym_describe : same questions, 'describe the image first' prompt: read transcriptions to separate perception vs reasoning
+[2026-10-05 14:55:06] p6_sym_describe finished exit=0 in 116 min
+[2026-10-05 14:55:06] === lora : LoRA feasibility on this GPU + merge + evaluate merged checkpoint (pipeline check)
+[2026-10-05 14:57:22] lora train done: peak 12.3 GB, 2.3100779353287715 s/step, ooms 0
+[2026-10-05 14:59:14] lora pipeline check (merged ckpt evaluated on 2 subjects): 46.666666666666664
+[2026-10-05 14:59:14] === p1_noise_seed1234 : baseline settings, only seed changed: noise floor for every comparison
+[2026-10-05 19:25:07] p1_noise_seed1234 finished exit=0 in 265 min
+[2026-10-05 19:25:07] === abl_temp0 : temperature 0 (presence_penalty kept): deterministic reference
+[2026-10-06 01:58:40] abl_temp0 finished exit=0 in 393 min
+[2026-10-06 01:58:40] building comparison table
+| run | settings | n | baseline | run | Δ (%p) | W→C / C→W | McNemar p | seed-noise flips | mean tokens | length stops |
+|---|---|---|---|---|---|---|---|---|---|---|
+| p1_noise_seed1234 | seed=1234 | 900 | 61.1% | 60.1% | -1.0 | 25 / 34 | 0.298 | — (this is the noise run) | 2871 | 54 |
+| abl_cot_open | prompt=cot_open, question_types=open | 53 | 17.0% | 39.6% | +22.6 | 15 / 3 | 0.00754 | 1 (net -1) | 4884 | 4 |
+| abl_temp0 | T=0.0 | 900 | 61.1% | 58.6% | -2.6 | 21 / 44 | 0.00592 | 59 (net -9) | 3819 | 94 |
+| lora_smoke_eval | ckpt=lora_smoke_merged, subjects=Art,Accounting | 60 | 68.3% | 46.7% | -21.7 | 4 / 17 | 0.0072 | 4 (net +0) | 2 | 0 |
+| p3_sym_cot | prompt=cot_all, img_types=Sheet Music,Chemical Structures,Sketches and Drafts,Technical Blueprints | 95 | 32.6% | 40.0% | +7.4 | 16 / 9 | 0.23 | 5 (net -1) | 9654 | 23 |
+| p4_sym_textonly | text-only, img_types=Sheet Music,Chemical Structures,Sketches and Drafts,Technical Blueprints | 95 | 32.6% | 24.2% | -8.4 | 7 / 15 | 0.134 | 5 (net -1) | 822 | 2 |
+| p5_sym_hires | min_px=1048576, img_types=Sheet Music,Chemical Structures,Sketches and Drafts,Technical Blueprints | 95 | 32.6% | 37.9% | +5.3 | 11 / 6 | 0.332 | 5 (net -1) | 2225 | 5 |
+| p6_sym_describe | prompt=describe_cot, img_types=Sheet Music,Chemical Structures,Sketches and Drafts,Technical Blueprints | 95 | 32.6% | 45.3% | +12.6 | 22 / 10 | 0.0501 | 5 (net -1) | 10226 | 25 |
+
+How to read: Δ and flips are computed on the questions each run covered. 'seed-noise flips' = how many of those questions changed correctness between the baseline and a rerun with only a different seed; a real effect needs W→C minus C→W well above that net noise and a small McNemar p.
+
+wrote runs/proposal_table.md
+[2026-10-06 01:58:40] queue done

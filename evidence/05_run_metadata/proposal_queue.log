@@ -1,0 +1,15 @@
+[2026-10-05 09:55:04] queue start: all
+[2026-10-05 09:55:04] === p3_sym_cot : symbolic-image questions, step-by-step prompt: does reasoning fix them?
+[2026-10-05 11:51:28] p3_sym_cot finished exit=0 in 116 min
+[2026-10-05 11:51:28] === p4_sym_textonly : same questions WITHOUT images: how much does the model use the picture?
+[2026-10-05 12:10:49] p4_sym_textonly finished exit=0 in 19 min
+[2026-10-05 12:10:49] === p5_sym_hires : same questions, min 1024 visual tokens per image: is low resolution the cause?
+[2026-10-05 12:58:18] p5_sym_hires finished exit=0 in 47 min
+[2026-10-05 12:58:18] === p6_sym_describe : same questions, 'describe the image first' prompt: read transcriptions to separate perception vs reasoning
+[2026-10-05 14:55:06] p6_sym_describe finished exit=0 in 116 min
+[2026-10-05 14:55:06] === lora : LoRA feasibility on this GPU + merge + evaluate merged checkpoint (pipeline check)
+[2026-10-05 14:57:22] lora train done: peak 12.3 GB, 2.3100779353287715 s/step, ooms 0
+[2026-10-05 14:59:14] lora pipeline check (merged ckpt evaluated on 2 subjects): 46.666666666666664
+[2026-10-05 14:59:14] === p1_noise_seed1234 : baseline settings, only seed changed: noise floor for every comparison
+[2026-10-05 19:25:07] p1_noise_seed1234 finished exit=0 in 265 min
+[2026-10-05 19:25:07] === abl_temp0 : temperature 0 (presence_penalty kept): deterministic reference
