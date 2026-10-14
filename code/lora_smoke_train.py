@@ -143,6 +143,10 @@ def main():
     from transformers import AutoModelForImageTextToText, AutoProcessor
     from peft import LoraConfig, get_peft_model
 
+    free, total = torch.cuda.mem_get_info()
+    if free < 14 * 2 ** 30:
+        raise SystemExit(f"Only {free / 2 ** 30:.1f} GiB of {total / 2 ** 30:.1f} GiB GPU memory is free. "
+                         "Another job (e.g. a vLLM evaluation) is using the GPU; run this after it finishes.")
     out = Path(args.out_dir)
     out.mkdir(parents=True, exist_ok=True)
     rev = None if os.path.isdir(args.model_path) else MODEL_REVISION

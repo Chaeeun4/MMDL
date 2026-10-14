@@ -614,6 +614,11 @@ def main() -> None:
 
     # ---- 2. model + processor -----------------------------------------
     print("Loading processor...", flush=True)
+    looks_local = args.model_path.startswith(("/", "./", "../", "~"))
+    if looks_local and not os.path.isdir(os.path.expanduser(args.model_path)):
+        raise FileNotFoundError(
+            f"--model_path {args.model_path} looks like a local path but no such directory "
+            "exists (did the LoRA merge step fail?).")
     # A local directory (e.g. a merged LoRA checkpoint) has no hub revision.
     model_revision = None if os.path.isdir(args.model_path) else MODEL_REVISION
     print(f"Model revision: {model_revision or 'local checkpoint ' + os.path.abspath(args.model_path)}")
