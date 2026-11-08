@@ -153,7 +153,11 @@ def generate(a):
     free = __import__("torch").cuda.mem_get_info()[0] / 2 ** 30
     if free < 20:
         raise SystemExit(f"only {free:.1f} GiB GPU memory free; another job is using the GPU")
-    pool = load_pool(a.pool, a.n_questions, a.seed, a.contamination)
+    if a.ids_file:  # e.g. resample the questions that had no clean sample
+        want = {l.strip() for l in open(a.ids_file) if l.strip()}
+        pool = [q for q in load_pool(a.pool, 10 ** 9, a.seed, a.contamination) if q["id"] in want]
+    else:
+        pool = load_pool(a.pool, a.n_questions, a.seed, a.contamination)
     agents = a.agents.split(",")
     print(f"questions {len(pool)} x agents {agents} x {a.samples} samples", flush=True)
     processor = AutoProcessor.from_pretrained(MODEL_NAME, revision=MODEL_REVISION)
@@ -206,33 +210,39 @@ def clean(r, max_tokens):
 
 
 def select(a):
-    rows = [json.loads(l) for l in open(a.gen)]
+    rows = [json.loads(l) for g in a.gen for l in open(g)]
     by_q = defaultdict(list)
     for r in rows:
         by_q[r["id"]].append(r)
     rnd = random.Random(a.seed)
-    sft, dpo, stats = [], [], defaultdict(int)
+    sft, dpo, stats, no_clean = [], [], defaultdict(int), []
     agent_acc = defaultdict(lambda: [0, 0])
     for qid, rs in by_q.items():
         for r in rs:
             agent_acc[r["agent"]][0] += r["correct"]
             agent_acc[r["agent"]][1] += 1
         pass_rate = sum(r["correct"] for r in rs) / len(rs)
-        good = sorted([r for r in rs if clean(r, a.max_tokens)], key=lambda r: r["n_tokens"])
+        good = sorted([r for r in rs if clean(r, a.max_tokens) and r["agent"] not in a.exclude_agents],
+                      key=lambda r: r["n_tokens"])
         if not good:
             stats["no_clean_sample"] += 1
+            no_clean.append(qid)
             continue
         if pass_rate == 1.0 and rnd.random() > a.keep_easy:  # all agents right: little to learn
             stats["easy_dropped"] += 1
             continue
+        kind = "mc" if rs[0]["is_mc"] else "open"
+        # shortest-first biases training answers toward very short reasoning (C1);
+        # random keeps the natural length distribution of clean answers (C1b)
+        cand = good if a.pick == "shortest" else rnd.sample(good, len(good))
+        limit = a.per_question if kind == "mc" else a.open_per_question
         picked, seen = [], set()
-        for r in good:  # shortest first, at most one per agent
+        for r in cand:  # at most one per agent
             if r["agent"] not in seen:
                 picked.append(r)
                 seen.add(r["agent"])
-            if len(picked) == a.per_question:
+            if len(picked) == limit:
                 break
-        kind = "mc" if rs[0]["is_mc"] else "open"
         for r in picked:
             sft.append({"id": f"{qid}::{r['agent']}", "images": r["images"],
                         "prompt": r["question"] + "\n\n" + TRAIN_INSTRUCTION[kind],
@@ -258,6 +268,7 @@ def select(a):
               "pass_at_any": round(sum(any(r["correct"] for r in rs) for rs in by_q.values()) / len(by_q), 3),
               "sft_mean_tokens": round(sum(len(r["response"]) for r in sft) / max(len(sft), 1) / 4)}
     json.dump(report, open(out / "select_report.json", "w"), indent=1)
+    (out / "no_clean_ids.txt").write_text("\n".join(no_clean) + "\n")
     print(json.dumps(report, indent=1))
 
 
@@ -277,15 +288,22 @@ def main():
     g.add_argument("--max_pixels", type=int, default=1280 * 32 * 32)
     g.add_argument("--chunk", type=int, default=512)
     g.add_argument("--seed", type=int, default=0)
+    g.add_argument("--ids_file", default=None, help="only these question ids (one per line)")
     g.add_argument("--out", required=True)
     s = sub.add_parser("select")
-    s.add_argument("--gen", required=True)
+    s.add_argument("--gen", required=True, nargs="+")
+    s.add_argument("--pick", choices=["shortest", "random"], default="shortest")
+    s.add_argument("--exclude_agents", default="", type=lambda x: set(filter(None, x.split(","))),
+                   help="agents whose answers are not used for SFT, e.g. 'concise'")
+    s.add_argument("--open_per_question", type=int, default=None, help="default: --per_question")
     s.add_argument("--out_dir", required=True)
     s.add_argument("--max_tokens", type=int, default=1500)
     s.add_argument("--per_question", type=int, default=2)
     s.add_argument("--keep_easy", type=float, default=0.3)
     s.add_argument("--seed", type=int, default=0)
     a = ap.parse_args()
+    if a.cmd == "select" and a.open_per_question is None:
+        a.open_per_question = a.per_question
     generate(a) if a.cmd == "generate" else select(a)
 
 

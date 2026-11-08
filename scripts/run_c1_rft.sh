@@ -6,6 +6,9 @@
 # Every step is skipped if its output already exists, so rerunning resumes.
 #
 #   setsid nohup bash scripts/run_c1_rft.sh > /data/$USER/rft/c1/queue.log 2>&1 < /dev/null &
+# C1b (same generations, no 'concise' answers, random pick):
+#   NAME=c1b GEN=/data/$USER/rft/c1/gen.jsonl SELECT_ARGS="--pick random --exclude_agents concise" \
+#     setsid nohup bash scripts/run_c1_rft.sh > /data/$USER/rft/c1b/queue.log 2>&1 < /dev/null &
 set -euo pipefail
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_DIR"
@@ -14,6 +17,8 @@ export VLLM_WORKER_MULTIPROC_METHOD=spawn TOKENIZERS_PARALLELISM=false
 
 NAME="${NAME:-c1}"
 NQ="${NQ:-6000}"
+GEN="${GEN:-}"                       # reuse another run's generations (skips generation)
+SELECT_ARGS="${SELECT_ARGS:-}"       # extra args for gen_rft.py select
 WORK="/data/$USER/rft/$NAME"
 CKPT="/data/$USER/ckpt/${NAME}_rft"
 POOL="/data/$USER/train_data/ViRL39K"
@@ -24,14 +29,16 @@ gpu_clear() {  # never start a job on top of a leftover engine
   if (( used > 1000 )); then log "GPU busy (${used} MiB used) - stopping"; nvidia-smi; exit 1; fi
 }
 
-if [[ ! -f "$WORK/gen.done" ]]; then
+if [[ -n "$GEN" ]]; then
+  log "reusing generations from $GEN"
+elif [[ ! -f "$WORK/gen.done" ]]; then
   gpu_clear; log "generate: $NQ questions x 4 agents"
   python code/gen_rft.py generate --pool "$POOL" --n_questions "$NQ" --chunk 1024 --out "$WORK/gen.jsonl"
   touch "$WORK/gen.done"
 fi
 
 log "select"
-python code/gen_rft.py select --gen "$WORK/gen.jsonl" --out_dir "$WORK"
+python code/gen_rft.py select --gen ${GEN:-$WORK/gen.jsonl} --out_dir "$WORK" $SELECT_ARGS
 
 if [[ ! -f "$CKPT/adapter/adapter_config.json" ]]; then
   gpu_clear; log "train LoRA"
@@ -51,7 +58,7 @@ run_eval() {  # $1 run name, $2 model path
       -- --prompt_variant describe_cot || log "eval $1 exited non-zero"
 }
 run_eval "${NAME}_rft_describe" "${CKPT}_merged"
-run_eval "base_describe" "Qwen/Qwen3-VL-4B-Instruct"
+run_eval "base_describe" "Qwen/Qwen3-VL-4B-Instruct"  # shared reference, run once
 
 log "compare"
 python code/compare_runs.py --baseline runs/base_describe runs/${NAME}_rft_describe --out "$WORK/compare.md" || true
