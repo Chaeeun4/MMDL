@@ -1,0 +1,64 @@
+{
+ "train": "/data/jinagg/train_data/ViRL39K/39Krelease.parquet",
+ "n_train": 38870,
+ "n_benchmark": 15010,
+ "n_flagged": 14,
+ "flagged": {
+  "Processed-21b58d02-efac-41dd-9e9b-a8b979d09bee": {
+   "match": "test_Chemistry_522",
+   "kind": "8gram 36/41"
+  },
+  "Processed-c10f7b0f-ba39-4704-805e-0123132cb1e4": {
+   "match": "test_Chemistry_248",
+   "kind": "8gram 28/33"
+  },
+  "Processed-ab5ef7e4-a65d-4fc0-a9d6-6db88f8de483": {
+   "match": "test_Chemistry_304",
+   "kind": "8gram 81/113"
+  },
+  "Processed-54bce1c3-e3ed-4f8b-8b1a-aaeeccca4fec": {
+   "match": "test_Chemistry_91",
+   "kind": "8gram 72/108"
+  },
+  "Processed-e9dfc051-57aa-4530-abd7-032094802a17": {
+   "match": "test_Chemistry_450",
+   "kind": "8gram 74/117"
+  },
+  "Processed-dd256957-1527-4400-9e62-01b2b6a79d15": {
+   "match": "test_Chemistry_298",
+   "kind": "8gram 77/121"
+  },
+  "Processed-9c2d1970-b99c-4fd0-9384-29abae039e37": {
+   "match": "test_Math_25",
+   "kind": "8gram 10/10"
+  },
+  "Processed-1091f957-9d60-4b43-a951-53a7a55e9227": {
+   "match": "test_Physics_66",
+   "kind": "8gram 15/25"
+  },
+  "Processed-bd20adac-3adc-4ec6-831a-7e7a4dfd6290": {
+   "match": "test_Physics_66",
+   "kind": "8gram 15/25"
+  },
+  "Processed-452b434c-1580-46d2-a590-f1b117c88dd8": {
+   "match": "test_Physics_190",
+   "kind": "8gram 19/32"
+  },
+  "Processed-7c3dcf07-49ca-42eb-b88d-b70f13354af2": {
+   "match": "test_Physics_377",
+   "kind": "8gram 17/28"
+  },
+  "Processed-caef9a5b-7849-4e34-873d-e98a8829661d": {
+   "match": "test_Physics_17",
+   "kind": "8gram 13/25"
+  },
+  "MMK12-a54f8e50-5b93-4012-959f-faf24cd1c749": {
+   "match": "test_Music_35",
+   "kind": "exact"
+  },
+  "MMK12-77b5bb7a-e724-4a5c-9c39-a932cd696688": {
+   "match": "test_Music_35",
+   "kind": "exact"
+  }
+ }
+}

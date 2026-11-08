@@ -1,0 +1,179 @@
+{
+  "status": "completed",
+  "started_at": "2026-11-04T20:47:38+09:00",
+  "model": "Qwen/Qwen3-VL-4B-Instruct",
+  "model_path": "/data/jinagg/ckpt/c1_rft_merged",
+  "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "dataset": "MMMU/MMMU",
+  "dataset_revision": "98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68",
+  "split": "validation",
+  "num_samples": 900,
+  "args": {
+    "model_path": "/data/jinagg/ckpt/c1_rft_merged",
+    "data_root": "/data/jinagg/hf_cache",
+    "run_dir": "/home/jinagg/MMDL/runs/c1_rft_describe",
+    "output_file": null,
+    "metrics_file": null,
+    "resume": false,
+    "greedy": false,
+    "seed": 3407,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repetition_penalty": 1.0,
+    "presence_penalty": 1.5,
+    "max_new_tokens": 32768,
+    "min_pixels": "auto",
+    "max_pixels": "auto",
+    "max_model_len": 32768,
+    "gpu_memory_utilization": 0.9,
+    "tensor_parallel_size": null,
+    "max_num_seqs": null,
+    "batch_mode": "subject",
+    "logprobs": 5,
+    "no_prompt_text": false,
+    "max_samples": null,
+    "subjects": null,
+    "prompt_variant": "describe_cot",
+    "img_types": null,
+    "no_images": false,
+    "question_types": null
+  },
+  "resolved": {
+    "min_pixels": {
+      "value": 65536,
+      "source": "processor.image_processor.size['shortest_edge']"
+    },
+    "max_pixels": {
+      "value": 16777216,
+      "source": "processor.image_processor.size['longest_edge']"
+    },
+    "tensor_parallel_size": 1,
+    "max_model_len": 32768,
+    "gpu_memory_utilization": 0.9,
+    "batch_mode": "subject"
+  },
+  "sampling": {
+    "greedy": false,
+    "seed": 3407,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repetition_penalty": 1.0,
+    "presence_penalty": 1.5,
+    "max_new_tokens": 32768,
+    "stop_token_ids": [
+      151645,
+      151643
+    ],
+    "logprobs": 5,
+    "matches_official_instruct_recipe": true,
+    "is_baseline_setting": false,
+    "official_recipe_source": "https://github.com/QwenLM/Qwen3-VL#evaluation-reproduction (Generation Hyperparameters -> Instruct models)"
+  },
+  "prompt_source": {
+    "template": "MMMU official llava1.5.yaml-style prompt + Qwen3-VL chat template",
+    "multiple_choice": "{question}\\n\\n(A) {opt}\\n(B) {opt}...\\nAnswer with the option's letter from the given choices directly.",
+    "open": "{question}\\n\\nAnswer the question using a single word or phrase.",
+    "code": "code/prompt.py"
+  },
+  "prompt_variant": "describe_cot",
+  "prompt_instructions": {
+    "mc": "First describe precisely what the image shows (for example every note, symbol, atom, bond, label or value that matters), then reason step by step, and write the final answer on the last line in the form 'Answer: <letter>'.",
+    "open": "First describe precisely what the image shows (for example every note, symbol, atom, bond, label or value that matters), then reason step by step, and write the final answer on the last line in the form 'Answer: <value>'."
+  },
+  "question_types": null,
+  "img_types": null,
+  "no_images": false,
+  "model_revision_used": null,
+  "parser": "code/parser.py (MMMU eval_utils.py adapted; no random fallback; no LLM judge)",
+  "environment": {
+    "hostname": "adsl-ubuntu",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "python_executable": "/data/jinagg/venv-mmdl/bin/python3",
+    "cwd": "/home/jinagg/MMDL",
+    "argv": [
+      "code/run_mmmu.py",
+      "--model_path",
+      "/data/jinagg/ckpt/c1_rft_merged",
+      "--data_root",
+      "/data/jinagg/hf_cache",
+      "--run_dir",
+      "/home/jinagg/MMDL/runs/c1_rft_describe",
+      "--batch_mode",
+      "subject",
+      "--logprobs",
+      "5",
+      "--seed",
+      "3407",
+      "--temperature",
+      "0.7",
+      "--top_p",
+      "0.8",
+      "--top_k",
+      "20",
+      "--repetition_penalty",
+      "1.0",
+      "--presence_penalty",
+      "1.5",
+      "--max_new_tokens",
+      "32768",
+      "--min_pixels",
+      "auto",
+      "--max_pixels",
+      "auto",
+      "--max_model_len",
+      "32768",
+      "--gpu_memory_utilization",
+      "0.90",
+      "--prompt_variant",
+      "describe_cot"
+    ],
+    "git_commit": "024ea1798f8f03ec8b8cbb5ce2197e7f580cfb32",
+    "git_branch": "jina",
+    "git_dirty": true,
+    "packages": {
+      "vllm": "0.19.1",
+      "torch": "2.10.0+cu128",
+      "transformers": "5.18.0",
+      "qwen-vl-utils": "0.0.14",
+      "datasets": "5.0.1",
+      "flashinfer-python": "0.6.6",
+      "huggingface-hub": "1.33.0",
+      "tokenizers": "0.23.2",
+      "pillow": "12.3.0"
+    },
+    "torch_cuda": "12.8",
+    "cudnn": 91002,
+    "cuda_visible_devices": null,
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 3090",
+        "driver": "570.211.01",
+        "memory_total_mib": 24576
+      }
+    ],
+    "env_vars": {
+      "HF_HOME": "/data/jinagg/hf_cache",
+      "VLLM_WORKER_MULTIPROC_METHOD": "spawn"
+    },
+    "torch_devices": [
+      "NVIDIA GeForce RTX 3090"
+    ]
+  },
+  "outputs": {
+    "predictions": "/home/jinagg/MMDL/runs/c1_rft_describe/predictions.jsonl",
+    "metrics": "/home/jinagg/MMDL/runs/c1_rft_describe/metrics.json",
+    "per_subject_dir": "/home/jinagg/MMDL/runs/c1_rft_describe/per_subject"
+  },
+  "prompt_example": {
+    "id": "validation_Accounting_1",
+    "prompt": "<|im_start|>user\n<|vision_start|><|image_pad|><|vision_end|> Baxter Company has a relevant range of production between 15,000 and 30,000 units. The following cost data represents average variable costs per unit for 25,000 units of production. If 30,000 units are produced, what are the per unit manufacturing overhead costs incurred?\n\n(A) $6\n(B) $7\n(C) $8\n(D) $9\nFirst describe precisely what the image shows (for example every note, symbol, atom, bond, label or value that matters), then reason step by step, and write the final answer on the last line in the form 'Answer: <letter>'.<|im_end|>\n<|im_start|>assistant\n"
+  },
+  "finished_at": "2026-11-04T23:42:05+09:00",
+  "overall_percent": 63.55555555555556,
+  "elapsed_seconds": 10466.877324474975,
+  "peak_vram_gb": 22.72265625
+}

@@ -1,0 +1,18 @@
+{
+  "model_path": "Qwen/Qwen3-VL-4B-Instruct",
+  "train_jsonl": "/data/jinagg/rft/c1/sft.jsonl",
+  "out_dir": "/data/jinagg/ckpt/c1_rft",
+  "epochs": 1.0,
+  "grad_accum": 16,
+  "lr": 0.0001,
+  "warmup": 0.05,
+  "rank": 16,
+  "alpha": 32,
+  "target": "language",
+  "min_pixels": 262144,
+  "max_pixels": 1310720,
+  "max_len": 4096,
+  "save_every": 0,
+  "seed": 0,
+  "identity": false
+}

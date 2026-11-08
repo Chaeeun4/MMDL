@@ -1,0 +1,5 @@
+| run | settings | n | baseline | run | Δ (%p) | W→C / C→W | McNemar p | seed-noise flips | mean tokens | length stops |
+|---|---|---|---|---|---|---|---|---|---|---|
+| c1_rft_describe | prompt=describe_cot, ckpt=c1_rft_merged | 900 | 63.2% | 63.6% | +0.3 | 101 / 98 | 0.887 | n/a | 2226 | 23 |
+
+How to read: Δ and flips are computed on the questions each run covered. 'seed-noise flips' = how many of those questions changed correctness between the baseline and a rerun with only a different seed; a real effect needs W→C minus C→W well above that net noise and a small McNemar p.
