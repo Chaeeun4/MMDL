@@ -1,0 +1,25 @@
+﻿img_type,calculation,grading_mismatch,knowledge,perception,question_issue,reasoning,truncation,total
+"Body Scans: MRI, CT scans, and X-rays",0,0,0,1,0,5,0,6
+Chemical Structures,0,0,2,4,0,9,3,18
+Comics and Cartoons,0,2,0,0,0,6,0,8
+Diagrams,1,11,4,4,0,50,33,103
+Geometric Shapes,0,1,1,1,0,1,4,8
+Logos and Branding,0,0,0,0,0,1,0,1
+Maps,0,0,0,0,0,3,1,4
+Mathematical Notations,0,0,0,1,0,0,0,1
+Medical Images,0,0,1,2,0,8,1,12
+Microscopic Images,0,0,2,1,1,8,0,12
+Other,0,0,1,0,0,0,0,1
+Paintings,0,0,3,0,0,12,1,16
+Pathological Images,0,0,0,0,0,12,1,13
+Photographs,0,1,5,3,0,20,2,31
+Plots and Charts,0,1,0,3,0,17,3,24
+Portraits,0,0,0,1,0,3,2,6
+Poster,0,0,0,0,0,2,0,2
+Screenshots,0,0,0,0,0,1,2,3
+Sculpture,0,0,1,0,0,0,1,2
+Sheet Music,0,1,1,1,0,7,7,17
+Sketches and Drafts,0,0,1,1,0,5,1,8
+Tables,3,4,1,0,0,15,11,34
+Technical Blueprints,0,0,1,0,0,5,4,10
+Trees and Graphs,0,0,0,1,0,4,1,6

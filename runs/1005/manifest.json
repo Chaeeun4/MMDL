@@ -1,0 +1,144 @@
+{
+  "status": "completed",
+  "started_at": "2026-10-05T17:05:39+09:00",
+  "model": "Qwen/Qwen3-VL-4B-Instruct",
+  "model_path": "Qwen/Qwen3-VL-4B-Instruct",
+  "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "dataset": "MMMU/MMMU",
+  "dataset_revision": "98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68",
+  "split": "validation",
+  "num_samples": 900,
+  "args": {
+    "model_path": "Qwen/Qwen3-VL-4B-Instruct",
+    "data_root": "/home/user/.cache/huggingface/hub/datasets--MMMU--MMMU",
+    "run_dir": "./runs/1005",
+    "output_file": null,
+    "metrics_file": null,
+    "resume": false,
+    "greedy": false,
+    "seed": 3407,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repetition_penalty": 1.0,
+    "presence_penalty": 1.5,
+    "max_new_tokens": 32768,
+    "min_pixels": "auto",
+    "max_pixels": "auto",
+    "max_model_len": 16384,
+    "gpu_memory_utilization": 0.88,
+    "tensor_parallel_size": null,
+    "max_num_seqs": 4,
+    "batch_mode": "subject",
+    "logprobs": 5,
+    "no_prompt_text": false,
+    "max_samples": null,
+    "subjects": null
+  },
+  "resolved": {
+    "min_pixels": {
+      "value": 65536,
+      "source": "processor.image_processor.size['shortest_edge']"
+    },
+    "max_pixels": {
+      "value": 16777216,
+      "source": "processor.image_processor.size['longest_edge']"
+    },
+    "tensor_parallel_size": 1,
+    "max_model_len": 16384,
+    "gpu_memory_utilization": 0.88,
+    "batch_mode": "subject"
+  },
+  "sampling": {
+    "greedy": false,
+    "seed": 3407,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repetition_penalty": 1.0,
+    "presence_penalty": 1.5,
+    "max_new_tokens": 32768,
+    "stop_token_ids": [
+      151645,
+      151643
+    ],
+    "logprobs": 5,
+    "matches_official_instruct_recipe": true,
+    "official_recipe_source": "https://github.com/QwenLM/Qwen3-VL#evaluation-reproduction (Generation Hyperparameters -> Instruct models)"
+  },
+  "prompt_source": {
+    "template": "MMMU official llava1.5.yaml-style prompt + Qwen3-VL chat template",
+    "multiple_choice": "{question}\\n\\n(A) {opt}\\n(B) {opt}...\\nAnswer with the option's letter from the given choices directly.",
+    "open": "{question}\\n\\nAnswer the question using a single word or phrase.",
+    "code": "code/prompt.py"
+  },
+  "parser": "code/parser.py (MMMU eval_utils.py adapted; no random fallback; no LLM judge)",
+  "environment": {
+    "hostname": "AIX408-7",
+    "platform": "Linux-6.2.0-39-generic-x86_64-with-glibc2.35",
+    "python": "3.10.12",
+    "python_executable": "/usr/bin/python3",
+    "cwd": "/home/user/MMDL",
+    "argv": [
+      "code/run_mmmu.py",
+      "--model_path",
+      "Qwen/Qwen3-VL-4B-Instruct",
+      "--data_root",
+      "/home/user/.cache/huggingface/hub/datasets--MMMU--MMMU",
+      "--run_dir",
+      "./runs/1005",
+      "--batch_mode",
+      "subject",
+      "--logprobs",
+      "5",
+      "--max_num_seqs",
+      "4",
+      "--max_model_len",
+      "16384",
+      "--gpu_memory_utilization",
+      "0.88"
+    ],
+    "git_commit": "fe18b1ad5e90e38005db3b02dac4bce39e6e6c09",
+    "git_branch": "main",
+    "git_dirty": true,
+    "packages": {
+      "vllm": "0.19.1",
+      "torch": "2.10.0",
+      "transformers": "5.18.0",
+      "qwen-vl-utils": "0.0.14",
+      "datasets": "5.0.1",
+      "flashinfer-python": "0.6.6",
+      "huggingface-hub": "1.33.0",
+      "tokenizers": "0.23.2",
+      "pillow": "12.3.0"
+    },
+    "torch_cuda": "12.8",
+    "cudnn": 91002,
+    "cuda_visible_devices": null,
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "535.183.01",
+        "memory_total_mib": 24564
+      }
+    ],
+    "env_vars": {},
+    "torch_devices": [
+      "NVIDIA GeForce RTX 4090"
+    ]
+  },
+  "outputs": {
+    "predictions": "runs/1005/predictions.jsonl",
+    "metrics": "runs/1005/metrics.json",
+    "per_subject_dir": "runs/1005/per_subject"
+  },
+  "prompt_example": {
+    "id": "validation_Accounting_1",
+    "prompt": "<|im_start|>user\nAnswer the following multiple choice question. The last line of your response should be of the following format: 'ANSWER: [LETTER]' (without quotes) where [LETTER] is one of A,B,C,D. Think step by step before answering.\n\n<|vision_start|><|image_pad|><|vision_end|> Baxter Company has a relevant range of production between 15,000 and 30,000 units. The following cost data represents average variable costs per unit for 25,000 units of production. If 30,000 units are produced, what are the per unit manufacturing overhead costs incurred?\n\n(A) $6\n(B) $7\n(C) $8\n(D) $9\n<|im_end|>\n<|im_start|>assistant\n"
+  },
+  "finished_at": "2026-10-05T20:28:07+09:00",
+  "overall_percent": 64.44444444444444,
+  "elapsed_seconds": 12147.937860339007,
+  "peak_vram_gb": 21.888671875
+}

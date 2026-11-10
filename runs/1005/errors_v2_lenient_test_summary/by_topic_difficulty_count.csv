@@ -1,0 +1,4 @@
+﻿topic_difficulty,calculation,grading_mismatch,knowledge,perception,question_issue,reasoning,truncation,total
+Easy,1,3,6,10,0,45,12,77
+Hard,0,7,4,3,0,44,32,90
+Medium,3,11,13,7,1,89,29,153

@@ -1,0 +1,4 @@
+﻿topic_difficulty,correct_n,n,acc%,ci95_low,ci95_high
+Hard,91,181,50.3,43.1,57.5
+Medium,271,424,63.9,59.2,68.3
+Easy,218,295,73.9,68.6,78.6

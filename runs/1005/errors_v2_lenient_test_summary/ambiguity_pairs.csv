@@ -1,0 +1,14 @@
+﻿primary,second_guess,count
+reasoning,knowledge,131
+reasoning,perception,26
+knowledge,reasoning,22
+perception,reasoning,19
+grading_mismatch,reasoning,6
+reasoning,other,4
+reasoning,calculation,3
+calculation,reasoning,3
+calculation,question_issue,1
+grading_mismatch,calculation,1
+perception,knowledge,1
+reasoning,grading_mismatch,1
+reasoning,question_issue,1

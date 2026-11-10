@@ -1,0 +1,256 @@
+{
+  "meta": {
+    "generated_at": "2026-10-06T01:34:08",
+    "log": "./runs/1005/predictions.jsonl",
+    "out": "./runs/1005/errors_v2_lenient_test.jsonl",
+    "prompt_version": "v2",
+    "models": [
+      "gpt-5.4-mini",
+      "rule"
+    ],
+    "direct_max_tokens": 20,
+    "total_questions": 900,
+    "accuracy": 0.6444444444444445,
+    "n_errors": 320
+  },
+  "overall": {
+    "reasoning": {
+      "count": 178,
+      "percent_of_errors": 55.6,
+      "pct_of_all_questions": 19.78
+    },
+    "truncation": {
+      "count": 73,
+      "percent_of_errors": 22.8,
+      "pct_of_all_questions": 8.11
+    },
+    "knowledge": {
+      "count": 23,
+      "percent_of_errors": 7.2,
+      "pct_of_all_questions": 2.56
+    },
+    "grading_mismatch": {
+      "count": 21,
+      "percent_of_errors": 6.6,
+      "pct_of_all_questions": 2.33
+    },
+    "perception": {
+      "count": 20,
+      "percent_of_errors": 6.2,
+      "pct_of_all_questions": 2.22
+    },
+    "calculation": {
+      "count": 4,
+      "percent_of_errors": 1.2,
+      "pct_of_all_questions": 0.44
+    },
+    "question_issue": {
+      "count": 1,
+      "percent_of_errors": 0.3,
+      "pct_of_all_questions": 0.11
+    }
+  },
+  "category_by_resp_type": {
+    "cot": {
+      "calculation": 4,
+      "grading_mismatch": 21,
+      "knowledge": 23,
+      "perception": 20,
+      "question_issue": 1,
+      "reasoning": 178,
+      "truncation": 0,
+      "All": 247
+    },
+    "truncated": {
+      "calculation": 0,
+      "grading_mismatch": 0,
+      "knowledge": 0,
+      "perception": 0,
+      "question_issue": 0,
+      "reasoning": 0,
+      "truncation": 73,
+      "All": 73
+    },
+    "All": {
+      "calculation": 4,
+      "grading_mismatch": 21,
+      "knowledge": 23,
+      "perception": 20,
+      "question_issue": 1,
+      "reasoning": 178,
+      "truncation": 73,
+      "All": 320
+    }
+  },
+  "subtype_reasoning": {
+    "misread_condition": {
+      "count": 88,
+      "percent": 49.4
+    },
+    "option_mapping": {
+      "count": 35,
+      "percent": 19.7
+    },
+    "wrong_method": {
+      "count": 29,
+      "percent": 16.3
+    },
+    "logic_error": {
+      "count": 11,
+      "percent": 6.2
+    },
+    "unspecified": {
+      "count": 6,
+      "percent": 3.4
+    },
+    "late_revision": {
+      "count": 6,
+      "percent": 3.4
+    },
+    "skipped_step": {
+      "count": 3,
+      "percent": 1.7
+    }
+  },
+  "subtype_perception": {
+    "structure_relation": {
+      "count": 8,
+      "percent": 40.0
+    },
+    "object_recognition": {
+      "count": 5,
+      "percent": 25.0
+    },
+    "value_reading": {
+      "count": 3,
+      "percent": 15.0
+    },
+    "text_ocr": {
+      "count": 2,
+      "percent": 10.0
+    },
+    "symbol_notation": {
+      "count": 1,
+      "percent": 5.0
+    },
+    "counting_spatial": {
+      "count": 1,
+      "percent": 5.0
+    }
+  },
+  "knowledge_concepts_top": {
+    "ash bacterial disease": {
+      "count": 1
+    },
+    "phytoplasma symptoms": {
+      "count": 1
+    },
+    "algae appearance on leaves": {
+      "count": 1
+    },
+    "downy mildew infection conditions": {
+      "count": 1
+    },
+    "standard architectural symbol conventions": {
+      "count": 1
+    },
+    "artist attribution for william hunter portrait": {
+      "count": 1
+    },
+    "egg tempera": {
+      "count": 1
+    },
+    "location of a conversation with the sea": {
+      "count": 1
+    },
+    "hagia sophia interior mosaics": {
+      "count": 1
+    },
+    "h+-coupled amino acid transport": {
+      "count": 1
+    },
+    "morphine chiral center count": {
+      "count": 1
+    },
+    "third-period element identification from lewis structures": {
+      "count": 1
+    },
+    "micronesian navigation charts record ocean currents and landforms": {
+      "count": 1
+    },
+    "lewy body immunostains": {
+      "count": 1
+    },
+    "hydromyelia vs syringomyelia distinction": {
+      "count": 1
+    }
+  },
+  "ambiguity": {
+    "with_second_guess": 219,
+    "low_conf": 6,
+    "either": 219,
+    "n_llm": 247
+  },
+  "ambiguity_pairs": [
+    {
+      "primary": "reasoning",
+      "second_guess": "knowledge",
+      "count": 131
+    },
+    {
+      "primary": "reasoning",
+      "second_guess": "perception",
+      "count": 26
+    },
+    {
+      "primary": "knowledge",
+      "second_guess": "reasoning",
+      "count": 22
+    },
+    {
+      "primary": "perception",
+      "second_guess": "reasoning",
+      "count": 19
+    },
+    {
+      "primary": "grading_mismatch",
+      "second_guess": "reasoning",
+      "count": 6
+    },
+    {
+      "primary": "reasoning",
+      "second_guess": "other",
+      "count": 4
+    },
+    {
+      "primary": "reasoning",
+      "second_guess": "calculation",
+      "count": 3
+    },
+    {
+      "primary": "calculation",
+      "second_guess": "reasoning",
+      "count": 3
+    },
+    {
+      "primary": "calculation",
+      "second_guess": "question_issue",
+      "count": 1
+    },
+    {
+      "primary": "grading_mismatch",
+      "second_guess": "calculation",
+      "count": 1
+    }
+  ],
+  "truncation": {
+    "n": 73,
+    "mentions_missing_option_pct": 54.8
+  },
+  "tokens": {
+    "n": 247,
+    "prompt": 648970,
+    "completion": 29800,
+    "reasoning": 0
+  }
+}

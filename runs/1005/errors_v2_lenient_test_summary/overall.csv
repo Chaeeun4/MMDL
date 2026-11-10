@@ -1,0 +1,8 @@
+﻿category,count,percent_of_errors,pct_of_all_questions
+reasoning,178,55.6,19.78
+truncation,73,22.8,8.11
+knowledge,23,7.2,2.56
+grading_mismatch,21,6.6,2.33
+perception,20,6.2,2.22
+calculation,4,1.2,0.44
+question_issue,1,0.3,0.11

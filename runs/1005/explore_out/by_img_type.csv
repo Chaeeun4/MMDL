@@ -1,0 +1,30 @@
+﻿img_type,correct_n,n,acc%,ci95_low,ci95_high
+Screenshots,2,5,40.0,11.8,76.9
+Chemical Structures,13,31,41.9,26.4,59.2
+Sketches and Drafts,6,14,42.9,21.4,67.4
+Sheet Music,13,30,43.3,27.4,60.8
+Pathological Images,13,26,50.0,32.1,67.9
+Trees and Graphs,6,12,50.0,25.4,74.6
+Technical Blueprints,10,20,50.0,29.9,70.1
+Portraits,7,13,53.8,29.1,76.8
+Diagrams,143,246,58.1,51.9,64.1
+Microscopic Images,17,29,58.6,40.7,74.5
+Geometric Shapes,12,20,60.0,38.7,78.1
+Medical Images,20,32,62.5,45.3,77.1
+Photographs,56,87,64.4,53.9,73.6
+"Body Scans: MRI, CT scans, and X-rays",11,17,64.7,41.3,82.7
+Comics and Cartoons,16,24,66.7,46.7,82.0
+Logos and Branding,2,3,66.7,20.8,93.9
+Maps,9,13,69.2,42.4,87.3
+Paintings,37,53,69.8,56.5,80.5
+Plots and Charts,58,82,70.7,60.1,79.5
+Poster,6,8,75.0,40.9,92.9
+Sculpture,7,9,77.8,45.3,93.7
+Other,4,5,80.0,37.6,96.4
+Tables,137,171,80.1,73.5,85.4
+Mathematical Notations,8,9,88.9,56.5,98.0
+Landscapes,2,2,100.0,34.2,100.0
+Icons and Symbols,2,2,100.0,34.2,100.0
+DNA Sequences,1,1,100.0,20.7,100.0
+Historical Timelines,1,1,100.0,20.7,100.0
+Advertisements,2,2,100.0,34.2,100.0

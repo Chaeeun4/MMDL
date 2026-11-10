@@ -1,0 +1,96 @@
+﻿subfield,calculation,grading_mismatch,knowledge,perception,question_issue,reasoning,truncation
+,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Aesthetics,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Analog Electronics,0.0,33.3,0.0,0.0,0.0,0.0,66.7
+Anatomy,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Animal Nutrition,0.0,0.0,0.0,0.0,100.0,0.0,0.0
+Animal Physiology,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Art History,0.0,0.0,20.0,0.0,0.0,60.0,20.0
+Artificial Intelligence,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Biochemistry and Genetics,0.0,50.0,0.0,0.0,0.0,50.0,0.0
+Biological Psychology,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Biostatistics,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Calculus,0.0,25.0,0.0,25.0,0.0,50.0,0.0
+Cardiovascular Medicine,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Cell Biology,0.0,0.0,33.3,33.3,0.0,33.3,0.0
+Cellular Physiology,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Children's Literature,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Civil Engineering,0.0,100.0,0.0,0.0,0.0,0.0,0.0
+Classical Mechanics,0.0,0.0,0.0,0.0,0.0,0.0,100.0
+Clinical Medicine,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Clinical Radiology,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Cognitive Psychology,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Compiler Principle,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Computer Network,0.0,100.0,0.0,0.0,0.0,0.0,0.0
+Control System,0.0,0.0,0.0,0.0,0.0,0.0,100.0
+Corporate Finance,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Cost Management,100.0,0.0,0.0,0.0,0.0,0.0,0.0
+Data Structure and Algorithm,0.0,20.0,0.0,20.0,0.0,60.0,0.0
+Database,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Dental,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Design History,0.0,0.0,16.7,0.0,0.0,66.7,16.7
+Drawing and Painting,0.0,0.0,18.2,0.0,0.0,63.6,18.2
+Electrical Circuit,0.0,18.2,0.0,9.1,0.0,27.3,45.5
+Electromagnetism,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Engineering Dynamics,0.0,0.0,0.0,0.0,0.0,0.0,100.0
+Engineering Graphics,0.0,0.0,0.0,0.0,0.0,83.3,16.7
+Epidemiology,0.0,0.0,0.0,0.0,0.0,66.7,33.3
+European History,0.0,0.0,0.0,0.0,0.0,0.0,100.0
+Fashion Design,0.0,0.0,0.0,50.0,0.0,50.0,0.0
+Financial Accounting,33.3,0.0,0.0,0.0,0.0,33.3,33.3
+Financial Management,33.3,33.3,0.0,0.0,0.0,33.3,0.0
+Fluid Dynamics,0.0,0.0,0.0,0.0,0.0,0.0,100.0
+Fluid Mechanics,0.0,0.0,20.0,0.0,0.0,0.0,80.0
+Genetics,0.0,0.0,0.0,0.0,0.0,75.0,25.0
+Geographic Information Systems,0.0,0.0,0.0,100.0,0.0,0.0,0.0
+Geometry,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Geotechnical Engineering,0.0,0.0,33.3,11.1,0.0,55.6,0.0
+Graph Theory,0.0,0.0,0.0,0.0,0.0,66.7,33.3
+Group Theory,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Heat Transfer,0.0,0.0,0.0,0.0,0.0,33.3,66.7
+Inorganic Chemistry,0.0,33.3,0.0,33.3,0.0,0.0,33.3
+Interior Design,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+International Geography Olympiad,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Investment,0.0,0.0,0.0,0.0,0.0,50.0,50.0
+Macroeconomics,0.0,0.0,0.0,25.0,0.0,75.0,0.0
+Management Models,0.0,50.0,0.0,0.0,0.0,50.0,0.0
+Managerial Accounting,0.0,0.0,0.0,0.0,0.0,33.3,66.7
+Managerial Finance,0.0,100.0,0.0,0.0,0.0,0.0,0.0
+Market Research,0.0,0.0,0.0,0.0,0.0,75.0,25.0
+Materials Science,0.0,50.0,0.0,0.0,0.0,50.0,0.0
+Mechanical Design,0.0,0.0,0.0,0.0,0.0,33.3,66.7
+Mechanical Vibrations,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Mechanics of Materials,0.0,9.1,0.0,0.0,0.0,27.3,63.6
+Medicinal Chemistry,0.0,0.0,20.0,40.0,0.0,40.0,0.0
+Microbiology,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Microeconomics,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Modern History,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Molecular Biology,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Music,0.0,5.9,5.9,5.9,0.0,41.2,41.2
+Neuropathology,0.0,0.0,9.1,0.0,0.0,81.8,9.1
+Nuclear Physics,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Operating System,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Operation Research,0.0,0.0,0.0,50.0,0.0,50.0,0.0
+Operations Management,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Optics,0.0,0.0,50.0,0.0,0.0,50.0,0.0
+Organic Chemistry,0.0,0.0,9.1,18.2,0.0,45.5,27.3
+Pathology,0.0,0.0,11.1,11.1,0.0,77.8,0.0
+Pathophysiology,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Physical Chemistry,0.0,0.0,100.0,0.0,0.0,0.0,0.0
+Physical Geography,0.0,100.0,0.0,0.0,0.0,0.0,0.0
+Physiology,0.0,0.0,0.0,33.3,0.0,66.7,0.0
+Plant Pathology,0.0,0.0,28.6,7.1,0.0,64.3,0.0
+Principals of Economics,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Principles of Management,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Radiology,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Sculpture,0.0,0.0,100.0,0.0,0.0,0.0,0.0
+Signal Processing,0.0,0.0,0.0,33.3,0.0,33.3,33.3
+Social Psychology,0.0,0.0,0.0,0.0,0.0,0.0,100.0
+Sociology Theory,0.0,20.0,10.0,10.0,0.0,50.0,10.0
+Strategic Management,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Structural Engineering,0.0,0.0,0.0,0.0,0.0,33.3,66.7
+Surveying and Mapping,7.1,7.1,7.1,0.0,0.0,7.1,71.4
+Thermodynamics,0.0,0.0,0.0,0.0,0.0,33.3,66.7
+U.S. History,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Visual Arts,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+World History,0.0,0.0,0.0,0.0,0.0,100.0,0.0

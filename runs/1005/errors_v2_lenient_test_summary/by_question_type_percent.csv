@@ -1,0 +1,3 @@
+﻿question_type,calculation,grading_mismatch,knowledge,perception,question_issue,reasoning,truncation
+multiple-choice,0.7,4.1,7.6,5.9,0.3,58.6,22.8
+open,6.7,30.0,3.3,10.0,0.0,26.7,23.3

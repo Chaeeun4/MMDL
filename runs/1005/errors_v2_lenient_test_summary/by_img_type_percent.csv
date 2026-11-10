@@ -1,0 +1,25 @@
+﻿img_type,calculation,grading_mismatch,knowledge,perception,question_issue,reasoning,truncation
+"Body Scans: MRI, CT scans, and X-rays",0.0,0.0,0.0,16.7,0.0,83.3,0.0
+Chemical Structures,0.0,0.0,11.1,22.2,0.0,50.0,16.7
+Comics and Cartoons,0.0,25.0,0.0,0.0,0.0,75.0,0.0
+Diagrams,1.0,10.7,3.9,3.9,0.0,48.5,32.0
+Geometric Shapes,0.0,12.5,12.5,12.5,0.0,12.5,50.0
+Logos and Branding,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Maps,0.0,0.0,0.0,0.0,0.0,75.0,25.0
+Mathematical Notations,0.0,0.0,0.0,100.0,0.0,0.0,0.0
+Medical Images,0.0,0.0,8.3,16.7,0.0,66.7,8.3
+Microscopic Images,0.0,0.0,16.7,8.3,8.3,66.7,0.0
+Other,0.0,0.0,100.0,0.0,0.0,0.0,0.0
+Paintings,0.0,0.0,18.8,0.0,0.0,75.0,6.2
+Pathological Images,0.0,0.0,0.0,0.0,0.0,92.3,7.7
+Photographs,0.0,3.2,16.1,9.7,0.0,64.5,6.5
+Plots and Charts,0.0,4.2,0.0,12.5,0.0,70.8,12.5
+Portraits,0.0,0.0,0.0,16.7,0.0,50.0,33.3
+Poster,0.0,0.0,0.0,0.0,0.0,100.0,0.0
+Screenshots,0.0,0.0,0.0,0.0,0.0,33.3,66.7
+Sculpture,0.0,0.0,50.0,0.0,0.0,0.0,50.0
+Sheet Music,0.0,5.9,5.9,5.9,0.0,41.2,41.2
+Sketches and Drafts,0.0,0.0,12.5,12.5,0.0,62.5,12.5
+Tables,8.8,11.8,2.9,0.0,0.0,44.1,32.4
+Technical Blueprints,0.0,0.0,10.0,0.0,0.0,50.0,40.0
+Trees and Graphs,0.0,0.0,0.0,16.7,0.0,66.7,16.7

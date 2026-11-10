@@ -1,0 +1,127 @@
+{
+  "overall_acc": 60.55555555555555,
+  "correct": 545,
+  "total": 900,
+  "subjects": {
+    "Accounting": {
+      "correct": 20,
+      "total": 30
+    },
+    "Agriculture": {
+      "correct": 15,
+      "total": 30
+    },
+    "Architecture_and_Engineering": {
+      "correct": 10,
+      "total": 30
+    },
+    "Art": {
+      "correct": 17,
+      "total": 30
+    },
+    "Art_Theory": {
+      "correct": 24,
+      "total": 30
+    },
+    "Basic_Medical_Science": {
+      "correct": 22,
+      "total": 30
+    },
+    "Biology": {
+      "correct": 16,
+      "total": 30
+    },
+    "Chemistry": {
+      "correct": 12,
+      "total": 30
+    },
+    "Clinical_Medicine": {
+      "correct": 20,
+      "total": 30
+    },
+    "Computer_Science": {
+      "correct": 17,
+      "total": 30
+    },
+    "Design": {
+      "correct": 21,
+      "total": 30
+    },
+    "Diagnostics_and_Laboratory_Medicine": {
+      "correct": 9,
+      "total": 30
+    },
+    "Economics": {
+      "correct": 22,
+      "total": 30
+    },
+    "Electronics": {
+      "correct": 13,
+      "total": 30
+    },
+    "Energy_and_Power": {
+      "correct": 13,
+      "total": 30
+    },
+    "Finance": {
+      "correct": 23,
+      "total": 30
+    },
+    "Geography": {
+      "correct": 14,
+      "total": 30
+    },
+    "History": {
+      "correct": 20,
+      "total": 30
+    },
+    "Literature": {
+      "correct": 26,
+      "total": 30
+    },
+    "Manage": {
+      "correct": 18,
+      "total": 30
+    },
+    "Marketing": {
+      "correct": 26,
+      "total": 30
+    },
+    "Materials": {
+      "correct": 13,
+      "total": 30
+    },
+    "Math": {
+      "correct": 17,
+      "total": 30
+    },
+    "Mechanical_Engineering": {
+      "correct": 12,
+      "total": 30
+    },
+    "Music": {
+      "correct": 9,
+      "total": 30
+    },
+    "Pharmacy": {
+      "correct": 23,
+      "total": 30
+    },
+    "Physics": {
+      "correct": 24,
+      "total": 30
+    },
+    "Psychology": {
+      "correct": 23,
+      "total": 30
+    },
+    "Public_Health": {
+      "correct": 26,
+      "total": 30
+    },
+    "Sociology": {
+      "correct": 20,
+      "total": 30
+    }
+  }
+}
