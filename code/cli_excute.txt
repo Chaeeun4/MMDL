@@ -1,0 +1,70 @@
+python3 -c '
+import json, re
+from collections import Counter
+
+records = [json.loads(l) for l in open("./runs/1005/strict_predictions.jsonl")]
+truncs = [r for r in records if r.get("finish_reason") == "length"]
+
+missing_opt_re = re.compile(
+    r"not (?:among|an option|in the options|listed)|isn\x27t (?:among|an option)"
+    r"|not one of the (?:options|choices)|not (?:matching|match) any", re.I
+)
+
+t_cnt = len(truncs)
+high_wait = 0
+missing_opt_panic = 0
+repetition_loop = 0
+pure_long_explanation = 0
+
+wait_counts = []
+subject_counts = Counter()
+
+for r in truncs:
+    resp = r.get("prediction_raw", "")
+    sub = r.get("subject", "unknown")
+    subject_counts[sub] += 1
+    
+    # 1. Wait 빈도 검사
+    waits = len(re.findall(r"\bWait\b", resp, re.I))
+    wait_counts.append(waits)
+    if waits >= 5:
+        high_wait += 1
+        
+    # 2. 선택지 매칭 실패 패닉 검사
+    has_opt_panic = bool(missing_opt_re.search(resp))
+    if has_opt_panic:
+        missing_opt_panic += 1
+        
+    # 3. 텍스트 반복 검사 (단락 단위 중복)
+    paras = [p.strip() for p in resp.split("\n\n") if len(p.strip()) > 30]
+    p_counts = Counter(paras)
+    has_dup = any(c >= 3 for c in p_counts.values())
+    if has_dup:
+        repetition_loop += 1
+        
+    if waits < 5 and not has_opt_panic and not has_dup:
+        pure_long_explanation += 1
+
+print("=" * 60)
+print(f"총 Length-Stop 문항 수: {t_cnt}개")
+print("-" * 60)
+pct_wait = (high_wait / t_cnt * 100) if t_cnt else 0
+print(f"1. 자가 반박 루프 (Wait 5회 이상): {high_wait}개 ({pct_wait:.1f}%)")
+avg_w = (sum(wait_counts) / len(wait_counts)) if wait_counts else 0
+max_w = max(wait_counts) if wait_counts else 0
+print(f"   (문항당 평균 Wait 횟수: {avg_w:.1f}회, 최대: {max_w}회)")
+
+pct_panic = (missing_opt_panic / t_cnt * 100) if t_cnt else 0
+print(f"2. 선택지 매칭 실패 패닉 (답이 선택지에 없다): {missing_opt_panic}개 ({pct_panic:.1f}%)")
+
+pct_loop = (repetition_loop / t_cnt * 100) if t_cnt else 0
+print(f"3. 동일 문맥/단락 복붙 반복 루프: {repetition_loop}개 ({pct_loop:.1f}%)")
+
+pct_long = (pure_long_explanation / t_cnt * 100) if t_cnt else 0
+print(f"4. 단순 풀이 길이 초과 (루프 징후 없음): {pure_long_explanation}개 ({pct_long:.1f}%)")
+print("-" * 60)
+print("상위 발생 과목 Top 5:")
+for sub, cnt in subject_counts.most_common(5):
+    print(f"  - {sub:<32}: {cnt}개")
+print("=" * 60)
+'

@@ -92,38 +92,28 @@ def _append_text_with_images(
 
 
 def build_prompt_text(sample: Dict[str, Any]) -> str:
-    """Build the text template used by the official MMMU evaluation config.
-
-    For multiple-choice:
-        question
-        blank line
-        (A) option
-        (B) option
-        ...
-        Answer with the option's letter from the given choices directly.
-
-    For open questions:
-        question
-        blank line
-        Answer the question using a single word or phrase.
-    """
     question = sample["question"]
     options = parse_options(sample["options"])
 
     if options:
+        letters = ",".join(chr(ord("A") + i) for i in range(len(options)))
         choices = "\n".join(
             f"({chr(ord('A') + i)}) {option}"
             for i, option in enumerate(options)
         )
         return (
+            f"Answer the following multiple choice question. The last line of your response "
+            f"should be of the following format: 'ANSWER: [LETTER]' (without quotes) "
+            f"where [LETTER] is one of {letters}. Think step by step before answering.\n\n"
             f"{question}\n\n"
-            f"{choices}\n"
-            f"Answer with the option's letter from the given choices directly."
+            f"{choices}"
         )
 
     return (
-        f"{question}\n\n"
-        f"Answer the question using a single word or phrase."
+        f"Answer the following question. The last line of your response should be "
+        f"of the following format: 'ANSWER: [VALUE]' (without quotes) where [VALUE] is a single word, "
+        f"number, or short phrase. Think step by step before answering.\n\n"
+        f"{question}"
     )
 
 
@@ -132,49 +122,36 @@ def build_messages(
     min_pixels: int = MIN_PIXELS,
     max_pixels: int = MAX_PIXELS,
 ) -> List[Dict[str, Any]]:
-    """Build a Qwen3-VL user message while preserving image references."""
     question = sample["question"]
     options = parse_options(sample["options"])
 
     content: List[Dict[str, Any]] = []
 
-    # Keep the exact textual order of <image N> references in the question.
-    _append_text_with_images(content, question, sample, min_pixels, max_pixels)
-
     if options:
+        letters = ",".join(chr(ord("A") + i) for i in range(len(options)))
+        intro = (
+            f"Answer the following multiple choice question. The last line of your response "
+            f"should be of the following format: 'ANSWER: [LETTER]' (without quotes) "
+            f"where [LETTER] is one of {letters}. Think step by step before answering.\n\n"
+        )
+        content.append({"type": "text", "text": intro})
+        _append_text_with_images(content, question, sample, min_pixels, max_pixels)
         content.append({"type": "text", "text": "\n\n"})
         for i, option in enumerate(options):
-            content.append(
-                {
-                    "type": "text",
-                    "text": f"({chr(ord('A') + i)}) ",
-                }
-            )
-            _append_text_with_images(
-                content, option, sample, min_pixels, max_pixels
-            )
+            content.append({"type": "text", "text": f"({chr(ord('A') + i)}) "})
+            _append_text_with_images(content, option, sample, min_pixels, max_pixels)
             content.append({"type": "text", "text": "\n"})
-
-        content.append(
-            {
-                "type": "text",
-                "text": (
-                    "Answer with the option's letter from the given choices "
-                    "directly."
-                ),
-            }
-        )
     else:
-        content.append(
-            {
-                "type": "text",
-                "text": (
-                    "\n\nAnswer the question using a single word or phrase."
-                ),
-            }
+        intro = (
+            f"Answer the following question. The last line of your response should be "
+            f"of the following format: 'ANSWER: [VALUE]' (without quotes) where [VALUE] is a single word, "
+            f"number, or short phrase. Think step by step before answering.\n\n"
         )
+        content.append({"type": "text", "text": intro})
+        _append_text_with_images(content, question, sample, min_pixels, max_pixels)
 
     return [{"role": "user", "content": content}]
+
 
 
 def build_vllm_input(

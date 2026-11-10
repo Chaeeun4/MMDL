@@ -1,3 +1,11 @@
+from __future__ import annotations
+
+import datasets
+try:
+    datasets.config.HF_DATASETS_TRUST_REMOTE_CODE = True
+except Exception:
+    pass
+
 """
 One-command Qwen3-VL-4B-Instruct MMMU validation evaluation.
 
@@ -23,7 +31,6 @@ Dataset:
     98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
 """
 
-from __future__ import annotations
 
 import argparse
 import json
@@ -225,6 +232,15 @@ def main() -> None:
     print("=" * 80)
 
     # 1. Dataset
+    import datasets
+    import sys
+
+    print("\n[DEBUG]")
+    print("Python:", sys.executable)
+    print("Datasets:", datasets.__version__)
+    print("Dataset function:", load_mmmu_validation.__code__.co_filename)
+    print("Data root:", repr(args.data_root))
+    print("[DEBUG END]\n")
     samples = load_mmmu_validation(data_root=args.data_root)
 
     if args.max_samples is not None:

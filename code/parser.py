@@ -22,6 +22,30 @@ from typing import Any, Dict, List, Optional, Tuple
 
 PUNCTUATION = [",", ".", "!", "?", ";", ":", "'"]
 
+# --- 최종 답 줄 추출 (CoT 프롬프트용) -----------------------------------------
+# "ANSWER: B", "Final answer: (B)", "**Answer: B**", "The final answer is B." 등을 대소문자 무시로 잡는다.
+# 줄의 시작에서만 매칭하고, 응답 안에 여러 개면 마지막 것을 쓴다.
+_FINAL_RE = re.compile(
+    r"(?im)^\W*(?:the\s+)?(?:final\s+)?answer\s*(?:[:：]|\bis\b)\s*(.+?)\s*$"
+)
+_LETTER_RE = re.compile(r"(?i:option|choice)?\s*\(?([A-J])\)?(?![A-Za-z])")
+
+
+def extract_final_answer(response: str) -> Optional[str]:
+    """Return the text after the last 'Answer:' line, or None if absent."""
+    matches = _FINAL_RE.findall(response or "")
+    return matches[-1] if matches else None
+
+
+def _letter_from_final(final: str, all_choices: List[str]) -> Optional[str]:
+    """'(B) $7', 'B.', '**B**', '[B]', 'Option B' -> 'B'. 글자가 없으면 None."""
+    text = final.strip().strip("*`_ \t").lstrip("([{<")
+    m = _LETTER_RE.match(text)
+    if m and m.group(1) in all_choices:
+        return m.group(1)
+    return None
+
+
 
 def get_multi_choice_info(
     options: List[str],
@@ -42,6 +66,7 @@ def parse_multi_choice_response(
     response: str,
     all_choices: List[str],
     index2ans: Dict[str, str],
+    strict: bool = False,
 ) -> Optional[str]:
     """Parse a multiple-choice response using MMMU's rule ordering.
 
@@ -64,15 +89,15 @@ def parse_multi_choice_response(
     if not response:
         return None
 
-    # MMMU's official parser first checks the final "Answer:" section.
-    last_answer_pos = response.rfind("Answer:")
-    if last_answer_pos != -1:
-        answer_str = response[last_answer_pos + len("Answer:") :].strip()
-        matching_options = [
-            option for option in all_choices if option in answer_str
-        ]
-        if len(matching_options) == 1:
-            return matching_options[0]
+    # 1) 명시적 최종 답 줄 (대소문자 무시, 마지막 것 사용)
+    final = extract_final_answer(response)
+    if final is not None:
+        letter = _letter_from_final(final, all_choices)
+        if letter is not None:
+            return letter
+    if strict:
+        # strict: 최종 답 줄이 없거나 선택지 글자가 아니면 오답 처리 (None)
+        return None
 
     for char in PUNCTUATION:
         response = response.strip(char)
@@ -179,10 +204,17 @@ def extract_numbers(text: str) -> List[str]:
     )
 
 
-def parse_open_response(response: str) -> List[Any]:
+def parse_open_response(response: str, strict: bool = False) -> List[Any]:
     """Parse MMMU short-answer/open response deterministically."""
     if not isinstance(response, str):
         return []
+
+    # 최종 답 줄이 있으면 그 부분만 사용 (풀이 속 숫자가 후보로 섞이는 것을 막음)
+    final = extract_final_answer(response)
+    if final is not None:
+        response = final.strip("*`_ ")
+    elif strict:
+        return []  # strict: 최종 답 줄이 없으면 오답 처리
 
     response = response.strip().strip(".").lower()
 
@@ -240,12 +272,17 @@ def parse_answer(
     response: str,
     question_type: str,
     options: List[str],
+    strict: bool = False,
 ) -> Any:
-    """Parse a model response according to MMMU question type."""
+    """Parse a model response according to MMMU question type.
+
+    strict=False: 기존(lenient) 동작 + 최종 답 줄을 우선 사용
+    strict=True : 최종 답 줄이 없으면 객관식은 None, 주관식은 [] (오답 처리)
+    """
     if question_type == "multiple-choice":
         index2ans, all_choices = get_multi_choice_info(options)
         return parse_multi_choice_response(
-            response, all_choices, index2ans
+            response, all_choices, index2ans, strict=strict
         )
 
-    return parse_open_response(response)
+    return parse_open_response(response, strict=strict)

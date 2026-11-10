@@ -1,21 +1,22 @@
 #!/usr/bin/env python3
 """
-MMMU 오답 유형 분류 파이프라인 (OpenAI API 버전)
+MMMU 오답 유형 분류 파이프라인 (숭실대 API Gateway / OpenAI 호환 버전)
 
 1) 로그(jsonl)에서 오답만 추림
 2) 규칙으로 먼저 분류: finish_reason == "length" -> truncation, 답 없음 -> parser_fail
-3) 나머지 오답은 HF MMMU 데이터셋에서 문제/선택지/이미지를 id로 조인해 GPT(gpt-4o)에 보내 분류
-4) Pydantic 기반 Structured Outputs를 사용하여 정확한 JSON 구조 강제
+3) 나머지 오답은 HF MMMU 데이터셋에서 문제/선택지/이미지를 id로 조인해 LLM에 보내 분류
+4) 응답은 JSON 텍스트로 받아 Pydantic으로 검증 (Structured Outputs 기능에 의존하지 않음)
 5) 결과를 jsonl로 저장(이어서 실행 가능), 집계 CSV와 사람 검수용 CSV 생성
 
 설치:
   pip install openai datasets pillow pandas pydantic
 
-실행 예:
-  export OPENAI_API_KEY="sk-..."
-  python classify_errors.py --log predictions.jsonl --out errors_classified.jsonl --limit 20
-  python classify_errors.py --log predictions.jsonl --out errors_classified.jsonl --model gpt-4o
-  python classify_errors.py --log predictions.jsonl --out errors_classified.jsonl --aggregate-only
+실행 예 (키와 모델 ID는 환경변수로, 코드/GitHub에 절대 넣지 말 것):
+  export SSU_API_KEY="발급받은키"
+  export SSU_MODEL="페이지에서 복사한 이미지 지원 모델 ID"
+  python classify_errors_ssu.py --log predictions.jsonl --out test.jsonl --limit 3
+  python classify_errors_ssu.py --log predictions.jsonl --out errors_classified.jsonl
+  python classify_errors_ssu.py --log predictions.jsonl --out errors_classified.jsonl --aggregate-only
 """
 import argparse
 import ast
@@ -25,6 +26,7 @@ import json
 import os
 import random
 import re
+import sys
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -33,6 +35,7 @@ from typing import Literal, Optional
 from pydantic import BaseModel, Field
 
 PROMPT_VERSION = "v1"
+DEFAULT_BASE_URL = "https://factchat-cloud.mindlogic.ai/v1/gateway"
 
 CATEGORIES = [
     "perception", "reasoning", "calculation", "knowledge",
@@ -41,19 +44,18 @@ CATEGORIES = [
 RULE_CATEGORIES = ["truncation", "parser_fail"]
 VALID = set(CATEGORIES + RULE_CATEGORIES)
 
-# ----------------------------------------------------------------------------
-# Pydantic Structured Output 정의
-# ----------------------------------------------------------------------------
 CategoryLiteral = Literal[
     "perception", "reasoning", "calculation", "knowledge",
-    "grading_mismatch", "question_issue", "other"
+    "grading_mismatch", "question_issue", "other",
 ]
 
+
 class ErrorClassification(BaseModel):
+    """LLM이 돌려준 JSON을 검증하기 위한 스키마 (API에 강제하지 않고 사후 검증용)."""
     category: CategoryLiteral = Field(..., description="The primary cause of the error.")
-    evidence: str = Field(..., description="One sentence quoting or pointing to the specific part of the response.")
-    first_error_step: str = Field(..., description="Where the response first goes wrong (short description).")
-    second_guess: Optional[CategoryLiteral] = Field(None, description="Alternative category if uncertain, else null.")
+    evidence: str = Field("", description="One sentence pointing to the specific part of the response.")
+    first_error_step: str = Field("", description="Where the response first goes wrong (short).")
+    second_guess: Optional[CategoryLiteral] = Field(None, description="Alternative category, else null.")
     confidence: int = Field(..., ge=1, le=5, description="Confidence score from 1 to 5.")
 
 
@@ -89,7 +91,16 @@ Decision rules:
 4. Judge from what the response actually says. Do not assume a cause you cannot point to
    in the response.
 5. If you are unsure between two categories, pick the more likely one and put the other
-   in "second_guess"."""
+   in "second_guess".
+
+Output JSON only, with no extra text and no markdown code fences, in exactly this form:
+{
+  "category": "<one of: perception, reasoning, calculation, knowledge, grading_mismatch, question_issue, other>",
+  "evidence": "<one sentence quoting or pointing to the specific part of the response>",
+  "first_error_step": "<where the response first goes wrong, short>",
+  "second_guess": "<one of the categories, or null>",
+  "confidence": <integer 1-5>
+}"""
 
 LETTERS = "ABCDEFGHIJ"
 
@@ -122,6 +133,7 @@ def trunc_flags(resp):
 
 
 def triage(item):
+    """규칙으로 판정 가능한 건 여기서 끝낸다. LLM이 필요하면 'needs_llm'."""
     if item.get("finish_reason") == "length":
         return "truncation"
     pred = item.get("prediction")
@@ -154,10 +166,15 @@ class RateLimiter:
             time.sleep(delay)
 
 
+class AbortRun(Exception):
+    """재시도해도 소용없는 오류(인증, 잘못된 요청 등) 때문에 전체 실행을 멈출 때 사용."""
+
+
 # ----------------------------------------------------------------------------
 # 데이터셋 조인 및 메시지 구성
 # ----------------------------------------------------------------------------
 def build_dataset_index(items, split):
+    """필요한 과목만 로드. ds["id"]는 이미지를 디코딩하지 않아 메모리를 아낀다."""
     from datasets import load_dataset
 
     subjects = set()
@@ -211,42 +228,92 @@ def build_messages(item, ds_row, max_chars):
     )
 
     user_content = [{"type": "text", "text": prompt_text}]
-
     for i in range(1, 8):
         img = ds_row.get(f"image_{i}")
         if img is not None:
             user_content.append({"type": "text", "text": f"[image_{i}]"})
+            # "detail" 옵션은 OpenAI 전용이라 게이트웨이의 다른 모델에서 오류가 날 수 있어 뺐다.
             user_content.append({
                 "type": "image_url",
-                "image_url": {
-                    "url": image_to_base64_url(img),
-                    "detail": "high"
-                }
+                "image_url": {"url": image_to_base64_url(img)},
             })
 
     return [
         {"role": "system", "content": GUIDE},
-        {"role": "user", "content": user_content}
+        {"role": "user", "content": user_content},
     ]
 
 
 # ----------------------------------------------------------------------------
-# OpenAI 호출
+# LLM 호출 (OpenAI 호환 Chat Completions)
 # ----------------------------------------------------------------------------
-def call_openai(client, model, messages, limiter, max_retries=6):
+def parse_json(text):
+    text = (text or "").strip()
+    text = re.sub(r"^```(?:json)?|```$", "", text, flags=re.M).strip()
+    try:
+        obj = json.loads(text)
+    except json.JSONDecodeError:
+        # 앞뒤에 잡설이 붙은 경우: 첫 '{'부터 마지막 '}'까지만 시도
+        s, e = text.find("{"), text.rfind("}")
+        if s == -1 or e <= s:
+            raise
+        obj = json.loads(text[s:e + 1])
+    if isinstance(obj, list):
+        obj = obj[0]
+    return obj
+
+
+def normalize(obj):
+    """모델 출력의 사소한 형식 차이(문자열 'null', 소수 confidence 등)를 보정."""
+    sg = obj.get("second_guess")
+    if isinstance(sg, str) and sg.strip().lower() in ("", "null", "none", "n/a"):
+        obj["second_guess"] = None
+    if "confidence" in obj:
+        try:
+            obj["confidence"] = int(round(float(obj["confidence"])))
+        except (TypeError, ValueError):
+            pass
+    if isinstance(obj.get("category"), str):
+        obj["category"] = obj["category"].strip().lower()
+    return obj
+
+
+def call_llm(client, model, messages, limiter, use_temperature=True,
+             reasoning_effort=None, max_retries=6):
+    import openai
+
+    non_retryable = (
+        openai.BadRequestError,
+        openai.AuthenticationError,
+        openai.PermissionDeniedError,
+        openai.NotFoundError,
+    )
+    kwargs = {"model": model, "messages": messages}
+    if use_temperature:
+        kwargs["temperature"] = 0
+    if reasoning_effort:
+        kwargs["reasoning_effort"] = reasoning_effort
+
     last_err = None
     for attempt in range(max_retries):
         try:
             limiter.wait()
-            completion = client.beta.chat.completions.parse(
-                model=model,
-                messages=messages,
-                response_format=ErrorClassification,
-                temperature=0,
-            )
-            parsed = completion.choices[0].message.parsed
-            return parsed.model_dump()
-        except Exception as e:
+            completion = client.chat.completions.create(**kwargs)
+            obj = normalize(parse_json(completion.choices[0].message.content))
+            result = ErrorClassification.model_validate(obj).model_dump()
+            u = getattr(completion, "usage", None)
+            if u is not None:
+                details = getattr(u, "completion_tokens_details", None)
+                result["usage"] = {
+                    "prompt_tokens": getattr(u, "prompt_tokens", None),
+                    "completion_tokens": getattr(u, "completion_tokens", None),
+                    "reasoning_tokens": getattr(details, "reasoning_tokens", None) if details else None,
+                }
+            return result
+        except non_retryable as e:
+            # 몇 번을 다시 해도 같은 결과: 원인을 바로 보여 주고 전체 실행을 멈춘다.
+            raise AbortRun(f"{type(e).__name__}: {e}") from e
+        except Exception as e:  # 429, 5xx, 연결 오류, JSON 파싱/검증 실패
             last_err = e
             time.sleep(min(60, 2 ** attempt + random.random()))
     raise RuntimeError(f"failed after {max_retries} retries: {last_err}")
@@ -271,6 +338,7 @@ def base_record(item, model):
 
 
 def load_done(out_path):
+    """이미 유효하게 분류된 id 집합 (실패/invalid는 다음 실행에서 재시도)."""
     done = {}
     if os.path.exists(out_path):
         for r in read_jsonl(out_path):
@@ -305,7 +373,7 @@ def run(args):
         rec = base_record(it, "rule")
         rec.update({
             "category": label, "source": "rule", "evidence": "", "first_error_step": "",
-            "second_guess": None, "confidence": 5
+            "second_guess": None, "confidence": 5,
         })
         if label == "truncation":
             wc, mo = trunc_flags(str(it.get("prediction_raw", "")))
@@ -319,23 +387,39 @@ def run(args):
         needs_llm = needs_llm[: args.limit]
         print(f"--limit {args.limit} 적용")
 
-    # 2) LLM 분류 (OpenAI)
+    # 2) LLM 분류
     if needs_llm:
         from openai import OpenAI
-        client = OpenAI()  # OPENAI_API_KEY 환경변수 자동 참조
+
+        api_key = os.environ.get("SSU_API_KEY")
+        if not api_key:
+            sys.exit("SSU_API_KEY 환경변수가 없습니다. export SSU_API_KEY=... 를 먼저 실행하세요.")
+        client = OpenAI(
+            base_url=os.environ.get("SSU_BASE_URL", DEFAULT_BASE_URL),
+            api_key=api_key,
+        )
         limiter = RateLimiter(args.rpm)
+        stop = threading.Event()
+        abort_msg = []
+
+        print("데이터셋 로딩 중 (처음에는 다운로드로 몇 분 걸릴 수 있음)...")
         index = build_dataset_index(needs_llm, args.split)
 
         def work(it):
+            if stop.is_set():
+                raise AbortRun("aborted")
             qid = it["id"]
             if qid not in index:
                 raise KeyError(f"{qid} not found in dataset")
             ds, i = index[qid]
             ds_row = ds[i]
             messages = build_messages(it, ds_row, args.max_resp_chars)
-            res = call_openai(client, args.model, messages, limiter)
+            res = call_llm(client, args.model, messages, limiter,
+                           use_temperature=not args.no_temperature,
+                           reasoning_effort=args.reasoning_effort)
             rec = base_record(it, args.model)
             rec.update({
+                "usage": res.get("usage"),
                 "category": res.get("category"),
                 "source": "llm",
                 "evidence": res.get("evidence", ""),
@@ -353,6 +437,11 @@ def run(args):
                 try:
                     write(fut.result())
                     n_ok += 1
+                except AbortRun as e:
+                    # 중단 사유는 한 번만 출력하고, 실패 기록은 남기지 않아 다음 실행에서 재시도된다.
+                    if str(e) != "aborted" and not abort_msg:
+                        abort_msg.append(str(e))
+                        stop.set()
                 except Exception as e:
                     rec = base_record(it, args.model)
                     rec.update({"category": "error", "source": "llm", "evidence": str(e)[:300]})
@@ -360,6 +449,11 @@ def run(args):
                     n_fail += 1
                 if k % 10 == 0 or k == len(futs):
                     print(f"  진행 {k}/{len(futs)} (성공 {n_ok}, 실패 {n_fail})")
+        if abort_msg:
+            print("\n[중단] 재시도해도 해결되지 않는 오류가 발생했습니다:")
+            print("  " + abort_msg[0])
+            print("  - 401: 키 확인 / 400 또는 404: 모델 ID, 이미지 지원 여부, temperature 지원 여부 확인")
+            print("  - 오류에 temperature가 언급되면 --no-temperature 옵션을 추가하세요.")
     out_f.close()
 
 
@@ -369,9 +463,12 @@ def run(args):
 def aggregate(args):
     import pandas as pd
 
+    if not os.path.exists(args.out):
+        print("결과 파일이 없습니다.")
+        return
     latest = {}
     for r in read_jsonl(args.out):
-        latest[r["id"]] = r
+        latest[r["id"]] = r  # 같은 id는 마지막 기록만 사용
     df = pd.DataFrame(latest.values())
     df = df[df["category"].isin(VALID)]
     if df.empty:
@@ -387,6 +484,16 @@ def aggregate(args):
     print("\n=== 전체 오답 유형 ===")
     print(summary)
     summary.to_csv(os.path.join(outdir, "overall.csv"))
+
+    if "usage" in df.columns:
+        us = [x for x in df["usage"] if isinstance(x, dict)]
+        if us:
+            def tot(k):
+                return sum((x.get(k) or 0) for x in us)
+            n = len(us)
+            print(f"\n토큰 사용량 (LLM {n}건): 입력 {tot('prompt_tokens'):,} / "
+                  f"출력 {tot('completion_tokens'):,} (이 중 reasoning {tot('reasoning_tokens'):,})")
+            print(f"  건당 평균: 입력 {tot('prompt_tokens') // n:,} / 출력 {tot('completion_tokens') // n:,}")
 
     def to_list(v):
         if isinstance(v, list):
@@ -433,16 +540,25 @@ def main():
     ap.add_argument("--log", required=True, help="예측 로그 jsonl")
     ap.add_argument("--out", default="errors_classified.jsonl")
     ap.add_argument("--split", default="validation")
-    ap.add_argument("--model", default="gpt-4o", help="gpt-4o 권장 (또는 gpt-4o-mini)")
+    ap.add_argument("--model", default=os.environ.get("SSU_MODEL"),
+                    help="이미지를 지원하는 모델 ID (기본값: 환경변수 SSU_MODEL)")
     ap.add_argument("--workers", type=int, default=4)
-    ap.add_argument("--rpm", type=int, default=60, help="분당 요청 수 상한 (Tier에 맞게 설정)")
+    ap.add_argument("--rpm", type=int, default=60, help="분당 요청 수 상한 (게이트웨이 한도: 60초에 120건)")
     ap.add_argument("--max-resp-chars", type=int, default=8000)
     ap.add_argument("--limit", type=int, default=0, help="LLM 분류 개수 제한 (시험용)")
     ap.add_argument("--review-n", type=int, default=80)
+    ap.add_argument("--no-temperature", action="store_true",
+                    help="모델이 temperature 파라미터를 거부할 때 사용")
+    ap.add_argument("--reasoning-effort", default=None,
+                    choices=["none", "minimal", "low", "medium", "high"],
+                    help="추론 계열 모델(GPT-5.x 등)의 reasoning 양. 낮출수록 토큰이 줄어듦 "
+                         "(Gateway/모델이 지원하지 않으면 400 오류가 나며, 그때는 이 옵션을 빼세요)")
     ap.add_argument("--aggregate-only", action="store_true")
     args = ap.parse_args()
 
     if not args.aggregate_only:
+        if not args.model:
+            ap.error("모델 ID가 필요합니다: --model 모델ID 또는 export SSU_MODEL=모델ID")
         run(args)
     aggregate(args)
 

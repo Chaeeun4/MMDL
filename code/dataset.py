@@ -10,7 +10,6 @@ This file intentionally does NOT download/convert MMMU_DEV_VAL.tsv.
 The assignment uses the official Hugging Face MMMU dataset directly.
 """
 
-from __future__ import annotations
 
 from typing import Any, Dict, List
 
@@ -92,8 +91,8 @@ def load_mmmu_validation(
 
     for subject in selected_subjects:
         dataset = load_dataset(
-            DATASET_NAME,
-            subject,
+            path=DATASET_NAME,
+            name=subject,
             split=SPLIT,
             revision=DATASET_REVISION,
             cache_dir=data_root,
@@ -116,6 +115,9 @@ def load_mmmu_validation(
                     "subfield": row.get("subfield", ""),
                     "img_type": row.get("img_type", ""),
                     "topic_difficulty": row.get("topic_difficulty", ""),
+                    # Gold rationale shipped with MMMU; kept for later
+                    # error analysis (never shown to the model).
+                    "explanation": row.get("explanation", ""),
                     "images": {
                         f"image_{i}": _normalize_image(row[f"image_{i}"])
                         for i in range(1, 8)
