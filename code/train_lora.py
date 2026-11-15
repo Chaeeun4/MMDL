@@ -53,6 +53,10 @@ def parse_args():
     ap.add_argument("--max_pixels", type=int, default=1280 * 32 * 32)
     ap.add_argument("--max_len", type=int, default=4096)
     ap.add_argument("--save_every", type=int, default=0, help="optimizer steps; 0 = only at the end")
+    ap.add_argument("--val_jsonl", default=None,
+                    help="held-out records with a 'src' field; mean loss per src is logged at every save")
+    ap.add_argument("--resume", action="store_true",
+                    help="continue from the newest adapter_step*/trainer_state.pt in out_dir")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--identity", action="store_true", help="save the untrained adapter and exit")
     return ap.parse_args()
@@ -65,8 +69,30 @@ def load_jsonl(path):
             r = json.loads(line)
             # qwen_vl_utils opens local paths itself, so images stay lazy
             recs.append({"id": r["id"], "prompt": r["prompt"], "response": r["response"],
+                         "src": r.get("src", "train"),
                          "images": {i + 1: p for i, p in enumerate(r.get("images", []))}})
     return recs
+
+
+@torch.no_grad()
+def val_loss(model, processor, recs, args):
+    """Mean response-token loss per source on the held-out records (teacher forcing)."""
+    model.eval()
+    tot, n = {}, {}
+    for rec in recs:
+        try:
+            enc, _ = encode(rec, processor, args)
+            if enc["input_ids"].shape[1] > args.max_len:
+                continue
+            loss = model(**{k: v.to("cuda") for k, v in enc.items()}).loss.item()
+        except Exception as e:  # incl. OOM: skip the record, keep training
+            print(f"val skip {rec['id']}: {type(e).__name__}")
+            torch.cuda.empty_cache()
+            continue
+        tot[rec["src"]] = tot.get(rec["src"], 0.0) + loss
+        n[rec["src"]] = n.get(rec["src"], 0) + 1
+    model.train()
+    return {k: round(tot[k] / n[k], 4) for k in sorted(tot)}
 
 
 def main():
@@ -107,12 +133,43 @@ def main():
         opt, lambda s: (s + 1) / warm if s < warm else 0.5 * (1 + math.cos(math.pi * (s - warm) / max(1, total_steps - warm))))
     print(f"records {len(recs)}, epochs {args.epochs}, optimizer steps {total_steps}", flush=True)
     (out / "train_args.json").write_text(json.dumps(vars(args), indent=2))
+    val_recs = load_jsonl(args.val_jsonl) if args.val_jsonl else []
 
     model.train()
     torch.cuda.reset_peak_memory_stats()
     log_f = open(out / "train_log.jsonl", "a")
     step, micro, seen, skipped, ooms, acc_loss, t0 = 0, 0, 0, 0, 0, 0.0, time.perf_counter()
-    order = []
+    order, src_n = [], {}
+    if args.resume:
+        states = sorted(out.glob("adapter_step*/trainer_state.pt"), key=lambda p: int(p.parent.name[12:]))
+        if states:
+            from peft import set_peft_model_state_dict
+            from safetensors.torch import load_file
+            st = torch.load(states[-1], weights_only=False)
+            set_peft_model_state_dict(model, load_file(states[-1].parent / "adapter_model.safetensors"))
+            opt.load_state_dict(st["opt"])
+            sched.load_state_dict(st["sched"])
+            random.setstate(st["random"])
+            step, seen, skipped, ooms, order = st["step"], st["seen"], st["skipped"], st["ooms"], st["order"]
+            t0 -= st["elapsed_s"]
+            print(f"resumed from {states[-1].parent} (step {step}/{total_steps})", flush=True)
+
+    def checkpoint(name, with_state):
+        model.save_pretrained(out / name)
+        if with_state:  # everything needed to continue exactly from here
+            torch.save({"step": step, "seen": seen, "skipped": skipped, "ooms": ooms, "order": order,
+                        "opt": opt.state_dict(), "sched": sched.state_dict(), "random": random.getstate(),
+                        "elapsed_s": time.perf_counter() - t0}, out / name / "trainer_state.pt")
+        if val_recs:
+            row = {"step": step, "val_loss": val_loss(model, processor, val_recs, args)}
+            with open(out / "val_log.jsonl", "a") as f:
+                f.write(json.dumps(row) + "\n")
+            print(f"val {json.dumps(row)}", flush=True)
+
+    if val_recs and step == 0:
+        row = {"step": 0, "val_loss": val_loss(model, processor, val_recs, args)}
+        open(out / "val_log.jsonl", "a").write(json.dumps(row) + "\n")
+        print(f"val {json.dumps(row)}", flush=True)
     while step < total_steps:
         if not order:
             order = list(range(len(recs)))
@@ -136,11 +193,13 @@ def main():
             ooms += 1
             opt.zero_grad(set_to_none=True)
             micro, acc_loss = 0, 0.0
+            src_n.clear()
             torch.cuda.empty_cache()
             print(f"OOM (id={rec['id']}, len={enc['input_ids'].shape[1]})")
             continue
         acc_loss += loss.item()
         micro += 1
+        src_n[rec["src"]] = src_n.get(rec["src"], 0) + 1
         if micro == args.grad_accum:
             torch.nn.utils.clip_grad_norm_(params, 1.0)
             opt.step()
@@ -149,6 +208,7 @@ def main():
             step += 1
             dt = time.perf_counter() - t0
             row = {"step": step, "loss": acc_loss, "lr": sched.get_last_lr()[0], "elapsed_s": round(dt),
+                   "src": dict(src_n),
                    "peak_gb": round(torch.cuda.max_memory_allocated() / 2 ** 30, 2)}
             log_f.write(json.dumps(row) + "\n")
             log_f.flush()
@@ -156,9 +216,10 @@ def main():
             print(f"step {step}/{total_steps} loss {acc_loss:.4f} lr {row['lr']:.2e} "
                   f"peak {row['peak_gb']}GB eta {eta:.0f}min", flush=True)
             micro, acc_loss = 0, 0.0
-            if args.save_every and step % args.save_every == 0:
-                model.save_pretrained(out / f"adapter_step{step}")
-    model.save_pretrained(out / "adapter")
+            src_n.clear()
+            if args.save_every and step % args.save_every == 0 and step < total_steps:
+                checkpoint(f"adapter_step{step}", with_state=True)
+    checkpoint("adapter", with_state=False)
     summary = {"steps": step, "samples_seen": seen, "skipped": skipped, "ooms": ooms,
                "hours": round((time.perf_counter() - t0) / 3600, 2),
                "peak_gb": round(torch.cuda.max_memory_allocated() / 2 ** 30, 2)}

@@ -1,0 +1,344 @@
+{
+  "num_results": 60,
+  "num_subjects": 2,
+  "overall_percent": 31.666666666666664,
+  "micro_percent": 31.666666666666664,
+  "official_percent": 67.4,
+  "delta": -35.73333333333334,
+  "table": [
+    {
+      "no": 8,
+      "subject": "Chemistry",
+      "num": 30,
+      "correct": 10,
+      "accuracy": 0.3333333333333333,
+      "seconds": 85.7979724239558,
+      "tok_mean": 655.7,
+      "tok_max": 5538,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 25,
+      "subject": "Music",
+      "num": 30,
+      "correct": 9,
+      "accuracy": 0.3,
+      "seconds": 18.68827853538096,
+      "tok_mean": 41.7,
+      "tok_max": 1154,
+      "length_stops": 0,
+      "pred_none": 0
+    }
+  ],
+  "by_question_type": {
+    "multiple-choice": {
+      "num": 53,
+      "correct": 19,
+      "accuracy": 0.3584905660377358
+    },
+    "open": {
+      "num": 7,
+      "correct": 0,
+      "accuracy": 0.0
+    }
+  },
+  "by_difficulty": {
+    "Medium": {
+      "num": 29,
+      "correct": 8,
+      "accuracy": 0.27586206896551724
+    },
+    "Easy": {
+      "num": 17,
+      "correct": 5,
+      "accuracy": 0.29411764705882354
+    },
+    "Hard": {
+      "num": 14,
+      "correct": 6,
+      "accuracy": 0.42857142857142855
+    }
+  },
+  "by_img_type": {
+    "['Sheet Music']": {
+      "num": 30,
+      "correct": 9,
+      "accuracy": 0.3
+    },
+    "['Chemical Structures']": {
+      "num": 18,
+      "correct": 5,
+      "accuracy": 0.2777777777777778
+    },
+    "['Plots and Charts']": {
+      "num": 6,
+      "correct": 2,
+      "accuracy": 0.3333333333333333
+    },
+    "['Tables']": {
+      "num": 3,
+      "correct": 2,
+      "accuracy": 0.6666666666666666
+    },
+    "['Diagrams']": {
+      "num": 2,
+      "correct": 1,
+      "accuracy": 0.5
+    },
+    "['Other']": {
+      "num": 1,
+      "correct": 0,
+      "accuracy": 0.0
+    }
+  },
+  "finish_reason": {
+    "stop": 60
+  },
+  "completion_tokens": {
+    "n": 60,
+    "mean": 348.7,
+    "median": 5.0,
+    "p90": 1154,
+    "p99": 5538,
+    "max": 5538,
+    "min": 2
+  },
+  "completion_tokens_correct": {
+    "n": 19,
+    "mean": 344.0,
+    "median": 5,
+    "p90": 1379,
+    "p99": 3941,
+    "max": 3941,
+    "min": 2
+  },
+  "completion_tokens_wrong": {
+    "n": 41,
+    "mean": 350.8780487804878,
+    "median": 5,
+    "p90": 21,
+    "p99": 5538,
+    "max": 5538,
+    "min": 2
+  },
+  "prompt_tokens": {
+    "n": 60,
+    "mean": 504.1166666666667,
+    "median": 233.0,
+    "p90": 1254,
+    "p99": 5616,
+    "max": 5616,
+    "min": 106
+  },
+  "visual_tokens_per_sample": {
+    "n": 60,
+    "mean": 426.48333333333335,
+    "median": 156.5,
+    "p90": 1205,
+    "p99": 5536,
+    "max": 5536,
+    "min": 64
+  },
+  "prediction_none": 0,
+  "prediction_none_ids": [],
+  "length_stops": 0,
+  "length_stops_wrong": 0,
+  "errors": 0,
+  "mc_prediction_distribution": {
+    "A": 10,
+    "B": 11,
+    "C": 20,
+    "D": 11,
+    "E": 1
+  },
+  "mc_gold_distribution": {
+    "A": 9,
+    "B": 24,
+    "C": 12,
+    "D": 8
+  },
+  "longest_outputs": [
+    {
+      "id": "validation_Chemistry_7",
+      "subject": "Chemistry",
+      "tokens": 5538,
+      "finish": "stop",
+      "correct": false
+    },
+    {
+      "id": "validation_Chemistry_21",
+      "subject": "Chemistry",
+      "tokens": 4466,
+      "finish": "stop",
+      "correct": false
+    },
+    {
+      "id": "validation_Chemistry_24",
+      "subject": "Chemistry",
+      "tokens": 3941,
+      "finish": "stop",
+      "correct": true
+    },
+    {
+      "id": "validation_Chemistry_12",
+      "subject": "Chemistry",
+      "tokens": 3045,
+      "finish": "stop",
+      "correct": false
+    },
+    {
+      "id": "validation_Chemistry_17",
+      "subject": "Chemistry",
+      "tokens": 1379,
+      "finish": "stop",
+      "correct": true
+    },
+    {
+      "id": "validation_Music_9",
+      "subject": "Music",
+      "tokens": 1154,
+      "finish": "stop",
+      "correct": false
+    },
+    {
+      "id": "validation_Chemistry_2",
+      "subject": "Chemistry",
+      "tokens": 650,
+      "finish": "stop",
+      "correct": true
+    },
+    {
+      "id": "validation_Chemistry_15",
+      "subject": "Chemistry",
+      "tokens": 493,
+      "finish": "stop",
+      "correct": true
+    },
+    {
+      "id": "validation_Chemistry_28",
+      "subject": "Chemistry",
+      "tokens": 21,
+      "finish": "stop",
+      "correct": false
+    },
+    {
+      "id": "validation_Chemistry_18",
+      "subject": "Chemistry",
+      "tokens": 19,
+      "finish": "stop",
+      "correct": true
+    }
+  ],
+  "timing": {
+    "elapsed_seconds": 168.71411898359656,
+    "inference_seconds": 105.29899659194052,
+    "model_load_seconds": 63.19962736405432,
+    "subject_seconds_sum": 104.48625095933676
+  },
+  "peak_vram_gb": 22.28515625,
+  "sampling": {
+    "greedy": false,
+    "seed": 3407,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repetition_penalty": 1.0,
+    "presence_penalty": 1.5,
+    "max_new_tokens": 32768,
+    "stop_token_ids": [
+      151645,
+      151643
+    ],
+    "logprobs": 5,
+    "matches_official_instruct_recipe": true,
+    "is_baseline_setting": false,
+    "official_recipe_source": "https://github.com/QwenLM/Qwen3-VL#evaluation-reproduction (Generation Hyperparameters -> Instruct models)"
+  },
+  "image_pixels": {
+    "min_pixels": 65536,
+    "max_pixels": 16777216,
+    "min_pixels_source": "processor.image_processor.size['shortest_edge']",
+    "max_pixels_source": "processor.image_processor.size['longest_edge']"
+  },
+  "environment": {
+    "hostname": "adsl-ubuntu",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "python_executable": "/data/jinagg/venv-mmdl/bin/python3",
+    "cwd": "/home/jinagg/MMDL",
+    "argv": [
+      "code/run_mmmu.py",
+      "--model_path",
+      "/data/jinagg/ckpt/c2cm_ft_merged_tmp",
+      "--data_root",
+      "/data/jinagg/hf_cache",
+      "--run_dir",
+      "/home/jinagg/MMDL/runs/c2cm_step480_cm",
+      "--batch_mode",
+      "subject",
+      "--logprobs",
+      "5",
+      "--seed",
+      "3407",
+      "--temperature",
+      "0.7",
+      "--top_p",
+      "0.8",
+      "--top_k",
+      "20",
+      "--repetition_penalty",
+      "1.0",
+      "--presence_penalty",
+      "1.5",
+      "--max_new_tokens",
+      "32768",
+      "--min_pixels",
+      "auto",
+      "--max_pixels",
+      "auto",
+      "--max_model_len",
+      "32768",
+      "--gpu_memory_utilization",
+      "0.90",
+      "--prompt_variant",
+      "official",
+      "--subjects",
+      "Chemistry,Music"
+    ],
+    "git_commit": "62ecc471851d277c8f4d46e0e975e868aa3b525a",
+    "git_branch": "jina",
+    "git_dirty": true,
+    "packages": {
+      "vllm": "0.19.1",
+      "torch": "2.10.0+cu128",
+      "transformers": "5.18.0",
+      "qwen-vl-utils": "0.0.14",
+      "datasets": "5.0.1",
+      "flashinfer-python": "0.6.6",
+      "huggingface-hub": "1.33.0",
+      "tokenizers": "0.23.2",
+      "pillow": "12.3.0"
+    },
+    "torch_cuda": "12.8",
+    "cudnn": 91002,
+    "cuda_visible_devices": null,
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 3090",
+        "driver": "570.211.01",
+        "memory_total_mib": 24576
+      }
+    ],
+    "env_vars": {
+      "HF_HOME": "/data/jinagg/hf_cache",
+      "VLLM_WORKER_MULTIPROC_METHOD": "spawn"
+    },
+    "torch_devices": [
+      "NVIDIA GeForce RTX 3090"
+    ]
+  },
+  "started_at": "2026-11-15T14:29:09+09:00",
+  "finished_at": "2026-11-15T14:31:57+09:00"
+}

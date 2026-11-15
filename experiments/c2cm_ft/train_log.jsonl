@@ -1,0 +1,776 @@
+{"step": 1, "loss": 1.9550632745958865, "lr": 5.263157894736842e-06, "elapsed_s": 65, "src": {"chem_qa": 4, "music_qa": 3, "replay": 6, "chem_coord": 1, "music_trans": 2}, "peak_gb": 11.57}
+{"step": 2, "loss": 1.5738058993592858, "lr": 7.894736842105263e-06, "elapsed_s": 75, "src": {"music_qa": 7, "replay": 6, "chem_qa": 1, "chem_coord": 2}, "peak_gb": 11.91}
+{"step": 3, "loss": 1.7004608013667166, "lr": 1.0526315789473684e-05, "elapsed_s": 84, "src": {"replay": 7, "music_trans": 2, "chem_qa": 3, "music_qa": 4}, "peak_gb": 11.91}
+{"step": 4, "loss": 1.8942216262221336, "lr": 1.3157894736842106e-05, "elapsed_s": 92, "src": {"music_trans": 2, "music_qa": 5, "chem_qa": 4, "replay": 5}, "peak_gb": 11.91}
+{"step": 5, "loss": 2.125733413733542, "lr": 1.5789473684210526e-05, "elapsed_s": 101, "src": {"chem_qa": 5, "replay": 3, "music_qa": 6, "music_trans": 1, "chem_coord": 1}, "peak_gb": 12.67}
+{"step": 6, "loss": 1.6945105479098856, "lr": 1.8421052631578947e-05, "elapsed_s": 111, "src": {"replay": 7, "music_qa": 6, "chem_qa": 2, "music_trans": 1}, "peak_gb": 12.67}
+{"step": 7, "loss": 1.4786371244117618, "lr": 2.105263157894737e-05, "elapsed_s": 121, "src": {"chem_qa": 4, "music_trans": 3, "replay": 7, "music_qa": 2}, "peak_gb": 12.67}
+{"step": 8, "loss": 1.382156380917877, "lr": 2.368421052631579e-05, "elapsed_s": 131, "src": {"replay": 8, "music_trans": 2, "music_qa": 3, "chem_qa": 3}, "peak_gb": 12.67}
+{"step": 9, "loss": 1.5742207574658096, "lr": 2.6315789473684212e-05, "elapsed_s": 141, "src": {"replay": 8, "chem_qa": 6, "music_qa": 2}, "peak_gb": 12.67}
+{"step": 10, "loss": 1.5202735615894198, "lr": 2.8947368421052634e-05, "elapsed_s": 151, "src": {"chem_qa": 4, "replay": 5, "music_qa": 4, "chem_coord": 2, "music_trans": 1}, "peak_gb": 12.67}
+{"step": 11, "loss": 1.2901719161309302, "lr": 3.157894736842105e-05, "elapsed_s": 161, "src": {"replay": 7, "music_qa": 5, "chem_coord": 1, "music_trans": 1, "chem_qa": 2}, "peak_gb": 12.67}
+{"step": 12, "loss": 1.341948508284986, "lr": 3.421052631578947e-05, "elapsed_s": 171, "src": {"replay": 7, "chem_qa": 5, "music_qa": 4}, "peak_gb": 12.67}
+{"step": 13, "loss": 1.3496060846373439, "lr": 3.6842105263157895e-05, "elapsed_s": 180, "src": {"chem_qa": 3, "music_trans": 2, "music_qa": 5, "replay": 6}, "peak_gb": 12.67}
+{"step": 14, "loss": 1.2785318531095982, "lr": 3.9473684210526316e-05, "elapsed_s": 191, "src": {"music_qa": 3, "music_trans": 1, "chem_qa": 3, "replay": 8, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 15, "loss": 1.1380068184807897, "lr": 4.210526315789474e-05, "elapsed_s": 200, "src": {"replay": 8, "chem_qa": 2, "music_qa": 5, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 16, "loss": 1.2811341965571046, "lr": 4.473684210526316e-05, "elapsed_s": 209, "src": {"music_qa": 7, "chem_qa": 4, "replay": 4, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 17, "loss": 1.1280124485492706, "lr": 4.736842105263158e-05, "elapsed_s": 219, "src": {"replay": 6, "chem_qa": 5, "music_trans": 3, "music_qa": 2}, "peak_gb": 13.48}
+{"step": 18, "loss": 1.1228905515745282, "lr": 5e-05, "elapsed_s": 229, "src": {"music_trans": 1, "chem_coord": 1, "chem_qa": 4, "music_qa": 5, "replay": 5}, "peak_gb": 13.48}
+{"step": 19, "loss": 0.8984618242830038, "lr": 5.2631578947368424e-05, "elapsed_s": 240, "src": {"chem_qa": 4, "replay": 9, "music_qa": 2, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 20, "loss": 1.1009520646184683, "lr": 5.526315789473685e-05, "elapsed_s": 250, "src": {"replay": 6, "chem_qa": 5, "music_qa": 3, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 21, "loss": 1.0613986942917109, "lr": 5.789473684210527e-05, "elapsed_s": 261, "src": {"replay": 7, "music_qa": 3, "chem_qa": 4, "music_trans": 1, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 22, "loss": 0.9398322878405452, "lr": 6.052631578947369e-05, "elapsed_s": 269, "src": {"chem_qa": 7, "music_qa": 3, "chem_coord": 1, "replay": 5}, "peak_gb": 13.48}
+{"step": 23, "loss": 0.7383823022246361, "lr": 6.31578947368421e-05, "elapsed_s": 281, "src": {"music_qa": 3, "replay": 12, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 24, "loss": 0.7092498373240232, "lr": 6.578947368421054e-05, "elapsed_s": 290, "src": {"replay": 8, "music_qa": 2, "chem_qa": 3, "chem_coord": 2, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 25, "loss": 0.7448624996468425, "lr": 6.842105263157895e-05, "elapsed_s": 300, "src": {"music_trans": 2, "music_qa": 6, "replay": 7, "chem_qa": 1}, "peak_gb": 13.48}
+{"step": 26, "loss": 0.8780581820756197, "lr": 7.105263157894737e-05, "elapsed_s": 309, "src": {"chem_qa": 5, "replay": 4, "chem_coord": 2, "music_trans": 3, "music_qa": 2}, "peak_gb": 13.48}
+{"step": 27, "loss": 0.8627040330320597, "lr": 7.368421052631579e-05, "elapsed_s": 318, "src": {"chem_qa": 6, "replay": 5, "music_qa": 3, "music_trans": 1, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 28, "loss": 0.730166720226407, "lr": 7.631578947368422e-05, "elapsed_s": 326, "src": {"music_qa": 7, "music_trans": 1, "chem_qa": 4, "replay": 4}, "peak_gb": 13.48}
+{"step": 29, "loss": 0.7745775412768126, "lr": 7.894736842105263e-05, "elapsed_s": 339, "src": {"chem_qa": 2, "replay": 10, "music_qa": 3, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 30, "loss": 0.7039679926820099, "lr": 8.157894736842105e-05, "elapsed_s": 349, "src": {"music_qa": 7, "replay": 6, "music_trans": 1, "chem_coord": 1, "chem_qa": 1}, "peak_gb": 13.48}
+{"step": 31, "loss": 0.788540206849575, "lr": 8.421052631578948e-05, "elapsed_s": 359, "src": {"music_trans": 3, "chem_qa": 5, "music_qa": 4, "replay": 4}, "peak_gb": 13.48}
+{"step": 32, "loss": 0.5437610931694508, "lr": 8.68421052631579e-05, "elapsed_s": 369, "src": {"music_qa": 6, "chem_coord": 1, "replay": 5, "chem_qa": 4}, "peak_gb": 13.48}
+{"step": 33, "loss": 0.4870120817795396, "lr": 8.947368421052632e-05, "elapsed_s": 378, "src": {"music_qa": 5, "music_trans": 1, "replay": 7, "chem_qa": 3}, "peak_gb": 13.48}
+{"step": 34, "loss": 0.3842203048989177, "lr": 9.210526315789474e-05, "elapsed_s": 389, "src": {"chem_qa": 5, "replay": 9, "music_qa": 2}, "peak_gb": 13.48}
+{"step": 35, "loss": 0.45719071105122566, "lr": 9.473684210526316e-05, "elapsed_s": 399, "src": {"music_qa": 8, "music_trans": 1, "chem_qa": 3, "replay": 4}, "peak_gb": 13.48}
+{"step": 36, "loss": 0.4997781841084361, "lr": 9.736842105263158e-05, "elapsed_s": 407, "src": {"music_qa": 3, "chem_qa": 7, "music_trans": 2, "replay": 4}, "peak_gb": 13.48}
+{"step": 37, "loss": 0.4964105701074004, "lr": 0.0001, "elapsed_s": 415, "src": {"replay": 7, "chem_coord": 1, "chem_qa": 4, "music_qa": 3, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 38, "loss": 0.5570185701362789, "lr": 0.0001, "elapsed_s": 425, "src": {"replay": 7, "music_qa": 4, "chem_qa": 4, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 39, "loss": 0.4003634760156274, "lr": 9.999954697061305e-05, "elapsed_s": 435, "src": {"replay": 8, "chem_qa": 3, "music_qa": 4, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 40, "loss": 0.30677488911896944, "lr": 9.999818789066165e-05, "elapsed_s": 445, "src": {"chem_qa": 6, "replay": 7, "music_qa": 3}, "peak_gb": 13.48}
+{"step": 41, "loss": 0.46530031599104404, "lr": 9.999592278477388e-05, "elapsed_s": 455, "src": {"replay": 6, "music_trans": 1, "music_qa": 5, "chem_coord": 1, "chem_qa": 3}, "peak_gb": 13.48}
+{"step": 42, "loss": 0.7367542665451765, "lr": 9.999275169399614e-05, "elapsed_s": 464, "src": {"music_qa": 7, "replay": 3, "chem_coord": 4, "chem_qa": 1, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 43, "loss": 0.3463902953080833, "lr": 9.998867467579234e-05, "elapsed_s": 472, "src": {"music_qa": 4, "replay": 6, "chem_qa": 4, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 44, "loss": 0.4197967192158103, "lr": 9.998369180404283e-05, "elapsed_s": 483, "src": {"replay": 9, "chem_coord": 1, "chem_qa": 3, "music_qa": 2, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 45, "loss": 0.62079225666821, "lr": 9.997780316904311e-05, "elapsed_s": 494, "src": {"replay": 9, "music_qa": 3, "chem_qa": 2, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 46, "loss": 0.5436513791792095, "lr": 9.997100887750215e-05, "elapsed_s": 504, "src": {"music_trans": 1, "replay": 6, "chem_qa": 5, "chem_coord": 2, "music_qa": 2}, "peak_gb": 13.48}
+{"step": 47, "loss": 0.2745349146425724, "lr": 9.99633090525405e-05, "elapsed_s": 515, "src": {"chem_qa": 7, "replay": 6, "music_qa": 2, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 48, "loss": 0.3783488478511572, "lr": 9.995470383368808e-05, "elapsed_s": 525, "src": {"music_qa": 4, "music_trans": 1, "replay": 5, "chem_qa": 5, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 49, "loss": 0.2933722799643874, "lr": 9.994519337688152e-05, "elapsed_s": 535, "src": {"replay": 6, "chem_qa": 5, "music_qa": 4, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 50, "loss": 0.40671068243682384, "lr": 9.99347778544615e-05, "elapsed_s": 543, "src": {"chem_qa": 4, "music_trans": 3, "replay": 4, "music_qa": 4, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 51, "loss": 0.38403976801782846, "lr": 9.992345745516953e-05, "elapsed_s": 553, "src": {"chem_qa": 3, "music_qa": 3, "replay": 7, "music_trans": 1, "chem_coord": 2}, "peak_gb": 13.48}
+{"step": 52, "loss": 0.3598302220925689, "lr": 9.991123238414455e-05, "elapsed_s": 562, "src": {"replay": 5, "chem_qa": 5, "music_trans": 3, "music_qa": 3}, "peak_gb": 13.48}
+{"step": 53, "loss": 0.39220146648585796, "lr": 9.989810286291923e-05, "elapsed_s": 572, "src": {"replay": 7, "chem_qa": 5, "chem_coord": 1, "music_qa": 2, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 54, "loss": 0.37230250844731927, "lr": 9.98840691294159e-05, "elapsed_s": 583, "src": {"music_qa": 4, "replay": 8, "chem_qa": 3, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 55, "loss": 0.39795076684094965, "lr": 9.986913143794232e-05, "elapsed_s": 592, "src": {"chem_qa": 5, "replay": 5, "music_qa": 3, "chem_coord": 2, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 56, "loss": 0.4328922610729933, "lr": 9.985329005918702e-05, "elapsed_s": 602, "src": {"replay": 8, "music_qa": 4, "music_trans": 1, "chem_qa": 3}, "peak_gb": 13.48}
+{"step": 57, "loss": 0.38086548005230725, "lr": 9.983654528021442e-05, "elapsed_s": 613, "src": {"music_qa": 5, "chem_qa": 4, "replay": 6, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 58, "loss": 0.325079882517457, "lr": 9.981889740445958e-05, "elapsed_s": 623, "src": {"replay": 10, "music_qa": 3, "chem_qa": 3}, "peak_gb": 13.48}
+{"step": 59, "loss": 0.47166486410424113, "lr": 9.980034675172274e-05, "elapsed_s": 632, "src": {"replay": 6, "chem_coord": 2, "music_trans": 4, "music_qa": 3, "chem_qa": 1}, "peak_gb": 13.48}
+{"step": 60, "loss": 0.2845688296947628, "lr": 9.978089365816357e-05, "elapsed_s": 640, "src": {"replay": 4, "chem_qa": 5, "music_qa": 5, "chem_coord": 1, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 61, "loss": 0.33557122899219394, "lr": 9.976053847629496e-05, "elapsed_s": 648, "src": {"chem_qa": 2, "music_qa": 3, "music_trans": 2, "replay": 9}, "peak_gb": 13.48}
+{"step": 62, "loss": 0.6004834249615669, "lr": 9.973928157497674e-05, "elapsed_s": 658, "src": {"music_qa": 4, "chem_qa": 2, "music_trans": 2, "replay": 8}, "peak_gb": 13.48}
+{"step": 63, "loss": 0.459248831262812, "lr": 9.971712333940895e-05, "elapsed_s": 668, "src": {"replay": 8, "chem_qa": 4, "music_qa": 2, "chem_coord": 2}, "peak_gb": 13.48}
+{"step": 64, "loss": 0.3139471565373242, "lr": 9.969406417112489e-05, "elapsed_s": 677, "src": {"chem_qa": 5, "replay": 6, "music_qa": 3, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 65, "loss": 0.36300070211291313, "lr": 9.967010448798375e-05, "elapsed_s": 687, "src": {"chem_qa": 4, "music_qa": 3, "chem_coord": 1, "replay": 6, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 66, "loss": 0.3046386311762035, "lr": 9.964524472416319e-05, "elapsed_s": 696, "src": {"replay": 6, "chem_qa": 5, "music_trans": 1, "music_qa": 4}, "peak_gb": 13.48}
+{"step": 67, "loss": 0.21377452975139022, "lr": 9.961948533015133e-05, "elapsed_s": 705, "src": {"chem_qa": 5, "replay": 4, "music_qa": 6, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 68, "loss": 0.3529060808941722, "lr": 9.95928267727387e-05, "elapsed_s": 715, "src": {"replay": 7, "chem_qa": 2, "music_qa": 4, "music_trans": 2, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 69, "loss": 0.38340066629461944, "lr": 9.956526953500964e-05, "elapsed_s": 723, "src": {"chem_qa": 5, "music_qa": 6, "replay": 3, "music_trans": 1, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 70, "loss": 0.3188955867663026, "lr": 9.953681411633376e-05, "elapsed_s": 733, "src": {"replay": 10, "music_qa": 2, "chem_qa": 2, "music_trans": 1, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 71, "loss": 0.44161630468443036, "lr": 9.950746103235663e-05, "elapsed_s": 742, "src": {"music_qa": 3, "chem_qa": 4, "chem_coord": 1, "music_trans": 4, "replay": 4}, "peak_gb": 13.48}
+{"step": 72, "loss": 0.26134230894967914, "lr": 9.947721081499068e-05, "elapsed_s": 751, "src": {"replay": 8, "chem_qa": 3, "music_qa": 5}, "peak_gb": 13.48}
+{"step": 73, "loss": 0.2534997370094061, "lr": 9.944606401240539e-05, "elapsed_s": 760, "src": {"replay": 7, "music_qa": 4, "chem_qa": 4, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 74, "loss": 0.4003427179995924, "lr": 9.941402118901744e-05, "elapsed_s": 770, "src": {"chem_qa": 5, "music_qa": 4, "replay": 4, "music_trans": 1, "chem_coord": 2}, "peak_gb": 13.48}
+{"step": 75, "loss": 0.2609474447090179, "lr": 9.938108292548044e-05, "elapsed_s": 779, "src": {"chem_qa": 5, "music_qa": 3, "replay": 6, "chem_coord": 1, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 76, "loss": 0.44275250972714275, "lr": 9.934724981867446e-05, "elapsed_s": 789, "src": {"chem_coord": 2, "chem_qa": 4, "music_qa": 3, "replay": 5, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 77, "loss": 0.3759197792969644, "lr": 9.931252248169518e-05, "elapsed_s": 799, "src": {"chem_qa": 4, "replay": 8, "music_trans": 2, "music_qa": 2}, "peak_gb": 13.48}
+{"step": 78, "loss": 0.2871349578490481, "lr": 9.927690154384273e-05, "elapsed_s": 809, "src": {"replay": 9, "music_qa": 4, "chem_qa": 3}, "peak_gb": 13.48}
+{"step": 79, "loss": 0.3003131807781756, "lr": 9.924038765061042e-05, "elapsed_s": 818, "src": {"replay": 8, "chem_qa": 4, "music_qa": 3, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 80, "loss": 0.32141309091821313, "lr": 9.920298146367286e-05, "elapsed_s": 828, "src": {"music_qa": 5, "chem_coord": 1, "replay": 8, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 81, "loss": 0.32156351720914245, "lr": 9.916468366087417e-05, "elapsed_s": 836, "src": {"music_qa": 6, "music_trans": 3, "replay": 7}, "peak_gb": 13.48}
+{"step": 82, "loss": 0.6025909152813256, "lr": 9.912549493621554e-05, "elapsed_s": 845, "src": {"chem_coord": 2, "music_trans": 2, "music_qa": 4, "replay": 6, "chem_qa": 2}, "peak_gb": 13.48}
+{"step": 83, "loss": 0.13409504923038185, "lr": 9.908541599984276e-05, "elapsed_s": 853, "src": {"chem_qa": 4, "replay": 2, "music_qa": 8, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 84, "loss": 0.20769936381839216, "lr": 9.904444757803321e-05, "elapsed_s": 862, "src": {"chem_qa": 3, "music_qa": 5, "replay": 6, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 85, "loss": 0.4583585117943585, "lr": 9.900259041318289e-05, "elapsed_s": 871, "src": {"music_trans": 2, "chem_qa": 5, "replay": 8, "music_qa": 1}, "peak_gb": 13.48}
+{"step": 86, "loss": 0.35965347406454384, "lr": 9.895984526379281e-05, "elapsed_s": 881, "src": {"music_qa": 4, "replay": 9, "chem_coord": 1, "chem_qa": 2}, "peak_gb": 13.48}
+{"step": 87, "loss": 0.24526741460431367, "lr": 9.891621290445534e-05, "elapsed_s": 891, "src": {"replay": 6, "music_qa": 4, "chem_qa": 5, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 88, "loss": 0.22961801092606038, "lr": 9.887169412584011e-05, "elapsed_s": 901, "src": {"replay": 5, "chem_coord": 1, "chem_qa": 5, "music_qa": 4, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 89, "loss": 0.18201615090947598, "lr": 9.882628973467972e-05, "elapsed_s": 911, "src": {"chem_qa": 4, "replay": 4, "music_qa": 8}, "peak_gb": 13.48}
+{"step": 90, "loss": 0.23066120920702815, "lr": 9.878000055375512e-05, "elapsed_s": 920, "src": {"chem_qa": 7, "replay": 5, "music_qa": 2, "chem_coord": 1, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 91, "loss": 0.3560070019448176, "lr": 9.873282742188066e-05, "elapsed_s": 929, "src": {"replay": 8, "chem_qa": 3, "music_qa": 4, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 92, "loss": 0.1757659048307687, "lr": 9.868477119388896e-05, "elapsed_s": 939, "src": {"chem_qa": 7, "music_trans": 1, "replay": 6, "music_qa": 2}, "peak_gb": 13.48}
+{"step": 93, "loss": 0.3232990615069866, "lr": 9.863583274061534e-05, "elapsed_s": 948, "src": {"replay": 4, "music_qa": 4, "chem_coord": 1, "chem_qa": 4, "music_trans": 3}, "peak_gb": 13.48}
+{"step": 94, "loss": 0.3008056911639869, "lr": 9.858601294888213e-05, "elapsed_s": 958, "src": {"replay": 6, "chem_qa": 6, "music_qa": 3, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 95, "loss": 0.24401212949305773, "lr": 9.853531272148249e-05, "elapsed_s": 970, "src": {"replay": 9, "chem_qa": 2, "music_qa": 3, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 96, "loss": 0.3194969986798242, "lr": 9.848373297716414e-05, "elapsed_s": 978, "src": {"music_qa": 2, "replay": 5, "chem_qa": 6, "music_trans": 2, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 97, "loss": 0.3776894910261035, "lr": 9.84312746506127e-05, "elapsed_s": 988, "src": {"chem_qa": 4, "music_trans": 2, "replay": 8, "music_qa": 2}, "peak_gb": 13.48}
+{"step": 98, "loss": 0.17868026497308165, "lr": 9.837793869243468e-05, "elapsed_s": 997, "src": {"replay": 8, "music_qa": 3, "music_trans": 2, "chem_qa": 3}, "peak_gb": 13.48}
+{"step": 99, "loss": 0.31731195957399905, "lr": 9.832372606914037e-05, "elapsed_s": 1009, "src": {"music_qa": 5, "chem_qa": 5, "replay": 6}, "peak_gb": 13.48}
+{"step": 100, "loss": 0.3321366913150996, "lr": 9.82686377631262e-05, "elapsed_s": 1018, "src": {"music_qa": 5, "replay": 6, "chem_qa": 3, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 101, "loss": 0.3805001743603498, "lr": 9.821267477265705e-05, "elapsed_s": 1027, "src": {"replay": 5, "music_qa": 5, "chem_qa": 5, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 102, "loss": 0.5469922162592411, "lr": 9.815583811184808e-05, "elapsed_s": 1038, "src": {"replay": 8, "chem_coord": 2, "chem_qa": 4, "music_qa": 2}, "peak_gb": 13.48}
+{"step": 103, "loss": 0.3593819039524533, "lr": 9.80981288106464e-05, "elapsed_s": 1049, "src": {"chem_coord": 1, "replay": 8, "chem_qa": 5, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 104, "loss": 0.24881161050871015, "lr": 9.803954791481239e-05, "elapsed_s": 1059, "src": {"replay": 8, "music_qa": 4, "chem_qa": 3, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 105, "loss": 0.35925420094281435, "lr": 9.798009648590072e-05, "elapsed_s": 1068, "src": {"chem_qa": 5, "replay": 5, "chem_coord": 1, "music_qa": 4, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 106, "loss": 0.1743364951107651, "lr": 9.791977560124119e-05, "elapsed_s": 1078, "src": {"replay": 7, "chem_qa": 6, "music_qa": 3}, "peak_gb": 13.48}
+{"step": 107, "loss": 0.16934316151309758, "lr": 9.785858635391914e-05, "elapsed_s": 1086, "src": {"replay": 8, "music_qa": 4, "chem_qa": 4}, "peak_gb": 13.48}
+{"step": 108, "loss": 0.26873198500834405, "lr": 9.779652985275562e-05, "elapsed_s": 1095, "src": {"replay": 5, "music_qa": 8, "chem_qa": 2, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 109, "loss": 0.34404190559871495, "lr": 9.773360722228742e-05, "elapsed_s": 1105, "src": {"replay": 6, "chem_qa": 3, "music_trans": 2, "chem_coord": 1, "music_qa": 4}, "peak_gb": 13.48}
+{"step": 110, "loss": 0.17405552580021322, "lr": 9.766981960274653e-05, "elapsed_s": 1114, "src": {"music_qa": 4, "replay": 5, "chem_qa": 5, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 111, "loss": 0.2226629569195211, "lr": 9.760516815003964e-05, "elapsed_s": 1124, "src": {"replay": 5, "music_qa": 7, "chem_qa": 3, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 112, "loss": 0.3122986026573926, "lr": 9.753965403572703e-05, "elapsed_s": 1133, "src": {"chem_coord": 1, "music_qa": 7, "replay": 4, "chem_qa": 3, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 113, "loss": 0.23745687352493405, "lr": 9.747327844700147e-05, "elapsed_s": 1143, "src": {"replay": 8, "chem_coord": 1, "chem_qa": 3, "music_qa": 4}, "peak_gb": 13.48}
+{"step": 114, "loss": 0.2295407751807943, "lr": 9.740604258666668e-05, "elapsed_s": 1153, "src": {"replay": 7, "music_trans": 3, "chem_qa": 4, "music_qa": 2}, "peak_gb": 13.48}
+{"step": 115, "loss": 0.37780501530505717, "lr": 9.733794767311544e-05, "elapsed_s": 1164, "src": {"replay": 9, "chem_coord": 1, "chem_qa": 1, "music_trans": 2, "music_qa": 3}, "peak_gb": 13.48}
+{"step": 116, "loss": 0.23098737775580958, "lr": 9.726899494030768e-05, "elapsed_s": 1172, "src": {"chem_qa": 6, "music_qa": 6, "replay": 3, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 117, "loss": 0.2116405228152871, "lr": 9.719918563774792e-05, "elapsed_s": 1182, "src": {"replay": 7, "music_qa": 5, "chem_qa": 3, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 118, "loss": 0.2720041093416512, "lr": 9.71285210304628e-05, "elapsed_s": 1195, "src": {"chem_qa": 2, "music_qa": 6, "replay": 8}, "peak_gb": 13.48}
+{"step": 119, "loss": 0.42938860855065286, "lr": 9.705700239897809e-05, "elapsed_s": 1205, "src": {"chem_coord": 1, "replay": 7, "chem_qa": 4, "music_trans": 2, "music_qa": 2}, "peak_gb": 13.48}
+{"step": 120, "loss": 0.2852854432712775, "lr": 9.698463103929542e-05, "elapsed_s": 1214, "src": {"chem_qa": 4, "replay": 5, "chem_coord": 2, "music_qa": 5}, "peak_gb": 13.48}
+{"step": 121, "loss": 0.16748066432774067, "lr": 9.691140826286893e-05, "elapsed_s": 1284, "src": {"chem_qa": 7, "replay": 8, "music_qa": 1}, "peak_gb": 13.48}
+{"step": 122, "loss": 0.25168964243493974, "lr": 9.683733539658139e-05, "elapsed_s": 1295, "src": {"replay": 8, "music_qa": 2, "chem_qa": 4, "music_trans": 1, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 123, "loss": 0.2677106107585132, "lr": 9.676241378272021e-05, "elapsed_s": 1305, "src": {"replay": 6, "music_qa": 6, "music_trans": 1, "chem_coord": 1, "chem_qa": 2}, "peak_gb": 13.48}
+{"step": 124, "loss": 0.33863710158038884, "lr": 9.66866447789531e-05, "elapsed_s": 1314, "src": {"music_trans": 3, "replay": 5, "chem_qa": 5, "chem_coord": 1, "music_qa": 2}, "peak_gb": 13.48}
+{"step": 125, "loss": 0.2962341154925525, "lr": 9.661002975830349e-05, "elapsed_s": 1325, "src": {"replay": 11, "music_qa": 1, "music_trans": 3, "chem_qa": 1}, "peak_gb": 13.48}
+{"step": 126, "loss": 0.18775248271413147, "lr": 9.653257010912559e-05, "elapsed_s": 1335, "src": {"music_qa": 4, "chem_qa": 5, "replay": 6, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 127, "loss": 0.18577569047920406, "lr": 9.645426723507929e-05, "elapsed_s": 1345, "src": {"music_qa": 4, "music_trans": 2, "chem_qa": 6, "replay": 4}, "peak_gb": 13.48}
+{"step": 128, "loss": 0.27053810423240066, "lr": 9.637512255510473e-05, "elapsed_s": 1356, "src": {"music_qa": 4, "chem_qa": 3, "replay": 7, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 129, "loss": 0.211115654790774, "lr": 9.629513750339655e-05, "elapsed_s": 1367, "src": {"chem_qa": 3, "replay": 10, "music_qa": 3}, "peak_gb": 13.48}
+{"step": 130, "loss": 0.36863828531932086, "lr": 9.621431352937789e-05, "elapsed_s": 1378, "src": {"replay": 6, "chem_coord": 2, "music_qa": 5, "music_trans": 1, "chem_qa": 2}, "peak_gb": 13.48}
+{"step": 131, "loss": 0.16506556211970747, "lr": 9.613265209767417e-05, "elapsed_s": 1387, "src": {"replay": 6, "music_qa": 5, "music_trans": 1, "chem_qa": 4}, "peak_gb": 13.48}
+{"step": 132, "loss": 0.28131599305197597, "lr": 9.605015468808651e-05, "elapsed_s": 1396, "src": {"replay": 6, "chem_qa": 3, "music_qa": 6, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 133, "loss": 0.1230342194903642, "lr": 9.596682279556498e-05, "elapsed_s": 1404, "src": {"chem_qa": 7, "music_qa": 5, "replay": 3, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 134, "loss": 0.30897967459168285, "lr": 9.58826579301814e-05, "elapsed_s": 1415, "src": {"music_qa": 4, "chem_coord": 1, "replay": 6, "music_trans": 2, "chem_qa": 3}, "peak_gb": 13.48}
+{"step": 135, "loss": 0.37262319563888013, "lr": 9.579766161710209e-05, "elapsed_s": 1426, "src": {"music_qa": 2, "chem_qa": 2, "replay": 8, "music_trans": 3, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 136, "loss": 0.16389608365716413, "lr": 9.571183539656011e-05, "elapsed_s": 1438, "src": {"replay": 10, "music_qa": 3, "chem_qa": 3}, "peak_gb": 13.48}
+{"step": 137, "loss": 0.1895921640098095, "lr": 9.56251808238275e-05, "elapsed_s": 1447, "src": {"chem_qa": 6, "music_qa": 1, "replay": 8, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 138, "loss": 0.16115681873634458, "lr": 9.553769946918697e-05, "elapsed_s": 1457, "src": {"music_qa": 5, "chem_qa": 5, "replay": 5, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 139, "loss": 0.2858655892778188, "lr": 9.544939291790351e-05, "elapsed_s": 1468, "src": {"replay": 9, "music_qa": 3, "chem_qa": 2, "music_trans": 1, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 140, "loss": 0.1600848902016878, "lr": 9.536026277019561e-05, "elapsed_s": 1477, "src": {"replay": 8, "chem_qa": 3, "music_qa": 4, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 141, "loss": 0.37536951116635464, "lr": 9.527031064120632e-05, "elapsed_s": 1486, "src": {"music_trans": 2, "replay": 6, "music_qa": 4, "chem_coord": 1, "chem_qa": 3}, "peak_gb": 13.48}
+{"step": 142, "loss": 0.1895655469270423, "lr": 9.517953816097396e-05, "elapsed_s": 1496, "src": {"music_qa": 3, "chem_coord": 1, "chem_qa": 7, "replay": 5}, "peak_gb": 13.48}
+{"step": 143, "loss": 0.17526187050680164, "lr": 9.508794697440257e-05, "elapsed_s": 1504, "src": {"music_trans": 3, "chem_qa": 5, "music_qa": 5, "replay": 3}, "peak_gb": 13.48}
+{"step": 144, "loss": 0.1844651331193745, "lr": 9.499553874123212e-05, "elapsed_s": 1513, "src": {"chem_qa": 4, "music_qa": 6, "replay": 4, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 145, "loss": 0.22739902714965865, "lr": 9.490231513600843e-05, "elapsed_s": 1523, "src": {"chem_qa": 6, "replay": 5, "music_qa": 3, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 146, "loss": 0.39989325357601047, "lr": 9.480827784805278e-05, "elapsed_s": 1534, "src": {"chem_qa": 3, "music_qa": 4, "music_trans": 1, "chem_coord": 2, "replay": 6}, "peak_gb": 13.48}
+{"step": 147, "loss": 0.18287556688301265, "lr": 9.47134285814314e-05, "elapsed_s": 1544, "src": {"music_qa": 4, "replay": 5, "music_trans": 3, "chem_qa": 4}, "peak_gb": 13.48}
+{"step": 148, "loss": 0.3471297943033278, "lr": 9.461776905492446e-05, "elapsed_s": 1555, "src": {"music_qa": 5, "music_trans": 2, "chem_qa": 2, "replay": 6, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 149, "loss": 0.17662315221969038, "lr": 9.452130100199503e-05, "elapsed_s": 1565, "src": {"music_trans": 2, "music_qa": 5, "replay": 5, "chem_qa": 4}, "peak_gb": 13.48}
+{"step": 150, "loss": 0.22542379330843687, "lr": 9.442402617075765e-05, "elapsed_s": 1577, "src": {"replay": 10, "chem_qa": 5, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 151, "loss": 0.4197850565833505, "lr": 9.43259463239466e-05, "elapsed_s": 1586, "src": {"replay": 8, "chem_coord": 2, "music_trans": 1, "chem_qa": 4, "music_qa": 1}, "peak_gb": 13.48}
+{"step": 152, "loss": 0.3126102117821574, "lr": 9.422706323888397e-05, "elapsed_s": 1595, "src": {"music_qa": 4, "replay": 6, "chem_qa": 4, "chem_coord": 1, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 153, "loss": 0.30913421930745244, "lr": 9.412737870744752e-05, "elapsed_s": 1606, "src": {"replay": 9, "music_qa": 3, "music_trans": 1, "chem_qa": 3}, "peak_gb": 13.48}
+{"step": 154, "loss": 0.30068624555133283, "lr": 9.402689453603815e-05, "elapsed_s": 1617, "src": {"music_qa": 6, "replay": 8, "music_trans": 1, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 155, "loss": 0.17942260834388435, "lr": 9.392561254554713e-05, "elapsed_s": 1629, "src": {"replay": 8, "music_qa": 3, "chem_qa": 4, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 156, "loss": 0.15143431711476296, "lr": 9.382353457132319e-05, "elapsed_s": 1638, "src": {"chem_qa": 5, "music_qa": 5, "replay": 4, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 157, "loss": 0.25542687880806625, "lr": 9.372066246313921e-05, "elapsed_s": 1648, "src": {"music_qa": 2, "music_trans": 5, "chem_qa": 4, "replay": 4, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 158, "loss": 0.16708791872952133, "lr": 9.361699808515876e-05, "elapsed_s": 1659, "src": {"replay": 6, "chem_qa": 2, "music_qa": 8}, "peak_gb": 13.48}
+{"step": 159, "loss": 0.25591708649881184, "lr": 9.351254331590215e-05, "elapsed_s": 1667, "src": {"replay": 6, "chem_qa": 5, "music_trans": 1, "music_qa": 4}, "peak_gb": 13.48}
+{"step": 160, "loss": 0.43467486067675054, "lr": 9.340730004821266e-05, "elapsed_s": 1679, "src": {"chem_coord": 2, "chem_qa": 6, "replay": 7, "music_qa": 1}, "peak_gb": 13.48}
+{"step": 161, "loss": 0.2600136931287125, "lr": 9.330127018922194e-05, "elapsed_s": 1691, "src": {"replay": 8, "chem_qa": 3, "chem_coord": 1, "music_qa": 4}, "peak_gb": 13.48}
+{"step": 162, "loss": 0.26104888424742967, "lr": 9.31944556603157e-05, "elapsed_s": 1699, "src": {"music_trans": 1, "replay": 6, "chem_coord": 1, "chem_qa": 4, "music_qa": 4}, "peak_gb": 13.48}
+{"step": 163, "loss": 0.25542798649985343, "lr": 9.308685839709879e-05, "elapsed_s": 1708, "src": {"chem_qa": 4, "music_qa": 3, "music_trans": 2, "replay": 6, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 164, "loss": 0.2620922193164006, "lr": 9.297848034936006e-05, "elapsed_s": 1717, "src": {"chem_qa": 7, "music_qa": 6, "replay": 1, "chem_coord": 2}, "peak_gb": 13.48}
+{"step": 165, "loss": 0.3697742548538372, "lr": 9.286932348103714e-05, "elapsed_s": 1727, "src": {"music_qa": 5, "replay": 5, "chem_qa": 4, "chem_coord": 2}, "peak_gb": 13.48}
+{"step": 166, "loss": 0.29193874896736816, "lr": 9.275938977018081e-05, "elapsed_s": 1736, "src": {"replay": 5, "music_qa": 6, "chem_qa": 3, "chem_coord": 2}, "peak_gb": 13.48}
+{"step": 167, "loss": 0.25006357091479003, "lr": 9.264868120891912e-05, "elapsed_s": 1744, "src": {"chem_qa": 6, "replay": 6, "music_qa": 3, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 168, "loss": 0.3128123835194856, "lr": 9.253719980342135e-05, "elapsed_s": 1755, "src": {"music_qa": 4, "music_trans": 2, "replay": 6, "chem_qa": 3, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 169, "loss": 0.19651522411732003, "lr": 9.24249475738616e-05, "elapsed_s": 1764, "src": {"chem_coord": 1, "music_trans": 1, "music_qa": 5, "replay": 4, "chem_qa": 5}, "peak_gb": 13.48}
+{"step": 170, "loss": 0.38099445938132703, "lr": 9.231192655438221e-05, "elapsed_s": 1773, "src": {"music_qa": 3, "chem_qa": 5, "replay": 6, "chem_coord": 2}, "peak_gb": 13.48}
+{"step": 171, "loss": 0.28494036180200055, "lr": 9.219813879305692e-05, "elapsed_s": 1784, "src": {"replay": 6, "music_qa": 4, "chem_coord": 2, "chem_qa": 4}, "peak_gb": 13.48}
+{"step": 172, "loss": 0.3041028414154425, "lr": 9.208358635185373e-05, "elapsed_s": 1793, "src": {"music_qa": 6, "music_trans": 1, "replay": 6, "chem_coord": 1, "chem_qa": 2}, "peak_gb": 13.48}
+{"step": 173, "loss": 0.2418988464633003, "lr": 9.19682713065975e-05, "elapsed_s": 1804, "src": {"replay": 6, "chem_qa": 4, "music_qa": 4, "music_trans": 1, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 174, "loss": 0.25424529996234924, "lr": 9.185219574693242e-05, "elapsed_s": 1813, "src": {"chem_qa": 3, "replay": 9, "music_qa": 3, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 175, "loss": 0.21311187947867438, "lr": 9.173536177628409e-05, "elapsed_s": 1823, "src": {"replay": 5, "chem_coord": 1, "chem_qa": 5, "music_qa": 3, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 176, "loss": 0.22231608082074672, "lr": 9.161777151182136e-05, "elapsed_s": 1835, "src": {"music_trans": 2, "music_qa": 1, "chem_qa": 5, "replay": 8}, "peak_gb": 13.48}
+{"step": 177, "loss": 0.20541140565183014, "lr": 9.149942708441808e-05, "elapsed_s": 1845, "src": {"replay": 6, "chem_coord": 1, "chem_qa": 4, "music_qa": 4, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 178, "loss": 0.21450543496757746, "lr": 9.138033063861436e-05, "elapsed_s": 1855, "src": {"replay": 8, "chem_qa": 4, "music_qa": 4}, "peak_gb": 13.48}
+{"step": 179, "loss": 0.1483414262183942, "lr": 9.12604843325778e-05, "elapsed_s": 1865, "src": {"chem_qa": 5, "music_qa": 5, "replay": 6}, "peak_gb": 13.48}
+{"step": 180, "loss": 0.3285522252554074, "lr": 9.113989033806434e-05, "elapsed_s": 1876, "src": {"chem_qa": 6, "replay": 7, "music_qa": 1, "chem_coord": 1, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 181, "loss": 0.14655655005481094, "lr": 9.101855084037894e-05, "elapsed_s": 1884, "src": {"replay": 6, "chem_qa": 4, "music_qa": 4, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 182, "loss": 0.18493640120141208, "lr": 9.089646803833589e-05, "elapsed_s": 1893, "src": {"music_qa": 3, "chem_qa": 3, "replay": 8, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 183, "loss": 0.21708895498886704, "lr": 9.077364414421909e-05, "elapsed_s": 1903, "src": {"chem_qa": 5, "music_qa": 4, "replay": 5, "chem_coord": 1, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 184, "loss": 0.18545430433005095, "lr": 9.065008138374189e-05, "elapsed_s": 1914, "src": {"music_qa": 3, "replay": 8, "chem_qa": 4, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 185, "loss": 0.3185342880897224, "lr": 9.052578199600675e-05, "elapsed_s": 1927, "src": {"replay": 11, "music_qa": 3, "chem_coord": 1, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 186, "loss": 0.2599361801985651, "lr": 9.040074823346465e-05, "elapsed_s": 1938, "src": {"replay": 7, "music_qa": 3, "chem_qa": 3, "music_trans": 2, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 187, "loss": 0.31639077118597925, "lr": 9.027498236187439e-05, "elapsed_s": 1949, "src": {"replay": 8, "chem_qa": 3, "music_qa": 3, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 188, "loss": 0.15042621130123734, "lr": 9.014848666026138e-05, "elapsed_s": 1957, "src": {"music_qa": 7, "replay": 3, "chem_qa": 6}, "peak_gb": 13.48}
+{"step": 189, "loss": 0.2104798834770918, "lr": 9.002126342087642e-05, "elapsed_s": 1967, "src": {"chem_qa": 5, "replay": 6, "music_qa": 3, "music_trans": 1, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 190, "loss": 0.2632662618998438, "lr": 8.989331494915417e-05, "elapsed_s": 1981, "src": {"chem_coord": 1, "replay": 10, "chem_qa": 3, "music_qa": 2}, "peak_gb": 13.48}
+{"step": 191, "loss": 0.3308424896094948, "lr": 8.976464356367132e-05, "elapsed_s": 1992, "src": {"replay": 8, "music_trans": 2, "chem_coord": 2, "music_qa": 2, "chem_qa": 2}, "peak_gb": 13.48}
+{"step": 192, "loss": 0.37958217796403915, "lr": 8.963525159610465e-05, "elapsed_s": 2002, "src": {"chem_qa": 5, "replay": 7, "music_qa": 2, "music_trans": 1, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 193, "loss": 0.19341067923232913, "lr": 8.950514139118868e-05, "elapsed_s": 2010, "src": {"replay": 5, "music_qa": 5, "chem_qa": 5, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 194, "loss": 0.2300785623374395, "lr": 8.937431530667328e-05, "elapsed_s": 2020, "src": {"replay": 5, "music_qa": 4, "chem_qa": 6, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 195, "loss": 0.29504429642111063, "lr": 8.92427757132809e-05, "elapsed_s": 2031, "src": {"replay": 8, "chem_qa": 3, "music_trans": 1, "music_qa": 4}, "peak_gb": 13.48}
+{"step": 196, "loss": 0.22592321364209056, "lr": 8.911052499466357e-05, "elapsed_s": 2041, "src": {"replay": 7, "music_qa": 6, "music_trans": 2, "chem_qa": 1}, "peak_gb": 13.48}
+{"step": 197, "loss": 0.10804696305422112, "lr": 8.897756554735977e-05, "elapsed_s": 2050, "src": {"chem_qa": 6, "music_qa": 6, "replay": 4}, "peak_gb": 13.48}
+{"step": 198, "loss": 0.1770318690687418, "lr": 8.884389978075098e-05, "elapsed_s": 2060, "src": {"replay": 7, "music_trans": 1, "music_qa": 4, "chem_qa": 4}, "peak_gb": 13.48}
+{"step": 199, "loss": 0.255127206328325, "lr": 8.870953011701804e-05, "elapsed_s": 2070, "src": {"replay": 7, "chem_qa": 4, "music_qa": 3, "chem_coord": 1, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 200, "loss": 0.30763065681094304, "lr": 8.857445899109715e-05, "elapsed_s": 2081, "src": {"replay": 9, "chem_qa": 4, "music_qa": 1, "music_trans": 1, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 201, "loss": 0.3999406429938972, "lr": 8.843868885063593e-05, "elapsed_s": 2090, "src": {"replay": 4, "chem_coord": 3, "music_trans": 1, "chem_qa": 4, "music_qa": 4}, "peak_gb": 13.48}
+{"step": 202, "loss": 0.2492174725048244, "lr": 8.83022221559489e-05, "elapsed_s": 2098, "src": {"chem_coord": 1, "replay": 5, "music_trans": 2, "music_qa": 6, "chem_qa": 2}, "peak_gb": 13.48}
+{"step": 203, "loss": 0.22701078071258962, "lr": 8.8165061379973e-05, "elapsed_s": 2107, "src": {"replay": 5, "chem_qa": 4, "music_qa": 5, "music_trans": 1, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 204, "loss": 0.2571472313720733, "lr": 8.80272090082227e-05, "elapsed_s": 2116, "src": {"chem_qa": 3, "music_qa": 6, "chem_coord": 1, "replay": 4, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 205, "loss": 0.3464152535889298, "lr": 8.788866753874503e-05, "elapsed_s": 2125, "src": {"replay": 9, "chem_qa": 4, "music_trans": 1, "chem_coord": 1, "music_qa": 1}, "peak_gb": 13.48}
+{"step": 206, "loss": 0.3198099654400721, "lr": 8.774943948207426e-05, "elapsed_s": 2135, "src": {"music_trans": 1, "chem_qa": 4, "replay": 8, "music_qa": 3}, "peak_gb": 13.48}
+{"step": 207, "loss": 0.4129222098272294, "lr": 8.760952736118644e-05, "elapsed_s": 2146, "src": {"replay": 11, "chem_coord": 3, "chem_qa": 2}, "peak_gb": 13.48}
+{"step": 208, "loss": 0.27938770572654903, "lr": 8.746893371145366e-05, "elapsed_s": 2157, "src": {"replay": 9, "chem_qa": 2, "music_qa": 5}, "peak_gb": 13.48}
+{"step": 209, "loss": 0.24315222474979237, "lr": 8.732766108059813e-05, "elapsed_s": 2171, "src": {"replay": 9, "chem_qa": 4, "music_qa": 3}, "peak_gb": 13.48}
+{"step": 210, "loss": 0.14559812762308866, "lr": 8.718571202864598e-05, "elapsed_s": 2180, "src": {"replay": 6, "chem_qa": 3, "music_qa": 6, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 211, "loss": 0.21413813391700387, "lr": 8.70430891278809e-05, "elapsed_s": 2192, "src": {"music_trans": 2, "replay": 7, "chem_qa": 4, "music_qa": 3}, "peak_gb": 13.48}
+{"step": 212, "loss": 0.33530413801781833, "lr": 8.689979496279748e-05, "elapsed_s": 2202, "src": {"chem_qa": 4, "music_qa": 3, "replay": 7, "music_trans": 1, "chem_coord": 1}, "peak_gb": 13.48}
+{"step": 213, "loss": 0.2815108415961731, "lr": 8.675583213005443e-05, "elapsed_s": 2210, "src": {"chem_coord": 2, "replay": 5, "chem_qa": 8, "music_qa": 1}, "peak_gb": 13.48}
+{"step": 214, "loss": 0.2504445892991498, "lr": 8.661120323842751e-05, "elapsed_s": 2218, "src": {"music_trans": 3, "chem_qa": 6, "chem_coord": 2, "replay": 2, "music_qa": 3}, "peak_gb": 13.48}
+{"step": 215, "loss": 0.2545247065136209, "lr": 8.646591090876224e-05, "elapsed_s": 2229, "src": {"chem_qa": 4, "replay": 6, "music_trans": 1, "music_qa": 5}, "peak_gb": 13.48}
+{"step": 216, "loss": 0.32034192932769656, "lr": 8.631995777392645e-05, "elapsed_s": 2240, "src": {"replay": 10, "music_qa": 2, "chem_qa": 4}, "peak_gb": 13.48}
+{"step": 217, "loss": 0.3371799695305526, "lr": 8.61733464787625e-05, "elapsed_s": 2249, "src": {"chem_coord": 3, "chem_qa": 3, "music_trans": 1, "music_qa": 4, "replay": 5}, "peak_gb": 13.48}
+{"step": 218, "loss": 0.17541825864464045, "lr": 8.602607968003935e-05, "elapsed_s": 2259, "src": {"music_qa": 3, "replay": 8, "music_trans": 2, "chem_qa": 3}, "peak_gb": 13.48}
+{"step": 219, "loss": 0.3055182814132422, "lr": 8.587816004640456e-05, "elapsed_s": 2270, "src": {"replay": 6, "music_trans": 1, "chem_coord": 1, "music_qa": 5, "chem_qa": 3}, "peak_gb": 13.48}
+{"step": 220, "loss": 0.28151465114206076, "lr": 8.572959025833573e-05, "elapsed_s": 2278, "src": {"music_qa": 4, "chem_qa": 4, "replay": 5, "chem_coord": 2, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 221, "loss": 0.22347667044959962, "lr": 8.558037300809208e-05, "elapsed_s": 2287, "src": {"music_trans": 2, "chem_qa": 4, "replay": 4, "music_qa": 6}, "peak_gb": 13.48}
+{"step": 222, "loss": 0.1962906492408365, "lr": 8.54305109996656e-05, "elapsed_s": 2296, "src": {"replay": 7, "chem_coord": 1, "chem_qa": 5, "music_qa": 3}, "peak_gb": 13.48}
+{"step": 223, "loss": 0.12988280586432666, "lr": 8.528000694873198e-05, "elapsed_s": 2306, "src": {"music_qa": 6, "replay": 6, "chem_qa": 4}, "peak_gb": 13.48}
+{"step": 224, "loss": 0.20084193930961192, "lr": 8.512886358260162e-05, "elapsed_s": 2316, "src": {"chem_qa": 6, "replay": 7, "music_qa": 3}, "peak_gb": 13.48}
+{"step": 225, "loss": 0.1617448697797954, "lr": 8.49770836401699e-05, "elapsed_s": 2325, "src": {"replay": 9, "chem_qa": 4, "music_qa": 2, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 226, "loss": 0.18600974173750728, "lr": 8.482466987186784e-05, "elapsed_s": 2335, "src": {"chem_qa": 5, "replay": 7, "music_qa": 3, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 227, "loss": 0.32630349113605917, "lr": 8.467162503961208e-05, "elapsed_s": 2343, "src": {"chem_qa": 3, "chem_coord": 2, "replay": 5, "music_qa": 4, "music_trans": 2}, "peak_gb": 13.48}
+{"step": 228, "loss": 0.22094074764754623, "lr": 8.451795191675488e-05, "elapsed_s": 2353, "src": {"replay": 9, "music_trans": 3, "music_qa": 2, "chem_qa": 2}, "peak_gb": 13.48}
+{"step": 229, "loss": 0.29543034289963543, "lr": 8.436365328803385e-05, "elapsed_s": 2364, "src": {"music_qa": 3, "chem_qa": 2, "chem_coord": 1, "replay": 9, "music_trans": 1}, "peak_gb": 13.48}
+{"step": 230, "loss": 0.4555567817296833, "lr": 8.420873194952152e-05, "elapsed_s": 2374, "src": {"chem_qa": 4, "replay": 8, "chem_coord": 2, "music_trans": 1, "music_qa": 1}, "peak_gb": 13.48}
+{"step": 231, "loss": 0.23031051876023412, "lr": 8.405319070857467e-05, "elapsed_s": 2386, "src": {"music_qa": 3, "replay": 11, "chem_qa": 2}, "peak_gb": 13.48}
+{"step": 232, "loss": 0.29904373874887824, "lr": 8.389703238378339e-05, "elapsed_s": 2397, "src": {"replay": 9, "music_qa": 5, "chem_coord": 1, "chem_qa": 1}, "peak_gb": 13.79}
+{"step": 233, "loss": 0.17385676433332264, "lr": 8.374025980492011e-05, "elapsed_s": 2406, "src": {"chem_qa": 5, "replay": 7, "music_qa": 4}, "peak_gb": 13.79}
+{"step": 234, "loss": 0.28116145520471036, "lr": 8.358287581288822e-05, "elapsed_s": 2416, "src": {"music_qa": 5, "music_trans": 5, "replay": 5, "chem_coord": 1}, "peak_gb": 13.79}
+{"step": 235, "loss": 0.2869946760474704, "lr": 8.342488325967068e-05, "elapsed_s": 2425, "src": {"replay": 5, "music_qa": 4, "music_trans": 2, "chem_qa": 5}, "peak_gb": 13.79}
+{"step": 236, "loss": 0.2258271430619061, "lr": 8.326628500827826e-05, "elapsed_s": 2434, "src": {"music_trans": 2, "replay": 5, "chem_qa": 3, "music_qa": 5, "chem_coord": 1}, "peak_gb": 13.79}
+{"step": 237, "loss": 0.2029965246329084, "lr": 8.310708393269772e-05, "elapsed_s": 2443, "src": {"chem_coord": 1, "replay": 5, "music_qa": 3, "chem_qa": 4, "music_trans": 3}, "peak_gb": 13.79}
+{"step": 238, "loss": 0.22832710214424878, "lr": 8.294728291783966e-05, "elapsed_s": 2451, "src": {"chem_qa": 3, "music_qa": 5, "music_trans": 3, "chem_coord": 1, "replay": 4}, "peak_gb": 13.79}
+{"step": 239, "loss": 0.30570402496960014, "lr": 8.278688485948633e-05, "elapsed_s": 2462, "src": {"replay": 7, "chem_qa": 3, "music_trans": 4, "chem_coord": 1, "music_qa": 1}, "peak_gb": 13.79}
+{"step": 240, "loss": 0.19881110108690336, "lr": 8.262589266423908e-05, "elapsed_s": 2469, "src": {"chem_qa": 7, "music_qa": 4, "replay": 3, "chem_coord": 1, "music_trans": 1}, "peak_gb": 13.79}
+{"step": 241, "loss": 0.1704559929057723, "lr": 8.246430924946575e-05, "elapsed_s": 2536, "src": {"chem_coord": 1, "music_qa": 6, "chem_qa": 4, "replay": 3, "music_trans": 2}, "peak_gb": 13.79}
+{"step": 242, "loss": 0.11243722948711365, "lr": 8.230213754324773e-05, "elapsed_s": 2544, "src": {"replay": 5, "music_qa": 3, "chem_qa": 4, "music_trans": 4}, "peak_gb": 13.79}
+{"step": 243, "loss": 0.3238535893615335, "lr": 8.213938048432697e-05, "elapsed_s": 2553, "src": {"replay": 6, "chem_qa": 6, "music_trans": 2, "chem_coord": 2}, "peak_gb": 13.79}
+{"step": 244, "loss": 0.27067859315138776, "lr": 8.197604102205271e-05, "elapsed_s": 2562, "src": {"chem_coord": 1, "music_trans": 1, "music_qa": 6, "chem_qa": 3, "replay": 5}, "peak_gb": 13.79}
+{"step": 245, "loss": 0.20076210994739085, "lr": 8.1812122116328e-05, "elapsed_s": 2573, "src": {"replay": 8, "music_trans": 4, "chem_qa": 2, "music_qa": 2}, "peak_gb": 13.79}
+{"step": 246, "loss": 0.3049934062291868, "lr": 8.164762673755609e-05, "elapsed_s": 2583, "src": {"chem_qa": 3, "replay": 6, "music_trans": 2, "music_qa": 4, "chem_coord": 1}, "peak_gb": 13.79}
+{"step": 247, "loss": 0.31671571801416576, "lr": 8.14825578665866e-05, "elapsed_s": 2594, "src": {"replay": 7, "music_trans": 3, "music_qa": 4, "chem_qa": 2}, "peak_gb": 13.79}
+{"step": 248, "loss": 0.36435913131572306, "lr": 8.131691849466153e-05, "elapsed_s": 2605, "src": {"replay": 8, "chem_qa": 2, "music_qa": 4, "music_trans": 1, "chem_coord": 1}, "peak_gb": 13.79}
+{"step": 249, "loss": 0.13417684310115874, "lr": 8.115071162336098e-05, "elapsed_s": 2615, "src": {"replay": 5, "music_qa": 5, "chem_qa": 4, "music_trans": 2}, "peak_gb": 13.79}
+{"step": 250, "loss": 0.2994452918646857, "lr": 8.098394026454885e-05, "elapsed_s": 2625, "src": {"chem_qa": 3, "replay": 7, "music_qa": 4, "chem_coord": 2}, "peak_gb": 13.79}
+{"step": 251, "loss": 0.28003617632202804, "lr": 8.081660744031819e-05, "elapsed_s": 2636, "src": {"replay": 8, "music_trans": 2, "chem_qa": 4, "chem_coord": 1, "music_qa": 1}, "peak_gb": 13.79}
+{"step": 252, "loss": 0.22189837411860935, "lr": 8.064871618293646e-05, "elapsed_s": 2648, "src": {"music_qa": 6, "replay": 8, "music_trans": 1, "chem_qa": 1}, "peak_gb": 13.79}
+{"step": 253, "loss": 0.19794565089978278, "lr": 8.048026953479062e-05, "elapsed_s": 2655, "src": {"music_qa": 8, "replay": 2, "chem_qa": 4, "chem_coord": 1, "music_trans": 1}, "peak_gb": 13.79}
+{"step": 254, "loss": 0.22492594111827202, "lr": 8.03112705483319e-05, "elapsed_s": 2665, "src": {"chem_qa": 4, "music_qa": 7, "replay": 4, "music_trans": 1}, "peak_gb": 13.79}
+{"step": 255, "loss": 0.173484142171219, "lr": 8.014172228602064e-05, "elapsed_s": 2675, "src": {"replay": 10, "chem_qa": 4, "music_qa": 2}, "peak_gb": 13.79}
+{"step": 256, "loss": 0.22496924817096442, "lr": 7.997162782027061e-05, "elapsed_s": 2685, "src": {"chem_qa": 9, "replay": 6, "chem_coord": 1}, "peak_gb": 13.79}
+{"step": 257, "loss": 0.31658199683442945, "lr": 7.98009902333935e-05, "elapsed_s": 2694, "src": {"music_qa": 5, "replay": 9, "music_trans": 1, "chem_coord": 1}, "peak_gb": 13.79}
+{"step": 258, "loss": 0.2092376277432777, "lr": 7.962981261754294e-05, "elapsed_s": 2705, "src": {"music_qa": 5, "chem_qa": 3, "music_trans": 2, "replay": 5, "chem_coord": 1}, "peak_gb": 13.79}
+{"step": 259, "loss": 0.10332109470618889, "lr": 7.945809807465857e-05, "elapsed_s": 2714, "src": {"replay": 5, "chem_qa": 7, "music_qa": 4}, "peak_gb": 13.79}
+{"step": 260, "loss": 0.2248447537131142, "lr": 7.928584971640974e-05, "elapsed_s": 2723, "src": {"music_qa": 4, "music_trans": 3, "replay": 5, "chem_qa": 4}, "peak_gb": 13.79}
+{"step": 261, "loss": 0.2924802702618763, "lr": 7.911307066413919e-05, "elapsed_s": 2734, "src": {"replay": 10, "chem_qa": 5, "music_trans": 1}, "peak_gb": 13.79}
+{"step": 262, "loss": 0.23141254670917988, "lr": 7.893976404880643e-05, "elapsed_s": 2742, "src": {"music_qa": 3, "chem_qa": 3, "replay": 7, "chem_coord": 1, "music_trans": 2}, "peak_gb": 13.79}
+{"step": 263, "loss": 0.44079305103514344, "lr": 7.876593301093104e-05, "elapsed_s": 2753, "src": {"music_qa": 4, "chem_qa": 3, "replay": 6, "chem_coord": 3}, "peak_gb": 13.79}
+{"step": 264, "loss": 0.17763426605961286, "lr": 7.859158070053577e-05, "elapsed_s": 2763, "src": {"replay": 8, "music_qa": 3, "chem_qa": 5}, "peak_gb": 13.79}
+{"step": 265, "loss": 0.1985913293901831, "lr": 7.841671027708944e-05, "elapsed_s": 2772, "src": {"replay": 4, "music_qa": 7, "chem_qa": 3, "music_trans": 2}, "peak_gb": 13.79}
+{"step": 266, "loss": 0.3224522963864729, "lr": 7.824132490944969e-05, "elapsed_s": 2781, "src": {"chem_coord": 3, "chem_qa": 6, "music_trans": 1, "music_qa": 3, "replay": 3}, "peak_gb": 13.79}
+{"step": 267, "loss": 0.1712670661509037, "lr": 7.80654277758055e-05, "elapsed_s": 2790, "src": {"music_qa": 7, "replay": 6, "chem_qa": 3}, "peak_gb": 13.79}
+{"step": 268, "loss": 0.14292514720000327, "lr": 7.788902206361972e-05, "elapsed_s": 2799, "src": {"chem_qa": 6, "music_qa": 3, "music_trans": 1, "replay": 6}, "peak_gb": 13.79}
+{"step": 269, "loss": 0.2778210745891556, "lr": 7.771211096957124e-05, "elapsed_s": 2807, "src": {"chem_qa": 5, "replay": 6, "music_qa": 4, "chem_coord": 1}, "peak_gb": 13.79}
+{"step": 270, "loss": 0.15591963997576386, "lr": 7.7534697699497e-05, "elapsed_s": 2817, "src": {"chem_qa": 4, "music_qa": 4, "replay": 7, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 271, "loss": 0.23330791824264452, "lr": 7.735678546833402e-05, "elapsed_s": 2829, "src": {"chem_qa": 3, "replay": 10, "music_qa": 2, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 272, "loss": 0.129478881295654, "lr": 7.717837750006106e-05, "elapsed_s": 2838, "src": {"chem_qa": 5, "replay": 6, "music_qa": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 273, "loss": 0.2593353929987643, "lr": 7.699947702764021e-05, "elapsed_s": 2849, "src": {"chem_coord": 1, "music_trans": 1, "music_qa": 3, "replay": 7, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 274, "loss": 0.22159500475390814, "lr": 7.682008729295834e-05, "elapsed_s": 2857, "src": {"chem_qa": 5, "music_qa": 5, "replay": 5, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 275, "loss": 0.10399627103470266, "lr": 7.664021154676829e-05, "elapsed_s": 2868, "src": {"replay": 5, "music_qa": 7, "chem_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 276, "loss": 0.24050383432768285, "lr": 7.645985304863003e-05, "elapsed_s": 2880, "src": {"music_qa": 4, "replay": 10, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 277, "loss": 0.22981846862239763, "lr": 7.627901506685157e-05, "elapsed_s": 2889, "src": {"music_qa": 4, "music_trans": 2, "chem_qa": 4, "chem_coord": 1, "replay": 5}, "peak_gb": 14.25}
+{"step": 278, "loss": 0.2948813171242364, "lr": 7.609770087842969e-05, "elapsed_s": 2901, "src": {"music_qa": 4, "replay": 8, "chem_qa": 2, "chem_coord": 2}, "peak_gb": 14.25}
+{"step": 279, "loss": 0.08339220640482381, "lr": 7.591591376899062e-05, "elapsed_s": 2909, "src": {"chem_qa": 8, "replay": 5, "music_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 280, "loss": 0.1979360966652166, "lr": 7.573365703273046e-05, "elapsed_s": 2918, "src": {"chem_qa": 7, "replay": 5, "music_qa": 2, "music_trans": 1, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 281, "loss": 0.2108470678795129, "lr": 7.555093397235552e-05, "elapsed_s": 2928, "src": {"music_trans": 3, "chem_qa": 2, "replay": 9, "music_qa": 1, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 282, "loss": 0.29391106916591525, "lr": 7.536774789902246e-05, "elapsed_s": 2939, "src": {"music_qa": 5, "replay": 7, "chem_coord": 2, "music_trans": 1, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 283, "loss": 0.18543772876728326, "lr": 7.518410213227822e-05, "elapsed_s": 2948, "src": {"chem_qa": 4, "music_trans": 2, "music_qa": 5, "replay": 4, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 284, "loss": 0.22984705911949277, "lr": 7.500000000000001e-05, "elapsed_s": 2959, "src": {"chem_qa": 5, "music_qa": 3, "replay": 7, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 285, "loss": 0.19242515449877828, "lr": 7.481544483833484e-05, "elapsed_s": 2968, "src": {"music_qa": 4, "chem_qa": 4, "replay": 7, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 286, "loss": 0.11015619506360963, "lr": 7.463043999163919e-05, "elapsed_s": 2976, "src": {"music_qa": 1, "replay": 5, "chem_qa": 7, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 287, "loss": 0.13560904798214324, "lr": 7.444498881241835e-05, "elapsed_s": 2985, "src": {"replay": 6, "music_qa": 5, "chem_qa": 5}, "peak_gb": 14.25}
+{"step": 288, "loss": 0.19733045168686658, "lr": 7.425909466126569e-05, "elapsed_s": 2993, "src": {"replay": 8, "music_qa": 5, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 289, "loss": 0.36321684275753796, "lr": 7.407276090680172e-05, "elapsed_s": 3004, "src": {"music_qa": 5, "replay": 5, "chem_coord": 2, "music_trans": 2, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 290, "loss": 0.19933939317706972, "lr": 7.388599092561315e-05, "elapsed_s": 3014, "src": {"chem_qa": 6, "replay": 7, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 291, "loss": 0.24555081539438106, "lr": 7.369878810219152e-05, "elapsed_s": 3024, "src": {"chem_qa": 5, "replay": 8, "music_qa": 2, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 292, "loss": 0.09645951772108674, "lr": 7.351115582887211e-05, "elapsed_s": 3033, "src": {"music_qa": 6, "chem_qa": 5, "replay": 5}, "peak_gb": 14.25}
+{"step": 293, "loss": 0.2079833403113298, "lr": 7.332309750577222e-05, "elapsed_s": 3044, "src": {"replay": 8, "music_qa": 6, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 294, "loss": 0.20306671058642678, "lr": 7.313461654072973e-05, "elapsed_s": 3056, "src": {"replay": 9, "chem_qa": 3, "music_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 295, "loss": 0.35558572283480316, "lr": 7.29457163492413e-05, "elapsed_s": 3066, "src": {"music_trans": 1, "chem_qa": 3, "music_qa": 6, "replay": 6}, "peak_gb": 14.25}
+{"step": 296, "loss": 0.22212908664369024, "lr": 7.275640035440045e-05, "elapsed_s": 3076, "src": {"music_trans": 2, "chem_qa": 7, "replay": 5, "chem_coord": 1, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 297, "loss": 0.15139170840848237, "lr": 7.256667198683552e-05, "elapsed_s": 3084, "src": {"replay": 4, "music_qa": 5, "music_trans": 3, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 298, "loss": 0.20894559018779546, "lr": 7.237653468464756e-05, "elapsed_s": 3093, "src": {"replay": 7, "chem_qa": 4, "music_qa": 2, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 299, "loss": 0.2089676444302313, "lr": 7.218599189334799e-05, "elapsed_s": 3101, "src": {"music_qa": 8, "chem_qa": 4, "replay": 2, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 300, "loss": 0.17295427713543177, "lr": 7.199504706579617e-05, "elapsed_s": 3110, "src": {"music_trans": 3, "chem_qa": 5, "replay": 6, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 301, "loss": 0.3973588330554776, "lr": 7.180370366213682e-05, "elapsed_s": 3120, "src": {"replay": 8, "music_trans": 1, "music_qa": 3, "chem_qa": 2, "chem_coord": 2}, "peak_gb": 14.25}
+{"step": 302, "loss": 0.33135832291736733, "lr": 7.161196514973734e-05, "elapsed_s": 3128, "src": {"replay": 3, "music_qa": 3, "chem_qa": 5, "chem_coord": 3, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 303, "loss": 0.23105693771503866, "lr": 7.141983500312498e-05, "elapsed_s": 3137, "src": {"replay": 5, "music_trans": 1, "music_qa": 3, "chem_qa": 6, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 304, "loss": 0.21534834406338632, "lr": 7.12273167039238e-05, "elapsed_s": 3147, "src": {"replay": 6, "music_qa": 7, "chem_qa": 2, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 305, "loss": 0.2734117708168924, "lr": 7.103441374079172e-05, "elapsed_s": 3158, "src": {"replay": 10, "chem_qa": 4, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 306, "loss": 0.10229701921343803, "lr": 7.084112960935715e-05, "elapsed_s": 3168, "src": {"music_qa": 5, "replay": 7, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 307, "loss": 0.10041960020316765, "lr": 7.064746781215577e-05, "elapsed_s": 3177, "src": {"music_qa": 3, "chem_qa": 6, "replay": 7}, "peak_gb": 14.25}
+{"step": 308, "loss": 0.2732800947269425, "lr": 7.045343185856701e-05, "elapsed_s": 3189, "src": {"music_qa": 4, "replay": 8, "chem_coord": 1, "chem_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 309, "loss": 0.29642951989080757, "lr": 7.02590252647504e-05, "elapsed_s": 3199, "src": {"replay": 7, "chem_qa": 4, "music_trans": 2, "music_qa": 2, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 310, "loss": 0.19915840221801773, "lr": 7.006425155358195e-05, "elapsed_s": 3211, "src": {"replay": 8, "music_qa": 2, "chem_qa": 5, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 311, "loss": 0.2643266974191647, "lr": 6.986911425459028e-05, "elapsed_s": 3220, "src": {"replay": 5, "chem_qa": 5, "chem_coord": 1, "music_qa": 2, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 312, "loss": 0.21005267730106425, "lr": 6.967361690389258e-05, "elapsed_s": 3229, "src": {"replay": 3, "chem_qa": 7, "music_qa": 4, "music_trans": 1, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 313, "loss": 0.2721400023146998, "lr": 6.94777630441307e-05, "elapsed_s": 3240, "src": {"replay": 10, "chem_qa": 4, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 314, "loss": 0.16857032565167174, "lr": 6.92815562244068e-05, "elapsed_s": 3249, "src": {"replay": 7, "music_qa": 5, "music_trans": 2, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 315, "loss": 0.259324580343673, "lr": 6.908500000021904e-05, "elapsed_s": 3261, "src": {"replay": 11, "chem_qa": 5}, "peak_gb": 14.25}
+{"step": 316, "loss": 0.11057751439511776, "lr": 6.88880979333973e-05, "elapsed_s": 3270, "src": {"music_qa": 9, "chem_qa": 1, "replay": 5, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 317, "loss": 0.2490767971612513, "lr": 6.869085359203844e-05, "elapsed_s": 3280, "src": {"chem_qa": 4, "music_qa": 5, "replay": 6, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 318, "loss": 0.26427789218723774, "lr": 6.849327055044183e-05, "elapsed_s": 3289, "src": {"replay": 6, "chem_qa": 4, "music_trans": 1, "music_qa": 4, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 319, "loss": 0.14363119259360246, "lr": 6.829535238904441e-05, "elapsed_s": 3301, "src": {"music_trans": 2, "replay": 8, "music_qa": 2, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 320, "loss": 0.18787668173899874, "lr": 6.80971026943559e-05, "elapsed_s": 3309, "src": {"replay": 5, "music_qa": 4, "chem_coord": 1, "music_trans": 3, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 321, "loss": 0.18702134158229455, "lr": 6.789852505889383e-05, "elapsed_s": 3319, "src": {"replay": 9, "chem_qa": 3, "music_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 322, "loss": 0.14870999165577814, "lr": 6.769962308111837e-05, "elapsed_s": 3328, "src": {"music_qa": 3, "chem_qa": 5, "replay": 6, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 323, "loss": 0.0896791075647343, "lr": 6.750040036536718e-05, "elapsed_s": 3338, "src": {"music_qa": 7, "chem_qa": 3, "replay": 6}, "peak_gb": 14.25}
+{"step": 324, "loss": 0.3223214652389288, "lr": 6.730086052179004e-05, "elapsed_s": 3349, "src": {"replay": 7, "chem_qa": 4, "chem_coord": 2, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 325, "loss": 0.3665508757112548, "lr": 6.710100716628344e-05, "elapsed_s": 3358, "src": {"replay": 4, "music_qa": 6, "chem_qa": 4, "chem_coord": 2}, "peak_gb": 14.25}
+{"step": 326, "loss": 0.3484339396673022, "lr": 6.690084392042513e-05, "elapsed_s": 3368, "src": {"chem_qa": 4, "replay": 8, "music_qa": 3, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 327, "loss": 0.17319518781732768, "lr": 6.670037441140843e-05, "elapsed_s": 3377, "src": {"chem_qa": 5, "music_qa": 4, "replay": 3, "music_trans": 3, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 328, "loss": 0.19573298871182487, "lr": 6.649960227197647e-05, "elapsed_s": 3385, "src": {"replay": 5, "music_trans": 3, "chem_qa": 6, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 329, "loss": 0.20409881183877587, "lr": 6.629853114035642e-05, "elapsed_s": 3396, "src": {"chem_qa": 4, "replay": 8, "music_trans": 2, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 330, "loss": 0.3751680834684521, "lr": 6.609716466019356e-05, "elapsed_s": 3409, "src": {"chem_qa": 1, "replay": 9, "chem_coord": 2, "music_qa": 4}, "peak_gb": 14.25}
+{"step": 331, "loss": 0.13916568338754587, "lr": 6.589550648048517e-05, "elapsed_s": 3417, "src": {"replay": 2, "music_qa": 6, "chem_qa": 7, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 332, "loss": 0.29560350195970386, "lr": 6.569356025551454e-05, "elapsed_s": 3425, "src": {"chem_coord": 1, "music_qa": 3, "replay": 4, "chem_qa": 8}, "peak_gb": 14.25}
+{"step": 333, "loss": 0.4510452455288032, "lr": 6.549132964478465e-05, "elapsed_s": 3437, "src": {"chem_coord": 3, "music_trans": 3, "replay": 7, "music_qa": 2, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 334, "loss": 0.21161523007322103, "lr": 6.528881831295188e-05, "elapsed_s": 3447, "src": {"replay": 8, "music_trans": 3, "music_qa": 2, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 335, "loss": 0.22327267844229937, "lr": 6.508602992975963e-05, "elapsed_s": 3456, "src": {"music_qa": 4, "music_trans": 1, "chem_qa": 5, "replay": 6}, "peak_gb": 14.25}
+{"step": 336, "loss": 0.21419975036405958, "lr": 6.488296816997173e-05, "elapsed_s": 3465, "src": {"music_qa": 6, "chem_qa": 4, "replay": 6}, "peak_gb": 14.25}
+{"step": 337, "loss": 0.17966783126757946, "lr": 6.467963671330599e-05, "elapsed_s": 3474, "src": {"chem_qa": 5, "music_qa": 3, "replay": 6, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 338, "loss": 0.2568326072068885, "lr": 6.447603924436744e-05, "elapsed_s": 3485, "src": {"replay": 9, "music_qa": 1, "chem_qa": 5, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 339, "loss": 0.15814168205542956, "lr": 6.427217945258151e-05, "elapsed_s": 3495, "src": {"music_qa": 4, "replay": 6, "chem_qa": 5, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 340, "loss": 0.2186531689367257, "lr": 6.406806103212725e-05, "elapsed_s": 3505, "src": {"music_qa": 4, "replay": 8, "chem_qa": 3, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 341, "loss": 0.23383396037388593, "lr": 6.38636876818704e-05, "elapsed_s": 3517, "src": {"music_qa": 3, "chem_qa": 4, "replay": 7, "music_trans": 1, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 342, "loss": 0.17742707685101777, "lr": 6.36590631052963e-05, "elapsed_s": 3527, "src": {"replay": 8, "music_qa": 4, "chem_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 343, "loss": 0.22667812928557396, "lr": 6.345419101044279e-05, "elapsed_s": 3536, "src": {"replay": 7, "music_qa": 4, "music_trans": 2, "chem_qa": 2, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 344, "loss": 0.1292458368698135, "lr": 6.324907510983308e-05, "elapsed_s": 3546, "src": {"replay": 7, "music_qa": 4, "chem_qa": 5}, "peak_gb": 14.25}
+{"step": 345, "loss": 0.2701587126357481, "lr": 6.304371912040839e-05, "elapsed_s": 3558, "src": {"chem_qa": 2, "replay": 10, "chem_coord": 1, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 346, "loss": 0.15197432777495123, "lr": 6.283812676346063e-05, "elapsed_s": 3568, "src": {"replay": 8, "music_qa": 3, "chem_qa": 3, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 347, "loss": 0.18214770301710814, "lr": 6.263230176456498e-05, "elapsed_s": 3579, "src": {"chem_coord": 1, "replay": 5, "chem_qa": 4, "music_qa": 5, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 348, "loss": 0.13498463621363044, "lr": 6.242624785351236e-05, "elapsed_s": 3587, "src": {"music_qa": 3, "replay": 6, "chem_qa": 4, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 349, "loss": 0.20172981114592403, "lr": 6.221996876424185e-05, "elapsed_s": 3597, "src": {"music_qa": 4, "replay": 7, "chem_qa": 2, "music_trans": 2, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 350, "loss": 0.22016260042437352, "lr": 6.201346823477305e-05, "elapsed_s": 3607, "src": {"replay": 6, "chem_qa": 6, "music_trans": 2, "chem_coord": 1, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 351, "loss": 0.3616771014058031, "lr": 6.180675000713825e-05, "elapsed_s": 3616, "src": {"chem_qa": 5, "replay": 8, "music_trans": 1, "music_qa": 1, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 352, "loss": 0.1427165074273944, "lr": 6.159981782731474e-05, "elapsed_s": 3626, "src": {"chem_qa": 5, "replay": 6, "music_qa": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 353, "loss": 0.1529351788922213, "lr": 6.139267544515688e-05, "elapsed_s": 3634, "src": {"music_trans": 4, "music_qa": 2, "chem_qa": 7, "replay": 2, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 354, "loss": 0.2673264289041981, "lr": 6.118532661432812e-05, "elapsed_s": 3644, "src": {"replay": 6, "music_qa": 5, "chem_qa": 3, "chem_coord": 2}, "peak_gb": 14.25}
+{"step": 355, "loss": 0.10955579881556332, "lr": 6.097777509223299e-05, "elapsed_s": 3653, "src": {"replay": 5, "music_qa": 6, "chem_qa": 5}, "peak_gb": 14.25}
+{"step": 356, "loss": 0.24538121471414343, "lr": 6.0770024639949074e-05, "elapsed_s": 3662, "src": {"replay": 4, "chem_qa": 8, "music_trans": 1, "music_qa": 2, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 357, "loss": 0.21616017346968874, "lr": 6.056207902215874e-05, "elapsed_s": 3673, "src": {"chem_qa": 4, "replay": 6, "music_qa": 4, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 358, "loss": 0.19191428768681362, "lr": 6.0353942007081046e-05, "elapsed_s": 3683, "src": {"music_qa": 7, "replay": 4, "music_trans": 1, "chem_qa": 3, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 359, "loss": 0.09282476641237736, "lr": 6.014561736640334e-05, "elapsed_s": 3694, "src": {"chem_qa": 6, "replay": 8, "music_trans": 1, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 360, "loss": 0.1748003978136694, "lr": 5.993710887521302e-05, "elapsed_s": 3704, "src": {"chem_qa": 4, "music_qa": 4, "replay": 8}, "peak_gb": 14.25}
+{"step": 361, "loss": 0.377578618194093, "lr": 5.972842031192902e-05, "elapsed_s": 3770, "src": {"chem_qa": 3, "music_trans": 2, "replay": 2, "music_qa": 6, "chem_coord": 3}, "peak_gb": 14.25}
+{"step": 362, "loss": 0.1328489012666978, "lr": 5.951955545823342e-05, "elapsed_s": 3779, "src": {"music_qa": 8, "replay": 6, "chem_qa": 1, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 363, "loss": 0.3805951082613319, "lr": 5.93105180990029e-05, "elapsed_s": 3791, "src": {"replay": 9, "chem_qa": 4, "chem_coord": 1, "music_trans": 1, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 364, "loss": 0.16405792138539255, "lr": 5.910131202224012e-05, "elapsed_s": 3801, "src": {"replay": 6, "music_qa": 6, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 365, "loss": 0.39253523340448737, "lr": 5.889194101900509e-05, "elapsed_s": 3809, "src": {"replay": 3, "music_trans": 3, "music_qa": 2, "chem_coord": 3, "chem_qa": 5}, "peak_gb": 14.25}
+{"step": 366, "loss": 0.36270846822299063, "lr": 5.868240888334653e-05, "elapsed_s": 3821, "src": {"replay": 8, "chem_coord": 3, "chem_qa": 3, "music_trans": 1, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 367, "loss": 0.3052640717069153, "lr": 5.8472719412233004e-05, "elapsed_s": 3832, "src": {"music_qa": 4, "music_trans": 1, "chem_qa": 4, "replay": 6, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 368, "loss": 0.1793128356221132, "lr": 5.8262876405484255e-05, "elapsed_s": 3843, "src": {"replay": 9, "chem_qa": 3, "music_trans": 1, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 369, "loss": 0.27841973799513653, "lr": 5.8052883665702195e-05, "elapsed_s": 3853, "src": {"chem_coord": 1, "replay": 5, "music_qa": 5, "music_trans": 3, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 370, "loss": 0.610105067549739, "lr": 5.7842744998202126e-05, "elapsed_s": 3862, "src": {"music_trans": 3, "music_qa": 2, "chem_qa": 2, "chem_coord": 5, "replay": 4}, "peak_gb": 14.25}
+{"step": 371, "loss": 0.33419137028977275, "lr": 5.763246421094374e-05, "elapsed_s": 3872, "src": {"music_qa": 4, "chem_qa": 3, "replay": 5, "music_trans": 2, "chem_coord": 2}, "peak_gb": 14.25}
+{"step": 372, "loss": 0.25347814144333825, "lr": 5.742204511446203e-05, "elapsed_s": 3881, "src": {"music_trans": 2, "chem_qa": 4, "replay": 8, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 373, "loss": 0.2664625839679502, "lr": 5.721149152179841e-05, "elapsed_s": 3892, "src": {"replay": 6, "music_qa": 6, "chem_coord": 2, "music_trans": 1, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 374, "loss": 0.32291425054427236, "lr": 5.7000807248431454e-05, "elapsed_s": 3903, "src": {"chem_coord": 2, "replay": 6, "music_qa": 4, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 375, "loss": 0.19542049942538142, "lr": 5.678999611220788e-05, "elapsed_s": 3915, "src": {"replay": 8, "chem_qa": 4, "music_qa": 4}, "peak_gb": 14.25}
+{"step": 376, "loss": 0.22012822981923819, "lr": 5.657906193327325e-05, "elapsed_s": 3923, "src": {"replay": 5, "chem_qa": 5, "music_trans": 4, "music_qa": 1, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 377, "loss": 0.26871409083832987, "lr": 5.636800853400285e-05, "elapsed_s": 3932, "src": {"music_qa": 5, "chem_qa": 4, "chem_coord": 2, "music_trans": 2, "replay": 3}, "peak_gb": 14.25}
+{"step": 378, "loss": 0.2794839619891718, "lr": 5.6156839738932343e-05, "elapsed_s": 3944, "src": {"chem_qa": 4, "replay": 6, "music_qa": 4, "chem_coord": 1, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 379, "loss": 0.2465617885463871, "lr": 5.594555937468857e-05, "elapsed_s": 3955, "src": {"replay": 10, "music_qa": 5, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 380, "loss": 0.20274008909473196, "lr": 5.573417126992003e-05, "elapsed_s": 3968, "src": {"replay": 9, "chem_qa": 5, "chem_coord": 1, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 381, "loss": 0.11562420520931482, "lr": 5.552267925522768e-05, "elapsed_s": 3977, "src": {"replay": 5, "music_qa": 7, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 382, "loss": 0.16967649408616126, "lr": 5.531108716309545e-05, "elapsed_s": 3989, "src": {"chem_qa": 3, "replay": 10, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 383, "loss": 0.25770527494023554, "lr": 5.509939882782077e-05, "elapsed_s": 3998, "src": {"replay": 7, "music_qa": 8, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 384, "loss": 0.1751974964281544, "lr": 5.4887618085445094e-05, "elapsed_s": 4009, "src": {"music_qa": 6, "replay": 7, "chem_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 385, "loss": 0.12670126114971936, "lr": 5.467574877368441e-05, "elapsed_s": 4020, "src": {"replay": 11, "chem_qa": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 386, "loss": 0.28457983781117946, "lr": 5.446379473185973e-05, "elapsed_s": 4030, "src": {"replay": 7, "chem_qa": 5, "chem_coord": 1, "music_trans": 2, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 387, "loss": 0.18201101035811007, "lr": 5.42517598008274e-05, "elapsed_s": 4037, "src": {"chem_qa": 4, "replay": 4, "music_qa": 5, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 388, "loss": 0.24285659031011164, "lr": 5.403964782290963e-05, "elapsed_s": 4047, "src": {"replay": 8, "chem_qa": 3, "music_qa": 5}, "peak_gb": 14.25}
+{"step": 389, "loss": 0.08754948934074491, "lr": 5.382746264182479e-05, "elapsed_s": 4057, "src": {"chem_qa": 7, "music_qa": 2, "replay": 7}, "peak_gb": 14.25}
+{"step": 390, "loss": 0.21814033725240733, "lr": 5.36152081026178e-05, "elapsed_s": 4066, "src": {"replay": 7, "music_qa": 7, "chem_coord": 1, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 391, "loss": 0.2925157224526629, "lr": 5.340288805159036e-05, "elapsed_s": 4075, "src": {"music_trans": 2, "replay": 8, "music_qa": 3, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 392, "loss": 0.35762478958349675, "lr": 5.319050633623142e-05, "elapsed_s": 4084, "src": {"music_qa": 5, "replay": 5, "chem_coord": 2, "chem_qa": 2, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 393, "loss": 0.3186137437587604, "lr": 5.297806680514731e-05, "elapsed_s": 4093, "src": {"replay": 6, "chem_coord": 1, "chem_qa": 2, "music_qa": 5, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 394, "loss": 0.23386495566956, "lr": 5.276557330799202e-05, "elapsed_s": 4101, "src": {"music_qa": 7, "replay": 2, "chem_qa": 4, "chem_coord": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 395, "loss": 0.19342508784029633, "lr": 5.255302969539754e-05, "elapsed_s": 4109, "src": {"replay": 7, "chem_qa": 4, "music_qa": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 396, "loss": 0.17871236760402098, "lr": 5.234043981890393e-05, "elapsed_s": 4119, "src": {"music_trans": 3, "replay": 7, "music_qa": 3, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 397, "loss": 0.12169614862068556, "lr": 5.212780753088968e-05, "elapsed_s": 4132, "src": {"music_qa": 4, "chem_qa": 3, "replay": 9}, "peak_gb": 14.25}
+{"step": 398, "loss": 0.29063876922009513, "lr": 5.1915136684501764e-05, "elapsed_s": 4143, "src": {"chem_qa": 3, "replay": 8, "music_trans": 1, "music_qa": 3, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 399, "loss": 0.1279816360620316, "lr": 5.170243113358595e-05, "elapsed_s": 4150, "src": {"music_qa": 4, "music_trans": 1, "chem_qa": 8, "replay": 3}, "peak_gb": 14.25}
+{"step": 400, "loss": 0.28143127061775886, "lr": 5.14896947326168e-05, "elapsed_s": 4161, "src": {"chem_qa": 4, "replay": 11, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 401, "loss": 0.12765412428416312, "lr": 5.1276931336628e-05, "elapsed_s": 4173, "src": {"replay": 8, "music_trans": 2, "chem_qa": 4, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 402, "loss": 0.32174256947473623, "lr": 5.106414480114239e-05, "elapsed_s": 4184, "src": {"music_qa": 4, "chem_coord": 1, "replay": 7, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 403, "loss": 0.27438259980408475, "lr": 5.0851338982102084e-05, "elapsed_s": 4193, "src": {"replay": 9, "music_qa": 2, "chem_coord": 1, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 404, "loss": 0.16435139684472233, "lr": 5.0638517735798696e-05, "elapsed_s": 4201, "src": {"replay": 5, "chem_qa": 7, "chem_coord": 1, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 405, "loss": 0.11986550310393795, "lr": 5.0425684918803374e-05, "elapsed_s": 4212, "src": {"music_qa": 4, "music_trans": 2, "replay": 7, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 406, "loss": 0.28318267656868557, "lr": 5.021284438789695e-05, "elapsed_s": 4221, "src": {"music_qa": 2, "chem_qa": 7, "chem_coord": 2, "music_trans": 1, "replay": 4}, "peak_gb": 14.25}
+{"step": 407, "loss": 0.29377777269110084, "lr": 5e-05, "elapsed_s": 4230, "src": {"replay": 3, "music_qa": 7, "chem_qa": 3, "music_trans": 1, "chem_coord": 2}, "peak_gb": 14.25}
+{"step": 408, "loss": 0.23801700060721487, "lr": 4.9787155612103074e-05, "elapsed_s": 4240, "src": {"replay": 8, "music_qa": 3, "music_trans": 2, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 409, "loss": 0.10643585747129691, "lr": 4.957431508119663e-05, "elapsed_s": 4250, "src": {"chem_qa": 3, "music_qa": 7, "replay": 5, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 410, "loss": 0.3410862824530341, "lr": 4.936148226420132e-05, "elapsed_s": 4260, "src": {"replay": 7, "music_qa": 7, "chem_coord": 1, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 411, "loss": 0.08620439283549786, "lr": 4.9148661017897934e-05, "elapsed_s": 4270, "src": {"chem_qa": 6, "music_qa": 5, "replay": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 412, "loss": 0.18024206830887124, "lr": 4.893585519885763e-05, "elapsed_s": 4281, "src": {"chem_qa": 5, "chem_coord": 1, "replay": 7, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 413, "loss": 0.29131612298078835, "lr": 4.8723068663372006e-05, "elapsed_s": 4289, "src": {"music_qa": 6, "replay": 6, "chem_qa": 3, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 414, "loss": 0.13653667067410424, "lr": 4.85103052673832e-05, "elapsed_s": 4303, "src": {"chem_qa": 6, "replay": 7, "music_trans": 2, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 415, "loss": 0.25344055159803247, "lr": 4.829756886641407e-05, "elapsed_s": 4313, "src": {"chem_qa": 3, "replay": 9, "music_trans": 2, "chem_coord": 1, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 416, "loss": 0.1956083834520541, "lr": 4.8084863315498234e-05, "elapsed_s": 4324, "src": {"chem_qa": 3, "music_qa": 4, "replay": 9}, "peak_gb": 14.25}
+{"step": 417, "loss": 0.18180992238922045, "lr": 4.787219246911033e-05, "elapsed_s": 4333, "src": {"replay": 6, "chem_qa": 2, "music_qa": 2, "music_trans": 5, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 418, "loss": 0.2181856248062104, "lr": 4.765956018109608e-05, "elapsed_s": 4342, "src": {"chem_qa": 4, "replay": 9, "chem_coord": 1, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 419, "loss": 0.19202269852394238, "lr": 4.744697030460248e-05, "elapsed_s": 4356, "src": {"music_qa": 3, "music_trans": 2, "replay": 9, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 420, "loss": 0.22943939472315833, "lr": 4.723442669200798e-05, "elapsed_s": 4366, "src": {"replay": 7, "chem_qa": 3, "music_qa": 4, "music_trans": 1, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 421, "loss": 0.18582140051876195, "lr": 4.702193319485272e-05, "elapsed_s": 4376, "src": {"music_qa": 7, "replay": 6, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 422, "loss": 0.1856733050371986, "lr": 4.680949366376859e-05, "elapsed_s": 4385, "src": {"chem_qa": 3, "music_qa": 6, "replay": 4, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 423, "loss": 0.16094304650323465, "lr": 4.659711194840964e-05, "elapsed_s": 4394, "src": {"replay": 2, "chem_qa": 7, "music_qa": 3, "music_trans": 3, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 424, "loss": 0.3783898685942404, "lr": 4.638479189738223e-05, "elapsed_s": 4405, "src": {"music_trans": 1, "replay": 9, "music_qa": 3, "chem_coord": 2, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 425, "loss": 0.2680359039804898, "lr": 4.6172537358175214e-05, "elapsed_s": 4417, "src": {"chem_qa": 3, "music_trans": 2, "replay": 10, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 426, "loss": 0.22080479527357966, "lr": 4.5960352177090395e-05, "elapsed_s": 4429, "src": {"replay": 10, "chem_qa": 3, "music_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 427, "loss": 0.2575640302966349, "lr": 4.5748240199172614e-05, "elapsed_s": 4436, "src": {"chem_qa": 7, "chem_coord": 2, "replay": 3, "music_qa": 4}, "peak_gb": 14.25}
+{"step": 428, "loss": 0.18474695179611444, "lr": 4.5536205268140294e-05, "elapsed_s": 4447, "src": {"replay": 9, "music_trans": 3, "chem_qa": 2, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 429, "loss": 0.3505422119051218, "lr": 4.532425122631559e-05, "elapsed_s": 4457, "src": {"replay": 11, "music_qa": 3, "chem_coord": 1, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 430, "loss": 0.1751834753085859, "lr": 4.5112381914554924e-05, "elapsed_s": 4467, "src": {"chem_qa": 3, "music_qa": 3, "replay": 6, "chem_coord": 1, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 431, "loss": 0.15610015590209514, "lr": 4.490060117217924e-05, "elapsed_s": 4476, "src": {"replay": 6, "chem_qa": 4, "music_qa": 3, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 432, "loss": 0.29225074977148324, "lr": 4.468891283690455e-05, "elapsed_s": 4486, "src": {"chem_qa": 2, "replay": 6, "chem_coord": 2, "music_qa": 5, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 433, "loss": 0.37017396424198523, "lr": 4.4477320744772316e-05, "elapsed_s": 4496, "src": {"chem_coord": 3, "replay": 5, "chem_qa": 5, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 434, "loss": 0.2564084590121638, "lr": 4.4265828730079987e-05, "elapsed_s": 4506, "src": {"replay": 8, "music_trans": 1, "chem_coord": 1, "music_qa": 4, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 435, "loss": 0.275194514724717, "lr": 4.405444062531145e-05, "elapsed_s": 4516, "src": {"replay": 5, "music_qa": 7, "chem_coord": 1, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 436, "loss": 0.211253204557579, "lr": 4.3843160261067655e-05, "elapsed_s": 4525, "src": {"chem_qa": 4, "music_qa": 3, "replay": 7, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 437, "loss": 0.271217706380412, "lr": 4.363199146599718e-05, "elapsed_s": 4535, "src": {"chem_qa": 6, "replay": 7, "chem_coord": 1, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 438, "loss": 0.2630668545025401, "lr": 4.342093806672677e-05, "elapsed_s": 4544, "src": {"music_trans": 1, "replay": 4, "chem_qa": 7, "music_qa": 4}, "peak_gb": 14.25}
+{"step": 439, "loss": 0.15265815739985555, "lr": 4.321000388779214e-05, "elapsed_s": 4554, "src": {"chem_qa": 4, "replay": 7, "music_trans": 1, "music_qa": 4}, "peak_gb": 14.25}
+{"step": 440, "loss": 0.10698253329610452, "lr": 4.299919275156855e-05, "elapsed_s": 4563, "src": {"replay": 8, "music_qa": 4, "chem_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 441, "loss": 0.2080357427475974, "lr": 4.278850847820162e-05, "elapsed_s": 4574, "src": {"chem_qa": 4, "music_qa": 5, "replay": 6, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 442, "loss": 0.16949398920405656, "lr": 4.2577954885537986e-05, "elapsed_s": 4585, "src": {"chem_qa": 5, "music_qa": 4, "replay": 7}, "peak_gb": 14.25}
+{"step": 443, "loss": 0.2263734345906414, "lr": 4.2367535789056286e-05, "elapsed_s": 4593, "src": {"replay": 10, "music_qa": 4, "music_trans": 1, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 444, "loss": 0.3459536897862563, "lr": 4.215725500179787e-05, "elapsed_s": 4604, "src": {"replay": 10, "music_trans": 3, "music_qa": 2, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 445, "loss": 0.2075768034264911, "lr": 4.19471163342978e-05, "elapsed_s": 4613, "src": {"replay": 7, "chem_qa": 5, "music_qa": 2, "chem_coord": 1, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 446, "loss": 0.20618965598987415, "lr": 4.1737123594515756e-05, "elapsed_s": 4624, "src": {"replay": 9, "chem_qa": 4, "music_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 447, "loss": 0.15650736102543306, "lr": 4.1527280587767e-05, "elapsed_s": 4634, "src": {"music_qa": 7, "replay": 4, "chem_qa": 5}, "peak_gb": 14.25}
+{"step": 448, "loss": 0.2828820527647622, "lr": 4.131759111665349e-05, "elapsed_s": 4644, "src": {"replay": 8, "chem_qa": 4, "chem_coord": 2, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 449, "loss": 0.16740024439059198, "lr": 4.110805898099491e-05, "elapsed_s": 4653, "src": {"chem_qa": 5, "replay": 10, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 450, "loss": 0.2348812590353191, "lr": 4.0898687977759906e-05, "elapsed_s": 4666, "src": {"replay": 8, "music_trans": 2, "chem_coord": 1, "chem_qa": 4, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 451, "loss": 0.19113292190013453, "lr": 4.06894819009971e-05, "elapsed_s": 4676, "src": {"music_qa": 7, "chem_qa": 2, "replay": 6, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 452, "loss": 0.2278661085292697, "lr": 4.0480444541766596e-05, "elapsed_s": 4687, "src": {"replay": 7, "music_trans": 2, "music_qa": 4, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 453, "loss": 0.26479738597845426, "lr": 4.0271579688071e-05, "elapsed_s": 4697, "src": {"music_qa": 4, "chem_qa": 2, "replay": 5, "chem_coord": 2, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 454, "loss": 0.3560068078804761, "lr": 4.006289112478699e-05, "elapsed_s": 4707, "src": {"replay": 10, "chem_qa": 2, "chem_coord": 1, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 455, "loss": 0.12359066702629207, "lr": 3.9854382633596664e-05, "elapsed_s": 4717, "src": {"music_trans": 3, "music_qa": 5, "replay": 7, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 456, "loss": 0.08215337945148349, "lr": 3.964605799291896e-05, "elapsed_s": 4725, "src": {"replay": 5, "chem_qa": 5, "music_qa": 6}, "peak_gb": 14.25}
+{"step": 457, "loss": 0.17920013872208074, "lr": 3.943792097784127e-05, "elapsed_s": 4735, "src": {"music_trans": 1, "chem_qa": 3, "music_qa": 5, "replay": 7}, "peak_gb": 14.25}
+{"step": 458, "loss": 0.10108740939176641, "lr": 3.922997536005094e-05, "elapsed_s": 4745, "src": {"music_qa": 4, "replay": 8, "chem_qa": 2, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 459, "loss": 0.17063348914416565, "lr": 3.902222490776701e-05, "elapsed_s": 4754, "src": {"music_qa": 7, "replay": 5, "chem_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 460, "loss": 0.28767849365249276, "lr": 3.881467338567189e-05, "elapsed_s": 4763, "src": {"replay": 6, "chem_qa": 4, "chem_coord": 2, "music_qa": 4}, "peak_gb": 14.25}
+{"step": 461, "loss": 0.09104559739353135, "lr": 3.8607324554843136e-05, "elapsed_s": 4773, "src": {"chem_qa": 5, "replay": 6, "music_qa": 5}, "peak_gb": 14.25}
+{"step": 462, "loss": 0.22132910112850368, "lr": 3.840018217268527e-05, "elapsed_s": 4781, "src": {"music_trans": 2, "replay": 6, "music_qa": 5, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 463, "loss": 0.08134564495412633, "lr": 3.819324999286177e-05, "elapsed_s": 4789, "src": {"music_qa": 6, "replay": 3, "chem_qa": 5, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 464, "loss": 0.143016321468167, "lr": 3.7986531765226964e-05, "elapsed_s": 4797, "src": {"replay": 5, "music_qa": 5, "music_trans": 3, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 465, "loss": 0.17438150441739708, "lr": 3.778003123575815e-05, "elapsed_s": 4808, "src": {"replay": 10, "music_qa": 1, "chem_qa": 5}, "peak_gb": 14.25}
+{"step": 466, "loss": 0.18403021327685565, "lr": 3.757375214648765e-05, "elapsed_s": 4819, "src": {"replay": 8, "music_qa": 3, "chem_qa": 5}, "peak_gb": 14.25}
+{"step": 467, "loss": 0.25040067578083836, "lr": 3.736769823543503e-05, "elapsed_s": 4829, "src": {"replay": 7, "chem_qa": 3, "music_qa": 5, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 468, "loss": 0.4273251185659319, "lr": 3.716187323653939e-05, "elapsed_s": 4838, "src": {"replay": 5, "music_qa": 4, "music_trans": 2, "chem_coord": 3, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 469, "loss": 0.11284596506447997, "lr": 3.695628087959162e-05, "elapsed_s": 4849, "src": {"replay": 7, "music_qa": 5, "chem_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 470, "loss": 0.13763298653066158, "lr": 3.675092489016693e-05, "elapsed_s": 4860, "src": {"chem_qa": 4, "replay": 7, "music_qa": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 471, "loss": 0.2798867060919292, "lr": 3.6545808989557205e-05, "elapsed_s": 4869, "src": {"music_trans": 1, "replay": 5, "chem_qa": 4, "music_qa": 4, "chem_coord": 2}, "peak_gb": 14.25}
+{"step": 472, "loss": 0.16408304462675005, "lr": 3.634093689470372e-05, "elapsed_s": 4878, "src": {"replay": 6, "music_qa": 4, "music_trans": 2, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 473, "loss": 0.1662434358149767, "lr": 3.613631231812961e-05, "elapsed_s": 4886, "src": {"music_qa": 5, "replay": 6, "chem_qa": 3, "music_trans": 1, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 474, "loss": 0.33473826601402834, "lr": 3.5931938967872766e-05, "elapsed_s": 4896, "src": {"replay": 7, "chem_coord": 2, "chem_qa": 4, "music_trans": 1, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 475, "loss": 0.15987849654629827, "lr": 3.572782054741851e-05, "elapsed_s": 4906, "src": {"replay": 8, "chem_qa": 4, "music_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 476, "loss": 0.1837461764807813, "lr": 3.552396075563256e-05, "elapsed_s": 4916, "src": {"replay": 4, "chem_qa": 3, "music_trans": 1, "music_qa": 7, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 477, "loss": 0.10026757183368318, "lr": 3.5320363286694015e-05, "elapsed_s": 4925, "src": {"music_qa": 3, "chem_qa": 4, "music_trans": 2, "replay": 7}, "peak_gb": 14.25}
+{"step": 478, "loss": 0.13480554387206212, "lr": 3.5117031830028274e-05, "elapsed_s": 4935, "src": {"music_qa": 3, "chem_qa": 6, "replay": 6, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 479, "loss": 0.08662400822504424, "lr": 3.4913970070240386e-05, "elapsed_s": 4945, "src": {"music_qa": 8, "replay": 3, "chem_qa": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 480, "loss": 0.3397040074087272, "lr": 3.471118168704811e-05, "elapsed_s": 4955, "src": {"music_qa": 4, "replay": 8, "chem_coord": 1, "music_trans": 2, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 481, "loss": 0.24353363877162337, "lr": 3.450867035521536e-05, "elapsed_s": 5022, "src": {"music_qa": 5, "replay": 5, "chem_qa": 3, "music_trans": 1, "chem_coord": 2}, "peak_gb": 14.25}
+{"step": 482, "loss": 0.16870086651761085, "lr": 3.430643974448546e-05, "elapsed_s": 5036, "src": {"replay": 10, "chem_qa": 3, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 483, "loss": 0.19082612736383453, "lr": 3.4104493519514844e-05, "elapsed_s": 5047, "src": {"music_qa": 1, "replay": 10, "chem_qa": 5}, "peak_gb": 14.25}
+{"step": 484, "loss": 0.07930069036956411, "lr": 3.390283533980646e-05, "elapsed_s": 5055, "src": {"music_qa": 7, "replay": 4, "music_trans": 2, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 485, "loss": 0.14500021103594918, "lr": 3.3701468859643596e-05, "elapsed_s": 5066, "src": {"chem_qa": 5, "replay": 8, "music_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 486, "loss": 0.23332948493771255, "lr": 3.350039772802354e-05, "elapsed_s": 5074, "src": {"replay": 7, "chem_coord": 1, "music_qa": 4, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 487, "loss": 0.1684042137931101, "lr": 3.3299625588591564e-05, "elapsed_s": 5083, "src": {"music_qa": 5, "chem_qa": 6, "replay": 5}, "peak_gb": 14.25}
+{"step": 488, "loss": 0.19910260909091448, "lr": 3.309915607957487e-05, "elapsed_s": 5095, "src": {"chem_qa": 3, "replay": 9, "music_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 489, "loss": 0.17299832639400847, "lr": 3.289899283371657e-05, "elapsed_s": 5104, "src": {"replay": 5, "chem_qa": 8, "music_trans": 1, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 490, "loss": 0.28260261774994433, "lr": 3.269913947820998e-05, "elapsed_s": 5113, "src": {"chem_coord": 2, "chem_qa": 5, "replay": 6, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 491, "loss": 0.13646514705033042, "lr": 3.2499599634632816e-05, "elapsed_s": 5121, "src": {"chem_qa": 9, "replay": 3, "music_qa": 2, "chem_coord": 1, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 492, "loss": 0.19772808556444943, "lr": 3.230037691888164e-05, "elapsed_s": 5130, "src": {"replay": 9, "music_qa": 4, "chem_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 493, "loss": 0.22333678963514103, "lr": 3.210147494110617e-05, "elapsed_s": 5139, "src": {"replay": 6, "chem_coord": 1, "music_qa": 2, "chem_qa": 6, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 494, "loss": 0.25724194716895, "lr": 3.190289730564411e-05, "elapsed_s": 5148, "src": {"replay": 6, "music_trans": 2, "chem_qa": 3, "music_qa": 4, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 495, "loss": 0.20579201009240933, "lr": 3.1704647610955605e-05, "elapsed_s": 5158, "src": {"music_trans": 2, "replay": 8, "chem_qa": 4, "chem_coord": 1, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 496, "loss": 0.3040392358052486, "lr": 3.150672944955819e-05, "elapsed_s": 5168, "src": {"music_qa": 7, "music_trans": 1, "replay": 6, "chem_coord": 1, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 497, "loss": 0.1325787249370478, "lr": 3.130914640796157e-05, "elapsed_s": 5177, "src": {"music_qa": 5, "chem_qa": 5, "replay": 5, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 498, "loss": 0.08196865900390549, "lr": 3.111190206660272e-05, "elapsed_s": 5185, "src": {"music_qa": 7, "replay": 3, "chem_qa": 6}, "peak_gb": 14.25}
+{"step": 499, "loss": 0.34667767136124894, "lr": 3.091499999978097e-05, "elapsed_s": 5196, "src": {"music_qa": 4, "replay": 11, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 500, "loss": 0.17561995756113902, "lr": 3.071844377559322e-05, "elapsed_s": 5206, "src": {"replay": 9, "music_qa": 4, "chem_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 501, "loss": 0.21562505804467946, "lr": 3.05222369558693e-05, "elapsed_s": 5216, "src": {"chem_qa": 7, "replay": 6, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 502, "loss": 0.16516524731559912, "lr": 3.0326383096107413e-05, "elapsed_s": 5225, "src": {"chem_qa": 3, "music_qa": 3, "replay": 4, "music_trans": 5, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 503, "loss": 0.2698080630216282, "lr": 3.0130885745409755e-05, "elapsed_s": 5237, "src": {"replay": 9, "chem_qa": 3, "music_qa": 4}, "peak_gb": 14.25}
+{"step": 504, "loss": 0.19544018460146617, "lr": 2.9935748446418066e-05, "elapsed_s": 5246, "src": {"music_trans": 2, "music_qa": 5, "replay": 6, "chem_qa": 2, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 505, "loss": 0.15730443465872668, "lr": 2.9740974735249627e-05, "elapsed_s": 5255, "src": {"chem_qa": 5, "music_qa": 5, "replay": 6}, "peak_gb": 14.25}
+{"step": 506, "loss": 0.1033768884044548, "lr": 2.9546568141433006e-05, "elapsed_s": 5265, "src": {"music_qa": 6, "music_trans": 1, "replay": 6, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 507, "loss": 0.11849124115542509, "lr": 2.9352532187844252e-05, "elapsed_s": 5274, "src": {"replay": 6, "chem_qa": 7, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 508, "loss": 0.2609545294253621, "lr": 2.915887039064287e-05, "elapsed_s": 5284, "src": {"replay": 6, "chem_coord": 1, "music_qa": 4, "music_trans": 1, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 509, "loss": 0.1448254858578366, "lr": 2.8965586259208295e-05, "elapsed_s": 5294, "src": {"replay": 7, "music_qa": 6, "chem_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 510, "loss": 0.1649814611300826, "lr": 2.8772683296076213e-05, "elapsed_s": 5303, "src": {"replay": 7, "music_qa": 2, "chem_qa": 5, "chem_coord": 1, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 511, "loss": 0.27499667002120987, "lr": 2.858016499687503e-05, "elapsed_s": 5313, "src": {"replay": 4, "music_qa": 4, "chem_coord": 1, "chem_qa": 5, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 512, "loss": 0.2404803610406816, "lr": 2.8388034850262646e-05, "elapsed_s": 5322, "src": {"replay": 9, "music_qa": 4, "chem_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 513, "loss": 0.27827326371334493, "lr": 2.819629633786317e-05, "elapsed_s": 5331, "src": {"chem_qa": 3, "replay": 6, "music_qa": 5, "music_trans": 1, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 514, "loss": 0.1234769120310375, "lr": 2.8004952934203838e-05, "elapsed_s": 5342, "src": {"music_qa": 5, "replay": 8, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 515, "loss": 0.3037188482412603, "lr": 2.7814008106652012e-05, "elapsed_s": 5352, "src": {"replay": 7, "chem_qa": 5, "chem_coord": 1, "music_trans": 1, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 516, "loss": 0.13399952434701845, "lr": 2.762346531535246e-05, "elapsed_s": 5361, "src": {"chem_qa": 6, "music_qa": 3, "replay": 7}, "peak_gb": 14.25}
+{"step": 517, "loss": 0.3672556665915181, "lr": 2.7433328013164495e-05, "elapsed_s": 5370, "src": {"chem_qa": 5, "chem_coord": 2, "music_qa": 6, "replay": 3}, "peak_gb": 14.25}
+{"step": 518, "loss": 0.1613274338596966, "lr": 2.7243599645599576e-05, "elapsed_s": 5381, "src": {"music_qa": 5, "replay": 6, "chem_qa": 4, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 519, "loss": 0.13688754686154425, "lr": 2.7054283650758706e-05, "elapsed_s": 5391, "src": {"chem_qa": 8, "replay": 6, "music_qa": 1, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 520, "loss": 0.3025744869373739, "lr": 2.6865383459270265e-05, "elapsed_s": 5401, "src": {"chem_coord": 2, "replay": 4, "chem_qa": 7, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 521, "loss": 0.12679773732088506, "lr": 2.6676902494227795e-05, "elapsed_s": 5410, "src": {"music_qa": 5, "chem_qa": 5, "replay": 6}, "peak_gb": 14.25}
+{"step": 522, "loss": 0.19720117776159896, "lr": 2.6488844171127903e-05, "elapsed_s": 5419, "src": {"music_qa": 6, "chem_qa": 5, "replay": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 523, "loss": 0.22124188288580626, "lr": 2.6301211897808464e-05, "elapsed_s": 5429, "src": {"replay": 8, "chem_qa": 3, "music_qa": 4, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 524, "loss": 0.33649768389295787, "lr": 2.6114009074386846e-05, "elapsed_s": 5440, "src": {"music_qa": 2, "replay": 9, "chem_qa": 3, "chem_coord": 2}, "peak_gb": 14.25}
+{"step": 525, "loss": 0.2137490047953179, "lr": 2.5927239093198274e-05, "elapsed_s": 5450, "src": {"chem_coord": 1, "music_qa": 2, "replay": 9, "chem_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 526, "loss": 0.23034830644610338, "lr": 2.574090533873431e-05, "elapsed_s": 5459, "src": {"music_trans": 1, "chem_coord": 1, "replay": 6, "music_qa": 6, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 527, "loss": 0.19287887524114922, "lr": 2.555501118758167e-05, "elapsed_s": 5468, "src": {"replay": 5, "chem_qa": 6, "music_qa": 4, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 528, "loss": 0.18996940151919262, "lr": 2.5369560008360828e-05, "elapsed_s": 5478, "src": {"music_qa": 5, "replay": 8, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 529, "loss": 0.12737231387291104, "lr": 2.518455516166517e-05, "elapsed_s": 5489, "src": {"replay": 10, "music_trans": 2, "music_qa": 3, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 530, "loss": 0.19428687091567554, "lr": 2.500000000000001e-05, "elapsed_s": 5499, "src": {"music_qa": 3, "music_trans": 3, "replay": 9, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 531, "loss": 0.18024250262533315, "lr": 2.4815897867721784e-05, "elapsed_s": 5507, "src": {"music_qa": 6, "replay": 7, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 532, "loss": 0.19863151935714995, "lr": 2.463225210097755e-05, "elapsed_s": 5517, "src": {"chem_qa": 5, "replay": 7, "music_qa": 2, "chem_coord": 1, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 533, "loss": 0.17103402665816247, "lr": 2.4449066027644492e-05, "elapsed_s": 5529, "src": {"replay": 9, "chem_qa": 4, "music_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 534, "loss": 0.09603678539860994, "lr": 2.4266342967269552e-05, "elapsed_s": 5541, "src": {"replay": 7, "chem_qa": 4, "music_qa": 5}, "peak_gb": 14.25}
+{"step": 535, "loss": 0.13827056728769094, "lr": 2.4084086231009395e-05, "elapsed_s": 5553, "src": {"replay": 11, "chem_qa": 4, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 536, "loss": 0.17587801607442088, "lr": 2.3902299121570333e-05, "elapsed_s": 5562, "src": {"replay": 7, "chem_qa": 5, "music_qa": 4}, "peak_gb": 14.25}
+{"step": 537, "loss": 0.1384795752237551, "lr": 2.3720984933148444e-05, "elapsed_s": 5571, "src": {"music_qa": 7, "chem_qa": 3, "replay": 5, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 538, "loss": 0.22521134390262887, "lr": 2.3540146951369986e-05, "elapsed_s": 5581, "src": {"chem_coord": 1, "music_trans": 1, "replay": 6, "music_qa": 5, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 539, "loss": 0.2125367838434613, "lr": 2.3359788453231724e-05, "elapsed_s": 5593, "src": {"music_qa": 5, "replay": 7, "chem_qa": 2, "chem_coord": 1, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 540, "loss": 0.07672820081643295, "lr": 2.317991270704167e-05, "elapsed_s": 5602, "src": {"chem_qa": 9, "music_qa": 3, "replay": 4}, "peak_gb": 14.25}
+{"step": 541, "loss": 0.11376541607023682, "lr": 2.30005229723598e-05, "elapsed_s": 5610, "src": {"music_qa": 8, "replay": 3, "chem_qa": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 542, "loss": 0.1882380386814475, "lr": 2.282162249993895e-05, "elapsed_s": 5620, "src": {"replay": 9, "music_qa": 4, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 543, "loss": 0.16433731589313538, "lr": 2.2643214531665978e-05, "elapsed_s": 5630, "src": {"replay": 6, "music_trans": 1, "chem_qa": 5, "music_qa": 3, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 544, "loss": 0.21333897042495664, "lr": 2.2465302300502995e-05, "elapsed_s": 5639, "src": {"music_qa": 4, "chem_qa": 2, "replay": 7, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 545, "loss": 0.12428418973649968, "lr": 2.228788903042877e-05, "elapsed_s": 5648, "src": {"music_trans": 2, "music_qa": 6, "replay": 5, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 546, "loss": 0.1333794640886481, "lr": 2.2110977936380272e-05, "elapsed_s": 5656, "src": {"music_qa": 7, "music_trans": 5, "replay": 3, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 547, "loss": 0.13584398454986513, "lr": 2.1934572224194515e-05, "elapsed_s": 5665, "src": {"music_qa": 7, "replay": 6, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 548, "loss": 0.3218046144611435, "lr": 2.175867509055033e-05, "elapsed_s": 5674, "src": {"chem_qa": 5, "replay": 3, "chem_coord": 3, "music_qa": 5}, "peak_gb": 14.25}
+{"step": 549, "loss": 0.21871590075897984, "lr": 2.1583289722910576e-05, "elapsed_s": 5683, "src": {"music_qa": 4, "chem_qa": 6, "replay": 3, "music_trans": 2, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 550, "loss": 0.12275152146594337, "lr": 2.1408419299464245e-05, "elapsed_s": 5692, "src": {"chem_qa": 5, "replay": 6, "music_qa": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 551, "loss": 0.0859541764621099, "lr": 2.1234066989068972e-05, "elapsed_s": 5702, "src": {"replay": 6, "chem_qa": 4, "music_trans": 1, "music_qa": 5}, "peak_gb": 14.25}
+{"step": 552, "loss": 0.20169436160722398, "lr": 2.1060235951193596e-05, "elapsed_s": 5711, "src": {"chem_coord": 1, "replay": 4, "music_qa": 4, "chem_qa": 7}, "peak_gb": 14.25}
+{"step": 553, "loss": 0.2293841809278092, "lr": 2.0886929335860826e-05, "elapsed_s": 5721, "src": {"chem_qa": 6, "replay": 6, "music_trans": 1, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 554, "loss": 0.15409549411560874, "lr": 2.071415028359026e-05, "elapsed_s": 5732, "src": {"replay": 9, "chem_qa": 4, "music_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 555, "loss": 0.10723999800393358, "lr": 2.054190192534142e-05, "elapsed_s": 5741, "src": {"music_qa": 5, "replay": 7, "chem_qa": 2, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 556, "loss": 0.30345218189177103, "lr": 2.0370187382457068e-05, "elapsed_s": 5751, "src": {"replay": 8, "music_qa": 5, "chem_coord": 1, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 557, "loss": 0.07347450012457557, "lr": 2.0199009766606507e-05, "elapsed_s": 5761, "src": {"music_qa": 6, "chem_qa": 3, "replay": 7}, "peak_gb": 14.25}
+{"step": 558, "loss": 0.14169592468533665, "lr": 2.0028372179729403e-05, "elapsed_s": 5773, "src": {"replay": 9, "music_qa": 6, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 559, "loss": 0.10238845646381378, "lr": 1.985827771397938e-05, "elapsed_s": 5782, "src": {"music_qa": 4, "replay": 5, "chem_qa": 4, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 560, "loss": 0.0663665835854772, "lr": 1.9688729451668114e-05, "elapsed_s": 5790, "src": {"replay": 4, "music_qa": 3, "music_trans": 5, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 561, "loss": 0.2043679835041985, "lr": 1.95197304652094e-05, "elapsed_s": 5799, "src": {"music_qa": 3, "replay": 5, "chem_coord": 1, "chem_qa": 5, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 562, "loss": 0.12373722845586599, "lr": 1.935128381706355e-05, "elapsed_s": 5807, "src": {"replay": 5, "chem_qa": 7, "music_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 563, "loss": 0.11993086351139937, "lr": 1.9183392559681812e-05, "elapsed_s": 5816, "src": {"chem_qa": 5, "music_qa": 5, "replay": 6}, "peak_gb": 14.25}
+{"step": 564, "loss": 0.07090312300715595, "lr": 1.9016059735451143e-05, "elapsed_s": 5825, "src": {"music_qa": 5, "music_trans": 2, "replay": 5, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 565, "loss": 0.21745088533498347, "lr": 1.8849288376639017e-05, "elapsed_s": 5836, "src": {"replay": 11, "chem_qa": 5}, "peak_gb": 14.25}
+{"step": 566, "loss": 0.2176810421005939, "lr": 1.868308150533847e-05, "elapsed_s": 5848, "src": {"replay": 8, "music_qa": 4, "chem_qa": 3, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 567, "loss": 0.23876365239266306, "lr": 1.8517442133413403e-05, "elapsed_s": 5856, "src": {"music_qa": 3, "replay": 8, "chem_qa": 3, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 568, "loss": 0.13129192301130388, "lr": 1.8352373262443916e-05, "elapsed_s": 5864, "src": {"chem_qa": 7, "music_qa": 5, "music_trans": 2, "replay": 2}, "peak_gb": 14.25}
+{"step": 569, "loss": 0.27616081293672323, "lr": 1.818787788367202e-05, "elapsed_s": 5872, "src": {"chem_coord": 2, "chem_qa": 5, "music_qa": 6, "replay": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 570, "loss": 0.34049676556605846, "lr": 1.8023958977947304e-05, "elapsed_s": 5885, "src": {"music_trans": 1, "replay": 11, "music_qa": 1, "chem_coord": 2, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 571, "loss": 0.1741168246444431, "lr": 1.786061951567305e-05, "elapsed_s": 5896, "src": {"replay": 8, "chem_qa": 3, "music_qa": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 572, "loss": 0.1444238578551449, "lr": 1.769786245675229e-05, "elapsed_s": 5906, "src": {"replay": 7, "music_qa": 5, "chem_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 573, "loss": 0.25794934143777937, "lr": 1.7535690750534266e-05, "elapsed_s": 5915, "src": {"music_qa": 4, "music_trans": 3, "chem_qa": 4, "replay": 3, "chem_coord": 2}, "peak_gb": 14.25}
+{"step": 574, "loss": 0.1921465732739307, "lr": 1.737410733576092e-05, "elapsed_s": 5925, "src": {"replay": 6, "chem_qa": 3, "chem_coord": 1, "music_qa": 6}, "peak_gb": 14.25}
+{"step": 575, "loss": 0.16599437542026863, "lr": 1.721311514051367e-05, "elapsed_s": 5934, "src": {"music_qa": 4, "chem_qa": 3, "replay": 8, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 576, "loss": 0.12686854565981776, "lr": 1.7052717082160346e-05, "elapsed_s": 5944, "src": {"replay": 5, "chem_qa": 7, "music_trans": 2, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 577, "loss": 0.34452911431435496, "lr": 1.689291606730228e-05, "elapsed_s": 5954, "src": {"replay": 6, "chem_coord": 2, "music_trans": 2, "music_qa": 4, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 578, "loss": 0.23108655343821738, "lr": 1.673371499172174e-05, "elapsed_s": 5963, "src": {"chem_qa": 4, "music_qa": 5, "replay": 5, "chem_coord": 1, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 579, "loss": 0.28538085541003966, "lr": 1.6575116740329317e-05, "elapsed_s": 5973, "src": {"replay": 8, "music_trans": 2, "chem_qa": 4, "chem_coord": 1, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 580, "loss": 0.23346843791659921, "lr": 1.6417124187111792e-05, "elapsed_s": 5983, "src": {"chem_qa": 4, "replay": 8, "music_qa": 3, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 581, "loss": 0.09102369047468528, "lr": 1.6259740195079903e-05, "elapsed_s": 5992, "src": {"music_qa": 8, "replay": 6, "music_trans": 1, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 582, "loss": 0.2605916172324214, "lr": 1.610296761621662e-05, "elapsed_s": 6003, "src": {"chem_qa": 3, "chem_coord": 1, "replay": 7, "music_qa": 5}, "peak_gb": 14.25}
+{"step": 583, "loss": 0.21696393908496248, "lr": 1.594680929142535e-05, "elapsed_s": 6014, "src": {"replay": 7, "music_qa": 4, "chem_qa": 3, "chem_coord": 1, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 584, "loss": 0.3454825896769762, "lr": 1.5791268050478486e-05, "elapsed_s": 6025, "src": {"chem_qa": 5, "replay": 7, "chem_coord": 2, "music_qa": 1, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 585, "loss": 0.18803892430150881, "lr": 1.5636346711966155e-05, "elapsed_s": 6034, "src": {"chem_qa": 8, "replay": 3, "music_qa": 3, "chem_coord": 1, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 586, "loss": 0.13677886141522322, "lr": 1.5482048083245114e-05, "elapsed_s": 6042, "src": {"music_qa": 7, "replay": 5, "chem_qa": 2, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 587, "loss": 0.09800942247966304, "lr": 1.532837496038792e-05, "elapsed_s": 6050, "src": {"music_qa": 6, "chem_qa": 5, "replay": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 588, "loss": 0.2095806358847767, "lr": 1.5175330128132153e-05, "elapsed_s": 6060, "src": {"chem_qa": 3, "replay": 7, "music_qa": 3, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 589, "loss": 0.23901665438825148, "lr": 1.5022916359830113e-05, "elapsed_s": 6070, "src": {"chem_qa": 5, "chem_coord": 2, "music_qa": 4, "replay": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 590, "loss": 0.2532967929728329, "lr": 1.4871136417398406e-05, "elapsed_s": 6079, "src": {"chem_qa": 7, "music_trans": 1, "replay": 3, "music_qa": 3, "chem_coord": 2}, "peak_gb": 14.25}
+{"step": 591, "loss": 0.21007249586546095, "lr": 1.4719993051268038e-05, "elapsed_s": 6089, "src": {"music_qa": 6, "replay": 9, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 592, "loss": 0.10065437221783213, "lr": 1.4569489000334436e-05, "elapsed_s": 6097, "src": {"music_qa": 7, "chem_qa": 3, "music_trans": 1, "replay": 5}, "peak_gb": 14.25}
+{"step": 593, "loss": 0.3371645655715838, "lr": 1.4419626991907925e-05, "elapsed_s": 6109, "src": {"replay": 11, "chem_qa": 2, "music_trans": 2, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 594, "loss": 0.1645719128791825, "lr": 1.427040974166427e-05, "elapsed_s": 6118, "src": {"replay": 7, "music_qa": 6, "music_trans": 1, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 595, "loss": 0.2366288766170328, "lr": 1.412183995359544e-05, "elapsed_s": 6126, "src": {"replay": 4, "music_trans": 2, "music_qa": 6, "chem_coord": 1, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 596, "loss": 0.11410972441080958, "lr": 1.3973920319960655e-05, "elapsed_s": 6138, "src": {"chem_qa": 3, "replay": 9, "music_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 597, "loss": 0.2638952219872408, "lr": 1.3826653521237515e-05, "elapsed_s": 6147, "src": {"chem_qa": 4, "replay": 7, "music_qa": 4, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 598, "loss": 0.12832076678751037, "lr": 1.3680042226073552e-05, "elapsed_s": 6157, "src": {"replay": 9, "chem_qa": 4, "music_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 599, "loss": 0.16184319963213056, "lr": 1.3534089091237755e-05, "elapsed_s": 6169, "src": {"music_qa": 5, "replay": 8, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 600, "loss": 0.32552827516337857, "lr": 1.3388796761572509e-05, "elapsed_s": 6179, "src": {"chem_coord": 2, "replay": 6, "music_qa": 6, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 601, "loss": 0.11152618004052783, "lr": 1.3244167869945589e-05, "elapsed_s": 6247, "src": {"replay": 7, "music_qa": 6, "music_trans": 1, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 602, "loss": 0.12104700892814435, "lr": 1.3100205037202557e-05, "elapsed_s": 6257, "src": {"replay": 6, "chem_qa": 5, "music_qa": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 603, "loss": 0.1287783567677252, "lr": 1.295691087211912e-05, "elapsed_s": 6265, "src": {"music_trans": 3, "chem_qa": 7, "replay": 5, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 604, "loss": 0.14989526919089258, "lr": 1.2814287971354022e-05, "elapsed_s": 6277, "src": {"replay": 9, "chem_qa": 4, "music_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 605, "loss": 0.11898655700861127, "lr": 1.2672338919401866e-05, "elapsed_s": 6286, "src": {"chem_qa": 6, "replay": 3, "music_qa": 6, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 606, "loss": 0.13751270410284633, "lr": 1.2531066288546334e-05, "elapsed_s": 6296, "src": {"replay": 6, "music_qa": 4, "music_trans": 3, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 607, "loss": 0.24190622978494503, "lr": 1.2390472638813571e-05, "elapsed_s": 6307, "src": {"replay": 11, "chem_qa": 4, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 608, "loss": 0.18739258751520538, "lr": 1.2250560517925746e-05, "elapsed_s": 6317, "src": {"replay": 7, "chem_qa": 2, "chem_coord": 1, "music_qa": 5, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 609, "loss": 0.18868211637891363, "lr": 1.2111332461254988e-05, "elapsed_s": 6327, "src": {"chem_coord": 1, "replay": 7, "music_qa": 5, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 610, "loss": 0.24726323212962598, "lr": 1.1972790991777311e-05, "elapsed_s": 6336, "src": {"chem_qa": 4, "music_qa": 6, "chem_coord": 1, "replay": 5}, "peak_gb": 14.25}
+{"step": 611, "loss": 0.14156333036953583, "lr": 1.183493862002702e-05, "elapsed_s": 6346, "src": {"chem_qa": 4, "music_trans": 3, "replay": 7, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 612, "loss": 0.2735690301451541, "lr": 1.1697777844051105e-05, "elapsed_s": 6356, "src": {"chem_coord": 1, "music_qa": 5, "replay": 7, "chem_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 613, "loss": 0.22571023300406523, "lr": 1.1561311149364073e-05, "elapsed_s": 6364, "src": {"replay": 3, "chem_coord": 2, "music_trans": 2, "music_qa": 5, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 614, "loss": 0.07963602081872523, "lr": 1.1425541008902851e-05, "elapsed_s": 6371, "src": {"music_trans": 3, "chem_qa": 7, "music_qa": 3, "replay": 3}, "peak_gb": 14.25}
+{"step": 615, "loss": 0.23300695267971605, "lr": 1.1290469882981986e-05, "elapsed_s": 6379, "src": {"music_qa": 6, "chem_qa": 7, "chem_coord": 1, "replay": 2}, "peak_gb": 14.25}
+{"step": 616, "loss": 0.23374644448631443, "lr": 1.1156100219249022e-05, "elapsed_s": 6389, "src": {"chem_coord": 1, "chem_qa": 4, "replay": 7, "music_trans": 3, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 617, "loss": 0.2506794467844884, "lr": 1.1022434452640234e-05, "elapsed_s": 6399, "src": {"replay": 9, "music_trans": 1, "music_qa": 2, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 618, "loss": 0.053284036130207824, "lr": 1.0889475005336446e-05, "elapsed_s": 6408, "src": {"replay": 1, "music_qa": 9, "chem_qa": 4, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 619, "loss": 0.35765648281085305, "lr": 1.075722428671911e-05, "elapsed_s": 6419, "src": {"music_qa": 2, "replay": 8, "chem_qa": 4, "music_trans": 1, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 620, "loss": 0.5038385919760913, "lr": 1.0625684693326727e-05, "elapsed_s": 6430, "src": {"music_qa": 3, "chem_coord": 4, "replay": 6, "chem_qa": 1, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 621, "loss": 0.13791356243018527, "lr": 1.0494858608811326e-05, "elapsed_s": 6439, "src": {"music_qa": 3, "replay": 5, "chem_qa": 7, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 622, "loss": 0.164468739007134, "lr": 1.036474840389537e-05, "elapsed_s": 6448, "src": {"music_qa": 5, "replay": 8, "chem_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 623, "loss": 0.18522637661044428, "lr": 1.0235356436328685e-05, "elapsed_s": 6459, "src": {"replay": 7, "music_qa": 4, "chem_coord": 1, "chem_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 624, "loss": 0.08559448740561493, "lr": 1.0106685050845838e-05, "elapsed_s": 6469, "src": {"music_qa": 6, "replay": 5, "chem_qa": 5}, "peak_gb": 14.25}
+{"step": 625, "loss": 0.21309142047539353, "lr": 9.978736579123577e-06, "elapsed_s": 6480, "src": {"music_trans": 1, "chem_qa": 3, "replay": 9, "music_qa": 2, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 626, "loss": 0.14075805152242538, "lr": 9.851513339738616e-06, "elapsed_s": 6489, "src": {"replay": 6, "chem_qa": 6, "music_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 627, "loss": 0.14870766620151699, "lr": 9.72501763812561e-06, "elapsed_s": 6498, "src": {"replay": 4, "music_qa": 9, "music_trans": 1, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 628, "loss": 0.17039058008231223, "lr": 9.599251766535345e-06, "elapsed_s": 6509, "src": {"replay": 10, "chem_qa": 5, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 629, "loss": 0.1014291814644821, "lr": 9.474218003993273e-06, "elapsed_s": 6519, "src": {"replay": 7, "music_trans": 1, "music_qa": 6, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 630, "loss": 0.1930781748960726, "lr": 9.349918616258114e-06, "elapsed_s": 6531, "src": {"chem_qa": 3, "replay": 8, "music_qa": 2, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 631, "loss": 0.14499014795728726, "lr": 9.226355855780921e-06, "elapsed_s": 6541, "src": {"replay": 6, "chem_qa": 4, "music_trans": 2, "music_qa": 3, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 632, "loss": 0.13703099785925588, "lr": 9.103531961664118e-06, "elapsed_s": 6552, "src": {"music_qa": 8, "replay": 6, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 633, "loss": 0.31063272821484134, "lr": 8.981449159621086e-06, "elapsed_s": 6560, "src": {"replay": 2, "chem_qa": 6, "music_qa": 4, "chem_coord": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 634, "loss": 0.327510137896752, "lr": 8.860109661935674e-06, "elapsed_s": 6570, "src": {"replay": 8, "music_qa": 3, "chem_coord": 2, "chem_qa": 3}, "peak_gb": 14.25}
+{"step": 635, "loss": 0.19858557022598688, "lr": 8.73951566742221e-06, "elapsed_s": 6580, "src": {"replay": 5, "chem_qa": 5, "music_qa": 6}, "peak_gb": 14.25}
+{"step": 636, "loss": 0.3167733970567497, "lr": 8.619669361385652e-06, "elapsed_s": 6591, "src": {"music_trans": 3, "music_qa": 6, "replay": 4, "chem_qa": 1, "chem_coord": 2}, "peak_gb": 14.25}
+{"step": 637, "loss": 0.15795135829830542, "lr": 8.500572915581922e-06, "elapsed_s": 6600, "src": {"music_qa": 3, "replay": 6, "chem_qa": 6, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 638, "loss": 0.19556076610388118, "lr": 8.38222848817864e-06, "elapsed_s": 6611, "src": {"music_qa": 4, "chem_qa": 6, "replay": 6}, "peak_gb": 14.25}
+{"step": 639, "loss": 0.39919706642103847, "lr": 8.264638223715916e-06, "elapsed_s": 6624, "src": {"music_qa": 3, "chem_qa": 1, "replay": 10, "chem_coord": 2}, "peak_gb": 14.25}
+{"step": 640, "loss": 0.1459926476527471, "lr": 8.14780425306758e-06, "elapsed_s": 6634, "src": {"music_qa": 4, "chem_qa": 7, "replay": 5}, "peak_gb": 14.25}
+{"step": 641, "loss": 0.10606001457199454, "lr": 8.031728693402502e-06, "elapsed_s": 6643, "src": {"replay": 6, "chem_qa": 4, "music_qa": 3, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 642, "loss": 0.1198482993786456, "lr": 7.916413648146292e-06, "elapsed_s": 6654, "src": {"replay": 6, "chem_qa": 3, "music_qa": 7}, "peak_gb": 14.25}
+{"step": 643, "loss": 0.2286105533130467, "lr": 7.801861206943089e-06, "elapsed_s": 6664, "src": {"replay": 9, "chem_qa": 5, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 644, "loss": 0.07411857909755781, "lr": 7.688073445617799e-06, "elapsed_s": 6674, "src": {"replay": 6, "chem_qa": 6, "music_qa": 4}, "peak_gb": 14.25}
+{"step": 645, "loss": 0.21323582221521065, "lr": 7.5750524261384125e-06, "elapsed_s": 6684, "src": {"replay": 9, "chem_qa": 5, "music_trans": 1, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 646, "loss": 0.23326843307586387, "lr": 7.462800196578662e-06, "elapsed_s": 6694, "src": {"replay": 7, "music_qa": 2, "chem_qa": 6, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 647, "loss": 0.22228889574762434, "lr": 7.35131879108088e-06, "elapsed_s": 6706, "src": {"replay": 9, "music_qa": 4, "music_trans": 1, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 648, "loss": 0.22033927093252714, "lr": 7.240610229819184e-06, "elapsed_s": 6717, "src": {"replay": 7, "music_qa": 6, "chem_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 649, "loss": 0.23004828102421016, "lr": 7.130676518962859e-06, "elapsed_s": 6728, "src": {"replay": 10, "chem_qa": 4, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 650, "loss": 0.11434976100281347, "lr": 7.0215196506399405e-06, "elapsed_s": 6737, "src": {"music_qa": 4, "replay": 6, "chem_qa": 5, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 651, "loss": 0.15378262341255322, "lr": 6.913141602901224e-06, "elapsed_s": 6746, "src": {"replay": 4, "chem_qa": 5, "music_qa": 7}, "peak_gb": 14.25}
+{"step": 652, "loss": 0.22453242471965495, "lr": 6.8055443396842945e-06, "elapsed_s": 6757, "src": {"chem_qa": 4, "music_qa": 4, "music_trans": 2, "replay": 5, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 653, "loss": 0.27040365312132053, "lr": 6.698729810778076e-06, "elapsed_s": 6766, "src": {"replay": 6, "music_qa": 6, "chem_qa": 1, "chem_coord": 1, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 654, "loss": 0.1663808752055047, "lr": 6.592699951787362e-06, "elapsed_s": 6776, "src": {"replay": 8, "chem_qa": 3, "music_qa": 3, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 655, "loss": 0.10863641917239875, "lr": 6.487456684097848e-06, "elapsed_s": 6785, "src": {"chem_qa": 4, "replay": 6, "music_qa": 5, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 656, "loss": 0.10101772633788642, "lr": 6.3830019148412525e-06, "elapsed_s": 6795, "src": {"chem_qa": 6, "music_trans": 2, "replay": 5, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 657, "loss": 0.07415974366995215, "lr": 6.279337536860774e-06, "elapsed_s": 6804, "src": {"music_qa": 5, "chem_qa": 4, "replay": 5, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 658, "loss": 0.30051053839270025, "lr": 6.17646542867682e-06, "elapsed_s": 6814, "src": {"music_qa": 4, "chem_qa": 5, "replay": 4, "music_trans": 1, "chem_coord": 2}, "peak_gb": 14.25}
+{"step": 659, "loss": 0.3478899404290132, "lr": 6.074387454452879e-06, "elapsed_s": 6823, "src": {"replay": 5, "chem_coord": 3, "music_qa": 2, "music_trans": 1, "chem_qa": 5}, "peak_gb": 14.25}
+{"step": 660, "loss": 0.1457106175366789, "lr": 5.973105463961865e-06, "elapsed_s": 6833, "src": {"replay": 8, "chem_qa": 3, "music_qa": 2, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 661, "loss": 0.2302311675157398, "lr": 5.872621292552477e-06, "elapsed_s": 6844, "src": {"chem_qa": 4, "music_trans": 4, "replay": 3, "music_qa": 4, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 662, "loss": 0.32700199622195214, "lr": 5.772936761116038e-06, "elapsed_s": 6854, "src": {"music_trans": 2, "replay": 8, "chem_qa": 3, "chem_coord": 2, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 663, "loss": 0.16527173179201782, "lr": 5.6740536760534144e-06, "elapsed_s": 6865, "src": {"chem_qa": 4, "music_qa": 5, "replay": 6, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 664, "loss": 0.19286996454684413, "lr": 5.575973829242353e-06, "elapsed_s": 6874, "src": {"music_qa": 6, "chem_qa": 5, "replay": 3, "chem_coord": 1, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 665, "loss": 0.287028886625194, "lr": 5.478698998004978e-06, "elapsed_s": 6884, "src": {"replay": 6, "music_qa": 3, "chem_qa": 4, "chem_coord": 1, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 666, "loss": 0.15118816413450986, "lr": 5.382230945075556e-06, "elapsed_s": 6894, "src": {"replay": 7, "music_qa": 3, "chem_qa": 4, "music_trans": 1, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 667, "loss": 0.23818361412850209, "lr": 5.286571418568615e-06, "elapsed_s": 6904, "src": {"music_qa": 5, "replay": 5, "chem_coord": 1, "chem_qa": 5}, "peak_gb": 14.25}
+{"step": 668, "loss": 0.21476775162500417, "lr": 5.191722151947215e-06, "elapsed_s": 6914, "src": {"chem_qa": 4, "music_qa": 4, "chem_coord": 2, "replay": 4, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 669, "loss": 0.10406244959449396, "lr": 5.097684863991575e-06, "elapsed_s": 6924, "src": {"music_qa": 6, "replay": 5, "chem_qa": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 670, "loss": 0.09424294024938717, "lr": 5.004461258767873e-06, "elapsed_s": 6933, "src": {"music_qa": 6, "replay": 5, "chem_qa": 5}, "peak_gb": 14.25}
+{"step": 671, "loss": 0.28363220699247904, "lr": 4.912053025597429e-06, "elapsed_s": 6944, "src": {"music_qa": 2, "chem_coord": 1, "music_trans": 2, "replay": 10, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 672, "loss": 0.16640594680211507, "lr": 4.820461839026047e-06, "elapsed_s": 6953, "src": {"chem_qa": 6, "replay": 6, "music_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 673, "loss": 0.2694299794966355, "lr": 4.729689358793693e-06, "elapsed_s": 6964, "src": {"replay": 6, "music_qa": 7, "chem_coord": 1, "music_trans": 1, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 674, "loss": 0.11147524553234689, "lr": 4.639737229804403e-06, "elapsed_s": 6973, "src": {"music_qa": 7, "replay": 6, "chem_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 675, "loss": 0.39473085739882663, "lr": 4.5506070820964976e-06, "elapsed_s": 6985, "src": {"chem_qa": 3, "chem_coord": 2, "replay": 9, "music_trans": 1, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 676, "loss": 0.32110116531112, "lr": 4.462300530813024e-06, "elapsed_s": 6996, "src": {"replay": 10, "music_qa": 2, "chem_qa": 3, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 677, "loss": 0.12315816588670714, "lr": 4.374819176172501e-06, "elapsed_s": 7005, "src": {"replay": 5, "music_qa": 6, "chem_qa": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 678, "loss": 0.13056879461510107, "lr": 4.2881646034398925e-06, "elapsed_s": 7015, "src": {"music_qa": 5, "chem_qa": 2, "replay": 7, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 679, "loss": 0.06821847089122457, "lr": 4.2023383828979245e-06, "elapsed_s": 7026, "src": {"replay": 5, "chem_qa": 3, "music_qa": 5, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 680, "loss": 0.28032639023149386, "lr": 4.117342069818603e-06, "elapsed_s": 7035, "src": {"chem_qa": 4, "music_qa": 4, "chem_coord": 2, "replay": 4, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 681, "loss": 0.15432238345965743, "lr": 4.033177204435024e-06, "elapsed_s": 7044, "src": {"music_qa": 5, "replay": 7, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 682, "loss": 0.11099448239838239, "lr": 3.949845311913492e-06, "elapsed_s": 7055, "src": {"replay": 7, "chem_qa": 4, "music_qa": 3, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 683, "loss": 0.25410388156888075, "lr": 3.8673479023258465e-06, "elapsed_s": 7064, "src": {"music_qa": 5, "chem_qa": 3, "replay": 7, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 684, "loss": 0.24152384814806283, "lr": 3.7856864706221295e-06, "elapsed_s": 7072, "src": {"replay": 4, "music_qa": 5, "chem_qa": 4, "chem_coord": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 685, "loss": 0.3480742021347396, "lr": 3.7048624966034616e-06, "elapsed_s": 7086, "src": {"music_qa": 1, "chem_coord": 2, "replay": 10, "chem_qa": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 686, "loss": 0.11358683287517124, "lr": 3.6248774448952695e-06, "elapsed_s": 7097, "src": {"replay": 8, "music_qa": 7, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 687, "loss": 0.08062593733484391, "lr": 3.5457327649207062e-06, "elapsed_s": 7105, "src": {"chem_qa": 5, "music_qa": 6, "replay": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 688, "loss": 0.21693637914722785, "lr": 3.467429890874424e-06, "elapsed_s": 7115, "src": {"replay": 7, "music_qa": 4, "chem_qa": 2, "chem_coord": 1, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 689, "loss": 0.25944452767726034, "lr": 3.389970241696516e-06, "elapsed_s": 7126, "src": {"chem_qa": 3, "replay": 8, "music_qa": 4, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 690, "loss": 0.09188261030067224, "lr": 3.313355221046899e-06, "elapsed_s": 7137, "src": {"replay": 6, "music_trans": 2, "music_qa": 2, "chem_qa": 6}, "peak_gb": 14.25}
+{"step": 691, "loss": 0.16528071439824998, "lr": 3.237586217279781e-06, "elapsed_s": 7146, "src": {"chem_qa": 4, "replay": 6, "music_trans": 3, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 692, "loss": 0.1260456687596161, "lr": 3.162664603418608e-06, "elapsed_s": 7155, "src": {"music_qa": 7, "music_trans": 2, "chem_qa": 2, "replay": 5}, "peak_gb": 14.25}
+{"step": 693, "loss": 0.1690814344365208, "lr": 3.0885917371310745e-06, "elapsed_s": 7167, "src": {"replay": 7, "music_qa": 7, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 694, "loss": 0.17696314019849524, "lr": 3.0153689607045845e-06, "elapsed_s": 7179, "src": {"music_qa": 5, "chem_qa": 4, "replay": 7}, "peak_gb": 14.25}
+{"step": 695, "loss": 0.273993733793759, "lr": 2.942997601021924e-06, "elapsed_s": 7190, "src": {"music_qa": 2, "replay": 7, "chem_coord": 2, "chem_qa": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 696, "loss": 0.10941447356344725, "lr": 2.8714789695371944e-06, "elapsed_s": 7200, "src": {"replay": 9, "chem_qa": 4, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 697, "loss": 0.22958457668573828, "lr": 2.800814362252091e-06, "elapsed_s": 7208, "src": {"replay": 6, "music_qa": 5, "music_trans": 2, "chem_qa": 2, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 698, "loss": 0.2583789105701726, "lr": 2.7310050596923376e-06, "elapsed_s": 7220, "src": {"chem_coord": 2, "replay": 9, "chem_qa": 3, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 699, "loss": 0.1754252220998751, "lr": 2.662052326884551e-06, "elapsed_s": 7230, "src": {"chem_qa": 7, "replay": 6, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 700, "loss": 0.12447436529328115, "lr": 2.5939574133333312e-06, "elapsed_s": 7239, "src": {"replay": 5, "music_qa": 7, "music_trans": 2, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 701, "loss": 0.3268270389380632, "lr": 2.5267215529985342e-06, "elapsed_s": 7250, "src": {"music_qa": 4, "replay": 8, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 702, "loss": 0.14486792983370833, "lr": 2.4603459642729753e-06, "elapsed_s": 7258, "src": {"chem_qa": 8, "music_qa": 3, "chem_coord": 1, "replay": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 703, "loss": 0.43207080161664635, "lr": 2.394831849960377e-06, "elapsed_s": 7267, "src": {"replay": 4, "chem_coord": 3, "chem_qa": 6, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 704, "loss": 0.20221198828039633, "lr": 2.3301803972534785e-06, "elapsed_s": 7276, "src": {"chem_coord": 1, "music_qa": 7, "chem_qa": 3, "music_trans": 2, "replay": 3}, "peak_gb": 14.25}
+{"step": 705, "loss": 0.16371582011925057, "lr": 2.266392777712595e-06, "elapsed_s": 7284, "src": {"music_qa": 7, "chem_qa": 5, "replay": 4}, "peak_gb": 14.25}
+{"step": 706, "loss": 0.14163982216268778, "lr": 2.203470147244385e-06, "elapsed_s": 7294, "src": {"replay": 9, "chem_qa": 6, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 707, "loss": 0.22042877624335233, "lr": 2.1414136460808697e-06, "elapsed_s": 7303, "src": {"music_qa": 3, "chem_qa": 5, "music_trans": 3, "replay": 5}, "peak_gb": 14.25}
+{"step": 708, "loss": 0.08543499646475539, "lr": 2.080224398758812e-06, "elapsed_s": 7313, "src": {"chem_qa": 6, "music_trans": 3, "music_qa": 2, "replay": 5}, "peak_gb": 14.25}
+{"step": 709, "loss": 0.21322448661521776, "lr": 2.0199035140992805e-06, "elapsed_s": 7322, "src": {"music_qa": 4, "replay": 4, "chem_qa": 5, "chem_coord": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 710, "loss": 0.2670220453728689, "lr": 1.960452085187614e-06, "elapsed_s": 7335, "src": {"chem_coord": 1, "replay": 8, "chem_qa": 3, "music_qa": 2, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 711, "loss": 0.16474175966868643, "lr": 1.901871189353599e-06, "elapsed_s": 7344, "src": {"chem_qa": 6, "replay": 5, "music_qa": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 712, "loss": 0.22554283525096253, "lr": 1.8441618881519241e-06, "elapsed_s": 7353, "src": {"replay": 6, "music_trans": 1, "chem_qa": 6, "chem_coord": 1, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 713, "loss": 0.2400662505751825, "lr": 1.7873252273429509e-06, "elapsed_s": 7363, "src": {"music_qa": 5, "replay": 6, "chem_qa": 2, "music_trans": 2, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 714, "loss": 0.2921222452278016, "lr": 1.7313622368738014e-06, "elapsed_s": 7372, "src": {"replay": 4, "chem_qa": 5, "music_qa": 4, "chem_coord": 2, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 715, "loss": 0.08729542800574563, "lr": 1.6762739308596398e-06, "elapsed_s": 7382, "src": {"chem_qa": 5, "music_trans": 2, "replay": 7, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 716, "loss": 0.3097772204055218, "lr": 1.6220613075653202e-06, "elapsed_s": 7391, "src": {"chem_coord": 2, "replay": 5, "chem_qa": 5, "music_trans": 1, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 717, "loss": 0.12051921483362094, "lr": 1.5687253493873067e-06, "elapsed_s": 7402, "src": {"chem_qa": 4, "replay": 9, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 718, "loss": 0.21537052930216305, "lr": 1.51626702283586e-06, "elapsed_s": 7412, "src": {"music_trans": 3, "chem_coord": 1, "music_qa": 5, "chem_qa": 3, "replay": 4}, "peak_gb": 14.25}
+{"step": 719, "loss": 0.19770726478964207, "lr": 1.464687278517518e-06, "elapsed_s": 7421, "src": {"chem_qa": 4, "replay": 6, "music_qa": 5, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 720, "loss": 0.33088056731503457, "lr": 1.413987051117882e-06, "elapsed_s": 7431, "src": {"music_trans": 3, "chem_qa": 1, "replay": 9, "music_qa": 2, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 721, "loss": 0.24381530938262586, "lr": 1.3641672593846577e-06, "elapsed_s": 7498, "src": {"chem_qa": 6, "replay": 3, "music_qa": 2, "chem_coord": 2, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 722, "loss": 0.21382597562387673, "lr": 1.3152288061110518e-06, "elapsed_s": 7508, "src": {"replay": 8, "chem_qa": 4, "music_qa": 4}, "peak_gb": 14.25}
+{"step": 723, "loss": 0.28931981459027156, "lr": 1.2671725781193522e-06, "elapsed_s": 7517, "src": {"replay": 9, "music_qa": 3, "chem_qa": 3, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 724, "loss": 0.23012528187246062, "lr": 1.219999446244885e-06, "elapsed_s": 7526, "src": {"replay": 7, "chem_qa": 2, "music_trans": 5, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 725, "loss": 0.09266847380786203, "lr": 1.1737102653202826e-06, "elapsed_s": 7534, "src": {"replay": 4, "music_qa": 6, "chem_qa": 3, "music_trans": 3}, "peak_gb": 14.25}
+{"step": 726, "loss": 0.27820731241081376, "lr": 1.128305874159896e-06, "elapsed_s": 7543, "src": {"music_trans": 2, "replay": 7, "music_qa": 3, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 727, "loss": 0.11488273918803316, "lr": 1.0837870955446695e-06, "elapsed_s": 7551, "src": {"replay": 6, "music_qa": 6, "chem_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 728, "loss": 0.08270191604970023, "lr": 1.040154736207194e-06, "elapsed_s": 7561, "src": {"replay": 7, "chem_qa": 6, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 729, "loss": 0.13165217467030743, "lr": 9.974095868171162e-07, "elapsed_s": 7570, "src": {"music_qa": 6, "chem_coord": 1, "replay": 4, "chem_qa": 5}, "peak_gb": 14.25}
+{"step": 730, "loss": 0.2361754790181294, "lr": 9.555524219667989e-07, "elapsed_s": 7579, "src": {"music_trans": 1, "chem_qa": 4, "music_qa": 4, "replay": 6, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 731, "loss": 0.1071858003269881, "lr": 9.145840001572592e-07, "elapsed_s": 7591, "src": {"replay": 9, "music_qa": 7}, "peak_gb": 14.25}
+{"step": 732, "loss": 0.180858482090116, "lr": 8.745050637844532e-07, "elapsed_s": 7600, "src": {"chem_coord": 1, "music_qa": 5, "replay": 4, "chem_qa": 6}, "peak_gb": 14.25}
+{"step": 733, "loss": 0.28184230866099824, "lr": 8.353163391258301e-07, "elapsed_s": 7611, "src": {"music_qa": 3, "replay": 7, "chem_coord": 2, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 734, "loss": 0.17355279125149536, "lr": 7.970185363271488e-07, "elapsed_s": 7619, "src": {"replay": 5, "chem_qa": 6, "music_qa": 3, "music_trans": 1, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 735, "loss": 0.0727276350808097, "lr": 7.596123493895991e-07, "elapsed_s": 7630, "src": {"music_qa": 4, "replay": 8, "music_trans": 2, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 736, "loss": 0.1108270151016768, "lr": 7.230984561572729e-07, "elapsed_s": 7640, "src": {"music_qa": 6, "replay": 6, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 737, "loss": 0.21973008220084012, "lr": 6.874775183048299e-07, "elapsed_s": 7653, "src": {"replay": 9, "music_trans": 3, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 738, "loss": 0.09649061568779871, "lr": 6.527501813255399e-07, "elapsed_s": 7663, "src": {"replay": 5, "music_trans": 1, "chem_qa": 6, "music_qa": 4}, "peak_gb": 14.25}
+{"step": 739, "loss": 0.09429898689268157, "lr": 6.189170745195593e-07, "elapsed_s": 7673, "src": {"music_qa": 4, "replay": 8, "chem_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 740, "loss": 0.2680928279346517, "lr": 5.859788109825737e-07, "elapsed_s": 7682, "src": {"music_qa": 5, "replay": 8, "music_trans": 2, "chem_qa": 1}, "peak_gb": 14.25}
+{"step": 741, "loss": 0.26731971536719357, "lr": 5.539359875946226e-07, "elapsed_s": 7694, "src": {"replay": 11, "chem_coord": 1, "chem_qa": 2, "music_trans": 1, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 742, "loss": 0.11029718675126787, "lr": 5.227891850093314e-07, "elapsed_s": 7704, "src": {"replay": 7, "music_qa": 2, "music_trans": 2, "chem_qa": 5}, "peak_gb": 14.25}
+{"step": 743, "loss": 0.15076280786888674, "lr": 4.925389676433745e-07, "elapsed_s": 7713, "src": {"replay": 7, "music_qa": 3, "chem_qa": 5, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 744, "loss": 0.29775259245798225, "lr": 4.6318588366625616e-07, "elapsed_s": 7722, "src": {"music_trans": 1, "chem_qa": 5, "music_qa": 3, "replay": 5, "chem_coord": 2}, "peak_gb": 14.25}
+{"step": 745, "loss": 0.1516229081316851, "lr": 4.347304649903572e-07, "elapsed_s": 7733, "src": {"replay": 8, "chem_qa": 4, "music_trans": 2, "chem_coord": 1, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 746, "loss": 0.17567692896045628, "lr": 4.071732272613149e-07, "elapsed_s": 7743, "src": {"replay": 6, "music_qa": 4, "chem_qa": 2, "music_trans": 3, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 747, "loss": 0.09375198307679966, "lr": 3.805146698486695e-07, "elapsed_s": 7751, "src": {"chem_qa": 6, "music_qa": 6, "music_trans": 1, "replay": 3}, "peak_gb": 14.25}
+{"step": 748, "loss": 0.20455514185596257, "lr": 3.5475527583681e-07, "elapsed_s": 7760, "src": {"replay": 8, "chem_qa": 6, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 749, "loss": 0.13179597634007223, "lr": 3.2989551201624835e-07, "elapsed_s": 7769, "src": {"music_qa": 4, "replay": 6, "chem_qa": 6}, "peak_gb": 14.25}
+{"step": 750, "loss": 0.2529992139316164, "lr": 3.0593582887511464e-07, "elapsed_s": 7777, "src": {"music_qa": 4, "chem_qa": 4, "music_trans": 3, "replay": 3, "chem_coord": 2}, "peak_gb": 14.25}
+{"step": 751, "loss": 0.2375311223731842, "lr": 2.828766605910471e-07, "elapsed_s": 7787, "src": {"music_qa": 3, "chem_qa": 3, "replay": 9, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 752, "loss": 0.11602398831746541, "lr": 2.6071842502326527e-07, "elapsed_s": 7798, "src": {"chem_qa": 3, "music_trans": 3, "replay": 5, "music_qa": 5}, "peak_gb": 14.25}
+{"step": 753, "loss": 0.4738683100731578, "lr": 2.394615237050479e-07, "elapsed_s": 7808, "src": {"chem_qa": 4, "chem_coord": 4, "replay": 4, "music_qa": 3, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 754, "loss": 0.10800234647467732, "lr": 2.1910634183644474e-07, "elapsed_s": 7818, "src": {"music_trans": 1, "replay": 7, "chem_qa": 5, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 755, "loss": 0.17477519484236836, "lr": 1.9965324827726506e-07, "elapsed_s": 7826, "src": {"replay": 8, "music_trans": 1, "chem_qa": 4, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 756, "loss": 0.24367807427188382, "lr": 1.811025955404333e-07, "elapsed_s": 7839, "src": {"music_trans": 1, "chem_qa": 4, "replay": 10, "music_qa": 1}, "peak_gb": 14.25}
+{"step": 757, "loss": 0.09933064317738172, "lr": 1.6345471978558845e-07, "elapsed_s": 7848, "src": {"music_qa": 9, "replay": 4, "music_trans": 1, "chem_qa": 2}, "peak_gb": 14.25}
+{"step": 758, "loss": 0.2207430640119128, "lr": 1.4670994081297795e-07, "elapsed_s": 7858, "src": {"replay": 5, "chem_qa": 6, "music_trans": 2, "music_qa": 2, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 759, "loss": 0.0756303535963525, "lr": 1.3086856205768438e-07, "elapsed_s": 7867, "src": {"replay": 7, "music_qa": 5, "chem_qa": 4}, "peak_gb": 14.25}
+{"step": 760, "loss": 0.21886321321653668, "lr": 1.1593087058410779e-07, "elapsed_s": 7877, "src": {"chem_qa": 4, "chem_coord": 1, "music_trans": 2, "replay": 6, "music_qa": 3}, "peak_gb": 14.25}
+{"step": 761, "loss": 0.1562355482019484, "lr": 1.0189713708078085e-07, "elapsed_s": 7885, "src": {"replay": 4, "music_trans": 2, "chem_coord": 1, "chem_qa": 5, "music_qa": 4}, "peak_gb": 14.25}
+{"step": 762, "loss": 0.22315456619253382, "lr": 8.876761585545068e-08, "elapsed_s": 7896, "src": {"chem_qa": 5, "replay": 6, "music_qa": 4, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 763, "loss": 0.11262765974970534, "lr": 7.65425448304713e-08, "elapsed_s": 7904, "src": {"chem_qa": 4, "replay": 7, "music_qa": 5}, "peak_gb": 14.25}
+{"step": 764, "loss": 0.19613708638644312, "lr": 6.522214553850159e-08, "elapsed_s": 7915, "src": {"replay": 7, "chem_coord": 1, "chem_qa": 5, "music_qa": 1, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 765, "loss": 0.16592609672807157, "lr": 5.4806623118486275e-08, "elapsed_s": 7925, "src": {"replay": 7, "chem_qa": 7, "music_qa": 2}, "peak_gb": 14.25}
+{"step": 766, "loss": 0.21329460348351859, "lr": 4.529616631193667e-08, "elapsed_s": 7933, "src": {"music_qa": 4, "replay": 7, "chem_qa": 4, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 767, "loss": 0.12293263831088552, "lr": 3.669094745950008e-08, "elapsed_s": 7943, "src": {"music_qa": 2, "replay": 7, "chem_qa": 6, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 768, "loss": 0.16782656642317306, "lr": 2.899112249786229e-08, "elapsed_s": 7952, "src": {"replay": 6, "chem_coord": 1, "chem_qa": 3, "music_qa": 5, "music_trans": 1}, "peak_gb": 14.25}
+{"step": 769, "loss": 0.27821803523693234, "lr": 2.219683095690539e-08, "elapsed_s": 7961, "src": {"chem_qa": 5, "replay": 5, "music_qa": 4, "music_trans": 2}, "peak_gb": 14.25}
+{"step": 770, "loss": 0.27371467265766114, "lr": 1.6308195957182027e-08, "elapsed_s": 7970, "src": {"music_qa": 5, "replay": 6, "chem_qa": 4, "chem_coord": 1}, "peak_gb": 14.25}
+{"step": 771, "loss": 0.18918969947844744, "lr": 1.1325324207667188e-08, "elapsed_s": 7979, "src": {"chem_qa": 6, "music_qa": 4, "chem_coord": 1, "music_trans": 1, "replay": 4}, "peak_gb": 14.25}
+{"step": 772, "loss": 0.22623987312545069, "lr": 7.248306003865279e-09, "elapsed_s": 7991, "src": {"chem_qa": 4, "music_qa": 4, "replay": 8}, "peak_gb": 14.25}
+{"step": 773, "loss": 0.12265842861961573, "lr": 4.07721522613369e-09, "elapsed_s": 8002, "src": {"replay": 11, "music_qa": 1, "chem_qa": 2, "music_trans": 2}, "peak_gb": 14.31}
+{"step": 774, "loss": 0.2033894046471687, "lr": 1.8121093383671738e-09, "elapsed_s": 8011, "src": {"music_qa": 5, "replay": 6, "chem_qa": 4, "music_trans": 1}, "peak_gb": 14.31}
+{"step": 775, "loss": 0.25381429953631596, "lr": 4.5302938694868903e-10, "elapsed_s": 8021, "src": {"replay": 9, "music_qa": 2, "chem_qa": 2, "music_trans": 2, "chem_coord": 1}, "peak_gb": 14.31}
+{"step": 776, "loss": 0.3437523934408091, "lr": 0.0, "elapsed_s": 8030, "src": {"chem_qa": 3, "music_qa": 3, "replay": 7, "chem_coord": 2, "music_trans": 1}, "peak_gb": 14.31}

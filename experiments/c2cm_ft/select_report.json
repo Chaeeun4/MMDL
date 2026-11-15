@@ -1,0 +1,19 @@
+{
+ "generations": 25641,
+ "questions": 6000,
+ "questions_kept": 3407,
+ "no_clean_sample": 584,
+ "easy_dropped": 2009,
+ "sft_samples": 5111,
+ "dpo_pairs": 2543,
+ "agent_accuracy": {
+  "describe": 0.655,
+  "cot": 0.655,
+  "check": 0.661,
+  "concise": 0.662,
+  "teacher:claude-sonnet-5-5": 0.651
+ },
+ "pass_at_1_mean": 0.658,
+ "pass_at_any": 0.922,
+ "sft_mean_tokens": 370
+}
