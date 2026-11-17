@@ -1,0 +1,38 @@
+{
+ "train": {
+  "percept_music": 2940,
+  "percept_chem": 1939,
+  "percept_plot": 1440
+ },
+ "val": {
+  "percept_chem": 60,
+  "percept_music": 60,
+  "percept_plot": 60
+ },
+ "train_total": 6319,
+ "kinds": {
+  "percept_chem/formula": 292,
+  "percept_chem/r_or_s": 506,
+  "percept_chem/stereo_pair": 388,
+  "percept_chem/stereocenter_count": 597,
+  "percept_chem/stereoisomer_count": 156,
+  "percept_music/bar_count": 236,
+  "percept_music/chord": 424,
+  "percept_music/duration_sum": 223,
+  "percept_music/interval_name": 354,
+  "percept_music/interval_quality": 325,
+  "percept_music/key_signature": 221,
+  "percept_music/note_name": 596,
+  "percept_music/scale_degree": 302,
+  "percept_music/time_signature": 259,
+  "percept_plot/calibration_conc": 157,
+  "percept_plot/calibration_moles": 132,
+  "percept_plot/phase_diagram": 269,
+  "percept_plot/table_average": 318,
+  "percept_plot/titration_pheq": 160,
+  "percept_plot/titration_type": 273,
+  "percept_plot/titration_veq": 131
+ },
+ "contamination_flagged": 1,
+ "min_image_distance_bits": 3
+}

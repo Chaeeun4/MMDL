@@ -1,0 +1,371 @@
+{
+ "benchmark_images": 13281,
+ "mmmu_pro_text": "loaded",
+ "checked_records": 10153,
+ "min_image_distance_bits": 0,
+ "max_bits": 10,
+ "n_flagged": 79,
+ "flagged": {
+  "mfr::BMMR::20811": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::30167": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::31017": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::10928": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::BMMR::61205": {
+   "kind": "text exact",
+   "match": "test_Design_73"
+  },
+  "mfr::Euclid30K::10734": {
+   "kind": "image dhash 5 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::10549": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::24301": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::BMMR::27654": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::MMK12::3439": {
+   "kind": "image dhash 7 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::31883": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::11072": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::20902": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::BMMR::34832": {
+   "kind": "text exact",
+   "match": "test_Design_73"
+  },
+  "mfr::ViRL39K::21999": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::9904": {
+   "kind": "image dhash 3 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::LLaVA-CoT::21777": {
+   "kind": "text exact",
+   "match": "validation_Basic_Medical_Science_5"
+  },
+  "mfr::BMMR::14190": {
+   "kind": "text exact",
+   "match": "test_Design_73"
+  },
+  "mfr::MMR1::677421": {
+   "kind": "image dhash 10 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::BMMR::10290": {
+   "kind": "text exact",
+   "match": "test_Design_73"
+  },
+  "mfr::ViRL39K::11093": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::8811": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::BMMR::22088": {
+   "kind": "text exact",
+   "match": "test_Design_73"
+  },
+  "mfr::ViRL39K::24514": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::10473": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::BMMR::65214": {
+   "kind": "text exact",
+   "match": "test_Design_73"
+  },
+  "mfr::FineVision-visualwebinstruct(filtered)::89883": {
+   "kind": "text 8gram",
+   "match": "pro::validation_Math_26"
+  },
+  "mfr::MMK12::5137": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::MMR1::523522": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::MMK12::6752": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::MMR1::1555132": {
+   "kind": "image dhash 6 bits",
+   "match": "test_Psychology_128"
+  },
+  "mfr::FineVision-visualwebinstruct(filtered)::62174": {
+   "kind": "text 8gram",
+   "match": "pro::validation_Math_26"
+  },
+  "mfr::ViRL39K::10600": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::MMR1::118805": {
+   "kind": "image dhash 6 bits",
+   "match": "test_Psychology_128"
+  },
+  "mfr::ViRL39K::11380": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::10554": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::BMMR::21049": {
+   "kind": "text exact",
+   "match": "test_Physics_148"
+  },
+  "mfr::ViRL39K::21652": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::30470": {
+   "kind": "image dhash 4 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::23173": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::23603": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::MMK12::3728": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::11012": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::BMMR::61252": {
+   "kind": "text exact",
+   "match": "test_Design_73"
+  },
+  "mfr::WeMath2-Pro::237": {
+   "kind": "text exact",
+   "match": "test_Math_165"
+  },
+  "mfr::ViRL39K::10701": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::BMMR::69791": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::21992": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::MMK12::12829": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::BMMR::74075": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::BMMR::51933": {
+   "kind": "text exact",
+   "match": "test_Design_73"
+  },
+  "mfr::BMMR::40457": {
+   "kind": "text exact",
+   "match": "test_Design_73"
+  },
+  "mfr::BMMR::48753": {
+   "kind": "text exact",
+   "match": "test_Design_73"
+  },
+  "mfr::WeMath2-Pro::1513": {
+   "kind": "text 8gram",
+   "match": "pro::validation_Math_26"
+  },
+  "mfr::ViRL39K::27645": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::20696": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::24677": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::10520": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::BMMR::43241": {
+   "kind": "text exact",
+   "match": "test_Physics_148"
+  },
+  "mfr::ViRL39K::20792": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::BMMR::10077": {
+   "kind": "text exact",
+   "match": "test_Design_73"
+  },
+  "mfr::ViRL39K::29992": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::35909": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::35971": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::BMMR::46672": {
+   "kind": "text exact",
+   "match": "test_Design_73"
+  },
+  "mfr::ViRL39K::5440": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::11419": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::10892": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::MMK12::14979": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::BMMR::20124": {
+   "kind": "text exact",
+   "match": "test_Math_165"
+  },
+  "mfr::BMMR::63615": {
+   "kind": "text exact",
+   "match": "test_Design_73"
+  },
+  "mfr::ViRL39K::10729": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::ViRL39K::11234": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::BMMR::44425": {
+   "kind": "text exact",
+   "match": "test_Design_73"
+  },
+  "mfr::ViRL39K::10503": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::MMK12::4544": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::MMK12::11329": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "mfr::BMMR::32089": {
+   "kind": "text exact",
+   "match": "test_Design_73"
+  },
+  "mfr::MMK12::8697": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  }
+ },
+ "dropped": {
+  "format / length": 5803,
+  "ViRL39K id already flagged": 5,
+  "tiny image": 15
+ },
+ "available_per_source": {
+  "WaltonColdStart": 2433,
+  "FineVision-visualwebinstruct(filtered)": 23509,
+  "MMR1": 59775,
+  "LLaVA-CoT": 2669,
+  "ViRL39K": 1436,
+  "BMMR": 8186,
+  "MMK12": 903,
+  "FineVision-geo170k(qa)": 875,
+  "WeMath2-Standard": 232,
+  "mmopenr1-8k": 368,
+  "FineVision-tqa": 390,
+  "FineVision-scienceqa": 123,
+  "Euclid30K": 1914,
+  "FineVision-ai2d_merged": 175,
+  "Zebra-CoT-Physics": 190,
+  "WeMath2-Pro": 235,
+  "FineVision-geometry3k(mathv360k)": 507,
+  "WeMath2-SFT": 78
+ },
+ "kept_per_source": {
+  "WaltonColdStart": 300,
+  "LLaVA-CoT": 800,
+  "ViRL39K": 800,
+  "BMMR": 3000,
+  "MMR1": 1500,
+  "MMK12": 800,
+  "WeMath2-Standard": 100,
+  "FineVision-visualwebinstruct(filtered)": 1119,
+  "mmopenr1-8k": 300,
+  "FineVision-scienceqa": 119,
+  "FineVision-tqa": 330,
+  "Zebra-CoT-Physics": 178,
+  "FineVision-geo170k(qa)": 150,
+  "Euclid30K": 250,
+  "WeMath2-Pro": 100,
+  "FineVision-geometry3k(mathv360k)": 100,
+  "WeMath2-SFT": 73,
+  "FineVision-ai2d_merged": 55
+ }
+}

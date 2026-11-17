@@ -1,0 +1,52 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/data/jinagg/venv-mmdl/lib/python3.12/site-packages/PIL/Image.py:1136: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+{
+ "train": {
+  "mfr": 9974
+ },
+ "val": {
+  "mfr": 100
+ },
+ "train_total": 9974,
+ "kinds": {
+  "mmopenr1-8k/mc": 125,
+  "FineVision-scienceqa/mc": 118,
+  "ViRL39K/open": 512,
+  "BMMR/mc": 1050,
+  "MMK12/open": 792,
+  "MMR1/open": 1205,
+  "BMMR/open": 1924,
+  "MMR1/mc": 277,
+  "FineVision-visualwebinstruct(filtered)/open": 1002,
+  "ViRL39K/mc": 282,
+  "FineVision-tqa/mc": 326,
+  "LLaVA-CoT/open": 516,
+  "Zebra-CoT-Physics/open": 177,
+  "FineVision-visualwebinstruct(filtered)/mc": 105,
+  "WaltonColdStart/open": 242,
+  "FineVision-geo170k(qa)/mc": 149,
+  "LLaVA-CoT/mc": 273,
+  "WaltonColdStart/mc": 56,
+  "FineVision-ai2d_merged/mc": 55,
+  "mmopenr1-8k/open": 170,
+  "Euclid30K/open": 215,
+  "WeMath2-Pro/open": 90,
+  "WeMath2-Standard/open": 69,
+  "FineVision-geometry3k(mathv360k)/mc": 72,
+  "FineVision-geometry3k(mathv360k)/open": 28,
+  "WeMath2-SFT/open": 73,
+  "Euclid30K/mc": 31,
+  "WeMath2-Standard/mc": 31,
+  "WeMath2-Pro/mc": 9
+ },
+ "mc_vs_open": {
+  "mc": 2959,
+  "open": 7015
+ },
+ "response_chars": {
+  "median": 2588,
+  "p90": 3491
+ },
+ "contamination_flagged": 79
+}

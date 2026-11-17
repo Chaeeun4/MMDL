@@ -1,0 +1,980 @@
+{
+  "num_results": 900,
+  "num_subjects": 30,
+  "overall_percent": 63.444444444444436,
+  "micro_percent": 63.44444444444445,
+  "official_percent": 67.4,
+  "delta": -3.95555555555557,
+  "table": [
+    {
+      "no": 1,
+      "subject": "Accounting",
+      "num": 30,
+      "correct": 21,
+      "accuracy": 0.7,
+      "seconds": 915.1141348406672,
+      "tok_mean": 5682.733333333334,
+      "tok_max": 32578,
+      "length_stops": 3,
+      "pred_none": 0
+    },
+    {
+      "no": 2,
+      "subject": "Agriculture",
+      "num": 30,
+      "correct": 15,
+      "accuracy": 0.5,
+      "seconds": 45.22640252672136,
+      "tok_mean": 384.6333333333333,
+      "tok_max": 760,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 3,
+      "subject": "Architecture_and_Engineering",
+      "num": 30,
+      "correct": 16,
+      "accuracy": 0.5333333333333333,
+      "seconds": 2072.952026790008,
+      "tok_mean": 14140.366666666667,
+      "tok_max": 32542,
+      "length_stops": 6,
+      "pred_none": 1
+    },
+    {
+      "no": 4,
+      "subject": "Art",
+      "num": 30,
+      "correct": 17,
+      "accuracy": 0.5666666666666667,
+      "seconds": 509.77956228144467,
+      "tok_mean": 1341.0,
+      "tok_max": 32099,
+      "length_stops": 1,
+      "pred_none": 0
+    },
+    {
+      "no": 5,
+      "subject": "Art_Theory",
+      "num": 30,
+      "correct": 22,
+      "accuracy": 0.7333333333333333,
+      "seconds": 502.8429916910827,
+      "tok_mean": 1394.7666666666667,
+      "tok_max": 31371,
+      "length_stops": 1,
+      "pred_none": 0
+    },
+    {
+      "no": 6,
+      "subject": "Basic_Medical_Science",
+      "num": 30,
+      "correct": 19,
+      "accuracy": 0.6333333333333333,
+      "seconds": 21.510965172201395,
+      "tok_mean": 419.46666666666664,
+      "tok_max": 1341,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 7,
+      "subject": "Biology",
+      "num": 30,
+      "correct": 15,
+      "accuracy": 0.5,
+      "seconds": 522.3970762360841,
+      "tok_mean": 1869.1,
+      "tok_max": 32320,
+      "length_stops": 1,
+      "pred_none": 0
+    },
+    {
+      "no": 8,
+      "subject": "Chemistry",
+      "num": 30,
+      "correct": 12,
+      "accuracy": 0.4,
+      "seconds": 161.17721697501838,
+      "tok_mean": 1327.0333333333333,
+      "tok_max": 10476,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 9,
+      "subject": "Clinical_Medicine",
+      "num": 30,
+      "correct": 19,
+      "accuracy": 0.6333333333333333,
+      "seconds": 39.6460897102952,
+      "tok_mean": 591.4,
+      "tok_max": 2542,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 10,
+      "subject": "Computer_Science",
+      "num": 30,
+      "correct": 17,
+      "accuracy": 0.5666666666666667,
+      "seconds": 234.7778166886419,
+      "tok_mean": 2535.633333333333,
+      "tok_max": 13539,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 11,
+      "subject": "Design",
+      "num": 30,
+      "correct": 20,
+      "accuracy": 0.6666666666666666,
+      "seconds": 24.475360149517655,
+      "tok_mean": 365.76666666666665,
+      "tok_max": 1504,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 12,
+      "subject": "Diagnostics_and_Laboratory_Medicine",
+      "num": 30,
+      "correct": 10,
+      "accuracy": 0.3333333333333333,
+      "seconds": 42.346112709492445,
+      "tok_mean": 551.2666666666667,
+      "tok_max": 1937,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 13,
+      "subject": "Economics",
+      "num": 30,
+      "correct": 25,
+      "accuracy": 0.8333333333333334,
+      "seconds": 29.58540983311832,
+      "tok_mean": 580.6666666666666,
+      "tok_max": 1807,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 14,
+      "subject": "Electronics",
+      "num": 30,
+      "correct": 13,
+      "accuracy": 0.43333333333333335,
+      "seconds": 858.911674708128,
+      "tok_mean": 7849.533333333334,
+      "tok_max": 32580,
+      "length_stops": 2,
+      "pred_none": 0
+    },
+    {
+      "no": 15,
+      "subject": "Energy_and_Power",
+      "num": 30,
+      "correct": 20,
+      "accuracy": 0.6666666666666666,
+      "seconds": 1572.5722090285271,
+      "tok_mean": 10827.7,
+      "tok_max": 32607,
+      "length_stops": 5,
+      "pred_none": 1
+    },
+    {
+      "no": 16,
+      "subject": "Finance",
+      "num": 30,
+      "correct": 23,
+      "accuracy": 0.7666666666666667,
+      "seconds": 646.4856706839055,
+      "tok_mean": 3509.3333333333335,
+      "tok_max": 32427,
+      "length_stops": 2,
+      "pred_none": 1
+    },
+    {
+      "no": 17,
+      "subject": "Geography",
+      "num": 30,
+      "correct": 16,
+      "accuracy": 0.5333333333333333,
+      "seconds": 190.64529731497169,
+      "tok_mean": 1895.5666666666666,
+      "tok_max": 11584,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 18,
+      "subject": "History",
+      "num": 30,
+      "correct": 22,
+      "accuracy": 0.7333333333333333,
+      "seconds": 51.49792799912393,
+      "tok_mean": 632.8,
+      "tok_max": 3266,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 19,
+      "subject": "Literature",
+      "num": 30,
+      "correct": 24,
+      "accuracy": 0.8,
+      "seconds": 516.7444361355156,
+      "tok_mean": 1456.0333333333333,
+      "tok_max": 32599,
+      "length_stops": 1,
+      "pred_none": 1
+    },
+    {
+      "no": 20,
+      "subject": "Manage",
+      "num": 30,
+      "correct": 22,
+      "accuracy": 0.7333333333333333,
+      "seconds": 159.03726953454316,
+      "tok_mean": 1438.4333333333334,
+      "tok_max": 9728,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 21,
+      "subject": "Marketing",
+      "num": 30,
+      "correct": 27,
+      "accuracy": 0.9,
+      "seconds": 527.3282870091498,
+      "tok_mean": 2250.0,
+      "tok_max": 31761,
+      "length_stops": 1,
+      "pred_none": 0
+    },
+    {
+      "no": 22,
+      "subject": "Materials",
+      "num": 30,
+      "correct": 20,
+      "accuracy": 0.6666666666666666,
+      "seconds": 778.3916866164654,
+      "tok_mean": 7081.433333333333,
+      "tok_max": 32371,
+      "length_stops": 2,
+      "pred_none": 0
+    },
+    {
+      "no": 23,
+      "subject": "Math",
+      "num": 30,
+      "correct": 19,
+      "accuracy": 0.6333333333333333,
+      "seconds": 581.3177584521472,
+      "tok_mean": 3390.9666666666667,
+      "tok_max": 32464,
+      "length_stops": 1,
+      "pred_none": 0
+    },
+    {
+      "no": 24,
+      "subject": "Mechanical_Engineering",
+      "num": 30,
+      "correct": 17,
+      "accuracy": 0.5666666666666667,
+      "seconds": 1247.1710773464292,
+      "tok_mean": 8575.533333333333,
+      "tok_max": 32557,
+      "length_stops": 4,
+      "pred_none": 0
+    },
+    {
+      "no": 25,
+      "subject": "Music",
+      "num": 30,
+      "correct": 10,
+      "accuracy": 0.3333333333333333,
+      "seconds": 522.4709593784064,
+      "tok_mean": 1484.7,
+      "tok_max": 32609,
+      "length_stops": 1,
+      "pred_none": 0
+    },
+    {
+      "no": 26,
+      "subject": "Pharmacy",
+      "num": 30,
+      "correct": 22,
+      "accuracy": 0.7333333333333333,
+      "seconds": 106.39337352663279,
+      "tok_mean": 1221.1333333333334,
+      "tok_max": 6826,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 27,
+      "subject": "Physics",
+      "num": 30,
+      "correct": 21,
+      "accuracy": 0.7,
+      "seconds": 197.28612738847733,
+      "tok_mean": 1947.9666666666667,
+      "tok_max": 11906,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 28,
+      "subject": "Psychology",
+      "num": 30,
+      "correct": 22,
+      "accuracy": 0.7333333333333333,
+      "seconds": 507.3221617080271,
+      "tok_mean": 1393.5333333333333,
+      "tok_max": 31810,
+      "length_stops": 1,
+      "pred_none": 0
+    },
+    {
+      "no": 29,
+      "subject": "Public_Health",
+      "num": 30,
+      "correct": 25,
+      "accuracy": 0.8333333333333334,
+      "seconds": 155.88738813064992,
+      "tok_mean": 1654.2,
+      "tok_max": 9586,
+      "length_stops": 0,
+      "pred_none": 0
+    },
+    {
+      "no": 30,
+      "subject": "Sociology",
+      "num": 30,
+      "correct": 20,
+      "accuracy": 0.6666666666666666,
+      "seconds": 17.377466401085258,
+      "tok_mean": 382.23333333333335,
+      "tok_max": 692,
+      "length_stops": 0,
+      "pred_none": 0
+    }
+  ],
+  "by_question_type": {
+    "multiple-choice": {
+      "num": 847,
+      "correct": 555,
+      "accuracy": 0.6552538370720189
+    },
+    "open": {
+      "num": 53,
+      "correct": 16,
+      "accuracy": 0.3018867924528302
+    }
+  },
+  "by_difficulty": {
+    "Medium": {
+      "num": 424,
+      "correct": 261,
+      "accuracy": 0.6155660377358491
+    },
+    "Easy": {
+      "num": 295,
+      "correct": 218,
+      "accuracy": 0.7389830508474576
+    },
+    "Hard": {
+      "num": 181,
+      "correct": 92,
+      "accuracy": 0.5082872928176796
+    }
+  },
+  "by_img_type": {
+    "['Diagrams']": {
+      "num": 223,
+      "correct": 132,
+      "accuracy": 0.5919282511210763
+    },
+    "['Tables']": {
+      "num": 170,
+      "correct": 134,
+      "accuracy": 0.788235294117647
+    },
+    "['Plots and Charts']": {
+      "num": 78,
+      "correct": 57,
+      "accuracy": 0.7307692307692307
+    },
+    "['Photographs']": {
+      "num": 75,
+      "correct": 46,
+      "accuracy": 0.6133333333333333
+    },
+    "['Paintings']": {
+      "num": 46,
+      "correct": 26,
+      "accuracy": 0.5652173913043478
+    },
+    "['Chemical Structures']": {
+      "num": 30,
+      "correct": 11,
+      "accuracy": 0.36666666666666664
+    },
+    "['Sheet Music']": {
+      "num": 30,
+      "correct": 10,
+      "accuracy": 0.3333333333333333
+    },
+    "['Medical Images']": {
+      "num": 21,
+      "correct": 12,
+      "accuracy": 0.5714285714285714
+    },
+    "['Microscopic Images']": {
+      "num": 20,
+      "correct": 12,
+      "accuracy": 0.6
+    },
+    "['Comics and Cartoons']": {
+      "num": 19,
+      "correct": 15,
+      "accuracy": 0.7894736842105263
+    },
+    "['Geometric Shapes']": {
+      "num": 17,
+      "correct": 14,
+      "accuracy": 0.8235294117647058
+    },
+    "['Technical Blueprints']": {
+      "num": 14,
+      "correct": 7,
+      "accuracy": 0.5
+    },
+    "['Pathological Images']": {
+      "num": 13,
+      "correct": 6,
+      "accuracy": 0.46153846153846156
+    },
+    "['Portraits']": {
+      "num": 10,
+      "correct": 7,
+      "accuracy": 0.7
+    },
+    "['Body Scans: MRI, CT scans, and X-rays']": {
+      "num": 10,
+      "correct": 6,
+      "accuracy": 0.6
+    },
+    "['Maps']": {
+      "num": 10,
+      "correct": 7,
+      "accuracy": 0.7
+    },
+    "['Sketches and Drafts']": {
+      "num": 9,
+      "correct": 5,
+      "accuracy": 0.5555555555555556
+    },
+    "['Trees and Graphs']": {
+      "num": 8,
+      "correct": 3,
+      "accuracy": 0.375
+    },
+    "['Sculpture']": {
+      "num": 7,
+      "correct": 6,
+      "accuracy": 0.8571428571428571
+    },
+    "['Mathematical Notations']": {
+      "num": 7,
+      "correct": 4,
+      "accuracy": 0.5714285714285714
+    },
+    "['Microscopic Images', 'Pathological Images']": {
+      "num": 6,
+      "correct": 2,
+      "accuracy": 0.3333333333333333
+    },
+    "['Diagrams', 'Technical Blueprints']": {
+      "num": 5,
+      "correct": 2,
+      "accuracy": 0.4
+    },
+    "['Poster']": {
+      "num": 5,
+      "correct": 4,
+      "accuracy": 0.8
+    },
+    "['Screenshots']": {
+      "num": 4,
+      "correct": 1,
+      "accuracy": 0.25
+    },
+    "['Other']": {
+      "num": 4,
+      "correct": 3,
+      "accuracy": 0.75
+    },
+    "['Pathological Images', 'Medical Images']": {
+      "num": 3,
+      "correct": 2,
+      "accuracy": 0.6666666666666666
+    },
+    "['Diagrams', 'Trees and Graphs']": {
+      "num": 3,
+      "correct": 2,
+      "accuracy": 0.6666666666666666
+    },
+    "['Body Scans: MRI, CT scans, and X-rays', 'Medical Images']": {
+      "num": 3,
+      "correct": 2,
+      "accuracy": 0.6666666666666666
+    },
+    "['Logos and Branding']": {
+      "num": 3,
+      "correct": 2,
+      "accuracy": 0.6666666666666666
+    },
+    "['Diagrams', 'Geometric Shapes']": {
+      "num": 3,
+      "correct": 3,
+      "accuracy": 1.0
+    },
+    "['Sketches and Drafts', 'Paintings']": {
+      "num": 2,
+      "correct": 2,
+      "accuracy": 1.0
+    },
+    "['Microscopic Images', 'Medical Images']": {
+      "num": 2,
+      "correct": 1,
+      "accuracy": 0.5
+    },
+    "['Diagrams', 'Sketches and Drafts']": {
+      "num": 2,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "['Body Scans: MRI, CT scans, and X-rays', 'Pathological Images']": {
+      "num": 2,
+      "correct": 2,
+      "accuracy": 1.0
+    },
+    "['Icons and Symbols']": {
+      "num": 2,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "['Photographs', 'Advertisements']": {
+      "num": 2,
+      "correct": 2,
+      "accuracy": 1.0
+    },
+    "['Maps', 'Photographs']": {
+      "num": 2,
+      "correct": 2,
+      "accuracy": 1.0
+    },
+    "['Diagrams', 'Comics and Cartoons']": {
+      "num": 2,
+      "correct": 1,
+      "accuracy": 0.5
+    },
+    "['Photographs', 'Portraits']": {
+      "num": 2,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "['Plots and Charts', 'Diagrams']": {
+      "num": 2,
+      "correct": 2,
+      "accuracy": 1.0
+    },
+    "['Paintings', 'Portraits']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "['Photographs', 'Landscapes']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "['Photographs', 'Technical Blueprints']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "['Photographs', 'Sculpture']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "['Diagrams', 'Body Scans: MRI, CT scans, and X-rays', 'Medical Images']": {
+      "num": 1,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "['Diagrams', 'DNA Sequences']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "['Sketches and Drafts', 'Medical Images']": {
+      "num": 1,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "['Photographs', 'Medical Images']": {
+      "num": 1,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "['Pathological Images', 'Photographs']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "['Microscopic Images', 'Body Scans: MRI, CT scans, and X-rays', 'Pathological Images']": {
+      "num": 1,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "['Diagrams', 'Photographs']": {
+      "num": 1,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "['Paintings', 'Sculpture']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "['Landscapes']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "['Diagrams', 'Maps', 'Trees and Graphs']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "['Comics and Cartoons', 'Poster']": {
+      "num": 1,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "['Paintings', 'Comics and Cartoons']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "['Paintings', 'Screenshots']": {
+      "num": 1,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "['Plots and Charts', 'Comics and Cartoons']": {
+      "num": 1,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "['Mathematical Notations', 'Chemical Structures']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "['Diagrams', 'Mathematical Notations']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "['Plots and Charts', 'Tables']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "['Diagrams', 'Historical Timelines']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "['Paintings', 'Poster']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "['Poster', 'Other']": {
+      "num": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    }
+  },
+  "finish_reason": {
+    "stop": 868,
+    "length": 32
+  },
+  "completion_tokens": {
+    "n": 900,
+    "mean": 2939.1644444444446,
+    "median": 448.0,
+    "p90": 8835,
+    "p99": 32564,
+    "max": 32609,
+    "min": 36
+  },
+  "completion_tokens_correct": {
+    "n": 571,
+    "mean": 1986.492119089317,
+    "median": 421,
+    "p90": 5499,
+    "p99": 32320,
+    "max": 32607,
+    "min": 36
+  },
+  "completion_tokens_wrong": {
+    "n": 329,
+    "mean": 4592.586626139818,
+    "median": 519,
+    "p90": 14603,
+    "p99": 32578,
+    "max": 32609,
+    "min": 38
+  },
+  "prompt_tokens": {
+    "n": 900,
+    "mean": 594.2522222222223,
+    "median": 338.0,
+    "p90": 1163,
+    "p99": 4891,
+    "max": 5616,
+    "min": 106
+  },
+  "visual_tokens_per_sample": {
+    "n": 900,
+    "mean": 487.6144444444444,
+    "median": 210.0,
+    "p90": 1088,
+    "p99": 4800,
+    "max": 5536,
+    "min": 64
+  },
+  "prediction_none": 4,
+  "prediction_none_ids": [
+    "validation_Architecture_and_Engineering_17",
+    "validation_Energy_and_Power_12",
+    "validation_Finance_14",
+    "validation_Literature_10"
+  ],
+  "length_stops": 32,
+  "length_stops_wrong": 24,
+  "errors": 0,
+  "mc_prediction_distribution": {
+    "A": 258,
+    "B": 198,
+    "C": 203,
+    "D": 156,
+    "E": 26,
+    "F": 1,
+    "I": 1,
+    "null": 4
+  },
+  "mc_gold_distribution": {
+    "A": 241,
+    "B": 230,
+    "C": 199,
+    "D": 149,
+    "E": 25,
+    "F": 2,
+    "I": 1
+  },
+  "longest_outputs": [
+    {
+      "id": "validation_Music_9",
+      "subject": "Music",
+      "tokens": 32609,
+      "finish": "length",
+      "correct": false
+    },
+    {
+      "id": "validation_Energy_and_Power_14",
+      "subject": "Energy_and_Power",
+      "tokens": 32607,
+      "finish": "length",
+      "correct": true
+    },
+    {
+      "id": "validation_Energy_and_Power_8",
+      "subject": "Energy_and_Power",
+      "tokens": 32602,
+      "finish": "length",
+      "correct": false
+    },
+    {
+      "id": "validation_Literature_10",
+      "subject": "Literature",
+      "tokens": 32599,
+      "finish": "length",
+      "correct": false
+    },
+    {
+      "id": "validation_Electronics_1",
+      "subject": "Electronics",
+      "tokens": 32580,
+      "finish": "length",
+      "correct": true
+    },
+    {
+      "id": "validation_Accounting_17",
+      "subject": "Accounting",
+      "tokens": 32578,
+      "finish": "length",
+      "correct": false
+    },
+    {
+      "id": "validation_Accounting_20",
+      "subject": "Accounting",
+      "tokens": 32569,
+      "finish": "length",
+      "correct": false
+    },
+    {
+      "id": "validation_Electronics_10",
+      "subject": "Electronics",
+      "tokens": 32566,
+      "finish": "length",
+      "correct": false
+    },
+    {
+      "id": "validation_Energy_and_Power_26",
+      "subject": "Energy_and_Power",
+      "tokens": 32564,
+      "finish": "length",
+      "correct": false
+    },
+    {
+      "id": "validation_Mechanical_Engineering_8",
+      "subject": "Mechanical_Engineering",
+      "tokens": 32557,
+      "finish": "length",
+      "correct": false
+    }
+  ],
+  "timing": {
+    "elapsed_seconds": 13877.783032577485,
+    "inference_seconds": 13778.682527842,
+    "model_load_seconds": 98.67343926243484,
+    "subject_seconds_sum": 13758.671936966479
+  },
+  "peak_vram_gb": 22.7890625,
+  "sampling": {
+    "greedy": false,
+    "seed": 3407,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repetition_penalty": 1.0,
+    "presence_penalty": 1.5,
+    "max_new_tokens": 32768,
+    "stop_token_ids": [
+      151645,
+      151643
+    ],
+    "logprobs": 5,
+    "matches_official_instruct_recipe": true,
+    "is_baseline_setting": true,
+    "official_recipe_source": "https://github.com/QwenLM/Qwen3-VL#evaluation-reproduction (Generation Hyperparameters -> Instruct models)"
+  },
+  "image_pixels": {
+    "min_pixels": 65536,
+    "max_pixels": 16777216,
+    "min_pixels_source": "processor.image_processor.size['shortest_edge']",
+    "max_pixels_source": "processor.image_processor.size['longest_edge']"
+  },
+  "environment": {
+    "hostname": "adsl-ubuntu",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "python_executable": "/data/jinagg/venv-mmdl/bin/python3",
+    "cwd": "/home/jinagg/MMDL",
+    "argv": [
+      "code/run_mmmu.py",
+      "--model_path",
+      "/data/jinagg/ckpt/offpc_ft_merged",
+      "--data_root",
+      "/data/jinagg/hf_cache",
+      "--run_dir",
+      "/home/jinagg/MMDL/runs/offpc_final_full",
+      "--batch_mode",
+      "subject",
+      "--logprobs",
+      "5",
+      "--seed",
+      "3407",
+      "--temperature",
+      "0.7",
+      "--top_p",
+      "0.8",
+      "--top_k",
+      "20",
+      "--repetition_penalty",
+      "1.0",
+      "--presence_penalty",
+      "1.5",
+      "--max_new_tokens",
+      "32768",
+      "--min_pixels",
+      "auto",
+      "--max_pixels",
+      "auto",
+      "--max_model_len",
+      "32768",
+      "--gpu_memory_utilization",
+      "0.90",
+      "--prompt_variant",
+      "official"
+    ],
+    "git_commit": "6289df4e306bbe8fbcaf464c351febddc9203786",
+    "git_branch": "jina",
+    "git_dirty": true,
+    "packages": {
+      "vllm": "0.19.1",
+      "torch": "2.10.0+cu128",
+      "transformers": "5.18.0",
+      "qwen-vl-utils": "0.0.14",
+      "datasets": "5.0.1",
+      "flashinfer-python": "0.6.6",
+      "huggingface-hub": "1.33.0",
+      "tokenizers": "0.23.2",
+      "pillow": "12.3.0"
+    },
+    "torch_cuda": "12.8",
+    "cudnn": 91002,
+    "cuda_visible_devices": null,
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 3090",
+        "driver": "570.211.01",
+        "memory_total_mib": 24576
+      }
+    ],
+    "env_vars": {
+      "HF_HOME": "/data/jinagg/hf_cache",
+      "VLLM_WORKER_MULTIPROC_METHOD": "spawn"
+    },
+    "torch_devices": [
+      "NVIDIA GeForce RTX 3090"
+    ]
+  },
+  "started_at": "2026-11-17T01:40:52+09:00",
+  "finished_at": "2026-11-17T05:32:10+09:00"
+}

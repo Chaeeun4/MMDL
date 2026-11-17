@@ -22,6 +22,7 @@ BUILD_ARGS="${BUILD_ARGS:-}"
 TRAIN_ARGS="${TRAIN_ARGS:-}"
 EVAL_SUBJECTS="${EVAL_SUBJECTS:-Chemistry,Music}"
 FULL_EVAL="${FULL_EVAL:-1}"
+CKPT_EVAL="${CKPT_EVAL:-1}"                 # 0 = skip the per-checkpoint subset evals (checkpoints are still saved)
 PROMPT="${PROMPT:-describe_cot}"            # official | describe_cot
 BASELINE="${BASELINE:-runs/base_describe}"  # base model run with the same prompt
 WORK="/data/$USER/rft/$NAME"
@@ -75,7 +76,7 @@ eval_ckpt() {  # $1 adapter dir, $2 run name, $3 extra run_mmmu args, $4 keep me
 }
 
 # intermediate checkpoints, in training order, on the two target subjects
-for d in $(ls -d "$CKPT"/adapter_step* 2>/dev/null | sort -V); do
+for d in $([[ "$CKPT_EVAL" == 1 ]] && ls -d "$CKPT"/adapter_step* 2>/dev/null | sort -V); do
   eval_ckpt "$d" "${NAME}_$(basename "$d" | sed 's/adapter_//')_cm" "--subjects $EVAL_SUBJECTS" 0
 done
 

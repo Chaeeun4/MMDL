@@ -1,0 +1,8 @@
+{
+  "steps": 250,
+  "samples_seen": 4000,
+  "skipped": 0,
+  "ooms": 0,
+  "hours": 0.95,
+  "peak_gb": 14.31
+}
