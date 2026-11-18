@@ -9,8 +9,18 @@ checkpoint_root="${CHECKPOINT_ROOT:-/shared_dir/outputs}"
 merge_root="${MERGE_ROOT:-/shared_dir/tmp_merged}"
 run_root="runs/sweep_60q"
 summary="$run_root/summary.csv"
-base_model="Qwen/Qwen3-VL-4B-Instruct"
+base_model="${BASE_MODEL_PATH:-Qwen/Qwen3-VL-4B-Instruct}"
 variants=(official legacy_cot describe_cot)
+
+if [[ -n "${BASE_MODEL_PATH:-}" ]]; then
+    if [[ ! -f "$base_model/config.json" ]]; then
+        printf 'BASE_MODEL_PATH must point to a downloaded model snapshot: %s\n' "$base_model" >&2
+        exit 1
+    fi
+    base_model=$(realpath -- "$base_model")
+fi
+
+export VLLM_WORKER_MULTIPROC_METHOD="${VLLM_WORKER_MULTIPROC_METHOD:-spawn}"
 
 # Each entry is model:step:adapter subdirectory. An empty suffix is the final adapter.
 targets=(
@@ -123,7 +133,7 @@ PY
 }
 
 merge_adapter() {
-    "$python_bin" - "$base_model" "$1" "$2" <<'PY'
+    "$python_bin" -u - "$base_model" "$1" "$2" <<'PY'
 from pathlib import Path
 import sys
 
@@ -135,10 +145,11 @@ sys.path.insert(0, "code")
 from run_mmmu import MODEL_REVISION
 
 base_model, adapter_path, output_dir = sys.argv[1:]
-base = AutoModelForImageTextToText.from_pretrained(base_model, revision=MODEL_REVISION, dtype=torch.bfloat16)
+revision = None if Path(base_model).is_dir() else MODEL_REVISION
+base = AutoModelForImageTextToText.from_pretrained(base_model, revision=revision, dtype=torch.bfloat16)
 merged = PeftModel.from_pretrained(base, adapter_path).merge_and_unload(safe_merge=True)
 merged.save_pretrained(output_dir, safe_serialization=True)
-AutoProcessor.from_pretrained(base_model, revision=MODEL_REVISION).save_pretrained(output_dir)
+AutoProcessor.from_pretrained(base_model, revision=revision).save_pretrained(output_dir)
 (Path(output_dir) / "MERGED_FROM.txt").write_text(
     f"base={base_model}@{MODEL_REVISION}\nadapter={Path(adapter_path).resolve()}\n",
     encoding="utf-8",
@@ -170,12 +181,15 @@ for target in "${targets[@]}"; do
         fi
 
         printf 'Evaluating %s step %s (%s)\n' "$model" "$step" "$variant"
-        "$python_bin" code/run_mmmu.py \
+        "$python_bin" -u code/run_mmmu.py \
             --model_path "$model_path" --data_root "$data_root" --run_dir "$result_dir" \
             --subjects Music,Chemistry --batch_mode subject --seed 3407 \
             --gpu_memory_utilization 0.80 --prompt_variant "$variant" \
             --min_pixels auto --max_pixels auto
-        record_result "$model" "$step" "$variant" "$result_dir"
+        if ! record_result "$model" "$step" "$variant" "$result_dir"; then
+            printf 'Evaluation returned but its results failed validation: %s\n' "$result_dir" >&2
+            exit 1
+        fi
     done
     cleanup_merge
 done
