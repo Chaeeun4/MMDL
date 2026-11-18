@@ -156,11 +156,17 @@ for target in "${targets[@]}"; do
             continue
         fi
 
-        if [[ $model != base && -z "$merged_dir" ]]; then
-            merged_dir=$(mktemp -d "$merge_root/$model-$step.XXXXXXXX")
-            printf 'Merging %s step %s into %s\n' "$model" "$step" "$merged_dir"
-            merge_adapter "$(adapter_path "$model" "$subdir")" "$merged_dir"
-            model_path="$merged_dir"
+        if [[ $model != base && -z "$merged_dir" && "$model_path" == "$base_model" ]]; then
+            existing_merged="/shared_dir/merged_models/qwen3vl_4b_${model}"
+            if [[ -z "$subdir" && -f "$existing_merged/config.json" ]]; then
+                printf 'Using existing merged model: %s\n' "$existing_merged"
+                model_path="$existing_merged"
+            else
+                merged_dir=$(mktemp -d "$merge_root/$model-$step.XXXXXXXX")
+                printf 'Merging %s step %s into %s\n' "$model" "$step" "$merged_dir"
+                merge_adapter "$(adapter_path "$model" "$subdir")" "$merged_dir"
+                model_path="$merged_dir"
+            fi
         fi
 
         printf 'Evaluating %s step %s (%s)\n' "$model" "$step" "$variant"
