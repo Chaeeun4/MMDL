@@ -1,0 +1,3 @@
+primus_only    | Acc: 569/900 (63.22%) | Avg chars: 12473 | Max chars: 154230 | >16k chars (loop): 125
+pubchem_only   | Acc: 555/900 (61.67%) | Avg chars: 9488 | Max chars: 144199 | >16k chars (loop): 82
+both           | Acc: 547/900 (60.78%) | Avg chars: 8572 | Max chars: 145786 | >16k chars (loop): 79
