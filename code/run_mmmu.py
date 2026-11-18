@@ -47,7 +47,7 @@ from vllm import LLM, SamplingParams
 from dataset import DATASET_REVISION, SUBJECTS, load_mmmu_validation
 from evaluator import evaluate, is_correct
 from parser import parse_answer
-from prompt import MAX_PIXELS, MIN_PIXELS, build_vllm_input, parse_options
+from prompt import MAX_PIXELS, MIN_PIXELS, PROMPT_VARIANTS, build_vllm_input, parse_options
 
 import subprocess
 import threading
@@ -130,6 +130,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--run_dir", type=Path, help="Directory for predictions.jsonl and metrics.json.")
     parser.add_argument(
         "--subjects", help="Comma-separated MMMU subjects, e.g. Music or Music,Chemistry."
+    )
+    parser.add_argument(
+        "--prompt_variant", choices=(*PROMPT_VARIANTS, "legacy_cot"), default="official",
+        help="Instruction wording. official matches jina's model-card baseline.",
     )
 
     # Assignment generation recipe from Qwen3-VL official evaluation docs.
@@ -220,12 +224,13 @@ def prepare_model_inputs(
     processor: Any,
     min_pixels: int,
     max_pixels: int,
+    prompt_variant: str,
 ) -> List[Dict[str, Any]]:
     inputs = []
 
     for sample in tqdm(samples, desc="Building multimodal prompts"):
         inputs.append(
-            build_vllm_input(sample, processor, min_pixels, max_pixels)
+            build_vllm_input(sample, processor, min_pixels, max_pixels, prompt_variant)
         )
 
     return inputs
@@ -345,6 +350,7 @@ def main() -> None:
     print("Generation settings:")
     print(f"  greedy={args.greedy}")
     print(f"  seed={args.seed}")
+    print(f"  prompt_variant={args.prompt_variant}")
     if args.greedy:
         print(
             "  (temperature/top_p/top_k/repetition_penalty/presence_penalty "
@@ -370,7 +376,7 @@ def main() -> None:
     outputs = []
     inference_elapsed = 0.0
     for group in groups:
-        inputs = prepare_model_inputs(group, processor, min_pixels, max_pixels)
+        inputs = prepare_model_inputs(group, processor, min_pixels, max_pixels, args.prompt_variant)
         inference_start = time.perf_counter()
         batch_outputs = llm.generate(inputs, sampling_params=sampling_params, use_tqdm=True)
         inference_elapsed += time.perf_counter() - inference_start
@@ -444,7 +450,7 @@ def main() -> None:
     metrics["split"] = "validation"
     metrics["evaluated_subjects"] = list(by_subject)
     metrics["max_samples"] = args.max_samples
-    metrics["prompt_variant"] = "official"
+    metrics["prompt_variant"] = args.prompt_variant
     metrics["batch_mode"] = args.batch_mode
     metrics["max_model_len"] = args.max_model_len
     metrics["max_num_seqs"] = args.max_num_seqs

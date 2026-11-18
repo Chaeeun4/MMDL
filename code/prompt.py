@@ -91,64 +91,69 @@ def _append_text_with_images(
         content.append({"type": "text", "text": text})
 
 
-def build_prompt_text(sample: Dict[str, Any]) -> str:
-    question = sample["question"]
-    options = parse_options(sample["options"])
-
-    if options:
-        letters = ",".join(chr(ord("A") + i) for i in range(len(options)))
-        choices = "\n".join(
-            f"({chr(ord('A') + i)}) {option}"
-            for i, option in enumerate(options)
-        )
+def _legacy_intro(option_count: int) -> str:
+    if option_count:
+        letters = ",".join(chr(ord("A") + i) for i in range(option_count))
         return (
             f"Answer the following multiple choice question. The last line of your response "
             f"should be of the following format: 'ANSWER: [LETTER]' (without quotes) "
             f"where [LETTER] is one of {letters}. Think step by step before answering.\n\n"
-            f"{question}\n\n"
-            f"{choices}"
         )
 
     return (
-        f"Answer the following question. The last line of your response should be "
-        f"of the following format: 'ANSWER: [VALUE]' (without quotes) where [VALUE] is a single word, "
-        f"number, or short phrase. Think step by step before answering.\n\n"
-        f"{question}"
+        "Answer the following question. The last line of your response should be "
+        "of the following format: 'ANSWER: [VALUE]' (without quotes) where [VALUE] is a single word, "
+        "number, or short phrase. Think step by step before answering.\n\n"
     )
+
+
+def build_prompt_text(sample: Dict[str, Any]) -> str:
+    options = parse_options(sample["options"])
+    prompt = _legacy_intro(len(options)) + sample["question"]
+    if options:
+        choices = "\n".join(f"({chr(ord('A') + i)}) {option}" for i, option in enumerate(options))
+        prompt += "\n\n" + choices
+    return prompt
+
+
+_DIRECT_MC = "Answer with the option's letter from the given choices directly."
+_DIRECT_OPEN = "Answer the question using a single word or phrase."
+_DESCRIBE_COT = (
+    "First describe precisely what the image shows (for example every note, "
+    "symbol, atom, bond, label or value that matters), then reason step by "
+    "step, and write the final answer on the last line in the form 'Answer: {fmt}'."
+)
+PROMPT_VARIANTS = {
+    "official": (_DIRECT_MC, _DIRECT_OPEN),
+    "describe_cot": (_DESCRIBE_COT.format(fmt="<letter>"), _DESCRIBE_COT.format(fmt="<value>")),
+}
 
 
 def build_messages(
     sample: Dict[str, Any],
     min_pixels: int = MIN_PIXELS,
     max_pixels: int = MAX_PIXELS,
+    prompt_variant: str = "legacy_cot",
 ) -> List[Dict[str, Any]]:
     question = sample["question"]
     options = parse_options(sample["options"])
 
     content: List[Dict[str, Any]] = []
 
+    if prompt_variant == "legacy_cot":
+        content.append({"type": "text", "text": _legacy_intro(len(options))})
+
+    _append_text_with_images(content, question, sample, min_pixels, max_pixels)
     if options:
-        letters = ",".join(chr(ord("A") + i) for i in range(len(options)))
-        intro = (
-            f"Answer the following multiple choice question. The last line of your response "
-            f"should be of the following format: 'ANSWER: [LETTER]' (without quotes) "
-            f"where [LETTER] is one of {letters}. Think step by step before answering.\n\n"
-        )
-        content.append({"type": "text", "text": intro})
-        _append_text_with_images(content, question, sample, min_pixels, max_pixels)
         content.append({"type": "text", "text": "\n\n"})
         for i, option in enumerate(options):
             content.append({"type": "text", "text": f"({chr(ord('A') + i)}) "})
             _append_text_with_images(content, option, sample, min_pixels, max_pixels)
             content.append({"type": "text", "text": "\n"})
-    else:
-        intro = (
-            f"Answer the following question. The last line of your response should be "
-            f"of the following format: 'ANSWER: [VALUE]' (without quotes) where [VALUE] is a single word, "
-            f"number, or short phrase. Think step by step before answering.\n\n"
-        )
-        content.append({"type": "text", "text": intro})
-        _append_text_with_images(content, question, sample, min_pixels, max_pixels)
+    if prompt_variant != "legacy_cot":
+        mc_instruction, open_instruction = PROMPT_VARIANTS[prompt_variant]
+        instruction = mc_instruction if options else "\n\n" + open_instruction
+        content.append({"type": "text", "text": instruction})
 
     return [{"role": "user", "content": content}]
 
@@ -159,9 +164,10 @@ def build_vllm_input(
     processor: Any,
     min_pixels: int = MIN_PIXELS,
     max_pixels: int = MAX_PIXELS,
+    prompt_variant: str = "legacy_cot",
 ) -> Dict[str, Any]:
     """Convert a sample to the vLLM multimodal input format."""
-    messages = build_messages(sample, min_pixels, max_pixels)
+    messages = build_messages(sample, min_pixels, max_pixels, prompt_variant)
 
     prompt = processor.apply_chat_template(
         messages,
