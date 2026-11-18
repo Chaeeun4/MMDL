@@ -26,15 +26,18 @@ PUNCTUATION = [",", ".", "!", "?", ";", ":", "'"]
 # "ANSWER: B", "Final answer: (B)", "**Answer: B**", "The final answer is B." 등을 대소문자 무시로 잡는다.
 # 줄의 시작에서만 매칭하고, 응답 안에 여러 개면 마지막 것을 쓴다.
 _FINAL_RE = re.compile(
-    r"(?im)^\W*(?:the\s+)?(?:final\s+)?answer\s*(?:[:：]|\bis\b)\s*(.+?)\s*$"
+    r"(?i)^\W*(?:the\s+)?(?:final\s+)?answer\s*(?:[:：]|\bis\b)\s*(.+)$"
 )
 _LETTER_RE = re.compile(r"(?i:option|choice)?\s*\(?([A-J])\)?(?![A-Za-z])")
 
 
 def extract_final_answer(response: str) -> Optional[str]:
     """Return the text after the last 'Answer:' line, or None if absent."""
-    matches = _FINAL_RE.findall(response or "")
-    return matches[-1] if matches else None
+    for line in reversed((response or "").splitlines()):
+        match = _FINAL_RE.match(line.strip())
+        if match:
+            return match.group(1)
+    return None
 
 
 def _letter_from_final(final: str, all_choices: List[str]) -> Optional[str]:
@@ -44,6 +47,28 @@ def _letter_from_final(final: str, all_choices: List[str]) -> Optional[str]:
     if m and m.group(1) in all_choices:
         return m.group(1)
     return None
+
+
+def _normalize_choice_text(text: str) -> str:
+    text = re.sub(r"\*\*|__|`", "", text)
+    text = " ".join(text.split())
+    return text.replace(" =", "=").replace("= ", "=")
+
+
+def match_direct_choice(response: str, index2ans: Dict[str, str]) -> Optional[str]:
+    """Match a bare label or a complete, uniquely identifiable option."""
+    answer = _normalize_choice_text(response)
+    label = re.fullmatch(r"\(([A-J])\)|\[([A-J])\]|([A-J])[.)]?", answer)
+    if label:
+        choice = next(group for group in label.groups() if group is not None)
+        return choice if choice in index2ans else None
+
+    matches = []
+    for choice, option in index2ans.items():
+        normalized = _normalize_choice_text(option)
+        if normalized and answer in (normalized, f"({choice}) {normalized}", f"{choice}. {normalized}"):
+            matches.append(choice)
+    return matches[0] if len(matches) == 1 else None
 
 
 
@@ -73,7 +98,8 @@ def parse_multi_choice_response(
     Rule order:
     1. If the response contains the last `Answer:` marker, inspect the text
        after it and look for a unique option label.
-    2. Look for parenthesized labels such as (A).
+    2. Match a bare label or a complete option before scanning the response
+       for parenthesized labels such as (A).
     3. Look for standalone labels such as `A `.
     4. Look for labels followed by a period such as `A.`.
     5. If no label is found and the response is long enough, look for the
@@ -92,12 +118,16 @@ def parse_multi_choice_response(
     # 1) 명시적 최종 답 줄 (대소문자 무시, 마지막 것 사용)
     final = extract_final_answer(response)
     if final is not None:
-        letter = _letter_from_final(final, all_choices)
+        letter = match_direct_choice(final, index2ans) or _letter_from_final(final, all_choices)
         if letter is not None:
             return letter
     if strict:
         # strict: 최종 답 줄이 없거나 선택지 글자가 아니면 오답 처리 (None)
         return None
+
+    direct = match_direct_choice(response, index2ans)
+    if direct is not None:
+        return direct
 
     for char in PUNCTUATION:
         response = response.strip(char)
@@ -191,9 +221,10 @@ def normalize_string(value: Any) -> List[Any]:
 def extract_numbers(text: str) -> List[str]:
     """Extract numeric strings using the official MMMU regex family."""
     pattern_commas = r"-?\b\d{1,3}(?:,\d{3})+\b"
-    pattern_scientific = r"-?\d+(?:\.\d+)?[eE][+-]?\d+"
+    # Avoid restarting the same number at every digit in a long output.
+    pattern_scientific = r"(?<!\d)-?\d+(?:\.\d+)?[eE][+-]?\d+"
     pattern_simple = (
-        r"-?(?:\d+\.\d+|\.\d+|\d+\b)"
+        r"(?<!\d)-?(?:\d+\.\d+|\.\d+|\d+\b)"
         r"(?![eE][+-]?\d+)(?![,\d])"
     )
 

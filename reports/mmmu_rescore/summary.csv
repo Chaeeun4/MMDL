@@ -1,0 +1,13 @@
+run,source,n,old_correct,new_correct,mc_correct,open_correct,parse_failed,mc_fallback,wrong_to_correct,correct_to_wrong
+main_1005,54edaa1:runs/1005/predictions.jsonl,900,580,583,558,25,8,93,3,0
+primus_only,54edaa1:results/mmmu_predictions_primus_only.jsonl,900,569,571,549,22,13,60,2,0
+pubchem_only,54edaa1:results/mmmu_predictions_pubchem_only.jsonl,900,555,558,542,16,13,48,3,0
+both,54edaa1:results/mmmu_predictions_both.jsonl,900,547,550,536,14,9,45,3,0
+baseline_modelcard_v1,6289df4:experiments/baseline_modelcard_v1/predictions.jsonl.gz,900,550,549,540,9,3,133,1,2
+p1_noise_seed1234,6289df4:experiments/p1_noise_seed1234/predictions.jsonl.gz,900,541,541,533,8,8,137,1,1
+base_describe,6289df4:experiments/base_describe/predictions.jsonl.gz,900,569,569,546,23,5,103,0,0
+c1_rft_describe,6289df4:experiments/c1_rft_describe/predictions.jsonl.gz,900,572,572,554,18,2,33,0,0
+cm_final_full,6289df4:experiments/cm_final_full/predictions.jsonl.gz,900,573,573,551,22,5,49,0,0
+cm_final_official,6289df4:experiments/cm_final_official/predictions.jsonl.gz,900,550,550,543,7,3,153,0,0
+c2cm_final_full,6289df4:experiments/c2cm_final_full/predictions.jsonl.gz,900,537,537,529,8,1,145,1,1
+abl_cot_open,6289df4:experiments/abl_cot_open/predictions.jsonl.gz,53,21,21,0,21,0,0,0,0

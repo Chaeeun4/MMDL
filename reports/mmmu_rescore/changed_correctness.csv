@@ -1,0 +1,19 @@
+run,id,question_type,gold,old_prediction,new_prediction,old_correct,new_correct,parse_failed,mc_route
+main_1005,validation_Electronics_15,multiple-choice,"""A""","""D""","""A""",0,1,0,final_answer
+main_1005,validation_Geography_4,open,"""['Tampa', 'Florida']""","[""tampa""]","[""tampa""]",0,1,0,
+main_1005,validation_Math_15,open,"""['24/7', '3.429']""","[""24/7"", 24.0, 7.0]","[""24/7"", 24.0, 7.0]",0,1,0,
+primus_only,validation_Chemistry_30,open,"""['$MgS$', 'MgS']""","[""mgs""]","[""mgs""]",0,1,0,
+primus_only,validation_Math_15,open,"""['24/7', '3.429']""","[""24/7"", 24.0, 7.0]","[""24/7"", 24.0, 7.0]",0,1,0,
+pubchem_only,validation_Chemistry_30,open,"""['$MgS$', 'MgS']""","[""mgs""]","[""mgs""]",0,1,0,
+pubchem_only,validation_Geography_4,open,"""['Tampa', 'Florida']""","[""tampa""]","[""tampa""]",0,1,0,
+pubchem_only,validation_Math_15,open,"""['24/7', '3.429']""","[""24/7"", 24.0, 7.0]","[""24/7"", 24.0, 7.0]",0,1,0,
+both,validation_Chemistry_30,open,"""['$MgS$', 'MgS']""","[""mgs""]","[""mgs""]",0,1,0,
+both,validation_Geography_4,open,"""['Tampa', 'Florida']""","[""tampa bay""]","[""tampa bay""]",0,1,0,
+both,validation_Math_15,open,"""['24/7', '3.429']""","[""24/7"", 24.0, 7.0]","[""24/7"", 24.0, 7.0]",0,1,0,
+baseline_modelcard_v1,validation_Chemistry_28,multiple-choice,"""A""","""B""","""A""",0,1,0,direct_choice
+baseline_modelcard_v1,validation_Math_30,multiple-choice,"""C""","""C""","""E""",1,0,0,fallback
+baseline_modelcard_v1,validation_Music_9,multiple-choice,"""C""","""C""","""A""",1,0,0,fallback
+p1_noise_seed1234,validation_Chemistry_28,multiple-choice,"""A""","""B""","""A""",0,1,0,direct_choice
+p1_noise_seed1234,validation_Math_30,multiple-choice,"""C""","""C""","""E""",1,0,0,fallback
+c2cm_final_full,validation_Chemistry_28,multiple-choice,"""A""","""B""","""A""",0,1,0,direct_choice
+c2cm_final_full,validation_Math_30,multiple-choice,"""C""","""C""","""E""",1,0,0,fallback

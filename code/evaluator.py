@@ -9,6 +9,7 @@ Sources:
 
 from __future__ import annotations
 
+import ast
 from collections import defaultdict
 from typing import Any, Dict, Iterable, List
 
@@ -65,9 +66,18 @@ def is_correct(result: Dict[str, Any]) -> bool:
         if isinstance(gold, list):
             return prediction in gold
         return prediction == gold
-    gold = _normalize_gold(result["gold"])
     if not isinstance(prediction, list):
         return False
+
+    gold = result["gold"]
+    if isinstance(gold, str) and gold.lstrip().startswith("["):
+        try:
+            alternatives = ast.literal_eval(gold.strip())
+        except (ValueError, SyntaxError):
+            pass
+        else:
+            if isinstance(alternatives, list):
+                gold = alternatives
 
     return _open_answer_correct(gold, prediction)
 

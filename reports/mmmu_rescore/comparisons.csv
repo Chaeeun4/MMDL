@@ -1,0 +1,9 @@
+baseline,run,n,base_correct,run_correct,delta_pp,wrong_to_correct,correct_to_wrong,mcnemar_exact_p
+baseline_modelcard_v1,p1_noise_seed1234,900,549,541,-0.8889,26,34,0.366294
+baseline_modelcard_v1,base_describe,900,549,569,2.2222,108,88,0.174582
+baseline_modelcard_v1,cm_final_official,900,549,550,0.1111,51,50,1.0
+baseline_modelcard_v1,c2cm_final_full,900,549,537,-1.3333,42,54,0.261469
+cm_final_official,c2cm_final_full,900,550,537,-1.4444,44,57,0.2323
+base_describe,c1_rft_describe,900,569,572,0.3333,101,98,0.887303
+base_describe,cm_final_full,900,569,573,0.4444,94,90,0.82504
+baseline_modelcard_v1,abl_cot_open,53,9,21,22.6415,15,3,0.007538
