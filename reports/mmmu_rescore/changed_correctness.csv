@@ -1,5 +1,4 @@
 run,id,question_type,gold,old_prediction,new_prediction,old_correct,new_correct,parse_failed,mc_route
-main_1005,validation_Electronics_15,multiple-choice,"""A""","""D""","""A""",0,1,0,final_answer
 main_1005,validation_Geography_4,open,"""['Tampa', 'Florida']""","[""tampa""]","[""tampa""]",0,1,0,
 main_1005,validation_Math_15,open,"""['24/7', '3.429']""","[""24/7"", 24.0, 7.0]","[""24/7"", 24.0, 7.0]",0,1,0,
 primus_only,validation_Chemistry_30,open,"""['$MgS$', 'MgS']""","[""mgs""]","[""mgs""]",0,1,0,

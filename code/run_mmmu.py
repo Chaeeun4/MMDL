@@ -44,7 +44,7 @@ from tqdm import tqdm
 from transformers import AutoProcessor
 from vllm import LLM, SamplingParams
 
-from dataset import SUBJECTS, load_mmmu_validation
+from dataset import DATASET_REVISION, SUBJECTS, load_mmmu_validation
 from evaluator import evaluate, is_correct
 from parser import parse_answer
 from prompt import MAX_PIXELS, MIN_PIXELS, build_vllm_input, parse_options
@@ -107,7 +107,7 @@ def parse_args() -> argparse.Namespace:
         "--model_path",
         type=str,
         required=True,
-        help="HF model id or local model directory.",
+        help="HF model ID or a local merged model directory.",
     )
     parser.add_argument(
         "--data_root",
@@ -118,14 +118,18 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output_file",
         type=str,
-        default="results/mmmu_predictions.jsonl",
+        default=None,
         help="JSONL prediction/result file.",
     )
     parser.add_argument(
         "--metrics_file",
         type=str,
-        default="results/mmmu_metrics.json",
+        default=None,
         help="JSON metrics output file.",
+    )
+    parser.add_argument("--run_dir", type=Path, help="Directory for predictions.jsonl and metrics.json.")
+    parser.add_argument(
+        "--subjects", help="Comma-separated MMMU subjects, e.g. Music or Music,Chemistry."
     )
 
     # Assignment generation recipe from Qwen3-VL official evaluation docs.
@@ -151,8 +155,8 @@ def parse_args() -> argparse.Namespace:
     # Qwen3-VL visual token budget (per-image resolution range fed to
     # qwen-vl-utils / vLLM). Exposed here instead of hardcoded in prompt.py
     # so it's documented and tunable without editing source.
-    parser.add_argument("--min_pixels", type=int, default=MIN_PIXELS)
-    parser.add_argument("--max_pixels", type=int, default=MAX_PIXELS)
+    parser.add_argument("--min_pixels", default=MIN_PIXELS, help="Integer pixel limit or auto.")
+    parser.add_argument("--max_pixels", default=MAX_PIXELS, help="Integer pixel limit or auto.")
 
     # vLLM / context settings.
     parser.add_argument(
@@ -172,6 +176,12 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Defaults to the number of visible CUDA devices.",
     )
+    parser.add_argument("--max_num_seqs", type=int, help="vLLM maximum concurrent sequences.")
+    parser.add_argument(
+        "--batch_mode", choices=("subject", "all"), default="all",
+        help="Generate separately per subject or in one batch.",
+    )
+    parser.add_argument("--logprobs", type=int, default=0)
 
     # Optional debugging only. Normal assignment run must leave this unset.
     parser.add_argument(
@@ -181,7 +191,28 @@ def parse_args() -> argparse.Namespace:
         help="Debug only: evaluate only the first N samples.",
     )
 
-    return parser.parse_args()
+    args = parser.parse_args()
+    if args.subjects is not None:
+        requested = [subject.strip() for subject in args.subjects.split(",")]
+        unknown = set(requested) - set(SUBJECTS)
+        if unknown:
+            parser.error(f"unknown subjects: {', '.join(repr(name) for name in sorted(unknown))}")
+        args.subjects = [subject for subject in SUBJECTS if subject in requested]
+    if args.max_samples is not None and args.max_samples <= 0:
+        parser.error("--max_samples must be positive")
+    if args.logprobs < 0:
+        parser.error("--logprobs must be nonnegative")
+    return args
+
+
+def resolve_pixels(value: str | int, processor: Any, key: str) -> int:
+    if value != "auto":
+        return int(value)
+    size = getattr(processor.image_processor, "size", None)
+    resolved = size.get(key) if isinstance(size, dict) else getattr(size, key, None)
+    if resolved is None:
+        raise ValueError(f"Processor has no {key!r} pixel limit. Pass an explicit pixel limit.")
+    return int(resolved)
 
 
 def prepare_model_inputs(
@@ -203,6 +234,10 @@ def prepare_model_inputs(
 def main() -> None:
     args = parse_args()
     start_time = time.perf_counter()
+    model_path = Path(args.model_path)
+    if (model_path / "adapter_config.json").is_file():
+        raise ValueError("Merge the LoRA adapter into the base model before passing it to --model_path.")
+    model_revision = None if model_path.is_dir() else MODEL_REVISION
 
     if not torch.cuda.is_available():
         raise RuntimeError("CUDA GPU is required for this baseline.")
@@ -225,7 +260,7 @@ def main() -> None:
     print("MMMU Validation Baseline")
     print("=" * 80)
     print(f"Model:       {args.model_path}")
-    print(f"Revision:    {MODEL_REVISION}")
+    print(f"Revision:    {model_revision or '(local checkpoint)'}")
     print(f"Dataset:     MMMU/MMMU")
     print(f"Data cache:  {args.data_root}")
     print(f"TP size:     {tensor_parallel_size}")
@@ -241,11 +276,9 @@ def main() -> None:
     print("Dataset function:", load_mmmu_validation.__code__.co_filename)
     print("Data root:", repr(args.data_root))
     print("[DEBUG END]\n")
-    samples = load_mmmu_validation(data_root=args.data_root)
+    samples = load_mmmu_validation(data_root=args.data_root, subjects=args.subjects)
 
     if args.max_samples is not None:
-        if args.max_samples <= 0:
-            raise ValueError("--max_samples must be positive.")
         samples = samples[: args.max_samples]
         print(
             f"[DEBUG] Processing only {len(samples)} samples. "
@@ -258,13 +291,20 @@ def main() -> None:
     print("Loading processor...")
     processor = AutoProcessor.from_pretrained(
         args.model_path,
-        revision=MODEL_REVISION,
+        revision=model_revision,
     )
+    min_pixels = resolve_pixels(args.min_pixels, processor, "shortest_edge")
+    max_pixels = resolve_pixels(args.max_pixels, processor, "longest_edge")
+    if not 0 < min_pixels <= max_pixels:
+        raise ValueError("Pixel limits must satisfy 0 < min_pixels <= max_pixels.")
 
     print("Loading vLLM model...")
+    engine_options = {}
+    if args.max_num_seqs is not None:
+        engine_options["max_num_seqs"] = args.max_num_seqs
     llm = LLM(
         model=args.model_path,
-        revision=MODEL_REVISION,
+        revision=model_revision,
         dtype="bfloat16",
         tensor_parallel_size=tensor_parallel_size,
         gpu_memory_utilization=args.gpu_memory_utilization,
@@ -272,12 +312,13 @@ def main() -> None:
         trust_remote_code=True,
         seed=args.seed,
         limit_mm_per_prompt={"image": 32},
+        **engine_options,
     )
 
-    # 3. Prompt/input construction
-    vllm_inputs = prepare_model_inputs(
-        samples, processor, args.min_pixels, args.max_pixels
-    )
+    # 3. Generation parameters
+    sampling_options = {}
+    if args.logprobs:
+        sampling_options["logprobs"] = args.logprobs
 
     if args.greedy:
         # temperature=0.0 makes vLLM pick the argmax token every step, which
@@ -286,6 +327,7 @@ def main() -> None:
             temperature=0.0,
             max_tokens=args.max_new_tokens,
             seed=args.seed,
+            **sampling_options,
         )
     else:
         sampling_params = SamplingParams(
@@ -297,6 +339,7 @@ def main() -> None:
             presence_penalty=args.presence_penalty,
             stop_token_ids=[151645, 151643], # 👈 Qwen 종료 토큰 명시적 추가
             seed=args.seed,
+            **sampling_options,
         )
 
     print("Generation settings:")
@@ -314,21 +357,26 @@ def main() -> None:
         print(f"  repetition_penalty={args.repetition_penalty}")
         print(f"  presence_penalty={args.presence_penalty}")
     print(f"  max_new_tokens={args.max_new_tokens}")
-    print(f"  min_pixels={args.min_pixels} (~{args.min_pixels / 1e6:.2f} MP)")
-    print(f"  max_pixels={args.max_pixels} (~{args.max_pixels / 1e6:.2f} MP)")
+    print(f"  min_pixels={min_pixels} (~{min_pixels / 1e6:.2f} MP)")
+    print(f"  max_pixels={max_pixels} (~{max_pixels / 1e6:.2f} MP)")
 
     # 4. Inference
     print("=" * 80)
     print("Running vLLM inference...")
-    inference_start = time.perf_counter()
-
-    outputs = llm.generate(
-        vllm_inputs,
-        sampling_params=sampling_params,
-        use_tqdm=True,
-    )
-
-    inference_elapsed = time.perf_counter() - inference_start
+    by_subject = {}
+    for sample in samples:
+        by_subject.setdefault(sample["subject"], []).append(sample)
+    groups = by_subject.values() if args.batch_mode == "subject" else [samples]
+    outputs = []
+    inference_elapsed = 0.0
+    for group in groups:
+        inputs = prepare_model_inputs(group, processor, min_pixels, max_pixels)
+        inference_start = time.perf_counter()
+        batch_outputs = llm.generate(inputs, sampling_params=sampling_params, use_tqdm=True)
+        inference_elapsed += time.perf_counter() - inference_start
+        if len(batch_outputs) != len(group):
+            raise RuntimeError(f"Expected {len(group)} outputs, got {len(batch_outputs)}.")
+        outputs.extend(batch_outputs)
     print(
         f"Inference time: {inference_elapsed:.2f}s "
         f"({inference_elapsed / max(len(samples), 1):.2f}s/sample)"
@@ -361,6 +409,7 @@ def main() -> None:
             raw_response,
             sample["question_type"],
             options,
+            strict=False,
         )
 
         result: Dict[str, Any] = {
@@ -368,6 +417,7 @@ def main() -> None:
             "subject": sample["subject"],
             "question_type": sample["question_type"],
             "gold": sample["answer"],
+            "options": options,
             "prediction_raw": raw_response,
             "prediction": prediction,
 
@@ -379,6 +429,8 @@ def main() -> None:
             "img_type": sample.get("img_type", ""),
             "topic_difficulty": sample.get("topic_difficulty", ""),
         }
+        if args.logprobs:
+            result["cumulative_logprob"] = completion.cumulative_logprob
         result["correct"] = is_correct(result)
         results.append(result)
 
@@ -386,12 +438,18 @@ def main() -> None:
     metrics = evaluate(results)
     metrics["model"] = MODEL_NAME
     metrics["model_path"] = args.model_path
-    metrics["model_revision"] = MODEL_REVISION
+    metrics["model_revision"] = model_revision
     metrics["dataset"] = "MMMU/MMMU"
-    metrics["dataset_revision"] = (
-        "98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68"
-    )
+    metrics["dataset_revision"] = DATASET_REVISION
     metrics["split"] = "validation"
+    metrics["evaluated_subjects"] = list(by_subject)
+    metrics["max_samples"] = args.max_samples
+    metrics["prompt_variant"] = "official"
+    metrics["batch_mode"] = args.batch_mode
+    metrics["max_model_len"] = args.max_model_len
+    metrics["max_num_seqs"] = args.max_num_seqs
+    metrics["tensor_parallel_size"] = tensor_parallel_size
+    metrics["gpu_memory_utilization"] = args.gpu_memory_utilization
     metrics["sampling"] = {
         "greedy": args.greedy,
         "seed": args.seed,
@@ -401,18 +459,23 @@ def main() -> None:
         "repetition_penalty": None if args.greedy else args.repetition_penalty,
         "presence_penalty": None if args.greedy else args.presence_penalty,
         "max_new_tokens": args.max_new_tokens,
+        "logprobs": args.logprobs,
     }
     metrics["peak_vram_gb"] = peak_vram_gb
     metrics["image_pixels"] = {
-        "min_pixels": args.min_pixels,
-        "max_pixels": args.max_pixels,
+        "min_pixels": min_pixels,
+        "max_pixels": max_pixels,
     }
     metrics["elapsed_seconds"] = time.perf_counter() - start_time
     metrics["inference_seconds"] = inference_elapsed
 
     # 7. Save
-    output_path = Path(args.output_file)
-    metrics_path = Path(args.metrics_file)
+    output_path = Path(args.output_file) if args.output_file else (
+        args.run_dir / "predictions.jsonl" if args.run_dir else Path("results/mmmu_predictions.jsonl")
+    )
+    metrics_path = Path(args.metrics_file) if args.metrics_file else (
+        args.run_dir / "metrics.json" if args.run_dir else Path("results/mmmu_metrics.json")
+    )
     output_path.parent.mkdir(parents=True, exist_ok=True)
     metrics_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -438,7 +501,8 @@ def main() -> None:
         )
 
     print("-" * 80)
-    print(f"Overall: {metrics['overall_percent']:.2f}%")
+    scope = "Overall" if len(results) == 900 else f"Selected subset ({len(results)} samples)"
+    print(f"{scope}: {metrics['overall_percent']:.2f}%")
     print(f"Saved predictions: {output_path}")
     print(f"Saved metrics:     {metrics_path}")
     print(f"Total elapsed:     {metrics['elapsed_seconds']:.2f}s")
