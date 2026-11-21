@@ -162,7 +162,7 @@ cd /home/cepark/MMDL
 
 ### GPU 평가가 끝난 뒤 자동으로 시작
 
-기존 평가 큐가 쓰는 `runs/controlled_legacy_cot/.queue.lock`을 기다리는 [실행 스크립트](run_overlap_after_eval.sh)를 사용한다. 큐가 잠금을 풀고 Base와 PrIMuS의 900문항 출력이 모두 있으면 CUDA에서 검사를 시작한다. 평가가 실패해 출력이 빠졌으면 검사도 중단한다. 검사 시작·완료·오류를 기존 평가 큐와 같은 Discord 웹훅으로 알린다. 오류 알림에는 실패 단계, 종료 코드, 로그 끝부분을 담는다. 웹훅을 교체할 때는 `DISCORD_WEBHOOK_URL`이나 `DISCORD_WEBHOOK_FILE`로 지정할 수 있다.
+기존 평가 큐가 쓰는 `runs/controlled_legacy_cot/.queue.lock`을 기다리는 [실행 스크립트](run_overlap_after_eval.sh)를 사용한다. 큐가 잠금을 풀면 Base와 PrIMuS의 900문항 출력부터 확인한다. 이어 AI2D·ECD·ViRL 원본과 MMMU·MMMU-Pro·SigLIP 캐시를 확인하고, 다운로드가 덜 끝났으면 로그에 대기 항목을 남기며 기본 60초 간격으로 다시 확인한다. 파일이 준비되면 CUDA에서 검사를 시작한다. 확인 간격은 `OVERLAP_DATA_POLL_SECONDS`로 바꿀 수 있다. 평가가 실패해 출력이 빠졌으면 검사도 중단한다. 검사 시작·완료·오류를 기존 평가 큐와 같은 Discord 웹훅으로 알린다. 오류 알림에는 실패 단계, 종료 코드, 로그 끝부분을 담는다. 웹훅을 교체할 때는 `DISCORD_WEBHOOK_URL`이나 `DISCORD_WEBHOOK_FILE`로 지정할 수 있다.
 
 GPU 서버에 코드, 학습 원본 압축과 문항 파일, 평가 캐시, SigLIP 가중치, Tesseract 영어 데이터를 준비한 뒤 실행한다. `--root`와 `--hub-cache`에는 GPU 서버의 실제 경로를 지정한다. `.venv-overlap` 위치가 다르면 `OVERLAP_PYTHON`에 해당 Python 절대경로를 지정한다.
 

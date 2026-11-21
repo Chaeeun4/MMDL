@@ -93,6 +93,11 @@ for model in ("base", "primus_only"):
         sys.exit(f"900q evaluation incomplete for {model}: {path}. Overlap scan did not start.")
 PY
 
+stage="waiting for downloads"
+printf '[%s] Checking required downloads.\n' "$(date -Is)"
+"$python_bin" -u experiments/targeted_sft/check_overlap.py --all-raw "$@" \
+    --wait-for-data "${OVERLAP_DATA_POLL_SECONDS:-60}" 2>&1 | tee "$error_log"
+
 stage="overlap scan"
 scan_started=$SECONDS
 printf '[%s] Both 900q results are present. Starting overlap scan on CUDA.\n' "$(date -Is)"

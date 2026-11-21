@@ -14,12 +14,14 @@ import shutil
 import subprocess
 import tarfile
 from tempfile import TemporaryDirectory
+import time
 import unicodedata
-from zipfile import ZipFile
+from zipfile import BadZipFile, ZipFile
 
 import numpy as np
 from PIL import Image, ImageOps
 import pyarrow.parquet as pq
+from pyarrow import ArrowInvalid
 
 
 MMMU_REV = "98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68"
@@ -132,6 +134,60 @@ def benchmark_files(args):
         if actual != count:
             raise ValueError(f"{scope}: expected {count} rows, found {actual}")
     return sets
+
+
+def pending_downloads(args):
+    raw = args.root / "raw"
+    pending = []
+    for name in ("ai2d/ai2d-all.zip", "ecd/ECD_QAs_All.json", "ecd/images.tar",
+                 "virl/39Krelease.parquet", "virl/images.zip"):
+        path = raw / name
+        try:
+            if path.suffix == ".zip":
+                with ZipFile(path):
+                    pass
+            elif path.suffix == ".parquet":
+                pq.ParquetFile(path)
+            else:
+                with path.open("rb") as file:
+                    if path.suffix == ".tar":
+                        size = path.stat().st_size
+                        complete = size >= 1024 and size % 512 == 0
+                        if complete:
+                            file.seek(size - 1024)
+                            complete = file.read(1024) == bytes(1024)
+                    else:
+                        file.seek(max(0, path.stat().st_size - 4096))
+                        complete = file.read().rstrip().endswith(b"]")
+                    if not complete:
+                        pending.append(str(path))
+        except (FileNotFoundError, BadZipFile, ArrowInvalid):
+            pending.append(str(path))
+
+    try:
+        benchmark_files(args)
+    except (FileNotFoundError, ValueError, ArrowInvalid) as error:
+        pending.append(str(error))
+
+    if args.siglip_model:
+        from huggingface_hub import try_to_load_from_cache
+
+        model = Path(args.siglip_model)
+
+        def available(filename):
+            if model.is_dir() or model.is_absolute() or args.siglip_model.startswith("."):
+                return (model / filename).is_file()
+            cached = try_to_load_from_cache(
+                args.siglip_model, filename, revision=args.siglip_revision
+            )
+            return isinstance(cached, str) and Path(cached).is_file()
+
+        for filename in ("config.json", "preprocessor_config.json"):
+            if not available(filename):
+                pending.append(f"{args.siglip_model}: {filename}")
+        if not any(available(name) for name in ("model.safetensors", "pytorch_model.bin")):
+            pending.append(f"{args.siglip_model}: model weights")
+    return pending
 
 
 def ocr(blob):
@@ -372,7 +428,11 @@ def main():
     parser.add_argument("--siglip-device", default="auto", help="auto, cpu, cuda or cuda:N")
     parser.add_argument("--siglip-batch-size", type=int, default=16)
     parser.add_argument("--siglip-threshold", type=float, default=0.92)
+    parser.add_argument("--wait-for-data", type=int, metavar="SECONDS",
+                        help="Wait for raw datasets and evaluation caches, then exit")
     args = parser.parse_args()
+    if args.wait_for_data is not None and (not args.all_raw or args.wait_for_data <= 0):
+        parser.error("--wait-for-data requires --all-raw and a positive interval")
     args.full = args.full or args.all_raw
     if args.full and not args.siglip_model:
         parser.error("--full requires --siglip-model")
@@ -393,6 +453,15 @@ def main():
         languages = subprocess.check_output(["tesseract", "--list-langs"], text=True)
         if "eng" not in languages.splitlines():
             parser.error("Tesseract English language data (eng) is required")
+
+    if args.wait_for_data is not None:
+        while pending := pending_downloads(args):
+            print(f"Downloads pending. Checking again in {args.wait_for_data}s:")
+            for item in pending:
+                print(f"  {item}")
+            time.sleep(args.wait_for_data)
+        print("Required datasets and SigLIP files are ready.")
+        return
 
     rows = []
     for path in args.manifest or []:
