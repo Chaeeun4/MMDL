@@ -1,0 +1,16 @@
+model,step,prompt_variant,total_acc,music_acc,chem_acc,output_file
+both_rerun,350,official,0.266667,0.300000,0.233333,runs/sweep_60q_both_rerun/both_rerun/step-350/official/predictions.jsonl
+both_rerun,350,legacy_cot,0.433333,0.466667,0.400000,runs/sweep_60q_both_rerun/both_rerun/step-350/legacy_cot/predictions.jsonl
+both_rerun,350,describe_cot,0.350000,0.333333,0.366667,runs/sweep_60q_both_rerun/both_rerun/step-350/describe_cot/predictions.jsonl
+both_rerun,700,official,0.283333,0.266667,0.300000,runs/sweep_60q_both_rerun/both_rerun/step-700/official/predictions.jsonl
+both_rerun,700,legacy_cot,0.383333,0.333333,0.433333,runs/sweep_60q_both_rerun/both_rerun/step-700/legacy_cot/predictions.jsonl
+both_rerun,700,describe_cot,0.383333,0.333333,0.433333,runs/sweep_60q_both_rerun/both_rerun/step-700/describe_cot/predictions.jsonl
+both_rerun,1000,official,0.266667,0.266667,0.266667,runs/sweep_60q_both_rerun/both_rerun/step-1000/official/predictions.jsonl
+both_rerun,1000,legacy_cot,0.383333,0.400000,0.366667,runs/sweep_60q_both_rerun/both_rerun/step-1000/legacy_cot/predictions.jsonl
+both_rerun,1000,describe_cot,0.366667,0.300000,0.433333,runs/sweep_60q_both_rerun/both_rerun/step-1000/describe_cot/predictions.jsonl
+both_rerun,1350,official,0.250000,0.233333,0.266667,runs/sweep_60q_both_rerun/both_rerun/step-1350/official/predictions.jsonl
+both_rerun,1350,legacy_cot,0.400000,0.400000,0.400000,runs/sweep_60q_both_rerun/both_rerun/step-1350/legacy_cot/predictions.jsonl
+both_rerun,1350,describe_cot,0.433333,0.400000,0.466667,runs/sweep_60q_both_rerun/both_rerun/step-1350/describe_cot/predictions.jsonl
+both_rerun,1688,official,0.266667,0.266667,0.266667,runs/sweep_60q_both_rerun/both_rerun/step-1688/official/predictions.jsonl
+both_rerun,1688,legacy_cot,0.450000,0.433333,0.466667,runs/sweep_60q_both_rerun/both_rerun/step-1688/legacy_cot/predictions.jsonl
+both_rerun,1688,describe_cot,0.366667,0.333333,0.400000,runs/sweep_60q_both_rerun/both_rerun/step-1688/describe_cot/predictions.jsonl

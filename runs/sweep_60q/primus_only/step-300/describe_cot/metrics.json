@@ -1,0 +1,53 @@
+{
+  "num_results": 60,
+  "num_subjects": 2,
+  "subjects": {
+    "Chemistry": {
+      "num": 30,
+      "correct": 15,
+      "accuracy": 0.5
+    },
+    "Music": {
+      "num": 30,
+      "correct": 7,
+      "accuracy": 0.23333333333333334
+    }
+  },
+  "overall_accuracy": 0.3666666666666667,
+  "overall_percent": 36.66666666666667,
+  "model": "Qwen/Qwen3-VL-4B-Instruct",
+  "model_path": "/shared_dir/tmp_merged/primus_only-300.fdm2rNq4",
+  "model_revision": null,
+  "dataset": "MMMU/MMMU",
+  "dataset_revision": "98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68",
+  "split": "validation",
+  "evaluated_subjects": [
+    "Chemistry",
+    "Music"
+  ],
+  "max_samples": null,
+  "prompt_variant": "describe_cot",
+  "batch_mode": "subject",
+  "max_model_len": 32768,
+  "max_num_seqs": null,
+  "tensor_parallel_size": 1,
+  "gpu_memory_utilization": 0.8,
+  "sampling": {
+    "greedy": false,
+    "seed": 3407,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repetition_penalty": 1.0,
+    "presence_penalty": 1.5,
+    "max_new_tokens": 32768,
+    "logprobs": 0
+  },
+  "peak_vram_gb": 20.1162109375,
+  "image_pixels": {
+    "min_pixels": 65536,
+    "max_pixels": 16777216
+  },
+  "elapsed_seconds": 4031.1756278719986,
+  "inference_seconds": 4005.042146804044
+}

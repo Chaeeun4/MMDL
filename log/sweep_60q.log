@@ -43,3 +43,4 @@ INFO 11-19 03:45:00 [vllm.py:790] Asynchronous scheduling is enabled.
 (EngineCore pid=661) INFO 11-19 03:45:07 [flash_attn.py:596] Using FlashAttention version 2
 (EngineCore pid=661) <frozen importlib._bootstrap_external>:1241: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
 (EngineCore pid=661) <frozen importlib._bootstrap_external>:1241: FutureWarning: The cuda.nvrtc module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.nvrtc module instead.
+Terminated
