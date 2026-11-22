@@ -1,0 +1,8 @@
+{"step": 0, "val_loss": {"chem_coord": 1.5146, "chem_qa": 2.7973, "music_qa": 2.3896, "music_trans": 2.0614, "replay": 0.5406}}
+{"step": 120, "val_loss": {"chem_coord": 1.3989, "chem_qa": 0.057, "music_qa": 0.1845, "music_trans": 0.3575, "replay": 0.3412}}
+{"step": 240, "val_loss": {"chem_coord": 1.3778, "chem_qa": 0.0455, "music_qa": 0.1257, "music_trans": 0.2197, "replay": 0.3225}}
+{"step": 360, "val_loss": {"chem_coord": 1.3695, "chem_qa": 0.0393, "music_qa": 0.0846, "music_trans": 0.1476, "replay": 0.3101}}
+{"step": 480, "val_loss": {"chem_coord": 1.3633, "chem_qa": 0.032, "music_qa": 0.068, "music_trans": 0.1206, "replay": 0.3048}}
+{"step": 600, "val_loss": {"chem_coord": 1.3611, "chem_qa": 0.0274, "music_qa": 0.0605, "music_trans": 0.0999, "replay": 0.2993}}
+{"step": 720, "val_loss": {"chem_coord": 1.3603, "chem_qa": 0.027, "music_qa": 0.0566, "music_trans": 0.0944, "replay": 0.2989}}
+{"step": 776, "val_loss": {"chem_coord": 1.3605, "chem_qa": 0.0271, "music_qa": 0.0562, "music_trans": 0.0938, "replay": 0.2988}}

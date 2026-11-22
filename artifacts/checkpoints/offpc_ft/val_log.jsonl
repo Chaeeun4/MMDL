@@ -1,0 +1,5 @@
+{"step": 0, "val_loss": {"percept_chem": 2.6606, "percept_music": 2.1779, "percept_plot": 1.9241, "self": 0.3573}}
+{"step": 200, "val_loss": {"percept_chem": 0.0533, "percept_music": 0.07, "percept_plot": 0.0417, "self": 0.1768}}
+{"step": 400, "val_loss": {"percept_chem": 0.0356, "percept_music": 0.0406, "percept_plot": 0.0245, "self": 0.1648}}
+{"step": 600, "val_loss": {"percept_chem": 0.0311, "percept_music": 0.0341, "percept_plot": 0.0231, "self": 0.1607}}
+{"step": 638, "val_loss": {"percept_chem": 0.0307, "percept_music": 0.0341, "percept_plot": 0.023, "self": 0.161}}
