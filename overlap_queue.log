@@ -1,0 +1,187 @@
+Cannot run /shared_dir/MMDL/.venv-overlap/bin/python. Set OVERLAP_PYTHON to the overlap environment Python.
+Discord error notification failed.
+[2026-11-22T02:45:43+09:00] Waiting for the evaluation queue to release runs/controlled_legacy_cot/.queue.lock
+[2026-11-22T16:38:06+09:00] Checking required downloads.
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Downloads pending. Checking again in 60s:
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ai2d/ai2d-all.zip
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/ECD_QAs_All.json
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/ecd/images.tar
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/39Krelease.parquet
+  /shared_dir/LLaMA-Factory/dataset/targeted_sft/raw/virl/images.zip
+  MMMU dev: require all 30 subjects in /shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU/snapshots/98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68
+Terminated

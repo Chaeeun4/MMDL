@@ -1,0 +1,35 @@
+[2026-11-22T17:06:23+09:00] Waiting for the evaluation queue to release runs/controlled_legacy_cot/.queue.lock
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/408 [00:00<?, ?it/s]Loading weights:  38%|███▊      | 155/408 [00:00<00:00, 1513.69it/s]Loading weights:  75%|███████▌  | 307/408 [00:00<00:00, 1419.22it/s]Loading weights: 100%|██████████| 408/408 [00:00<00:00, 1415.06it/s]
+MMMU/dev: file 1/30
+MMMU/dev: file 10/30
+MMMU/dev: file 20/30
+MMMU/dev: file 30/30
+MMMU/dev {'images': 158, 'text_rows': 150, 'rows': 150}
+MMMU/validation: file 1/30
+/root/miniconda3/envs/llama_factory/lib/python3.11/site-packages/PIL/Image.py:1047: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+MMMU/validation: file 10/30
+MMMU/validation: file 20/30
+MMMU/validation: file 30/30
+MMMU/validation {'images': 982, 'text_rows': 900, 'rows': 900}
+MMMU/test: file 1/32
+MMMU/test: file 10/32
+MMMU/test: file 20/32
+MMMU/test: file 30/32
+MMMU/test {'images': 12141, 'text_rows': 10500, 'rows': 10500}
+MMMU-Pro/standard (4 options): file 1/2
+MMMU-Pro/standard (4 options) {'images': 2015, 'text_rows': 1730, 'rows': 1730}
+MMMU-Pro/standard (10 options): file 1/2
+Terminated
+MMMU-Pro/standard (10 options) {'images': 2015, 'text_rows': 1730, 'rows': 1730}
+MMMU-Pro/vision: file 1/4
+Traceback (most recent call last):
+  File "/shared_dir/MMDL/experiments/targeted_sft/check_overlap.py", line 539, in <module>
+    main()
+  File "/shared_dir/MMDL/experiments/targeted_sft/check_overlap.py", line 491, in main
+    index, coverage = build_index(args, sets, semantic)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/shared_dir/MMDL/experiments/targeted_sft/check_overlap.py", line 237, in build_index
+    raise ValueError(f"{image_key}: OCR returned empty text")
+ValueError: MMMU-Pro/vision/validation_Mechanical_Engineering_24/image: OCR returned empty text
