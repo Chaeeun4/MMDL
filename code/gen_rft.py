@@ -30,7 +30,7 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from prompt import DESCRIPT_MC, DESCRIPT_OPEN  # noqa: E402
+from prompt import DESCRIPT_MC, DESCRIPT_OPEN, MC_DIRECT, OPEN_DIRECT  # noqa: E402
 
 MODEL_NAME = "Qwen/Qwen3-VL-4B-Instruct"
 MODEL_REVISION = "ebb281ec70b05090aa6165b016eac8ec08e71b17"
@@ -54,7 +54,11 @@ AGENTS = {
         "mc": "Reason briefly in a few sentences, then write the final answer on the last line in the form 'Answer: <letter>'.",
         "open": "Reason briefly in a few sentences, then write the final answer on the last line in the form 'Answer: <value>'.",
     },
+    # round 2: a model already fine-tuned to reason under the official MMMU wording (offc1b) answers with
+    # that wording; diversity then comes from --samples, not from different prompts
+    "official": {"mc": MC_DIRECT, "open": OPEN_DIRECT},
 }
+ROUND1_AGENTS = "describe,cot,check,concise"
 # The instruction the fine-tuned model is trained (and evaluated) with: one prompt for all agents' data.
 TRAIN_INSTRUCTION = {"mc": DESCRIPT_MC, "open": DESCRIPT_OPEN}
 
@@ -65,7 +69,7 @@ IMG_TAG_RE = re.compile(r"<image>")
 
 
 # ---------------------------------------------------------------- pool
-def load_pool(pool_dir: str, n: int, seed: int, contamination: str | None):
+def load_pool(pool_dir: str, n: int, seed: int, contamination: str | None, exclude=()):
     import pandas as pd
     df = pd.read_parquet(os.path.join(pool_dir, "39Krelease.parquet"))
     bad = set()
@@ -75,6 +79,8 @@ def load_pool(pool_dir: str, n: int, seed: int, contamination: str | None):
     else:
         raise SystemExit(f"no contamination report at {cpath}; run code/check_contamination.py first")
     df = df[~df.qid.isin(bad)]
+    if exclude:  # questions an earlier round already used
+        df = df[~df.qid.isin(set(exclude))]
     df = df[df.image.map(len) > 0]
     # non-grade-school + science first (closest to MMMU), then fill with grade-school math/geometry
     pri = df[df.category.isin(KEEP_CATEGORIES_ALL)].sample(frac=1, random_state=seed)
@@ -157,7 +163,8 @@ def generate(a):
         want = {l.strip() for l in open(a.ids_file) if l.strip()}
         pool = [q for q in load_pool(a.pool, 10 ** 9, a.seed, a.contamination) if q["id"] in want]
     else:
-        pool = load_pool(a.pool, a.n_questions, a.seed, a.contamination)
+        used = {json.loads(l)["id"] for g in a.exclude_gen for l in open(g)}
+        pool = load_pool(a.pool, a.n_questions, a.seed, a.contamination, used)
     agents = a.agents.split(",")
     print(f"questions {len(pool)} x agents {agents} x {a.samples} samples", flush=True)
     processor = AutoProcessor.from_pretrained(MODEL_NAME, revision=MODEL_REVISION)
@@ -202,8 +209,14 @@ def generate(a):
 LOOP_RE = re.compile(r"\b(wait|but maybe|let me re-?check|hmm)\b", re.I)
 
 
-def clean(r, max_tokens):
+BLANK_RE = re.compile(r"image (?:provided |shown |given )?(?:is|appears(?: to be)?) (?:completely |entirely )?"
+                      r"(?:blank|empty|black|white)|no visible (?:content|elements)", re.I)
+
+
+def clean(r, max_tokens, min_tokens=0, drop_blank=False):
     t = r["response"]
+    if r["n_tokens"] < min_tokens or (drop_blank and BLANK_RE.search(t)):
+        return False  # a bare answer teaches no reasoning; "the image is blank" answers did not read the figure
     return (r["correct"] and r["finish"] == "stop" and r["n_tokens"] <= max_tokens
             and t.rstrip().split("\n")[-1].lstrip("*# ").startswith("Answer:")
             and len(LOOP_RE.findall(t)) <= 2)
@@ -222,7 +235,7 @@ def select(a):
             agent_acc[r["agent"]][0] += r["correct"]
             agent_acc[r["agent"]][1] += 1
         pass_rate = sum(r["correct"] for r in rs) / len(rs)
-        good = sorted([r for r in rs if clean(r, a.max_tokens) and r["agent"] not in a.exclude_agents],
+        good = sorted([r for r in rs if clean(r, a.max_tokens, a.min_tokens, a.drop_blank) and r["agent"] not in a.exclude_agents],
                       key=lambda r: r["n_tokens"])
         if not good:
             stats["no_clean_sample"] += 1
@@ -243,6 +256,7 @@ def select(a):
                 seen.add(r["agent"])
             if len(picked) == limit:
                 break
+        stats[f"kept_pass_{sum(r['correct'] for r in rs)}_of_{len(rs)}"] += 1
         for r in picked:
             sft.append({"id": f"{qid}::{r['agent']}", "images": r["images"],
                         "prompt": r["question"] + "\n\n" + TRAIN_INSTRUCTION[kind],
@@ -280,7 +294,9 @@ def main():
     g.add_argument("--contamination", default=None)
     g.add_argument("--model_path", default=MODEL_NAME)
     g.add_argument("--n_questions", type=int, default=2000)
-    g.add_argument("--agents", default=",".join(AGENTS))
+    g.add_argument("--agents", default=ROUND1_AGENTS)
+    g.add_argument("--exclude_gen", nargs="*", default=[],
+                   help="gen.jsonl files of earlier rounds; their questions are left out of the pool")
     g.add_argument("--samples", type=int, default=1, help="samples per (question, agent)")
     g.add_argument("--max_tokens", type=int, default=2048)
     g.add_argument("--max_model_len", type=int, default=8192)
@@ -298,6 +314,8 @@ def main():
     s.add_argument("--open_per_question", type=int, default=None, help="default: --per_question")
     s.add_argument("--out_dir", required=True)
     s.add_argument("--max_tokens", type=int, default=1500)
+    s.add_argument("--min_tokens", type=int, default=0, help="drop answers shorter than this (bare answers)")
+    s.add_argument("--drop_blank", action="store_true", help="drop answers that call the image blank / missing")
     s.add_argument("--per_question", type=int, default=2)
     s.add_argument("--keep_easy", type=float, default=0.3)
     s.add_argument("--seed", type=int, default=0)

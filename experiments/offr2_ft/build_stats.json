@@ -1,0 +1,42 @@
+{
+ "train": {
+  "self": 6462
+ },
+ "val": {
+  "self": 100
+ },
+ "train_total": 6462,
+ "kinds": {
+  "describe": 1344,
+  "official": 2589,
+  "check": 1281,
+  "cot": 1248
+ },
+ "mc_vs_open": {
+  "open": 3615,
+  "mc": 2847
+ },
+ "response_chars": {
+  "median": 1257,
+  "p90": 2762
+ },
+ "contamination_flagged": 102,
+ "args": {
+  "from_sft": [
+   "/data/jinagg/rft/c1b/sft.jsonl",
+   "/data/jinagg/rft/r2/sft.jsonl"
+  ],
+  "mfr_dir": "",
+  "out_dir": "/data/jinagg/rft/offr2",
+  "data_root": "/data/jinagg/hf_cache",
+  "hash_cache": "/data/jinagg/train_data/mmmu_all_dhash.npz",
+  "virl_contamination": "/data/jinagg/train_data/ViRL39K/contamination.json",
+  "min_chars": 400,
+  "max_chars": 4000,
+  "max_bits": 10,
+  "oversample": 1.6,
+  "check_images": true,
+  "n_val": 100,
+  "seed": 0
+ }
+}

@@ -99,6 +99,30 @@ def dhash_bits(img, size=16):
     return np.packbits((a[:, 1:] > a[:, :-1]).flatten())
 
 
+def drop_image_hits(records, cache_path, max_bits):
+    """dHash every training image against the cached MMMU image hashes; return (kept, flagged, min distance)."""
+    import numpy as np
+    z = np.load(cache_path, allow_pickle=True)
+    bench_h, bench_ids = z["hashes"], list(z["ids"])
+    pop = np.array([bin(i).count("1") for i in range(256)], dtype=np.uint16)
+    kept, flagged, min_bits, memo = [], {}, 999, {}
+    for r in records:
+        hit = None
+        for p in r["images"]:
+            if p not in memo:
+                d = pop[np.bitwise_xor(bench_h, dhash_bits(p)[None, :])].sum(1)
+                k = int(d.argmin())
+                memo[p] = (int(d[k]), bench_ids[k])
+            min_bits = min(min_bits, memo[p][0])
+            if memo[p][0] <= max_bits:
+                hit = memo[p]
+        if hit:
+            flagged[r["id"]] = {"kind": f"image dhash {hit[0]} bits", "match": str(hit[1])}
+        else:
+            kept.append(r)
+    return kept, flagged, min_bits
+
+
 def benchmark_index(data_root, cache_path):
     """Text index + image hashes of every MMMU dev/validation/test question (+ MMMU-Pro text)."""
     import numpy as np
@@ -241,6 +265,8 @@ def main():
     ap.add_argument("--max_chars", type=int, default=4000)
     ap.add_argument("--max_bits", type=int, default=10, help="dHash distance (of 256 bits) treated as the same image")
     ap.add_argument("--oversample", type=float, default=1.6)
+    ap.add_argument("--check_images", action="store_true",
+                    help="dHash the --from_sft images against MMMU images and drop hits")
     ap.add_argument("--n_val", type=int, default=100, help="held-out records per source")
     ap.add_argument("--seed", type=int, default=0)
     a = ap.parse_args()
@@ -251,6 +277,12 @@ def main():
     records, report = [], {}
     for p in a.from_sft:
         records += retemplate(p)
+    if a.check_images and records:  # ViRL39K was only text-checked (check_contamination.py); this adds the image check
+        n = len(records)
+        records, flagged, min_bits = drop_image_hits(records, a.hash_cache, a.max_bits)
+        report = {"checked_records": n, "min_image_distance_bits": min_bits, "max_bits": a.max_bits,
+                  "n_flagged": len(flagged), "flagged": flagged}
+        json.dump(report, open(out / "contamination_report.json", "w"), indent=1, ensure_ascii=False)
     if a.mfr_dir:
         mfr, report = load_mfr(a.mfr_dir, a.data_root, rng, a)
         records += mfr

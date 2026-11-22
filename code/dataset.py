@@ -134,3 +134,55 @@ def load_mmmu_validation(
         )
 
     return samples
+
+
+# --------------------------------------------------------------------------
+# MMMU-Pro (evaluation only; never used for training)
+# --------------------------------------------------------------------------
+PRO_DATASET_NAME = "MMMU/MMMU_Pro"
+PRO_CONFIGS = {
+    "pro_standard10": "standard (10 options)",
+    "pro_standard4": "standard (4 options)",
+    "pro_vision": "vision",  # question and options are inside one screenshot
+}
+
+
+def load_mmmu_pro(
+    benchmark: str,
+    data_root: str | None = None,
+    subjects: List[str] | None = None,
+) -> List[Dict[str, Any]]:
+    """Load MMMU-Pro (1,730 test questions, answers public) in the sample format of load_mmmu_validation.
+
+    All questions are multiple-choice. In the vision setting the sample carries the screenshot as
+    image_1 and 'options_in_image': the prompt then shows only the image and the instruction, while
+    the options stay in the sample for the answer parser.
+    """
+    dataset = load_dataset(PRO_DATASET_NAME, PRO_CONFIGS[benchmark], split="test", cache_dir=data_root)
+    vision = benchmark == "pro_vision"
+    samples: List[Dict[str, Any]] = []
+    for row in dataset:
+        if subjects and row["subject"] not in subjects:
+            continue
+        if vision:
+            images = {"image_1": row["image"].convert("RGB")}
+        else:
+            images = {f"image_{i}": row[f"image_{i}"] for i in range(1, 8) if row.get(f"image_{i}") is not None}
+        samples.append(
+            {
+                "id": row["id"],
+                "subject": row["subject"],
+                "question": "<image 1>" if vision else row["question"],
+                "options": row["options"],
+                "answer": row["answer"],
+                "question_type": "multiple-choice",
+                "subfield": "",
+                "img_type": row.get("img_type", ""),
+                "topic_difficulty": row.get("topic_difficulty", ""),
+                "explanation": "",
+                "images": images,
+                "options_in_image": vision,
+            }
+        )
+    samples.sort(key=lambda x: SUBJECTS.index(x["subject"]))
+    return samples

@@ -178,7 +178,10 @@ def build_messages(
     # Keep the exact textual order of <image N> references in the question.
     _append_text_with_images(content, question, sample, min_pixels, max_pixels)
 
-    if options:
+    if sample.get("options_in_image"):
+        # MMMU-Pro vision: question and options are in the screenshot, so only the instruction follows
+        content.append({"type": "text", "text": "\n\n" + _instruction("mc")})
+    elif options:
         content.append({"type": "text", "text": "\n\n"})
         for i, option in enumerate(options):
             content.append(

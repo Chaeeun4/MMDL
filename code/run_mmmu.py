@@ -64,7 +64,8 @@ from tqdm import tqdm
 from transformers import AutoProcessor
 from vllm import LLM, SamplingParams
 
-from dataset import DATASET_NAME, DATASET_REVISION, SUBJECTS, load_mmmu_validation
+from dataset import (DATASET_NAME, DATASET_REVISION, PRO_CONFIGS, PRO_DATASET_NAME, SUBJECTS,
+                     load_mmmu_pro, load_mmmu_validation)
 from evaluator import evaluate, is_correct
 from parser import parse_answer
 import prompt as prompt_mod
@@ -239,6 +240,9 @@ def parse_args() -> argparse.Namespace:
                              "Chemical Structures'.")
     parser.add_argument("--no_images", action="store_true", default=False,
                         help="Text-only ablation: replace images with '[image]'.")
+    parser.add_argument("--benchmark", choices=["mmmu_val"] + sorted(PRO_CONFIGS), default="mmmu_val",
+                        help="mmmu_val = MMMU validation 900 (default); pro_* = MMMU-Pro test 1,730 "
+                             "(standard 10/4 options, or vision = screenshot only)")
     parser.add_argument("--question_types", type=str, default=None,
                         help="Comma-separated subset of question types, e.g. "
                              "'open'. Default: all.")
@@ -586,7 +590,11 @@ def main() -> None:
 
     # ---- 1. dataset ----------------------------------------------------
     subjects = (args.subjects.split(",") if args.subjects else None)
-    samples = load_mmmu_validation(data_root=args.data_root, subjects=subjects)
+    if args.benchmark == "mmmu_val":
+        samples = load_mmmu_validation(data_root=args.data_root, subjects=subjects)
+    else:
+        samples = load_mmmu_pro(args.benchmark, data_root=args.data_root, subjects=subjects)
+        print(f"[BENCHMARK] {PRO_DATASET_NAME} / {PRO_CONFIGS[args.benchmark]}")
 
     if args.question_types:
         keep = set(args.question_types.split(","))
@@ -687,6 +695,7 @@ def main() -> None:
             and args.max_new_tokens == OFFICIAL_RECIPE["out_seq_length"]),
         "is_baseline_setting": (
             not args.greedy and args.prompt_variant == "official"
+            and args.benchmark == "mmmu_val"
             and not args.question_types and not args.subjects
             and not args.img_types and not args.no_images
             and args.max_samples is None),
@@ -728,6 +737,7 @@ def main() -> None:
         },
         "prompt_variant": args.prompt_variant,
         "prompt_instructions": PROMPT_VARIANTS[args.prompt_variant],
+        "benchmark": args.benchmark,
         "question_types": args.question_types,
         "img_types": args.img_types,
         "no_images": args.no_images,
@@ -854,6 +864,7 @@ def main() -> None:
     metrics["split"] = "validation"
     metrics["sampling"] = sampling_doc
     metrics["prompt_variant"] = args.prompt_variant
+    metrics["benchmark"] = args.benchmark
     metrics["question_types"] = args.question_types
     metrics["img_types"] = args.img_types
     metrics["no_images"] = args.no_images
