@@ -44,7 +44,10 @@ from tqdm import tqdm
 from transformers import AutoProcessor
 from vllm import LLM, SamplingParams
 
-from dataset import DATASET_REVISION, SUBJECTS, load_mmmu_validation
+from dataset import (
+    DATASET_NAME, DATASET_REVISION, PRO_DATASET_NAME, PRO_REVISION, PRO_SETTINGS,
+    SUBJECTS, load_mmmu_pro, load_mmmu_validation,
+)
 from evaluator import evaluate, is_correct
 from parser import parse_answer
 from prompt import MAX_PIXELS, MIN_PIXELS, PROMPT_VARIANTS, build_vllm_input, parse_options
@@ -100,7 +103,7 @@ class VRAMPoller:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Run the complete MMMU validation baseline in one command."
+        description="Evaluate MMMU validation or a pinned MMMU-Pro test setting."
     )
 
     parser.add_argument(
@@ -113,7 +116,7 @@ def parse_args() -> argparse.Namespace:
         "--data_root",
         type=str,
         required=True,
-        help="Local Hugging Face cache directory for MMMU.",
+        help="MMMU dataset cache, or Hub cache holding the pinned Pro snapshot.",
     )
     parser.add_argument(
         "--output_file",
@@ -128,12 +131,13 @@ def parse_args() -> argparse.Namespace:
         help="JSON metrics output file.",
     )
     parser.add_argument("--run_dir", type=Path, help="Directory for predictions.jsonl and metrics.json.")
+    parser.add_argument("--pro_setting", choices=tuple(PRO_SETTINGS), help="Run MMMU-Pro test.")
     parser.add_argument(
         "--subjects", help="Comma-separated MMMU subjects, e.g. Music or Music,Chemistry."
     )
     parser.add_argument(
-        "--prompt_variant", choices=(*PROMPT_VARIANTS, "legacy_cot"), default="official",
-        help="Instruction wording. official matches jina's model-card baseline.",
+        "--prompt_variant", choices=(*PROMPT_VARIANTS, "legacy_cot", "pro_cot"),
+        help="Defaults to official for MMMU, or the MMMU-Pro CoT adaptation for Pro.",
     )
 
     # Assignment generation recipe from Qwen3-VL official evaluation docs.
@@ -196,6 +200,12 @@ def parse_args() -> argparse.Namespace:
     )
 
     args = parser.parse_args()
+    if args.prompt_variant is None:
+        args.prompt_variant = "pro_cot" if args.pro_setting else "official"
+    if args.prompt_variant == "pro_cot" and not args.pro_setting:
+        parser.error("--prompt_variant pro_cot requires --pro_setting")
+    if args.pro_setting and args.run_dir is None and not (args.output_file and args.metrics_file):
+        parser.error("Specify --run_dir or both output files for MMMU-Pro")
     if args.subjects is not None:
         requested = [subject.strip() for subject in args.subjects.split(",")]
         unknown = set(requested) - set(SUBJECTS)
@@ -262,11 +272,11 @@ def main() -> None:
     vram_poller.start()
 
     print("=" * 80)
-    print("MMMU Validation Baseline")
+    print(f"MMMU-Pro Test · {args.pro_setting}" if args.pro_setting else "MMMU Validation Baseline")
     print("=" * 80)
     print(f"Model:       {args.model_path}")
     print(f"Revision:    {model_revision or '(local checkpoint)'}")
-    print(f"Dataset:     MMMU/MMMU")
+    print(f"Dataset:     {PRO_DATASET_NAME if args.pro_setting else DATASET_NAME}")
     print(f"Data cache:  {args.data_root}")
     print(f"TP size:     {tensor_parallel_size}")
     print("=" * 80)
@@ -281,7 +291,10 @@ def main() -> None:
     print("Dataset function:", load_mmmu_validation.__code__.co_filename)
     print("Data root:", repr(args.data_root))
     print("[DEBUG END]\n")
-    samples = load_mmmu_validation(data_root=args.data_root, subjects=args.subjects)
+    if args.pro_setting:
+        samples = load_mmmu_pro(args.data_root, args.pro_setting, args.subjects, args.max_samples)
+    else:
+        samples = load_mmmu_validation(data_root=args.data_root, subjects=args.subjects)
 
     if args.max_samples is not None:
         samples = samples[: args.max_samples]
@@ -445,9 +458,11 @@ def main() -> None:
     metrics["model"] = MODEL_NAME
     metrics["model_path"] = args.model_path
     metrics["model_revision"] = model_revision
-    metrics["dataset"] = "MMMU/MMMU"
-    metrics["dataset_revision"] = DATASET_REVISION
-    metrics["split"] = "validation"
+    metrics["dataset"] = PRO_DATASET_NAME if args.pro_setting else DATASET_NAME
+    metrics["dataset_revision"] = PRO_REVISION if args.pro_setting else DATASET_REVISION
+    metrics["split"] = "test" if args.pro_setting else "validation"
+    if args.pro_setting:
+        metrics["pro_setting"] = args.pro_setting
     metrics["evaluated_subjects"] = list(by_subject)
     metrics["max_samples"] = args.max_samples
     metrics["prompt_variant"] = args.prompt_variant

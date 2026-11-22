@@ -139,6 +139,19 @@ def build_messages(
     options = parse_options(sample["options"])
 
     content: List[Dict[str, Any]] = []
+    vision_only = sample.get("pro_setting") == "vision"
+    if vision_only:
+        _append_text_with_images(content, "<image 1>", sample, min_pixels, max_pixels)
+        instructions = {
+            "official": "Reply directly with the option letter shown in the image.",
+            "pro_cot": "Transcribe the question displayed in the image, then solve it step by step.",
+            "legacy_cot": "Solve the multiple-choice question shown in the image step by step.",
+            "describe_cot": "Describe the relevant visual evidence in the image, then reason step by step.",
+        }
+        content.append({"type": "text", "text": (
+            "\n" + instructions[prompt_variant] + "\nEnd with Answer: followed by the option letter."
+        )})
+        return [{"role": "user", "content": content}]
 
     if prompt_variant == "legacy_cot":
         content.append({"type": "text", "text": _legacy_intro(len(options))})
@@ -150,7 +163,12 @@ def build_messages(
             content.append({"type": "text", "text": f"({chr(ord('A') + i)}) "})
             _append_text_with_images(content, option, sample, min_pixels, max_pixels)
             content.append({"type": "text", "text": "\n"})
-    if prompt_variant != "legacy_cot":
+    if prompt_variant == "pro_cot":
+        content.append({"type": "text", "text": (
+            "\nReason through the multiple-choice question step by step. "
+            "End with Answer: followed by the selected option letter."
+        )})
+    elif prompt_variant != "legacy_cot":
         mc_instruction, open_instruction = PROMPT_VARIANTS[prompt_variant]
         instruction = mc_instruction if options else "\n\n" + open_instruction
         content.append({"type": "text", "text": instruction})
