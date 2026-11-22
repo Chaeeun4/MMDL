@@ -1,0 +1,416 @@
+{
+ "checked_records": 6664,
+ "min_image_distance_bits": 0,
+ "max_bits": 10,
+ "n_flagged": 102,
+ "flagged": {
+  "DeepScaleR-20744::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-19389::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-34a1925d-ba22-41c7-8f3a-84675f677b21::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-17613::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-34300::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-6513::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-2cd4716a-07a3-4f42-864d-052ac26d4f98::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-17613::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-34300::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-17217::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-8284dd04-7a4f-4b65-a33f-848e408b2170::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-5560::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-17217::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-2cd4716a-07a3-4f42-864d-052ac26d4f98::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-18001::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12Converted-9e7116e0-296b-4a74-9904-385a9d6451b2::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-4431::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-947b5209-043d-4403-82d3-cde97dddb118::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-8fc165a1-4939-4106-ad00-09a5546d718f::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-20744::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-947b5209-043d-4403-82d3-cde97dddb118::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-18001::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-15438::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-9260::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12Converted-9e7116e0-296b-4a74-9904-385a9d6451b2::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-39112::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-37876::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-ffa240b7-1718-40c6-b742-dfca721efd9e::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12Converted-39001392-0d31-4750-aebb-53bdb18790fd::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-23147::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-8284dd04-7a4f-4b65-a33f-848e408b2170::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-ffa240b7-1718-40c6-b742-dfca721efd9e::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-11863::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-34142::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-1414::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-18487::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-36344::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-19389::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-e2e6a017-db64-4a26-9cef-07de398bb1da::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-9260::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-74cf43a8-cff1-431a-8a81-30819872f5e0::check": {
+   "kind": "image dhash 4 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-37876::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-11435::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-11863::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-8fc165a1-4939-4106-ad00-09a5546d718f::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-34142::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-39112::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-5560::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-1414::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-20478::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-24383::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-9f26d6a2-e1d3-45b9-99d3-5d10bb34d17d::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-8e32cf9b-2bc5-4c5c-8e1b-f170b2ef6360::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-1078::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-34a1925d-ba22-41c7-8f3a-84675f677b21::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-20918::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "Processed-15d5e4c3-262e-474e-a040-f68c1d7d7a55::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-0cefdb56-5e97-44d6-971d-ea4e94a4e5cd::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-9f26d6a2-e1d3-45b9-99d3-5d10bb34d17d::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12Converted-39001392-0d31-4750-aebb-53bdb18790fd::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-20478::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-18487::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-0cefdb56-5e97-44d6-971d-ea4e94a4e5cd::describe": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-28600::cot": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-37962::check": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-5ab17cce-3b99-4df2-8d28-005605cd1548::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-5294::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-1242::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-11985::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-37730::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-4adc54c1-b516-4cfa-b169-57e00f9e3017::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-37421::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-5350::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-35489e8d-499f-41a3-93fc-6ac7c8e923ad::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-28f95a08-da27-492c-8d05-f29b3392583e::official": {
+   "kind": "image dhash 5 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-62925f18-1173-4a27-a0a9-c15e889bd326::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-21332::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-954::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-193::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-23414::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "K12-6272::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-19156::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-11606::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-22f296eb-c8f6-4f15-ac80-0a844696edc3::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-1777::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-b1a9c5b2-0d76-451e-9668-07fec1953657::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-9199::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-1800::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-21114::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-34759::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-34843::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-5c466260-3500-45e8-8712-818297927d77::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-33337::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-34303::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-40294::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-c03e8f45-73bf-4535-8134-6bcf0e46b05c::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-11792::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-f8069df7-da14-4ca8-859f-38cb41504666::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMK12-369ed5ec-e02a-444d-8f14-c1e0e842e5be::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "MMMath-5618::official": {
+   "kind": "image dhash 5 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-16593::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  },
+  "DeepScaleR-1129::official": {
+   "kind": "image dhash 0 bits",
+   "match": "test_Math_129"
+  }
+ }
+}

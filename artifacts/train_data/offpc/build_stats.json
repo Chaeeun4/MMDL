@@ -1,0 +1,9 @@
+{
+ "train": {
+  "self": 3901,
+  "percept_chem": 1939,
+  "percept_music": 2940,
+  "percept_plot": 1440
+ },
+ "train_total": 10220
+}

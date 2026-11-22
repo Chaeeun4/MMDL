@@ -1,0 +1,40 @@
+{
+ "train": {
+  "music_qa": 3000,
+  "replay": 5006,
+  "chem_qa": 3000,
+  "music_trans": 913,
+  "chem_coord": 500
+ },
+ "val": {
+  "chem_qa": 60,
+  "chem_coord": 60,
+  "music_qa": 60,
+  "music_trans": 60,
+  "replay": 60
+ },
+ "train_total": 12419,
+ "kinds": {
+  "music_qa/time": 284,
+  "music_qa/duration": 272,
+  "chem_qa/total": 521,
+  "chem_qa/count": 1003,
+  "music_qa/first": 577,
+  "music_qa/key": 558,
+  "chem_qa/formula": 550,
+  "music_qa/interval": 577,
+  "music_trans/original": 913,
+  "chem_coord/original": 500,
+  "chem_qa/rings": 517,
+  "chem_qa/absent": 409,
+  "music_qa/highest": 272,
+  "music_qa/clef": 266,
+  "music_qa/count": 194
+ },
+ "mc_answer_letters": {
+  "C": 1339,
+  "D": 1266,
+  "B": 1383,
+  "A": 1391
+ }
+}

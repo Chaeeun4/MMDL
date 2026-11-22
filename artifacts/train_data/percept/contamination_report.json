@@ -1,0 +1,12 @@
+{
+ "benchmark_images": 13281,
+ "checked": 6500,
+ "min_image_distance_bits": 3,
+ "n_flagged": 1,
+ "flagged": {
+  "percept::chem::r_or_s::1930": {
+   "bits": 3,
+   "match": "test_Literature_62"
+  }
+ }
+}

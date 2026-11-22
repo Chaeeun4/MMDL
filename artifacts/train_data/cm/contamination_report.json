@@ -1,0 +1,10 @@
+{
+ "benchmark_questions": 11550,
+ "benchmark_chem_music_images": 1315,
+ "mmmu_pro": "loaded",
+ "checked_records": 7654,
+ "checked_images": 7654,
+ "min_image_distance_bits": 32,
+ "n_flagged": 0,
+ "flagged": {}
+}

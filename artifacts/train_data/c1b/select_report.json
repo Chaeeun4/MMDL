@@ -1,0 +1,18 @@
+{
+ "generations": 24000,
+ "questions": 6000,
+ "questions_kept": 2331,
+ "no_clean_sample": 1641,
+ "easy_dropped": 2028,
+ "sft_samples": 4001,
+ "dpo_pairs": 1498,
+ "agent_accuracy": {
+  "describe": 0.655,
+  "cot": 0.655,
+  "check": 0.661,
+  "concise": 0.662
+ },
+ "pass_at_1_mean": 0.658,
+ "pass_at_any": 0.818,
+ "sft_mean_tokens": 399
+}
