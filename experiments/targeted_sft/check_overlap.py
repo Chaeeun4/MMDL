@@ -203,6 +203,7 @@ def build_index(args, sets, semantic=None):
     counts = {}
     for scope, (files, expected) in sets.items():
         count = Counter()
+        empty_ocr_keys = []
         for file_number, file in enumerate(files, 1):
             if file_number == 1 or file_number % 10 == 0:
                 print(f"{scope}: file {file_number}/{len(files)}", flush=True)
@@ -233,10 +234,12 @@ def build_index(args, sets, semantic=None):
                                 recognized = ocr(blob).strip()
                             except (subprocess.SubprocessError, OSError) as error:
                                 raise RuntimeError(f"{image_key}: OCR failed") from error
-                            if not recognized:
-                                raise ValueError(f"{image_key}: OCR returned empty text")
-                            question += " " + recognized
-                            count["ocr_images"] += 1
+                            if normalized(recognized):
+                                question += " " + recognized
+                                count["ocr_images"] += 1
+                            else:
+                                empty_ocr_keys.append(image_key)
+                                print(f"{image_key}: no OCR text; image checks retained", flush=True)
                     if question.strip():
                         index.add_text(key, question, row.get("options"))
                         count["text_rows"] += 1
@@ -244,9 +247,13 @@ def build_index(args, sets, semantic=None):
         if count["rows"] != expected:
             raise ValueError(f"{scope}: read {count['rows']} rows, expected {expected}")
         if scope == "MMMU-Pro/vision" and args.vision_ocr:
-            if count["ocr_images"] != expected:
-                raise ValueError(f"{scope}: OCR covered {count['ocr_images']} images, expected {expected}")
+            ocr_attempts = count["ocr_images"] + len(empty_ocr_keys)
+            if ocr_attempts != expected:
+                raise ValueError(f"{scope}: OCR attempted on {ocr_attempts} images, expected {expected}")
+            count["ocr_empty_images"] = len(empty_ocr_keys)
         counts[scope] = dict(count)
+        if empty_ocr_keys:
+            counts[scope]["ocr_empty_image_keys"] = empty_ocr_keys
         print(scope, dict(count), flush=True)
     return index, counts
 

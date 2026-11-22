@@ -179,7 +179,7 @@ nohup bash experiments/targeted_sft/run_overlap_after_eval.sh \
 전수 검사는 평가용 `.venv`와 분리된 `.venv-overlap`에서 실행한다. 이 환경에서 Transformers 5.17.0과 huggingface-hub 1.33.0 로딩, 캐시된 SigLIP 모델의 이미지 검색, Tesseract 영어 OCR을 각각 작은 입력으로 확인했다. SigLIP의 PIL 기반 이미지 처리기를 사용하므로 Torchvision은 필요하지 않다. 모델은 검사 시 로컬 캐시에서 읽는다.
 
 - 모든 후보 이미지를 모든 고유 평가 이미지와 비교한다. `--siglip-device auto`는 CUDA가 있으면 사용하며, 메모리가 부족하면 `--siglip-batch-size`를 낮춘다. `--siglip-threshold` 기본값 0.92는 후보 검색의 시작점이며, 이 데이터에 대해 검증된 기준은 아니다.
-- 평가 파일, 학습 후보 이미지, 모델, OCR 도구가 빠지거나 Vision OCR이 빈 결과를 반환하면 오류로 멈춘다. 성공한 결과의 `summary.json`에는 출처별 문항 수, 확인한 이미지 참조 수, 평가 리비전·범위, OCR 및 SigLIP 설정이 적힌다.
+- 평가 파일, 학습 후보 이미지, 모델 또는 OCR 도구가 빠지거나 OCR 명령이 실패하면 오류로 멈춘다. OCR이 읽을 수 있는 텍스트를 반환하지 않은 Vision 이미지는 해시와 SigLIP으로 계속 검사하며, 해당 이미지 ID를 로그에, 이미지 수와 ID를 결과에 기록한다. 성공한 결과의 `summary.json`에는 출처별 문항 수, 확인한 이미지 참조 수, 평가 리비전·범위, OCR 및 SigLIP 설정이 적힌다.
 - `no_match_found`는 적용한 방법에서 후보를 찾지 못했다는 뜻이다. `review_needed`는 그림과 질문을 확인해서 유지하거나 제외한다. 동일 차트의 여러 질문에서 이미지 비교 결과를 재사용한다. 검사기는 이미지를 풀거나 학습 데이터를 삭제하지 않는다.
 
 파일럿 실행에서는 AI2D 25문항·ECD 25문항을 MMMU 11,550행과 MMMU-Pro 5,190행(Standard 4·10 및 Vision의 합계)에 대조했다. 기본 검사에서 중복 후보는 0건이었고 Vision OCR과 SigLIP은 실행하지 않았다. 결과는 `~/datasets/targeted_sft/prepared/overlap_pilot/`에 있다.
