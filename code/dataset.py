@@ -13,6 +13,7 @@ The assignment uses the official Hugging Face MMMU dataset directly.
 from __future__ import annotations
 
 from typing import Any, Dict, List
+from pathlib import Path
 
 from datasets import load_dataset
 
@@ -151,6 +152,7 @@ def load_mmmu_pro(
     benchmark: str,
     data_root: str | None = None,
     subjects: List[str] | None = None,
+    snapshot: Path | None = None,
 ) -> List[Dict[str, Any]]:
     """Load MMMU-Pro (1,730 test questions, answers public) in the sample format of load_mmmu_validation.
 
@@ -158,7 +160,17 @@ def load_mmmu_pro(
     image_1 and 'options_in_image': the prompt then shows only the image and the instruction, while
     the options stay in the sample for the answer parser.
     """
-    dataset = load_dataset(PRO_DATASET_NAME, PRO_CONFIGS[benchmark], split="test", cache_dir=data_root)
+    if snapshot is None:
+        dataset = load_dataset(PRO_DATASET_NAME, PRO_CONFIGS[benchmark], split="test", cache_dir=data_root)
+    else:
+        from datasets import Dataset
+
+        files = sorted((snapshot / PRO_CONFIGS[benchmark]).glob("test-*.parquet"))
+        if not files or not all(path.is_file() for path in files):
+            raise FileNotFoundError(f"Incomplete {benchmark} snapshot: {snapshot}")
+        dataset = Dataset.from_parquet([str(path) for path in files], cache_dir=data_root)
+        if len(dataset) != 1730:
+            raise ValueError(f"{benchmark}: expected 1730 test rows, got {len(dataset)}")
     vision = benchmark == "pro_vision"
     samples: List[Dict[str, Any]] = []
     for row in dataset:

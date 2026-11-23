@@ -243,11 +243,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--benchmark", choices=["mmmu_val"] + sorted(PRO_CONFIGS), default="mmmu_val",
                         help="mmmu_val = MMMU validation 900 (default); pro_* = MMMU-Pro test 1,730 "
                              "(standard 10/4 options, or vision = screenshot only)")
+    parser.add_argument("--pro_snapshot", type=Path,
+                        help="Read MMMU-Pro test parquet files from this local snapshot.")
     parser.add_argument("--question_types", type=str, default=None,
                         help="Comma-separated subset of question types, e.g. "
                              "'open'. Default: all.")
 
-    return parser.parse_args()
+    args = parser.parse_args()
+    if args.pro_snapshot and args.benchmark == "mmmu_val":
+        parser.error("--pro_snapshot requires a pro_* benchmark")
+    return args
 
 
 # --------------------------------------------------------------------------
@@ -593,7 +598,9 @@ def main() -> None:
     if args.benchmark == "mmmu_val":
         samples = load_mmmu_validation(data_root=args.data_root, subjects=subjects)
     else:
-        samples = load_mmmu_pro(args.benchmark, data_root=args.data_root, subjects=subjects)
+        samples = load_mmmu_pro(
+            args.benchmark, data_root=args.data_root, subjects=subjects, snapshot=args.pro_snapshot
+        )
         print(f"[BENCHMARK] {PRO_DATASET_NAME} / {PRO_CONFIGS[args.benchmark]}")
 
     if args.question_types:
@@ -640,6 +647,12 @@ def main() -> None:
           f"{max_px['value']//(VISUAL_TOKEN_SIDE**2)} visual tokens)  <- {max_px['source']}",
           flush=True)
 
+    image_limit = 32
+    if args.benchmark in PRO_CONFIGS and samples:
+        image_limit = max(sum(part["type"] == "image" for part in build_messages(
+            sample, min_px["value"], max_px["value"]
+        )[0]["content"]) for sample in samples)
+        print(f"Maximum image occurrences per prompt: {image_limit}", flush=True)
     print("Loading vLLM model...", flush=True)
     llm_kwargs: Dict[str, Any] = dict(
         model=args.model_path,
@@ -650,7 +663,7 @@ def main() -> None:
         max_model_len=args.max_model_len,
         trust_remote_code=True,
         seed=args.seed,
-        limit_mm_per_prompt={"image": 32},
+        limit_mm_per_prompt={"image": image_limit},
         # Keep per-request timing stats (RequestOutput.metrics) + periodic
         # throughput logs in run.log.
         disable_log_stats=False,
@@ -717,7 +730,7 @@ def main() -> None:
         "dataset": DATASET_NAME, "dataset_revision": DATASET_REVISION,
         "split": "validation",
         "num_samples": len(samples),
-        "args": vars(args),
+        "args": {**vars(args), "pro_snapshot": str(args.pro_snapshot) if args.pro_snapshot else None},
         "resolved": {
             "min_pixels": min_px, "max_pixels": max_px,
             "tensor_parallel_size": tensor_parallel_size,
@@ -859,9 +872,12 @@ def main() -> None:
     metrics["model"] = MODEL_NAME
     metrics["model_path"] = args.model_path
     metrics["model_revision"] = MODEL_REVISION
-    metrics["dataset"] = DATASET_NAME
-    metrics["dataset_revision"] = DATASET_REVISION
-    metrics["split"] = "validation"
+    is_pro = args.benchmark in PRO_CONFIGS
+    metrics["dataset"] = PRO_DATASET_NAME if is_pro else DATASET_NAME
+    metrics["dataset_revision"] = (
+        args.pro_snapshot.name if args.pro_snapshot else None
+    ) if is_pro else DATASET_REVISION
+    metrics["split"] = "test" if is_pro else "validation"
     metrics["sampling"] = sampling_doc
     metrics["prompt_variant"] = args.prompt_variant
     metrics["benchmark"] = args.benchmark
