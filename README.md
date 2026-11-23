@@ -42,6 +42,10 @@ MMDL/
 └── README.md
 ```
  
+## Experiment Reports
+
+- [박채은 · MMMU 평가 및 도메인 SFT 실험](reports/chaeun_experiments.md)
+
 ## Assignment #1 — Baseline Evaluation
  
 **목표**: Qwen3-VL-4B-Instruct를 MMMU validation set(30개 과목, 총 900문제)으로 직접 평가
