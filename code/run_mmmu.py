@@ -64,7 +64,7 @@ from tqdm import tqdm
 from transformers import AutoProcessor
 from vllm import LLM, SamplingParams
 
-from dataset import (DATASET_NAME, DATASET_REVISION, PRO_CONFIGS, PRO_DATASET_NAME, SUBJECTS,
+from dataset import (DATASET_NAME, DATASET_REVISION, PRO_CONFIGS, PRO_DATASET_NAME, SUBJECTS, dataset_info,
                      load_mmmu_pro, load_mmmu_validation)
 from evaluator import evaluate, is_correct
 from parser import parse_answer
@@ -240,8 +240,9 @@ def parse_args() -> argparse.Namespace:
                              "Chemical Structures'.")
     parser.add_argument("--no_images", action="store_true", default=False,
                         help="Text-only ablation: replace images with '[image]'.")
-    parser.add_argument("--benchmark", choices=["mmmu_val"] + sorted(PRO_CONFIGS), default="mmmu_val",
-                        help="mmmu_val = MMMU validation 900 (default); pro_* = MMMU-Pro test 1,730 "
+    parser.add_argument("--benchmark", choices=["mmmu_val", "mmmu_test"] + sorted(PRO_CONFIGS), default="mmmu_val",
+                        help="mmmu_val = MMMU validation 900 (default); mmmu_test = MMMU test 10,500 "
+                             "(same pinned revision); pro_* = MMMU-Pro test 1,730 "
                              "(standard 10/4 options, or vision = screenshot only)")
     parser.add_argument("--question_types", type=str, default=None,
                         help="Comma-separated subset of question types, e.g. "
@@ -579,7 +580,9 @@ def main() -> None:
     print("=" * 80)
     print(f"Model:       {args.model_path}")
     print(f"Revision:    {MODEL_REVISION}")
-    print(f"Dataset:     {DATASET_NAME} @ {DATASET_REVISION}")
+    ds_info = dataset_info(args.benchmark)
+    print(f"Dataset:     {ds_info['dataset']} [{ds_info['dataset_config']}] @ {ds_info['dataset_revision']} "
+          f"split={ds_info['split']}")
     print(f"Data cache:  {args.data_root}")
     print(f"TP size:     {tensor_parallel_size}")
     print(f"Run dir:     {run_dir}")
@@ -592,6 +595,9 @@ def main() -> None:
     subjects = (args.subjects.split(",") if args.subjects else None)
     if args.benchmark == "mmmu_val":
         samples = load_mmmu_validation(data_root=args.data_root, subjects=subjects)
+    elif args.benchmark == "mmmu_test":
+        samples = load_mmmu_validation(data_root=args.data_root, subjects=subjects, split="test")
+        print(f"[BENCHMARK] {DATASET_NAME} test split, {len(samples)} samples")
     else:
         samples = load_mmmu_pro(args.benchmark, data_root=args.data_root, subjects=subjects)
         print(f"[BENCHMARK] {PRO_DATASET_NAME} / {PRO_CONFIGS[args.benchmark]}")
@@ -714,8 +720,7 @@ def main() -> None:
         "started_at": start_iso,
         "model": MODEL_NAME, "model_path": args.model_path,
         "model_revision": MODEL_REVISION,
-        "dataset": DATASET_NAME, "dataset_revision": DATASET_REVISION,
-        "split": "validation",
+        **ds_info,
         "num_samples": len(samples),
         "args": vars(args),
         "resolved": {
@@ -859,9 +864,7 @@ def main() -> None:
     metrics["model"] = MODEL_NAME
     metrics["model_path"] = args.model_path
     metrics["model_revision"] = MODEL_REVISION
-    metrics["dataset"] = DATASET_NAME
-    metrics["dataset_revision"] = DATASET_REVISION
-    metrics["split"] = "validation"
+    metrics.update(ds_info)
     metrics["sampling"] = sampling_doc
     metrics["prompt_variant"] = args.prompt_variant
     metrics["benchmark"] = args.benchmark

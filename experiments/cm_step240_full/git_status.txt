@@ -1,0 +1,10 @@
+?? ablation_code.tar.gz
+?? data_export/
+?? docs/jina_decision_log.md
+?? docs/jina_work_summary.md
+?? docs/notion_jina_experiments.md
+?? evidence_tools.tar.gz
+?? guard_patch.tar.gz
+?? proposal_code.tar.gz
+?? runs
+?? scripts/run_step240_eval.sh

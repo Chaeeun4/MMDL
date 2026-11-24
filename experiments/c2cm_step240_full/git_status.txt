@@ -1,0 +1,18 @@
+ M code/dataset.py
+ M code/run_mmmu.py
+?? ablation_code.tar.gz
+?? data_export/
+?? docs/deck_src/
+?? docs/final_presentation_draft.pptx
+?? docs/final_presentation_script.md
+?? docs/jina_decision_log.md
+?? docs/jina_logic_review.md
+?? docs/jina_work_summary.md
+?? docs/notion_jina_experiments.md
+?? docs/presentation_draft.md
+?? evidence_tools.tar.gz
+?? guard_patch.tar.gz
+?? proposal_code.tar.gz
+?? runs
+?? scripts/run_presentation_checks.sh
+?? scripts/run_step240_eval.sh

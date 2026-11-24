@@ -1,0 +1,13 @@
+ M code/build_official_sft.py
+ M code/dataset.py
+ M code/gen_rft.py
+ M code/prompt.py
+ M code/run_mmmu.py
+?? ablation_code.tar.gz
+?? data_export/
+?? evidence_tools.tar.gz
+?? guard_patch.tar.gz
+?? proposal_code.tar.gz
+?? runs
+?? scripts/run_pro_eval.sh
+?? scripts/run_r2.sh

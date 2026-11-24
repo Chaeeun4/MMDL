@@ -20,6 +20,7 @@ from datasets import load_dataset
 DATASET_NAME = "MMMU/MMMU"
 DATASET_REVISION = "98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68"
 SPLIT = "validation"
+TEST_SPLIT = "test"  # evaluation only; never used for training
 
 SUBJECTS: List[str] = [
     "Accounting",
@@ -67,8 +68,9 @@ def _normalize_image(image: Any) -> Any:
 def load_mmmu_validation(
     data_root: str | None = None,
     subjects: List[str] | None = None,
+    split: str = SPLIT,
 ) -> List[Dict[str, Any]]:
-    """Load all requested MMMU validation samples.
+    """Load all requested MMMU samples of one split (validation 900 by default, or test 10,500).
 
     Args:
         data_root:
@@ -94,12 +96,12 @@ def load_mmmu_validation(
         dataset = load_dataset(
             DATASET_NAME,
             subject,
-            split=SPLIT,
+            split=split,
             revision=DATASET_REVISION,
             cache_dir=data_root,
         )
 
-        if len(dataset) != 30:
+        if split == "validation" and len(dataset) != 30:
             raise ValueError(
                 f"{subject}: expected 30 validation examples, got {len(dataset)}"
             )
@@ -128,7 +130,7 @@ def load_mmmu_validation(
             )
 
     expected = len(selected_subjects) * 30
-    if len(samples) != expected:
+    if split == "validation" and len(samples) != expected:
         raise RuntimeError(
             f"Loaded {len(samples)} samples, expected {expected}."
         )
@@ -140,6 +142,9 @@ def load_mmmu_validation(
 # MMMU-Pro (evaluation only; never used for training)
 # --------------------------------------------------------------------------
 PRO_DATASET_NAME = "MMMU/MMMU_Pro"
+# Pinned to the snapshot all MMMU-Pro runs so far were evaluated on (HF cache, downloaded 2026-11-21).
+PRO_DATASET_REVISION = "0d7426df4ccb3d8704a992fe6850abee7c262127"
+PRO_SPLIT = "test"
 PRO_CONFIGS = {
     "pro_standard10": "standard (10 options)",
     "pro_standard4": "standard (4 options)",
@@ -158,7 +163,8 @@ def load_mmmu_pro(
     image_1 and 'options_in_image': the prompt then shows only the image and the instruction, while
     the options stay in the sample for the answer parser.
     """
-    dataset = load_dataset(PRO_DATASET_NAME, PRO_CONFIGS[benchmark], split="test", cache_dir=data_root)
+    dataset = load_dataset(PRO_DATASET_NAME, PRO_CONFIGS[benchmark], split=PRO_SPLIT,
+                           revision=PRO_DATASET_REVISION, cache_dir=data_root)
     vision = benchmark == "pro_vision"
     samples: List[Dict[str, Any]] = []
     for row in dataset:
@@ -186,3 +192,15 @@ def load_mmmu_pro(
         )
     samples.sort(key=lambda x: SUBJECTS.index(x["subject"]))
     return samples
+
+
+def dataset_info(benchmark: str) -> Dict[str, Any]:
+    """Name, config, revision and split of the dataset a benchmark is evaluated on (for run metadata)."""
+    if benchmark == "mmmu_val":
+        return {"dataset": DATASET_NAME, "dataset_config": "<30 subject configs>",
+                "dataset_revision": DATASET_REVISION, "split": SPLIT}
+    if benchmark == "mmmu_test":  # same repo and pinned revision as validation, split "test" (10,500)
+        return {"dataset": DATASET_NAME, "dataset_config": "<30 subject configs>",
+                "dataset_revision": DATASET_REVISION, "split": TEST_SPLIT}
+    return {"dataset": PRO_DATASET_NAME, "dataset_config": PRO_CONFIGS[benchmark],
+            "dataset_revision": PRO_DATASET_REVISION, "split": PRO_SPLIT}
