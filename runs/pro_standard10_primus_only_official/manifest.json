@@ -1,0 +1,187 @@
+{
+  "status": "completed",
+  "started_at": "2026-11-23T18:27:53+09:00",
+  "model": "Qwen/Qwen3-VL-4B-Instruct",
+  "model_path": "/shared_dir/merged_models/qwen3vl_4b_primus_only",
+  "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "dataset": "MMMU/MMMU",
+  "dataset_revision": "98e6ac0cb9b7b2cd2c991b85a50762edc4aedc68",
+  "split": "validation",
+  "num_samples": 1730,
+  "args": {
+    "model_path": "/shared_dir/merged_models/qwen3vl_4b_primus_only",
+    "data_root": "/shared_dir/huggingface_cache",
+    "run_dir": "/shared_dir/MMDL-jina-pro/runs/pro_standard10_primus_only_official",
+    "output_file": null,
+    "metrics_file": null,
+    "resume": true,
+    "greedy": false,
+    "seed": 3407,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repetition_penalty": 1.0,
+    "presence_penalty": 1.5,
+    "max_new_tokens": 32768,
+    "min_pixels": "auto",
+    "max_pixels": "auto",
+    "max_model_len": 32768,
+    "gpu_memory_utilization": 0.9,
+    "tensor_parallel_size": null,
+    "max_num_seqs": null,
+    "batch_mode": "subject",
+    "logprobs": 5,
+    "no_prompt_text": false,
+    "max_samples": null,
+    "subjects": null,
+    "prompt_variant": "official",
+    "img_types": null,
+    "no_images": false,
+    "benchmark": "pro_standard10",
+    "pro_snapshot": "/shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU_Pro/snapshots/0d7426df4ccb3d8704a992fe6850abee7c262127",
+    "question_types": null
+  },
+  "resolved": {
+    "min_pixels": {
+      "value": 65536,
+      "source": "processor.image_processor.size['shortest_edge']"
+    },
+    "max_pixels": {
+      "value": 16777216,
+      "source": "processor.image_processor.size['longest_edge']"
+    },
+    "tensor_parallel_size": 1,
+    "max_model_len": 32768,
+    "gpu_memory_utilization": 0.9,
+    "batch_mode": "subject"
+  },
+  "sampling": {
+    "greedy": false,
+    "seed": 3407,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repetition_penalty": 1.0,
+    "presence_penalty": 1.5,
+    "max_new_tokens": 32768,
+    "stop_token_ids": [
+      151645,
+      151643
+    ],
+    "logprobs": 5,
+    "matches_official_instruct_recipe": true,
+    "is_baseline_setting": false,
+    "official_recipe_source": "https://github.com/QwenLM/Qwen3-VL#evaluation-reproduction (Generation Hyperparameters -> Instruct models)"
+  },
+  "prompt_source": {
+    "template": "MMMU official llava1.5.yaml-style prompt + Qwen3-VL chat template",
+    "multiple_choice": "{question}\\n\\n(A) {opt}\\n(B) {opt}...\\nAnswer with the option's letter from the given choices directly.",
+    "open": "{question}\\n\\nAnswer the question using a single word or phrase.",
+    "code": "code/prompt.py"
+  },
+  "prompt_variant": "official",
+  "prompt_instructions": {
+    "mc": "Answer with the option's letter from the given choices directly.",
+    "open": "Answer the question using a single word or phrase."
+  },
+  "benchmark": "pro_standard10",
+  "question_types": null,
+  "img_types": null,
+  "no_images": false,
+  "model_revision_used": null,
+  "parser": "code/parser.py (MMMU eval_utils.py adapted; no random fallback; no LLM judge)",
+  "environment": {
+    "hostname": "0dbed62b9348",
+    "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+    "python": "3.11.18",
+    "python_executable": "/root/miniconda3/envs/eval/bin/python",
+    "cwd": "/shared_dir/MMDL-jina-pro",
+    "argv": [
+      "code/run_mmmu.py",
+      "--model_path",
+      "/shared_dir/merged_models/qwen3vl_4b_primus_only",
+      "--data_root",
+      "/shared_dir/huggingface_cache",
+      "--pro_snapshot",
+      "/shared_dir/huggingface_cache/hub/datasets--MMMU--MMMU_Pro/snapshots/0d7426df4ccb3d8704a992fe6850abee7c262127",
+      "--benchmark",
+      "pro_standard10",
+      "--prompt_variant",
+      "official",
+      "--batch_mode",
+      "subject",
+      "--seed",
+      "3407",
+      "--temperature",
+      "0.7",
+      "--top_p",
+      "0.8",
+      "--top_k",
+      "20",
+      "--repetition_penalty",
+      "1.0",
+      "--presence_penalty",
+      "1.5",
+      "--logprobs",
+      "5",
+      "--min_pixels",
+      "auto",
+      "--max_pixels",
+      "auto",
+      "--max_model_len",
+      "32768",
+      "--max_new_tokens",
+      "32768",
+      "--gpu_memory_utilization",
+      "0.90",
+      "--run_dir",
+      "/shared_dir/MMDL-jina-pro/runs/pro_standard10_primus_only_official",
+      "--resume"
+    ],
+    "git_commit": "7399423b08a2780447c1a8ad37161956ecc949d9",
+    "git_branch": "primus-pro-official",
+    "git_dirty": true,
+    "packages": {
+      "vllm": "0.19.1",
+      "torch": "2.10.0",
+      "transformers": "5.22.2",
+      "qwen-vl-utils": "0.0.14",
+      "datasets": "5.2.0",
+      "flashinfer-python": "0.6.6",
+      "huggingface-hub": "2.4.0",
+      "tokenizers": "0.23.3",
+      "pillow": "13.0.0"
+    },
+    "torch_cuda": "12.8",
+    "cudnn": 91002,
+    "cuda_visible_devices": null,
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "595.99.02",
+        "memory_total_mib": 24564
+      }
+    ],
+    "env_vars": {
+      "HF_HUB_OFFLINE": "1",
+      "VLLM_WORKER_MULTIPROC_METHOD": "spawn"
+    },
+    "torch_devices": [
+      "NVIDIA GeForce RTX 4090"
+    ]
+  },
+  "outputs": {
+    "predictions": "/shared_dir/MMDL-jina-pro/runs/pro_standard10_primus_only_official/predictions.jsonl",
+    "metrics": "/shared_dir/MMDL-jina-pro/runs/pro_standard10_primus_only_official/metrics.json",
+    "per_subject_dir": "/shared_dir/MMDL-jina-pro/runs/pro_standard10_primus_only_official/per_subject"
+  },
+  "prompt_example": {
+    "id": "test_Accounting_42",
+    "prompt": "<|im_start|>user\nPrices of zero-coupon bonds reveal the following pattern of forward rates: <|vision_start|><|image_pad|><|vision_end|> In addition to the zero-coupon bond, investors also may purchase a 3-year bond making annual payments of $60 with par value $1,000. Under the expectations hypothesis, what is the expected realized compound yield of the coupon bond?\n\n(A) 6.91%\n(B) 7.15%\n(C) 6.56%\n(D) 6.98%\n(E) 7.02%\n(F) 6.45%\n(G) 6.66%\n(H) 6.79%\n(I) 6.85%\nAnswer with the option's letter from the given choices directly.<|im_end|>\n<|im_start|>assistant\n"
+  },
+  "finished_at": "2026-11-24T00:09:40+09:00",
+  "overall_percent": 48.38117075535822,
+  "elapsed_seconds": 20507.147548992885,
+  "peak_vram_gb": 23.03125
+}
