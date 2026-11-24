@@ -16,8 +16,14 @@ the same evaluation environment. For example, with Conda on the startup PATH:
 conda run --no-capture-output -n eval python -u /shared_dir/MMDL/baseline_modelcard_test/supervise_test.py
 ```
 
-Use the platform secret or environment configuration to set
-`DISCORD_WEBHOOK_URL`. The supervisor sends start, resume, interruption,
+Save the Discord webhook once on the mounted volume from a Bash shell:
+
+```bash
+(umask 077; read -rsp 'Discord webhook URL: ' webhook && printf '%s\n' "$webhook" > /shared_dir/.mmmu_discord_webhook; printf '\n')
+```
+
+An existing `DISCORD_WEBHOOK_URL` environment value takes precedence.
+The supervisor sends start, resume, interruption,
 failure and completion messages. If the process is killed without a signal
 handler or the container loses power, it reports the previous interruption
 when it starts again. A terminal failure can be retried by launching the same

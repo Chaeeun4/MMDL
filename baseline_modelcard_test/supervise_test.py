@@ -123,7 +123,16 @@ def main() -> int:
         except BlockingIOError:
             print(f"Evaluation is already running in {run_dir}.", flush=True)
             return 0
-        return run(run_dir, os.environ.get("DISCORD_WEBHOOK_URL"), lock.fileno())
+        webhook = os.environ.get("DISCORD_WEBHOOK_URL")
+        if not webhook:
+            secret = Path("/shared_dir/.mmmu_discord_webhook")
+            try:
+                webhook = secret.read_text(encoding="utf-8").strip()
+            except FileNotFoundError:
+                pass
+            except OSError:
+                print(f"Cannot read Discord webhook from {secret}.", file=sys.stderr)
+        return run(run_dir, webhook, lock.fileno())
 
 
 if __name__ == "__main__":
